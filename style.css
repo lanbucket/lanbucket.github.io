@@ -139,7 +139,7 @@ nav {
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-lg) 0;
     text-align: center;
 }
 
