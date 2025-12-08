@@ -351,6 +351,7 @@ section {
 /* Download Section */
 .download {
     background-color: var(--bg-primary);
+    padding-bottom: var(--spacing-xs);
 }
 
 .store-notice {
@@ -441,6 +442,16 @@ section {
     margin-bottom: var(--spacing-md);
 }
 
+.download-alternative a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.download-alternative a:hover {
+    text-decoration: underline;
+}
+
 .code-block {
     background-color: var(--text-primary);
     color: #a5f3fc;
@@ -481,7 +492,7 @@ section {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-md);
 }
 
 .download-info {
