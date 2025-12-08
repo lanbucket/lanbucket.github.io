@@ -246,9 +246,6 @@
                         The developers assume no liability for any data loss, security issues, or other problems 
                         that may arise from using this software.
                     </p>
-                    <p class="copyright">
-                        Copyright © 2025 Justin Becker. All rights reserved.
-                    </p>
                 </div>
             </div>
         </section>
@@ -263,6 +260,18 @@
     <!-- End hidden content -->
 
     <script>
+        // Check if running locally and auto-reveal content
+        const isLocal = window.location.protocol === 'file:' || 
+                       window.location.hostname === 'localhost' || 
+                       window.location.hostname === '127.0.0.1' ||
+                       window.location.hostname === '';
+        
+        if (isLocal) {
+            // Running locally, show content immediately
+            document.getElementById('constructionBanner').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+        }
+
         // Easter egg: click construction emoji 10 times to reveal content
         let clickCount = 0;
         const constructionEmoji = document.getElementById('constructionEmoji');
