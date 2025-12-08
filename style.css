@@ -163,6 +163,54 @@ nav {
     line-height: 1.7;
 }
 
+.btn-demo {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+    margin-bottom: var(--spacing-md);
+}
+
+.btn-demo:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.demo-container {
+    margin-top: var(--spacing-lg);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.demo-video {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-xl);
+}
+
+.demo-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
 .cta-buttons {
     display: flex;
     gap: var(--spacing-md);
