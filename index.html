@@ -55,6 +55,12 @@
                         Perfect for LAN parties, transferring large game files, or sharing content across multiple devices. 
                         No internet required, no cloud storage, just fast transfers between your devices.
                     </p>
+                    <button class="btn btn-demo" onclick="toggleDemo()">📺 See Live Demo</button>
+                    <div id="demoContainer" class="demo-container" style="display: none;">
+                        <div class="demo-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/S7SLep244ss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -327,6 +333,15 @@
                 mainContent.style.display = 'block';
             }
         });
+
+        function toggleDemo() {
+            const demoContainer = document.getElementById('demoContainer');
+            if (demoContainer.style.display === 'none') {
+                demoContainer.style.display = 'block';
+            } else {
+                demoContainer.style.display = 'none';
+            }
+        }
 
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
