@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LanBucket - Easy file sharing between devices on your local network using distributed technology">
+    <meta name="keywords" content="LanBucket, file sharing, local network, distributed, LAN, Windows">
+    <meta name="author" content="Justin Becker">
+    <title>LanBucket - Simple Local Network File Sharing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Under Construction Banner -->
+    <div class="under-construction">
+        <div class="construction-content">
+            <div class="construction-icon">🚧</div>
+            <h1>Under Construction</h1>
+            <p>LanBucket website is currently being built. Check back soon!</p>
+        </div>
+    </div>
+
+    <!-- Main content hidden during construction -->
+    <div style="display: none;">
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <h1>🪣 LanBucket</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Simple File Sharing on Your Local Network</h2>
+                    <p class="hero-description">
+                        LanBucket enables easy file sharing between devices on your local network using distributed technology. 
+                        No internet required, no cloud storage, just fast transfers between your devices.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="ms-windows-store://pdp/?ProductId=9NBLGGH4NNS1" class="btn btn-primary">Get it on Microsoft Store</a>
+                        <a href="#download" class="btn btn-secondary">Download Options</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download">
+            <div class="container">
+                <h2 class="section-title">Download LanBucket</h2>
+                
+                <!-- Microsoft Store Notice -->
+                <div class="store-notice">
+                    <div class="store-badge">
+                        <div class="store-icon">🏪</div>
+                        <div class="store-text">
+                            <h3>Available on Microsoft Store</h3>
+                            <p>Get automatic updates and easy installation</p>
+                        </div>
+                    </div>
+                    <a href="ms-windows-store://pdp/?ProductId=9NBLGGH4NNS1" class="btn btn-primary btn-large">
+                        Get it from Microsoft Store
+                    </a>
+                </div>
+
+                <div class="download-divider">
+                    <span>or</span>
+                </div>
+
+                <!-- Winget Installation -->
+                <div class="download-alternative">
+                    <h3>Install via winget</h3>
+                    <p>If you prefer command-line installation, you can use Windows Package Manager (winget):</p>
+                    <div class="code-block">
+                        <code>winget install LanBucket -s msstore</code>
+                        <button class="copy-btn" onclick="copyToClipboard('winget install LanBucket -s msstore')" title="Copy to clipboard">📋</button>
+                    </div>
+                </div>
+
+                <div class="download-content">
+                    <div class="download-info">
+                        <h3>System Requirements</h3>
+                        <ul>
+                            <li>Windows 10 version 1809 or later</li>
+                            <li>Windows 11</li>
+                            <li>x64 or ARM64 processor</li>
+                            <li>Local network connection (WiFi or Ethernet)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose LanBucket?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Automatic Discovery</h3>
+                        <p>Other devices running LanBucket on your network are automatically discovered. No manual configuration needed.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Local Network Only</h3>
+                        <p>All traffic stays on your local network. No internet connection required, keeping your files private and secure.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Distributed Transfers</h3>
+                        <p>Files transfer quickly using distributed technology that maximizes your network speed.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📁</div>
+                        <h3>Drag & Drop</h3>
+                        <p>Simply drag and drop files or folders to share them instantly with other users on your network.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>See Who's Connected</h3>
+                        <p>View all connected peers with their machine and user names to know exactly who you're sharing with.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Track Progress</h3>
+                        <p>Monitor download progress, speed, and estimated time remaining for all your transfers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Install LanBucket</h3>
+                        <p>Download and install LanBucket on Windows devices that are connected to the same local network (WiFi or Ethernet).</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Automatic Discovery</h3>
+                        <p>LanBucket automatically discovers other instances on your network using multicast peer discovery.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Share Files</h3>
+                        <p>Drag and drop files or folders to share them. Other users will see your shared items and can download them.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Download</h3>
+                        <p>Browse files shared by others and download them directly to your device with progress tracking.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section class="technology">
+            <div class="container">
+                <h2 class="section-title">Built on Proven Technology</h2>
+                <div class="tech-content">
+                    <p>
+                        LanBucket uses distributed file sharing technology for reliable and efficient transfers. 
+                        The application is built with modern Windows technologies including WinUI 3 and the Windows App SDK 
+                        for a native, performant experience.
+                    </p>
+                    <div class="tech-features">
+                        <div class="tech-item">
+                            <strong>Multicast Peer Discovery</strong>
+                            <p>Automatically find devices on your network without manual configuration</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Distributed Transfer Protocol</strong>
+                            <p>Fast and reliable file transfers using proven distributed technology</p>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Native Windows App</strong>
+                            <p>Built with WinUI 3 for optimal performance and integration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>Does LanBucket work over the internet?</h3>
+                        <p>
+                            No, LanBucket only works on local networks. All devices must be connected to the same WiFi 
+                            network or Ethernet LAN. This is by design to keep your files private and secure.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Will it work on my corporate network?</h3>
+                        <p>
+                            Many corporate networks block multicast traffic, which LanBucket requires for device discovery. 
+                            It may not work on workplace networks with strict security policies. It's designed primarily 
+                            for home and private networks.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I use it with a VPN?</h3>
+                        <p>
+                            VPN connections may interfere with local network discovery. You may need to disconnect from 
+                            your VPN to use LanBucket.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What happens if I modify a shared file?</h3>
+                        <p>
+                            Moving, deleting, or modifying a file that you're sharing will prevent others from downloading it. 
+                            Keep shared files in place until others have completed their downloads.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is my firewall going to block LanBucket?</h3>
+                        <p>
+                            Windows Defender Firewall may block LanBucket from discovering devices. Make sure LanBucket 
+                            is allowed through the firewall on both private and public networks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Notice -->
+        <section class="legal">
+            <div class="container">
+                <div class="legal-content">
+                    <h3>⚠️ Legal Notice</h3>
+                    <p>
+                        This software is provided for personal use only. Use at your own risk. 
+                        The developers assume no liability for any data loss, security issues, or other problems 
+                        that may arise from using this software.
+                    </p>
+                    <p class="copyright">
+                        Copyright © 2025 Justin Becker. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LanBucket. Created by Justin Becker.</p>
+        </div>
+    </footer>
+    </div>
+    <!-- End hidden content -->
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show feedback
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✓';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+    </script>
+</body>
+</html>
