@@ -2,6 +2,8 @@
 
 Official website for LanBucket - Simple Local Network File Sharing
 
+**Live Site:** [https://lanbucket.github.io](https://lanbucket.github.io)
+
 ## About
 
 This is the static website for LanBucket, a Windows application that enables easy file sharing between devices on your local network using peer-to-peer technology.
