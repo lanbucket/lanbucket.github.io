@@ -11,16 +11,16 @@
 </head>
 <body>
     <!-- Under Construction Banner -->
-    <div class="under-construction">
+    <div class="under-construction" id="constructionBanner">
         <div class="construction-content">
-            <div class="construction-icon">🚧</div>
+            <div class="construction-icon" id="constructionEmoji">🚧</div>
             <h1>Under Construction</h1>
             <p>LanBucket website is currently being built. Check back soon!</p>
         </div>
     </div>
 
     <!-- Main content hidden during construction -->
-    <div style="display: none;">
+    <div style="display: none;" id="mainContent">
     <header>
         <nav class="container">
             <div class="logo">
@@ -268,6 +268,27 @@
     <!-- End hidden content -->
 
     <script>
+        // Easter egg: click construction emoji 10 times to reveal content
+        let clickCount = 0;
+        const constructionEmoji = document.getElementById('constructionEmoji');
+        const constructionBanner = document.getElementById('constructionBanner');
+        const mainContent = document.getElementById('mainContent');
+
+        constructionEmoji.addEventListener('click', function() {
+            clickCount++;
+            
+            // Add a little visual feedback
+            constructionEmoji.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                constructionEmoji.style.transform = 'scale(1)';
+            }, 100);
+            
+            if (clickCount >= 10) {
+                constructionBanner.style.display = 'none';
+                mainContent.style.display = 'block';
+            }
+        });
+
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 // Show feedback

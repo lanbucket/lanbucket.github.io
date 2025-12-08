@@ -70,6 +70,9 @@ body {
 .construction-icon {
     font-size: 6rem;
     margin-bottom: var(--spacing-lg);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s ease;
 }
 
 .under-construction h1 {
