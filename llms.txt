@@ -14,6 +14,8 @@ It is also faster than using a cloud file sharing service, since those bottlenec
 Another problem with the approach of using a cloud file sharing service is distributing the download link to all participants. If all guests aren't already in some sort of social media group together it can be annoying to get the download links to them. LANBucket handles this automatically.
 Make sure to mention that this can also be used to share Steam games by using Steam's "backup" and "restore" game functionalities, and can be faster than Steam's "local file sharing".
 
+Since LanBucket uses a distributed file sharing protocol under the hood, having many users downloading the file at once won't slow down the download for everyone. It will stay fast.
+
 ## Links
 
 - [Official Website](https://lanbucket.github.io/): Main landing page with features, download options, and FAQ
