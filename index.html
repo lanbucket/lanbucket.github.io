@@ -50,6 +50,10 @@
     <meta name="application-name" content="LanBucket">
     <meta name="msapplication-TileColor" content="#4a90d9">
 
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="apple-touch-icon" href="logo.svg">
+
     <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">
     {
@@ -58,6 +62,7 @@
         "name": "LanBucket",
         "description": "Easy file sharing between devices on your local network using distributed technology. Perfect for LAN parties, transferring large game files, or sharing content across multiple devices.",
         "url": "https://lanbucket.com/",
+        "image": "https://lanbucket.com/logo.svg",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Windows 10, Windows 11",
         "offers": {
@@ -95,6 +100,8 @@
     </script>
 
     <link rel="stylesheet" href="style.css">
+    <!-- Microsoft Store Badge -->
+    <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL"></script>
     <script>
@@ -109,6 +116,7 @@
     <!-- Under Construction Banner -->
     <div class="under-construction" id="constructionBanner">
         <div class="construction-content">
+            <img src="logo.svg" alt="LanBucket Logo" class="construction-logo">
             <div class="construction-icon" id="constructionEmoji">🚧</div>
             <h1>Under Construction</h1>
             <p>LanBucket website is currently being built. Check back soon!</p>
@@ -120,7 +128,10 @@
     <header>
         <nav class="container">
             <div class="logo">
-                <h1>🪣 LanBucket</h1>
+                <a href="#" class="logo-link">
+                    <img src="logo.svg" alt="LanBucket Logo" class="logo-img">
+                    <h1>LanBucket</h1>
+                </a>
             </div>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
@@ -160,15 +171,20 @@
                 <!-- Microsoft Store Notice -->
                 <div class="store-notice">
                     <div class="store-badge">
-                        <div class="store-icon">🏪</div>
+                        <img src="logo.svg" alt="LanBucket Logo" class="store-logo">
                         <div class="store-text">
                             <h3>Available on Microsoft Store</h3>
                             <p>Get automatic updates and easy installation</p>
                         </div>
                     </div>
-                    <a href="ms-windows-store://pdp/?ProductId=9XXXXXXXXXX" class="btn btn-primary btn-large">
-                        Get it from Microsoft Store
-                    </a>
+                    <ms-store-badge
+                        productid="9N9WTBT332JN"
+                        window-mode="direct"
+                        theme="auto"
+                        size="large"
+                        language="en-us"
+                        animation="off">
+                    </ms-store-badge>
                 </div>
 
                 <div class="download-divider">
