@@ -16,3 +16,7 @@ This is the static website for LanBucket, a Windows application that enables eas
 - Local network only (no internet required)
 - Progress tracking
 - Native Windows application
+
+## License
+
+Copyright (c) 2026 Justin Becker. All Rights Reserved.
