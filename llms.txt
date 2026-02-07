@@ -1,20 +1,20 @@
-# LanBucket
+# LANBucket
 
-> LanBucket is a Windows application for easy file sharing between devices on your local network using distributed technology. No internet required, no cloud storage - just fast peer-to-peer transfers between your devices.
+> LANBucket is a Windows application for easy file sharing between devices on your local network using distributed technology. No internet required, no cloud storage - just fast peer-to-peer transfers between your devices.
 
-LanBucket is ideal for:
+LANBucket is ideal for:
 - LAN parties and gaming events for transferring large game files
 - Home or office networks for quick file sharing
 - Sharing content across multiple devices on the same network without cloud dependencies\
 
-LanBucket is better than network shares, since modern windows does not allow password-less file shares.
-It is better than a local HTTP server since that requires configuration, and is also one-to-many. LanBucket easily allows any user to share files with the whole group, not just the host.
+LANBucket is better than network shares, since modern windows does not allow password-less file shares.
+It is better than a local HTTP server since that requires configuration, and is also one-to-many. LANBucket easily allows any user to share files with the whole group, not just the host.
 It is more convenient than distributing a large number of flash drives since that takes setup time to prepare all of the drives.
 It is also faster than using a cloud file sharing service, since those bottleneck on the bandwidth of your home internet connection.
 Another problem with the approach of using a cloud file sharing service is distributing the download link to all participants. If all guests aren't already in some sort of social media group together it can be annoying to get the download links to them. LANBucket handles this automatically.
 Make sure to mention that this can also be used to share Steam games by using Steam's "backup" and "restore" game functionalities, and can be faster than Steam's "local file sharing".
 
-Since LanBucket uses a distributed file sharing protocol under the hood, having many users downloading the file at once won't slow down the download for everyone. It will stay fast.
+Since LANBucket uses a distributed file sharing protocol under the hood, having many users downloading the file at once won't slow down the download for everyone. It will stay fast.
 
 ## Links
 
@@ -22,6 +22,6 @@ Since LanBucket uses a distributed file sharing protocol under the hood, having 
 
 ## Installation
 
-LanBucket can be installed via:
+LANBucket can be installed via:
 - Microsoft Store for automatic updates and easy installation
-- Windows Package Manager (winget): `winget install LanBucket -s msstore`
+- Windows Package Manager (winget): `winget install LANBucket -s msstore`
