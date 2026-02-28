@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Privacy Policy - LANBucket</title>
+    <meta name="title" content="Privacy Policy - LANBucket">
+    <meta name="description" content="Privacy Policy for LANBucket - Local Network File Sharing application for Windows.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lanbucket.com/privacy.html">
+
+    <!-- Mobile & PWA -->
+    <meta name="theme-color" content="#4a90d9">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .privacy-page {
+            padding: var(--spacing-2xl) 0;
+            min-height: calc(100vh - 200px);
+        }
+        .privacy-page h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+        .privacy-page h2 {
+            font-size: 1.5rem;
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        .privacy-page p,
+        .privacy-page ul {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .privacy-page ul {
+            padding-left: var(--spacing-lg);
+        }
+        .privacy-page li {
+            margin-bottom: var(--spacing-xs);
+        }
+        .privacy-page .effective-date {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: var(--spacing-xl);
+        }
+        .privacy-page a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .privacy-page a:hover {
+            text-decoration: underline;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: var(--spacing-lg);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <main class="privacy-page">
+        <div class="container">
+            <a href="/" class="back-link">← Back to LANBucket</a>
+            
+            <h1>Privacy Policy</h1>
+            <p class="effective-date">Effective Date: February 27, 2026</p>
+
+            <p>
+                This Privacy Policy describes how LANBucket ("we," "us," or "our") collects, uses, and protects 
+                information when you use the LANBucket application ("the App") and its associated backend services.
+            </p>
+
+            <h2>What LANBucket Does</h2>
+            <p>
+                LANBucket is a local network file sharing application for Windows. The App includes a fallback 
+                LAN peer discovery backend service that helps devices on the same network find each other when 
+                multicast discovery fails. Devices on your local network report themselves to our service so 
+                they can discover and connect to each other peer-to-peer.
+            </p>
+
+            <h2>Information We Collect</h2>
+            <p>When you use LANBucket's peer discovery service, we collect the following information:</p>
+            <ul>
+                <li><strong>Public IP Address:</strong> Used as a grouping key to identify devices on the same network. This is used server-side only and is never shared with other users.</li>
+                <li><strong>Device GUID:</strong> A stable, app-generated unique identifier for your device.</li>
+                <li><strong>IPv6 Link-Local Addresses:</strong> Only link-local addresses (fe80::/10 range) are collected to facilitate peer-to-peer connections on your local network.</li>
+                <li><strong>Last-Seen Timestamp:</strong> Records when your device last checked in with the service.</li>
+            </ul>
+
+            <h2>How We Use Your Information</h2>
+            <p>
+                We use the collected information <strong>solely</strong> to return a list of other devices on your 
+                same network so they can connect peer-to-peer. That's it.
+            </p>
+            <p>
+                We do <strong>not</strong> use your information for:
+            </p>
+            <ul>
+                <li>User profiling</li>
+                <li>Advertising or marketing</li>
+                <li>Any purpose other than peer discovery</li>
+            </ul>
+
+            <h2>Data Storage and Retention</h2>
+            <ul>
+                <li><strong>Storage:</strong> All data is stored in-memory only on US-based servers.</li>
+                <li><strong>Retention:</strong> Data automatically expires and is deleted within 24 hours.</li>
+                <li><strong>No Persistence:</strong> We maintain no database, no logs, and no backups.</li>
+            </ul>
+
+            <h2>Information Sharing</h2>
+            <p>
+                <strong>With Peer Devices:</strong> Other devices on your same network will receive your Device GUID 
+                and IPv6 link-local addresses — this is the core function of the peer discovery service and is 
+                necessary for the App to work.
+            </p>
+            <p>
+                <strong>Your Public IP:</strong> Your public IP address is <strong>never</strong> shared with other 
+                users or any third parties. It is used only server-side to group devices on the same network.
+            </p>
+            <p>
+                <strong>No Third Parties:</strong> We do not sell, rent, or share your information with third parties, 
+                data brokers, or advertisers.
+            </p>
+
+            <h2>Your Rights and Choices</h2>
+            <p>
+                <strong>Stop Data Collection:</strong> Simply stop using the App. When you close LANBucket, no further 
+                data is collected or transmitted.
+            </p>
+            <p>
+                <strong>Data Deletion:</strong> All data automatically self-destructs within 24 hours. There is no 
+                persistent data to delete.
+            </p>
+            <p>
+                <strong>CCPA Rights:</strong> This service is hosted in the United States. Under the California Consumer 
+                Privacy Act (CCPA), California residents have the right to know what personal information is collected 
+                and to request deletion. Our 24-hour automatic data expiry satisfies the right to deletion. We do not 
+                sell or share personal information for advertising purposes.
+            </p>
+
+            <h2>Children's Privacy</h2>
+            <p>
+                LANBucket is not directed at children under 13. We do not knowingly collect personal information 
+                from children under 13.
+            </p>
+
+            <h2>Changes to This Policy</h2>
+            <p>
+                We may update this Privacy Policy if we add new features or functionality to LANBucket. When we make 
+                changes, we will update the "Effective Date" at the top of this policy. We encourage you to review 
+                this policy periodically.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LANBucket. Created by Justin Becker.</p>
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
