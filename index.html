@@ -116,18 +116,6 @@
     </script>
 </head>
 <body>
-    <!-- Under Construction Banner -->
-    <div class="under-construction" id="constructionBanner">
-        <div class="construction-content">
-            <img src="logo.svg" alt="LANBucket Logo" class="construction-logo">
-            <div class="construction-icon" id="constructionEmoji">🚧</div>
-            <h1>Under Construction</h1>
-            <p>LANBucket website is currently being built. Check back soon!</p>
-        </div>
-    </div>
-
-    <!-- Main content hidden during construction -->
-    <div style="display: none;" id="mainContent">
     <header>
         <nav class="container">
             <div class="logo">
@@ -423,43 +411,8 @@
             </div>
         </div>
     </footer>
-    </div>
-    <!-- End hidden content -->
 
     <script>
-        // Check if running locally and auto-reveal content
-        const isLocal = window.location.protocol === 'file:' || 
-                       window.location.hostname === 'localhost' || 
-                       window.location.hostname === '127.0.0.1' ||
-                       window.location.hostname === '';
-        
-        if (isLocal) {
-            // Running locally, show content immediately
-            document.getElementById('constructionBanner').style.display = 'none';
-            document.getElementById('mainContent').style.display = 'block';
-        }
-
-        // Easter egg: click construction emoji 10 times to reveal content
-        let clickCount = 0;
-        const constructionEmoji = document.getElementById('constructionEmoji');
-        const constructionBanner = document.getElementById('constructionBanner');
-        const mainContent = document.getElementById('mainContent');
-
-        constructionEmoji.addEventListener('click', function() {
-            clickCount++;
-            
-            // Add a little visual feedback
-            constructionEmoji.style.transform = 'scale(0.9)';
-            setTimeout(() => {
-                constructionEmoji.style.transform = 'scale(1)';
-            }, 100);
-            
-            if (clickCount >= 10) {
-                constructionBanner.style.display = 'none';
-                mainContent.style.display = 'block';
-            }
-        });
-
         function toggleDemo() {
             const demoContainer = document.getElementById('demoContainer');
             if (demoContainer.style.display === 'none') {
