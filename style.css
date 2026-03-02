@@ -644,6 +644,47 @@ section {
     text-decoration: underline;
 }
 
+/* Support Us Section */
+.support {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    padding: var(--spacing-2xl) 0;
+}
+
+.support-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.support .section-title {
+    margin-bottom: var(--spacing-md);
+}
+
+.support-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+}
+
+.support-button {
+    display: inline-block;
+    background-color: #ffdd00;
+    color: #000000;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 8px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.support-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
 /* Legal Section */
 .legal {
     background-color: #fef2f2;
