@@ -195,6 +195,19 @@ nav {
     max-width: 560px;
 }
 
+.hero-kicker {
+    display: inline-block;
+    margin-bottom: var(--spacing-sm);
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
 .hero-eyebrow {
     display: inline-block;
     margin-bottom: var(--spacing-sm);
@@ -239,6 +252,19 @@ nav {
     color: white;
     font-size: 0.95rem;
     font-weight: 600;
+}
+
+.hero-highlight-joke {
+    background: rgba(250, 204, 21, 0.18);
+    border-color: rgba(250, 204, 21, 0.35);
+}
+
+.hero-joke {
+    margin-top: calc(var(--spacing-md) * -0.25);
+    margin-bottom: var(--spacing-xl);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 .hero-cta-buttons {
@@ -957,6 +983,11 @@ footer p {
 
     .hero h2 {
         font-size: 2rem;
+    }
+
+    .hero-kicker {
+        display: inline-flex;
+        justify-content: center;
     }
     
     .hero-description {
