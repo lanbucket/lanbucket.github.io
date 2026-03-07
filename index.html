@@ -304,9 +304,25 @@
                     <div class="faq-item">
                         <h3>Will it work on my corporate network?</h3>
                         <p>
-                            Many corporate networks block multicast traffic, which LANBucket requires for device discovery. 
-                            It may not work on workplace networks with strict security policies. It's designed primarily 
-                            for home and private networks.
+                            Many corporate networks block client-to-client communication for security reasons, which may prevent LANBucket from working properly.
+                            LANBucket is designed primarily  for home and private networks.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>If multicast is blocked, will LANBucket still work?</h3>
+                        <p>
+                            Yes, probably. LANBucket has a fallback peer discovery mechanism using a central server, so even if multicast is blocked on your network, devices can still find each other and share files.
+                            If this mechanism doesn't work, you can connect to peers by manually entering the IP address of the device you want to connect to.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>All of my clients are on the same Wifi network, but some of them can't see each other. Why?</h3>
+                        <p>
+                            Many WiFi routers have "AP isolation" or "client isolation" features that prevent devices connected to the same WiFi network from communicating with each other. 
+                            Check your router settings to see if this feature is enabled.
+
+                            Also, we have seen some cases where some wireless routers/access points don't allow client-to-client traffic if they are on different frequency bands, ie. if one client
+                            is connected to 2.4GHz and another client is connected to 5GHz. If possible, try connecting all clients to the same frequency band on your WiFi network, or connect them via Ethernet for best results.
                         </p>
                     </div>
                     <div class="faq-item">
@@ -341,7 +357,7 @@
                         <h3>I found a bug, translation error, or have a feature request. Where do I report it?</h3>
                         <p>
                             We'd love to hear from you! Please <a href="https://forms.gle/aN4DzyXudxqJGKx56" target="_blank" rel="noopener noreferrer">fill out this form</a> 
-                            with details about the bug, translation error, or your feature request. We review all submissions and appreciate your feedback.
+                            with details. We review all submissions and appreciate your feedback.
                         </p>
                     </div>
                 </div>
