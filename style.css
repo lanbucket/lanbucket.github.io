@@ -57,7 +57,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #2563eb;
     color: white;
     text-align: center;
     padding: var(--spacing-lg);
@@ -155,7 +155,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #2563eb;
     color: white;
     padding: var(--spacing-lg) 0;
     text-align: center;
@@ -350,7 +350,7 @@ section {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    background: #2563eb;
     color: white;
     display: flex;
     align-items: center;
@@ -421,7 +421,7 @@ section {
 }
 
 .store-notice {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #2563eb;
     border-radius: 1.5rem;
     padding: var(--spacing-xl);
     display: flex;
