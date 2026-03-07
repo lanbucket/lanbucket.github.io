@@ -139,12 +139,25 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h2>Simple File Sharing on Your Local Network</h2>
-                    <p class="hero-description">
-                        LANBucket enables easy file sharing between devices on your local network using distributed technology.
-                        Perfect for LAN parties, transferring large game files, or sharing content across multiple devices. 
-                        No internet required, no cloud storage, just fast transfers between your devices.
-                    </p>
+                    <div class="hero-layout">
+                        <div class="hero-copy">
+                            <p class="hero-eyebrow">Windows app • Free • Local network only</p>
+                            <h2>Simple File Sharing on Your Local Network</h2>
+                            <p class="hero-description">
+                                LANBucket makes it easy to share files between devices on the same network.
+                                Great for LAN parties, big game files, and fast transfers around the house. No internet,
+                                no cloud storage, just direct sharing between your devices.
+                            </p>
+                        </div>
+
+                        <div class="hero-visual">
+                            <figure class="hero-screenshot-card" tabindex="0" aria-label="LANBucket app screenshot preview" aria-haspopup="dialog" aria-controls="heroScreenshotLightbox">
+                                <div class="hero-screenshot-frame">
+                                    <img src="StoreScreenshot1.png" alt="LANBucket app screenshot showing local network file sharing" class="hero-screenshot">
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
                     
                     <!-- Hidden for now
                     <button class="btn btn-demo" onclick="toggleDemo()">▶ See Live Demo</button>
@@ -398,6 +411,13 @@
                 </div>
             </div>
         </section>
+
+        <div class="hero-lightbox" id="heroScreenshotLightbox" hidden>
+            <button class="hero-lightbox-backdrop" type="button" aria-label="Close screenshot preview"></button>
+            <div class="hero-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Expanded LANBucket screenshot preview">
+                <img src="StoreScreenshot1.png" alt="Expanded LANBucket app screenshot showing local network file sharing" class="hero-lightbox-image">
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -430,6 +450,42 @@
                 }, 2000);
             }).catch(err => {
                 console.error('Failed to copy:', err);
+            });
+        }
+
+        const heroScreenshotCard = document.querySelector('.hero-screenshot-card');
+        const heroLightbox = document.getElementById('heroScreenshotLightbox');
+        const heroLightboxBackdrop = document.querySelector('.hero-lightbox-backdrop');
+
+        if (heroScreenshotCard && heroLightbox && heroLightboxBackdrop) {
+            const openHeroLightbox = () => {
+                heroLightbox.hidden = false;
+                document.body.classList.add('lightbox-open');
+                heroScreenshotCard.focus();
+            };
+
+            const closeHeroLightbox = () => {
+                heroLightbox.hidden = true;
+                document.body.classList.remove('lightbox-open');
+                heroScreenshotCard.focus();
+            };
+
+            heroScreenshotCard.addEventListener('click', openHeroLightbox);
+
+            heroScreenshotCard.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openHeroLightbox();
+                }
+            });
+
+            heroLightbox.addEventListener('click', closeHeroLightbox);
+            heroLightboxBackdrop.addEventListener('click', closeHeroLightbox);
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !heroLightbox.hidden) {
+                    closeHeroLightbox();
+                }
             });
         }
     </script>

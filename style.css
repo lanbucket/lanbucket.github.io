@@ -179,8 +179,32 @@ nav {
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 1380px;
     margin: 0 auto;
+}
+
+.hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(420px, 1.15fr);
+    gap: var(--spacing-2xl);
+    align-items: center;
+    text-align: left;
+}
+
+.hero-copy {
+    max-width: 560px;
+}
+
+.hero-eyebrow {
+    display: inline-block;
+    margin-bottom: var(--spacing-sm);
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
 .hero h2 {
@@ -196,6 +220,130 @@ nav {
     margin-bottom: var(--spacing-xl);
     opacity: 0.95;
     line-height: 1.7;
+}
+
+.hero-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-highlight {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.hero-cta-buttons {
+    justify-content: flex-start;
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-screenshot-card {
+    width: 100%;
+    max-width: 760px;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.hero-screenshot-card:focus .hero-screenshot-frame,
+.hero-screenshot-card:focus-visible .hero-screenshot-frame {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.45), 0 28px 70px rgba(15, 23, 42, 0.42);
+    transform: translateY(-2px);
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+.hero-screenshot-frame {
+    position: relative;
+    padding: 0.85rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.1));
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-screenshot-frame::before {
+    content: '';
+    position: absolute;
+    inset: -14px;
+    border-radius: 1.9rem;
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 55%);
+    z-index: 0;
+}
+
+.hero-screenshot {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-xl);
+}
+
+.hero-screenshot-caption {
+    margin-top: var(--spacing-sm);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.hero-lightbox[hidden] {
+    display: none;
+}
+
+.hero-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 3vh 2vw;
+}
+
+.hero-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    border: none;
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.hero-lightbox-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(96vw, 1600px);
+    max-height: 94vh;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45);
+}
+
+.hero-lightbox-image {
+    display: block;
+    width: 100%;
+    max-height: calc(94vh - 2rem);
+    object-fit: contain;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .btn-demo {
@@ -797,12 +945,40 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        text-align: center;
+    }
+
+    .hero-copy {
+        max-width: none;
+    }
+
     .hero h2 {
         font-size: 2rem;
     }
     
     .hero-description {
         font-size: 1.125rem;
+    }
+
+    .hero-highlights {
+        justify-content: center;
+    }
+
+    .hero-cta-buttons {
+        justify-content: center;
+    }
+
+    .hero-lightbox {
+        padding: 2vh 2vw;
+    }
+
+    .hero-lightbox-dialog {
+        width: min(98vw, 1200px);
+        padding: 0.75rem;
+        border-radius: 1rem;
     }
     
     .section-title {
@@ -856,6 +1032,15 @@ footer p {
 @media (max-width: 480px) {
     .hero h2 {
         font-size: 1.75rem;
+    }
+
+    .hero-eyebrow {
+        font-size: 0.875rem;
+    }
+
+    .hero-highlight {
+        width: 100%;
+        justify-content: center;
     }
     
     .cta-buttons {
