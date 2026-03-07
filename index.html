@@ -124,6 +124,7 @@
                     <h1>LANBucket</h1>
                 </a>
             </div>
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
@@ -149,7 +150,7 @@
                             </p>
                             <div class="hero-highlights" aria-label="LANBucket highlights">
                                 <span class="hero-highlight">Distributed transfers</span>
-                                <span class="hero-highlight hero-highlight-joke">100% Electron-free</span>
+                                <a href="https://en.wikipedia.org/wiki/Electron_(software_framework)" target="_blank" rel="noopener noreferrer" class="hero-highlight hero-highlight-joke">100% Electron-free</a>
                             </div>
                             <div class="cta-buttons hero-cta-buttons">
                                 <a class="btn btn-primary btn-large" href="#download">Get LANBucket</a>
@@ -458,6 +459,32 @@
                 }, 2000);
             }).catch(err => {
                 console.error('Failed to copy:', err);
+            });
+        }
+
+        const storeBadge = document.querySelector('ms-store-badge');
+        if (storeBadge) {
+            function updateBadgeSize() {
+                storeBadge.setAttribute('size', window.innerWidth <= 600 ? 'small' : 'large');
+            }
+            updateBadgeSize();
+            window.addEventListener('resize', updateBadgeSize);
+        }
+
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksList = document.querySelector('.nav-links');
+        if (navToggle && navLinksList) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinksList.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+                navToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+            });
+            navLinksList.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    navLinksList.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.innerHTML = '&#9776;';
+                });
             });
         }
 
