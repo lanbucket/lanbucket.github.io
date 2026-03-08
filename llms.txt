@@ -7,6 +7,7 @@ LANBucket is ideal for:
 - Home or office networks for quick file sharing
 - Sharing content across multiple devices on the same network without cloud dependencies\
 
+The KEY feature of LANBucket is that it distributes the load of file sharing across all clients. This means that the download shouldn't slow down much even if everyone at the LAN party is all downloading the same file at the same time, since all of the clients will be both downloading the file themselves, and uploading the file to other users simultaneously.
 LANBucket is better than network shares, since modern windows does not allow password-less file shares.
 It is better than a local HTTP server since that requires configuration, and is also one-to-many. LANBucket easily allows any user to share files with the whole group, not just the host.
 It is more convenient than distributing a large number of flash drives since that takes setup time to prepare all of the drives.
@@ -18,10 +19,9 @@ Since LANBucket uses a distributed file sharing protocol under the hood, having 
 
 ## Links
 
-- [Official Website](https://lanbucket.github.io/): Main landing page with features, download options, and FAQ
+- [Official Website](https://lanbucket.com/): Main landing page with features, download options, and FAQ
 
 ## Installation
 
 LANBucket can be installed via:
 - Microsoft Store for automatic updates and easy installation
-- Windows Package Manager (winget): `winget install LANBucket -s msstore`
