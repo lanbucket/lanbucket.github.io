@@ -116,18 +116,6 @@
     </script>
 </head>
 <body>
-    <!-- Under Construction Banner -->
-    <div class="under-construction" id="constructionBanner">
-        <div class="construction-content">
-            <img src="logo.svg" alt="LANBucket Logo" class="construction-logo">
-            <div class="construction-icon" id="constructionEmoji">🚧</div>
-            <h1>Under Construction</h1>
-            <p>LANBucket website is currently being built. Check back soon!</p>
-        </div>
-    </div>
-
-    <!-- Main content hidden during construction -->
-    <div style="display: none;" id="mainContent">
     <header>
         <nav class="container">
             <div class="logo">
@@ -136,11 +124,13 @@
                     <h1>LANBucket</h1>
                 </a>
             </div>
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#download">Download</a></li>
                 <li><a href="#faq">FAQ</a></li>
+                <li><a href="#support">Support Us</a></li>
             </ul>
         </nav>
     </header>
@@ -150,50 +140,76 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h2>Simple File Sharing on Your Local Network</h2>
-                    <p class="hero-description">
-                        LANBucket enables easy file sharing between devices on your local network using distributed technology. 
-                        Perfect for LAN parties, transferring large game files, or sharing content across multiple devices. 
-                        No internet required, no cloud storage, just fast transfers between your devices.
-                    </p>
+                    <div class="hero-layout">
+                        <div class="hero-copy">
+                            <h2>Simple File Sharing on Your Local Network</h2>
+                            <p class="hero-description">
+                                LANBucket makes it easy to share files between devices on the same network.
+                                Great for LAN parties, large files, and fast transfers around the house. No internet required,
+                                no cloud storage, just direct sharing between your devices.
+                            </p>
+                            <p class="hero-meta">
+                                Distributed transfers. <a href="https://en.wikipedia.org/wiki/Electron_(software_framework)" target="_blank" rel="noopener noreferrer">100% Electron-free</a>.
+                            </p>
+                            <div class="cta-buttons hero-cta-buttons">
+                                <a class="btn btn-primary btn-large" href="#download">Get LANBucket</a>
+                                <a class="btn btn-secondary btn-large" href="#how-it-works">How it works</a>
+                            </div>
+                        </div>
+
+                        <div class="hero-visual">
+                            <figure class="hero-screenshot-card" tabindex="0" aria-label="LANBucket app screenshot preview" aria-haspopup="dialog" aria-controls="heroScreenshotLightbox">
+                                <div class="hero-screenshot-frame">
+                                    <img src="StoreScreenshot1.png" alt="LANBucket app screenshot showing local network file sharing" class="hero-screenshot">
+                                </div>
+                                <figcaption class="hero-screenshot-caption">Click to enlarge.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    
+                    <!-- Hidden for now
                     <button class="btn btn-demo" onclick="toggleDemo()">▶ See Live Demo</button>
+
                     <div id="demoContainer" class="demo-container" style="display: none;">
                         <div class="demo-video">
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/S7SLep244ss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
+                        -->
                 </div>
             </div>
         </section>
 
-        <!-- Download Section -->
         <section id="download" class="download">
             <div class="container">
                 <h2 class="section-title">Download LANBucket</h2>
                 
-                <!-- Microsoft Store Notice -->
                 <div class="store-notice">
-                    <div class="store-badge">
+                    <div class="store-badge-text">
                         <div class="store-text">
                             <h3>Free on Microsoft Store</h3>
                             <p>Get automatic updates and easy installation</p>
                         </div>
                     </div>
-                    <ms-store-badge
-                        productid="9N9WTBT332JN"
-                        window-mode="direct"
-                        theme="auto"
-                        size="large"
-                        language="en-us"
-                        animation="off">
-                    </ms-store-badge>
+                    <div class="store-badge-vertical">
+                        <ms-store-badge
+                            productid="9N9WTBT332JN"
+                            window-mode="direct"
+                            theme="auto"
+                            size="large"
+                            language="en-us"
+                            animation="off">
+                        </ms-store-badge>
+                        <a class="msft-store-link" href="https://apps.microsoft.com/detail/9n9wtbt332jn" target="_blank" rel="noopener noreferrer">or view in Microsoft store</a>
+                    </div>
                 </div>
-
+                
+                <!-- winget path not yet available
                 <div class="download-divider">
                     <span>or</span>
                 </div>
 
-                <!-- Winget Installation -->
+
                 <div class="download-alternative">
                     <h3>Install via winget</h3>
                     <p>If you prefer command-line installation, you can use <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/" target="_blank" rel="noopener noreferrer">Windows Package Manager (winget)</a>:</p>
@@ -202,6 +218,7 @@
                         <button class="copy-btn" onclick="copyToClipboard('winget install LANBucket -s msstore')" title="Copy to clipboard">📋</button>
                     </div>
                 </div>
+                -->
 
                 <div class="download-content">
                     <div class="download-info">
@@ -222,44 +239,28 @@
                 <h2 class="section-title">Why Choose LANBucket?</h2>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">🎮</div>
-                        <h3>Perfect for LAN Parties</h3>
-                        <p>Share large game files across multiple devices without everyone downloading from the internet simultaneously. Much faster than traditional file shares.</p>
+                        <h3>Fast Distributed Transfers</h3>
+                        <p>Files transfer using distributed technology, meaning all clients share the load, resulting in faster overall transfer speeds.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🚀</div>
+                        <h3>Perfect for LAN Parties</h3>
+                        <p>Share large files across multiple devices without everyone downloading from the internet simultaneously. Much faster than traditional file shares.</p>
+                    </div>
+                    <div class="feature-card">
                         <h3>Automatic Discovery</h3>
                         <p>Other devices running LANBucket on your network are automatically discovered. No manual configuration needed.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🔒</div>
                         <h3>Local Network Only</h3>
-                        <p>All traffic stays on your local network. No internet connection required, no cloud services involved. Your files remain completely private and secure.</p>
+                        <p>All traffic stays on your local network. No internet connection required. Your files remain completely private and secure.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Fast Distributed Transfers</h3>
-                        <p>Significantly faster than Windows file shares or everyone downloading from the internet. Files transfer using distributed technology that maximizes your network speed.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📁</div>
-                        <h3>Drag & Drop</h3>
+                        <h3>Drag &amp; Drop</h3>
                         <p>Simply drag and drop files or folders to share them instantly with other users on your network.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">👥</div>
                         <h3>See Who's Connected</h3>
                         <p>View all connected peers with their machine and user names to know exactly who you're sharing with.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3>Track Progress</h3>
-                        <p>Monitor download progress, speed, and estimated time remaining for all your transfers.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">💾</div>
-                        <h3>Large File Support</h3>
-                        <p>Transfer games, videos, project files, or any large content efficiently. One person shares, everyone benefits from distributed transfer speeds.</p>
                     </div>
                 </div>
             </div>
@@ -269,28 +270,24 @@
         <section id="how-it-works" class="how-it-works">
             <div class="container">
                 <h2 class="section-title">How It Works</h2>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
+                <ol class="steps">
+                    <li class="step">
                         <h3>Install LANBucket</h3>
                         <p>Download and install LANBucket on Windows devices that are connected to the same local network (WiFi or Ethernet).</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
+                    </li>
+                    <li class="step">
                         <h3>Automatic Discovery</h3>
                         <p>LANBucket automatically discovers other instances on your network using multicast peer discovery.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
+                    </li>
+                    <li class="step">
                         <h3>Share Files</h3>
                         <p>Drag and drop files or folders to share them. Other users will see your shared items and can download them.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
+                    </li>
+                    <li class="step">
                         <h3>Download</h3>
-                        <p>Browse files shared by others and download them directly to your device with progress tracking.</p>
-                    </div>
-                </div>
+                        <p>Browse files shared by others and download them directly to your device. Since LANBucket uses distributed technology, downloads are fast even when multiple users are downloading simultaneously.</p>
+                    </li>
+                </ol>
             </div>
         </section>
 
@@ -304,20 +301,6 @@
                         The application is built with modern Windows technologies including WinUI 3 and the Windows App SDK 
                         for a native, performant experience.
                     </p>
-                    <div class="tech-features">
-                        <div class="tech-item">
-                            <strong>Multicast Peer Discovery</strong>
-                            <p>Automatically find devices on your network without manual configuration</p>
-                        </div>
-                        <div class="tech-item">
-                            <strong>Distributed Transfer Protocol</strong>
-                            <p>Fast and reliable file transfers using proven distributed technology</p>
-                        </div>
-                        <div class="tech-item">
-                            <strong>Native Windows App</strong>
-                            <p>Built with WinUI 3 for optimal performance and integration</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -337,9 +320,25 @@
                     <div class="faq-item">
                         <h3>Will it work on my corporate network?</h3>
                         <p>
-                            Many corporate networks block multicast traffic, which LANBucket requires for device discovery. 
-                            It may not work on workplace networks with strict security policies. It's designed primarily 
-                            for home and private networks.
+                            Many corporate networks block client-to-client communication for security reasons, which may prevent LANBucket from working properly.
+                            LANBucket is designed primarily  for home and private networks.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>If multicast is blocked, will LANBucket still work?</h3>
+                        <p>
+                            Yes, probably. LANBucket has a fallback peer discovery mechanism using a central server, so even if multicast is blocked on your network, devices can still find each other and share files.
+                            If this mechanism doesn't work, you can connect to peers by manually entering the IP address of the device you want to connect to.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>All of my clients are on the same Wifi network, but some of them can't see each other. Why?</h3>
+                        <p>
+                            Many WiFi routers have "AP isolation" or "client isolation" features that prevent devices connected to the same WiFi network from communicating with each other. 
+                            Check your router settings to see if this feature is enabled.
+
+                            Also, we have seen some cases where some wireless routers/access points don't allow client-to-client traffic if they are on different frequency bands, ie. if one client
+                            is connected to 2.4GHz and another client is connected to 5GHz. If possible, try connecting all clients to the same frequency band on your WiFi network, or connect them via Ethernet for best results.
                         </p>
                     </div>
                     <div class="faq-item">
@@ -359,8 +358,7 @@
                     <div class="faq-item">
                         <h3>Is my firewall going to block LANBucket?</h3>
                         <p>
-                            Windows Defender Firewall may block LANBucket from discovering devices. Make sure LANBucket 
-                            is allowed through the firewall on both private and public networks.
+                            Windows Defender Firewall may block LANBucket from discovering devices. Make sure that you have set the network profile to "Private" and allowed LANBucket through the firewall when prompted on first launch.
                         </p>
                     </div>
                     <div class="faq-item">
@@ -374,10 +372,26 @@
                     <div class="faq-item">
                         <h3>I found a bug, translation error, or have a feature request. Where do I report it?</h3>
                         <p>
-                            We'd love to hear from you! Please <a href="https://forms.google.com/lanbucket-feedback" target="_blank" rel="noopener noreferrer">fill out this form</a> 
-                            with details about the bug, translation error, or your feature request. We review all submissions and appreciate your feedback.
+                            We'd love to hear from you! Please <a href="https://forms.gle/aN4DzyXudxqJGKx56" target="_blank" rel="noopener noreferrer">fill out this form</a> 
+                            with details. We review all submissions and appreciate your feedback.
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Us Section -->
+        <section id="support" class="support">
+            <div class="container">
+                <div class="support-content">
+                    <h2 class="section-title">Support Us</h2>
+                    <p class="support-description">
+                        LANBucket is free, ad-free, and always will be. If you find it useful and want to support 
+                        continued development, consider buying us a coffee. Your support helps keep the project alive!
+                    </p>
+                    <a href="https://buymeacoffee.com/lanbucket" target="_blank" rel="noopener noreferrer" class="support-button">
+                        Buy Me a Coffee
+                    </a>
                 </div>
             </div>
         </section>
@@ -386,7 +400,7 @@
         <section class="legal">
             <div class="container">
                 <div class="legal-content">
-                    <h3>⚠️ Legal Notice</h3>
+                    <h3>Legal Notice</h3>
                     <p>
                         This software is provided for personal use only. Use at your own risk. 
                         The developers assume no liability for any data loss, security issues, or other problems 
@@ -395,50 +409,25 @@
                 </div>
             </div>
         </section>
+
+        <div class="hero-lightbox" id="heroScreenshotLightbox" hidden>
+            <button class="hero-lightbox-backdrop" type="button" aria-label="Close screenshot preview"></button>
+            <div class="hero-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Expanded LANBucket screenshot preview">
+                <img src="StoreScreenshot1.png" alt="Expanded LANBucket app screenshot showing local network file sharing" class="hero-lightbox-image">
+            </div>
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 LANBucket. Created by Justin Becker.</p>
+            <p>Copyright &copy; 2026 Justin Becker. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+            </div>
         </div>
     </footer>
-    </div>
-    <!-- End hidden content -->
 
     <script>
-        // Check if running locally and auto-reveal content
-        const isLocal = window.location.protocol === 'file:' || 
-                       window.location.hostname === 'localhost' || 
-                       window.location.hostname === '127.0.0.1' ||
-                       window.location.hostname === '';
-        
-        if (isLocal) {
-            // Running locally, show content immediately
-            document.getElementById('constructionBanner').style.display = 'none';
-            document.getElementById('mainContent').style.display = 'block';
-        }
-
-        // Easter egg: click construction emoji 10 times to reveal content
-        let clickCount = 0;
-        const constructionEmoji = document.getElementById('constructionEmoji');
-        const constructionBanner = document.getElementById('constructionBanner');
-        const mainContent = document.getElementById('mainContent');
-
-        constructionEmoji.addEventListener('click', function() {
-            clickCount++;
-            
-            // Add a little visual feedback
-            constructionEmoji.style.transform = 'scale(0.9)';
-            setTimeout(() => {
-                constructionEmoji.style.transform = 'scale(1)';
-            }, 100);
-            
-            if (clickCount >= 10) {
-                constructionBanner.style.display = 'none';
-                mainContent.style.display = 'block';
-            }
-        });
-
         function toggleDemo() {
             const demoContainer = document.getElementById('demoContainer');
             if (demoContainer.style.display === 'none') {
@@ -459,6 +448,68 @@
                 }, 2000);
             }).catch(err => {
                 console.error('Failed to copy:', err);
+            });
+        }
+
+        const storeBadge = document.querySelector('ms-store-badge');
+        if (storeBadge) {
+            function updateBadgeSize() {
+                storeBadge.setAttribute('size', window.innerWidth <= 600 ? 'small' : 'large');
+            }
+            updateBadgeSize();
+            window.addEventListener('resize', updateBadgeSize);
+        }
+
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksList = document.querySelector('.nav-links');
+        if (navToggle && navLinksList) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinksList.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+                navToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+            });
+            navLinksList.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    navLinksList.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.innerHTML = '&#9776;';
+                });
+            });
+        }
+
+        const heroScreenshotCard = document.querySelector('.hero-screenshot-card');
+        const heroLightbox = document.getElementById('heroScreenshotLightbox');
+        const heroLightboxBackdrop = document.querySelector('.hero-lightbox-backdrop');
+
+        if (heroScreenshotCard && heroLightbox && heroLightboxBackdrop) {
+            const openHeroLightbox = () => {
+                heroLightbox.hidden = false;
+                document.body.classList.add('lightbox-open');
+                heroScreenshotCard.focus();
+            };
+
+            const closeHeroLightbox = () => {
+                heroLightbox.hidden = true;
+                document.body.classList.remove('lightbox-open');
+                heroScreenshotCard.focus();
+            };
+
+            heroScreenshotCard.addEventListener('click', openHeroLightbox);
+
+            heroScreenshotCard.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openHeroLightbox();
+                }
+            });
+
+            heroLightbox.addEventListener('click', closeHeroLightbox);
+            heroLightboxBackdrop.addEventListener('click', closeHeroLightbox);
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !heroLightbox.hidden) {
+                    closeHeroLightbox();
+                }
             });
         }
     </script>
