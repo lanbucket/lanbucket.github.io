@@ -938,21 +938,26 @@ ms-store-badge {
 }
 
 /* Comparison cell explanatory tooltips */
-.comparison-table td[data-tip] {
+.comparison-table td.cell-no,
+.comparison-table td.cell-partial {
     cursor: help;
 }
 
-.comparison-table td[data-tip] .cell-mark {
+.comparison-table td.cell-no .cell-mark,
+.comparison-table td.cell-partial .cell-mark {
     border-bottom: 1px dotted currentColor;
     padding-bottom: 1px;
 }
 
-.comparison-table td[data-tip]:hover {
+.comparison-table td.cell-no:hover,
+.comparison-table td.cell-partial:hover {
     background-color: var(--bg-secondary);
 }
 
-.comparison-table td[data-tip]:focus,
-.comparison-table td[data-tip]:focus-visible {
+.comparison-table td.cell-no:focus,
+.comparison-table td.cell-no:focus-visible,
+.comparison-table td.cell-partial:focus,
+.comparison-table td.cell-partial:focus-visible {
     outline: none;
     box-shadow: inset 0 0 0 2px var(--primary-color);
 }
