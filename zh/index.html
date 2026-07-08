@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>LANBucket - 简单的局域网文件共享</title>
+    <meta name="title" content="LANBucket - 简单的局域网文件共享">
+    <meta name="description" content="LANBucket 采用分布式技术，让您在同一局域网内的设备之间轻松共享文件。非常适合局域网聚会、传输大型游戏文件，或在多台设备间共享内容。无需联网。">
+    <meta name="keywords" content="LANBucket, 局域网文件共享, 局域网文件传输, 局域网共享文件, 电脑之间传文件, 局域网传文件工具, 点对点文件传输, P2P文件传输, 大文件传输, 无需网络文件共享, 无需联网传文件, WiFi文件传输, 免费文件传输工具, Windows文件共享软件, 局域网聚会文件共享, 游戏文件共享, Steam游戏共享, 局域网快速传文件, 内网文件传输, 拖放文件共享">
+    <meta name="author" content="Justin Becker">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Chinese">
+    <meta name="revisit-after" content="7 days">
+    <meta name="category" content="Utilities">
+    <meta name="coverage" content="Worldwide">
+    <meta name="distribution" content="Global">
+    <meta name="rating" content="General">
+    <meta name="subject" content="面向 Windows 的局域网文件共享应用">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lanbucket.com/zh/">
+
+    <!-- Language Alternates -->
+    <link rel="alternate" hreflang="en" href="https://lanbucket.com/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lanbucket.com/zh/">
+    <link rel="alternate" hreflang="x-default" href="https://lanbucket.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lanbucket.com/zh/">
+    <meta property="og:title" content="LANBucket - 简单的局域网文件共享">
+    <meta property="og:description" content="采用分布式技术，在同一局域网内的设备之间轻松共享文件。非常适合局域网聚会和传输大文件。无需联网，完全免费。">
+    <meta property="og:image" content="https://lanbucket.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="LANBucket - 局域网文件共享应用">
+    <meta property="og:site_name" content="LANBucket">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lanbucket.com/zh/">
+    <meta name="twitter:title" content="LANBucket - 简单的局域网文件共享">
+    <meta name="twitter:description" content="采用分布式技术，在同一局域网内的设备之间轻松共享文件。非常适合局域网聚会和传输大文件。无需联网。">
+    <meta name="twitter:image" content="https://lanbucket.com/og-image.png">
+    <meta name="twitter:image:alt" content="LANBucket - 局域网文件共享应用">
+
+    <!-- Mobile & PWA -->
+    <meta name="theme-color" content="#4a90d9">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LANBucket">
+    <meta name="application-name" content="LANBucket">
+    <meta name="msapplication-TileColor" content="#4a90d9">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "LANBucket",
+        "inLanguage": "zh-CN",
+        "description": "采用分布式技术，在同一局域网内的设备之间轻松共享文件。非常适合局域网聚会、传输大型游戏文件，或在多台设备间共享内容。",
+        "url": "https://lanbucket.com/zh/",
+        "image": "https://lanbucket.com/logo.svg",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows 10, Windows 11",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Justin Becker"
+        },
+        "softwareVersion": "1.0",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "1"
+        },
+        "featureList": [
+            "局域网文件共享",
+            "自动设备发现",
+            "拖放操作界面",
+            "无需联网",
+            "免费使用",
+            "局域网聚会文件共享",
+            "共享大型游戏文件",
+            "分布式传输技术",
+            "快速 WiFi 文件传输",
+            "私密且安全",
+            "无需云存储",
+            "进度跟踪",
+            "支持多设备"
+        ],
+        "keywords": "局域网文件共享, 局域网文件传输, 电脑之间传文件, 点对点文件传输, 大文件传输, 游戏文件共享, WiFi文件传输, Steam游戏共享"
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css">
+    <!-- Microsoft Store Badge -->
+    <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MQ5QBM6CSL');
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="#" class="logo-link">
+                    <img src="/logo.svg" alt="LANBucket 徽标" class="logo-img">
+                    <h1>LANBucket</h1>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="打开导航" aria-expanded="false">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="#features">功能特性</a></li>
+                <li><a href="#how-it-works">工作原理</a></li>
+                <li><a href="#comparison">对比</a></li>
+                <li><a href="#download">下载</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a href="#support">支持我们</a></li>
+                <li><a href="/" hreflang="en" lang="en">English</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-layout">
+                        <div class="hero-copy">
+                            <h2>在您的局域网上轻松共享文件</h2>
+                            <p class="hero-description">
+                                LANBucket 让您在同一网络中的设备之间轻松共享文件。
+                                非常适合局域网聚会、大文件以及家里的快速传输。无需联网。
+                            </p>
+                            <p class="hero-meta">
+                                分布式传输。<a href="https://en.wikipedia.org/wiki/Electron_(software_framework)" target="_blank" rel="noopener noreferrer">100% 无 Electron</a>。
+                            </p>
+                            <div class="cta-buttons hero-cta-buttons">
+                                <a class="btn btn-primary btn-large" href="#download">获取 LANBucket</a>
+                                <a class="btn btn-secondary btn-large" href="#how-it-works">工作原理</a>
+                            </div>
+                        </div>
+
+                        <div class="hero-visual">
+                            <figure class="hero-screenshot-card" tabindex="0" aria-label="LANBucket 应用截图预览" aria-haspopup="dialog" aria-controls="heroScreenshotLightbox">
+                                <div class="hero-screenshot-frame">
+                                    <img src="/StoreScreenshot1.png" alt="LANBucket 应用截图，展示局域网文件共享" class="hero-screenshot">
+                                </div>
+                                <figcaption class="hero-screenshot-caption">点击放大。</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="download">
+            <div class="container">
+                <h2 class="section-title">下载 LANBucket</h2>
+
+                <div class="store-notice">
+                    <div class="store-badge-text">
+                        <div class="store-text">
+                            <h3>在 Microsoft Store 免费下载</h3>
+                            <p>获取自动更新和便捷安装</p>
+                        </div>
+                    </div>
+                    <div class="store-badge-vertical">
+                        <ms-store-badge
+                            productid="9N9WTBT332JN"
+                            window-mode="direct"
+                            theme="auto"
+                            size="large"
+                            language="zh-cn"
+                            animation="off">
+                        </ms-store-badge>
+                        <a class="msft-store-link" href="https://apps.microsoft.com/detail/9n9wtbt332jn" target="_blank" rel="noopener noreferrer">或在 Microsoft Store 中查看</a>
+                    </div>
+                </div>
+
+                <div class="download-divider">
+                    <span>或</span>
+                </div>
+
+
+                <div class="download-alternative">
+                    <h3>通过 winget 安装</h3>
+                    <p>如果您更喜欢命令行安装，可以使用 <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/" target="_blank" rel="noopener noreferrer">Windows 包管理器 (winget)</a>：</p>
+                    <div class="code-block">
+                        <code>winget install LANBucket</code>
+                        <button class="copy-btn" onclick="copyToClipboard('winget install LANBucket -s msstore')" title="复制到剪贴板">📋</button>
+                    </div>
+                </div>
+
+                <div class="download-content">
+                    <div class="download-info">
+                        <h3>系统要求</h3>
+                        <ul>
+                            <li>Windows 10 版本 1809 或更高版本，或 Windows 11</li>
+                            <li>x64 或 ARM64 处理器</li>
+                            <li>局域网连接（WiFi 或以太网）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">为什么选择 LANBucket？</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>快速分布式传输</h3>
+                        <p>文件采用分布式技术传输，所有客户端共同分担负载，从而实现更快的整体传输速度。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>非常适合局域网聚会</h3>
+                        <p>在多台设备间共享大文件，无需所有人同时从互联网下载。比传统文件共享快得多。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>自动发现</h3>
+                        <p>网络中其他运行 LANBucket 的设备会被自动发现。无需手动配置。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>仅限局域网</h3>
+                        <p>所有流量都保留在您的局域网内。无需互联网连接。您的文件保持完全私密和安全。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>拖放操作</h3>
+                        <p>只需拖放文件或文件夹，即可立即与网络中的其他用户共享。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>查看谁已连接</h3>
+                        <p>查看所有已连接的对等设备及其计算机名和用户名，准确了解您正在与谁共享。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">工作原理</h2>
+                <ol class="steps">
+                    <li class="step">
+                        <h3>安装 LANBucket</h3>
+                        <p>在连接到同一局域网（WiFi 或以太网）的 Windows 设备上下载并安装 LANBucket。</p>
+                    </li>
+                    <li class="step">
+                        <h3>自动发现</h3>
+                        <p>LANBucket 使用多播对等发现自动发现网络中的其他实例。</p>
+                    </li>
+                    <li class="step">
+                        <h3>共享文件</h3>
+                        <p>拖放文件或文件夹即可共享。其他用户将看到您共享的项目并可以下载。</p>
+                    </li>
+                    <li class="step">
+                        <h3>下载</h3>
+                        <p>浏览他人共享的文件并直接下载到您的设备。由于 LANBucket 采用分布式技术，即使多个用户同时下载，下载速度依然很快。</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section class="technology">
+            <div class="container">
+                <h2 class="section-title">基于成熟技术构建</h2>
+                <div class="tech-content">
+                    <p>
+                        LANBucket 采用分布式文件共享技术，实现可靠而高效的传输。
+                        该应用使用现代 Windows 技术构建，包括 WinUI 3 和 Windows App SDK，
+                        带来原生、高性能的体验。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="comparison">
+            <div class="container">
+                <h2 class="section-title">LANBucket 对比</h2>
+                <div class="comparison-table-wrapper" role="region" aria-label="LANBucket 功能对比" tabindex="0">
+                    <table class="comparison-table">
+                        <caption class="sr-only">LANBucket 与 DC++、D-LAN、LocalSend、SMB 共享、云存储、Steam 本地共享和 USB 闪存盘的对比</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="comparison-feature-head">功能</th>
+                                <th scope="col" class="comparison-highlight-col">LANBucket</th>
+                                <th scope="col">DC++</th>
+                                <th scope="col">D-LAN</th>
+                                <th scope="col">LocalSend</th>
+                                <th scope="col">SMB 共享</th>
+                                <th scope="col">云存储</th>
+                                <th scope="col">Steam<sup class="tm-mark">&reg;</sup> 本地共享</th>
+                                <th scope="col">闪存盘</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">无需设置或配置</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。DC++ 要求您先添加要连接的中枢（hub）并设置共享列表，然后才能使用。</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。D-LAN 上手很快，但您仍需先选择共享文件夹并确认网络设置。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。SMB 共享需要启用共享、设置权限并映射驱动器。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。您必须创建账户、安装客户端并等待其同步，然后才能共享任何内容。</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。您需要安装并登录 Steam，并启用相关的共享设置。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。闪存盘必须为您的设备格式化，并逐一物理插入每台设备。</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">无需账户或登录</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。Windows 上的 SMB 需要有效的用户凭据才能验证访问。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。云存储需要先创建并登录账户，然后才能传输文件。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。您必须拥有 Steam 账户并登录才能使用任何 Steam 功能。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">分布式（多对多）传输</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。DC++ 可以同时从多个对等端拉取文件，但只有在对方完成下载之后才行。LANBucket 允许从尚未拥有完整文件的对等端下载。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。LocalSend 一次只在一台设备与另一台设备之间直接发送。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。SMB 共享由单一主机提供，因此所有人都从那一台机器下载。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。传输通过服务提供商的服务器进行，而不是在多个本地对等端之间直接进行。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。内容来自单一主机，而非多个对等端共同分担负载。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。闪存盘一次只能手动复制到一台机器。</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">自动对等发现</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。没有自动发现。用户必须手动设置中枢地址。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。您需要共享的主机名或 IP 地址才能连接。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。您需要以某种方式把下载链接发送给所有其他用户。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。您得亲自把它拿来拿去。</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">保留在您的局域网内</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。DC++ 可以在局域网中运行，但许多公共中枢会将您的流量通过互联网转发。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。云存储会将您的文件上传到互联网上的远程服务器。</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。本地串流保留在您的局域网内，但 Steam 仍需联系其服务器为您登录。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">拖放共享任意文件</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。DC++ 共享的是您预先配置的整个文件夹，而非临时拖入的文件。</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。D-LAN 从指定文件夹共享，而非快速拖放任意文件。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。您可以将文件拖入共享文件夹，但前提是共享和权限已设置好。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。Steam 只共享游戏和库内容，而非任意文件。</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。您可以把文件拖到驱动器上，但它必须插入并被带到每台设备。</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">面向非技术用户的简洁界面</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。DC++ 的界面密集且技术性强，围绕中枢、槽位和下载队列构建。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。D-LAN 的界面假定用户对网络和共享文件夹有一定了解。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。SMB 设置涉及操作系统设置、权限和驱动器映射，容易让非技术用户困惑。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">无需互联网即可使用</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。云存储需要互联网连接才能访问服务提供商的服务器。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。Steam 通常需要联网登录后其功能才能使用。</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">实时压缩</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。DC++ 传输文件时不进行任何自动压缩。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。D-LAN 传输文件时不进行任何自动压缩。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。LocalSend 传输文件时不进行任何自动压缩。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。SMB 传输文件时不进行任何自动压缩。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。云传输文件时不进行任何自动压缩。</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。Steam 本地共享传输文件时不进行任何自动压缩。（尽管 Steam 从互联网下载时确实使用压缩）</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。复制到闪存盘不会自动压缩您的文件。</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="comparison-plaintext sr-only" aria-hidden="true">
+                    <h3>LANBucket 功能对比（纯文本摘要）</h3>
+                    <p>这是上方对比表格的纯文本版本，将 LANBucket 与 DC++、D-LAN、LocalSend、SMB 共享、云存储、Steam 本地共享和 USB 闪存盘进行对比。每一项均列出该工具是否提供此功能（是、部分支持或否）及其原因。</p>
+                    <p><strong>无需设置或配置。</strong> LANBucket：是。DC++：否 &mdash; DC++ 要求您先添加要连接的中枢并设置共享列表，然后才能使用。D-LAN：部分支持 &mdash; D-LAN 上手很快，但您仍需先选择共享文件夹并确认网络设置。LocalSend：是。SMB 共享：否 &mdash; SMB 共享需要启用共享、设置权限并映射驱动器，通常还需要管理员权限。云存储：否 &mdash; 您必须创建账户、安装客户端并等待其同步，然后才能共享任何内容。Steam 本地共享：部分支持 &mdash; 您需要安装并登录 Steam，并启用相关的共享设置。USB 闪存盘：否 &mdash; 闪存盘必须为您的设备格式化，并逐一物理插入每台设备。</p>
+                    <p><strong>无需账户或登录。</strong> LANBucket：是。DC++：是。D-LAN：是。LocalSend：是。SMB 共享：否 &mdash; SMB 需要有效的用户凭据或网络账户才能验证访问。云存储：否 &mdash; 云存储需要先创建并登录账户，然后才能传输文件。Steam 本地共享：否 &mdash; 您必须拥有 Steam 账户并登录才能使用任何 Steam 功能。USB 闪存盘：是。</p>
+                    <p><strong>分布式（多对多）传输。</strong> LANBucket：是。DC++：部分支持 &mdash; DC++ 可以同时从多个对等端拉取文件，但只有在对方完成下载之后才行；LANBucket 允许从尚未拥有完整文件的对等端下载。D-LAN：是。LocalSend：否 &mdash; LocalSend 一次只在一台设备与另一台设备之间直接发送。SMB 共享：否 &mdash; SMB 共享由单一主机提供，因此所有人都从那一台机器下载。云存储：否 &mdash; 传输通过服务提供商的服务器进行，而不是在多个本地对等端之间直接进行。Steam 本地共享：否 &mdash; 内容来自单一主机，而非多个对等端共同分担负载。USB 闪存盘：否 &mdash; 闪存盘一次只能手动复制到一台机器。</p>
+                    <p><strong>自动对等发现。</strong> LANBucket：是。DC++：否 &mdash; 没有自动发现；您必须知道并输入中枢地址才能找到其他人。D-LAN：是。LocalSend：是。SMB 共享：否 &mdash; 您需要共享的主机名或 IP 地址才能连接。云存储：否 &mdash; 没有本地对等端可供发现，一切都通过服务提供商的服务器进行。Steam 本地共享：是。USB 闪存盘：否 &mdash; 闪存盘没有网络功能，因此没有任何可供发现的内容。</p>
+                    <p><strong>保留在您的局域网内。</strong> LANBucket：是。DC++：部分支持 &mdash; DC++ 可以在局域网中运行，但许多公共中枢会将您的流量通过互联网转发。D-LAN：是。LocalSend：是。SMB 共享：是。云存储：否 &mdash; 云存储会将您的文件上传到互联网上的远程服务器。Steam 本地共享：部分支持 &mdash; 本地串流保留在您的局域网内，但 Steam 仍需联系其服务器为您登录。USB 闪存盘：是。</p>
+                    <p><strong>拖放共享任意文件。</strong> LANBucket：是。DC++：否 &mdash; DC++ 共享的是您预先配置的整个文件夹，而非临时拖入的文件。D-LAN：部分支持 &mdash; D-LAN 从指定文件夹共享，而非快速拖放任意文件。LocalSend：是。SMB 共享：部分支持 &mdash; 您可以将文件拖入共享文件夹，但前提是共享和权限已设置好。云存储：是。Steam 本地共享：否 &mdash; Steam 只共享游戏和库内容，而非任意文件。USB 闪存盘：部分支持 &mdash; 您可以把文件拖到驱动器上，但它必须插入并被带到每台设备。</p>
+                    <p><strong>面向非技术用户的简洁界面。</strong> LANBucket：是。DC++：否 &mdash; DC++ 的界面密集且技术性强，围绕中枢、槽位和下载队列构建。D-LAN：否 &mdash; D-LAN 的界面假定用户对网络和共享文件夹有一定了解。LocalSend：是。SMB 共享：否 &mdash; SMB 设置涉及操作系统设置、权限和驱动器映射，容易让非技术用户困惑。云存储：是。Steam 本地共享：是。USB 闪存盘：是。</p>
+                    <p><strong>无需互联网即可使用。</strong> LANBucket：是。DC++：是。D-LAN：是。LocalSend：是。SMB 共享：是。云存储：否 &mdash; 云存储需要互联网连接才能访问服务提供商的服务器。Steam 本地共享：否 &mdash; Steam 通常需要联网登录后其功能才能使用。USB 闪存盘：是。</p>
+                    <p><strong>实时压缩。</strong> LANBucket：是 &mdash; LANBucket 会在文件发送时自动压缩、在文件到达时自动解压，全程实时进行，这可以让可压缩文件的传输明显更快。DC++：否 &mdash; DC++ 传输文件时不进行任何自动压缩。D-LAN：否 &mdash; D-LAN 按原样发送文件，不进行实时压缩。LocalSend：否 &mdash; LocalSend 传输文件时不进行实时压缩。SMB 共享：否 &mdash; SMB 默认逐字节复制文件，不进行透明压缩。云存储：否 &mdash; 云上传在传输前不会实时压缩您的文件。Steam 本地共享：否 &mdash; Steam 不为文件传输提供实时压缩。USB 闪存盘：否 &mdash; 复制到闪存盘不会压缩您的文件。</p>
+                </div>
+                <p class="comparison-note">
+                    了解更多： <a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" target="_blank" rel="noopener noreferrer">我为什么开发 LANBucket</a>。
+                </p>
+                <p class="comparison-trademark">
+                    Steam 是 Valve Corporation 的注册商标。LANBucket 与 Valve Corporation 无任何关联，未获其认可或赞助。
+                    所有其他产品名称、徽标和品牌均为其各自所有者的财产。
+                </p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2 class="section-title">常见问题</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>LANBucket 能通过互联网使用吗？</h3>
+                        <p>
+                            不能，LANBucket 仅在局域网中工作。所有设备必须连接到同一 WiFi
+                            网络或以太网局域网。这是有意为之，目的是保持您的文件私密和安全。
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>它能在我的公司网络上使用吗？</h3>
+                        <p>
+                            许多公司网络出于安全原因会阻止客户端之间的通信，这可能导致 LANBucket 无法正常工作。
+                            LANBucket 主要为家庭和私人网络设计。
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>如果多播被阻止，LANBucket 还能工作吗？</h3>
+                        <p>
+                            很可能可以。LANBucket 有一个使用中央服务器的后备对等发现机制，因此即使您的网络阻止了多播，设备之间仍可以相互发现并共享文件。
+                            如果该机制无效，您可以通过手动输入要连接设备的 IP 地址来连接对等端。
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>我所有的客户端都在同一 WiFi 网络上，但有些无法相互看到。为什么？</h3>
+                        <p>
+                            许多 WiFi 路由器具有“AP 隔离”或“客户端隔离”功能，会阻止连接到同一 WiFi 网络的设备相互通信。
+                            请检查您的路由器设置，看是否启用了此功能。
+
+                            此外，我们还发现，有些无线路由器/接入点在客户端处于不同频段时不允许客户端之间的流量，即一个客户端
+                            连接到 2.4GHz，另一个连接到 5GHz。如有可能，请尝试将所有客户端连接到 WiFi 网络的同一频段，或通过以太网连接以获得最佳效果。
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>我可以在使用 VPN 的情况下使用它吗？</h3>
+                        <p>
+                            VPN 连接可能会干扰局域网发现。您可能需要断开 VPN 才能使用 LANBucket。
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>如果我修改了正在共享的文件会怎样？</h3>
+                        <p>
+                            移动、删除或修改您正在共享的文件会导致其他人无法下载。
+                            请在其他人完成下载之前保持共享文件不动。
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>我的防火墙会阻止 LANBucket 吗？</h3>
+                        <p>
+                            Windows Defender 防火墙可能会阻止 LANBucket 发现设备。请确保将网络配置文件设置为“专用”，并在首次启动出现提示时允许 LANBucket 通过防火墙。
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>有 Linux 或 MacOS 支持吗？</h3>
+                        <p>
+                            暂时没有，但我们正在考虑。目前 LANBucket 使用 Windows 专用的 UI 框架构建，因此支持 Linux/MacOS 需要大量重写。遗憾的是，LANBucket 也不兼容 Wine/Proton，因为我们使用了那里同样未实现的 Windows API。
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>什么是实时压缩？</h3>
+                        <p>
+                            LANBucket 会在文件发送时自动压缩、在文件到达时自动解压，全部实时完成。
+                            您无需先打包成 zip。对于压缩效果好的文件（例如某些电子游戏），
+                            您可能会观察到显著更快的传输速度。如果文件压缩效果不佳，压缩会自动关闭。
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>LANBucket 免费吗？</h3>
+                        <p>
+                            是的！LANBucket 完全免费使用，我们也承诺保持无广告。
+                            如果您愿意支持开发，可以 <a href="https://buymeacoffee.com/lanbucket" target="_blank" rel="noopener noreferrer">给我们买杯咖啡</a>。
+                            我们感谢您的支持，但这从不强求。
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>我发现了一个 bug、翻译错误或有功能建议。该在哪里反馈？</h3>
+                        <p>
+                            我们很乐意听到您的意见！请 <a href="https://forms.gle/aN4DzyXudxqJGKx56" target="_blank" rel="noopener noreferrer">填写此表单</a>
+                            并提供详细信息。我们会审阅所有提交，并感谢您的反馈。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Us Section -->
+        <section id="support" class="support">
+            <div class="container">
+                <div class="support-content">
+                    <h2 class="section-title">支持我们</h2>
+                    <p class="support-description">
+                        LANBucket 是免费的、无广告的，并且永远如此。如果您觉得它有用并想支持
+                        其持续开发，欢迎给我们买杯咖啡。您的支持有助于让这个项目继续下去！
+                    </p>
+                    <a href="https://buymeacoffee.com/lanbucket" target="_blank" rel="noopener noreferrer" class="support-button">
+                        给我们买杯咖啡
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Notice -->
+        <section class="legal">
+            <div class="container">
+                <div class="legal-content">
+                    <h3>Legal Notice</h3>
+                    <p>
+                        This software is provided for personal use only. Use at your own risk.
+                        The developers assume no liability for any data loss, security issues, or other problems
+                        that may arise from using this software.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="hero-lightbox" id="heroScreenshotLightbox" hidden>
+            <button class="hero-lightbox-backdrop" type="button" aria-label="关闭截图预览"></button>
+            <div class="hero-lightbox-dialog" role="dialog" aria-modal="true" aria-label="放大的 LANBucket 截图预览">
+                <img src="/StoreScreenshot1.png" alt="放大的 LANBucket 应用截图，展示局域网文件共享" class="hero-lightbox-image">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>版权所有 &copy; 2026 Justin Becker。保留所有权利。</p>
+            <div class="footer-links">
+                <a href="/privacy.html">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDemo() {
+            const demoContainer = document.getElementById('demoContainer');
+            if (demoContainer.style.display === 'none') {
+                demoContainer.style.display = 'block';
+            } else {
+                demoContainer.style.display = 'none';
+            }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show feedback
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✓';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+
+        const storeBadge = document.querySelector('ms-store-badge');
+        if (storeBadge) {
+            function updateBadgeSize() {
+                storeBadge.setAttribute('size', window.innerWidth <= 600 ? 'small' : 'large');
+            }
+            updateBadgeSize();
+            window.addEventListener('resize', updateBadgeSize);
+        }
+
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksList = document.querySelector('.nav-links');
+        if (navToggle && navLinksList) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinksList.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+                navToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+            });
+            navLinksList.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    navLinksList.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.innerHTML = '&#9776;';
+                });
+            });
+        }
+
+        const heroScreenshotCard = document.querySelector('.hero-screenshot-card');
+        const heroLightbox = document.getElementById('heroScreenshotLightbox');
+        const heroLightboxBackdrop = document.querySelector('.hero-lightbox-backdrop');
+
+        if (heroScreenshotCard && heroLightbox && heroLightboxBackdrop) {
+            const openHeroLightbox = () => {
+                heroLightbox.hidden = false;
+                document.body.classList.add('lightbox-open');
+                heroScreenshotCard.focus();
+            };
+
+            const closeHeroLightbox = () => {
+                heroLightbox.hidden = true;
+                document.body.classList.remove('lightbox-open');
+                heroScreenshotCard.focus();
+            };
+
+            heroScreenshotCard.addEventListener('click', openHeroLightbox);
+
+            heroScreenshotCard.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openHeroLightbox();
+                }
+            });
+
+            heroLightbox.addEventListener('click', closeHeroLightbox);
+            heroLightboxBackdrop.addEventListener('click', closeHeroLightbox);
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !heroLightbox.hidden) {
+                    closeHeroLightbox();
+                }
+            });
+        }
+
+        // Comparison table flyouts explaining partial/unsupported cells
+        const comparisonTable = document.querySelector('.comparison-table');
+        if (comparisonTable) {
+            const tipCells = comparisonTable.querySelectorAll('td.cell-no, td.cell-partial');
+            if (tipCells.length) {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'comparison-tooltip';
+                tooltip.setAttribute('role', 'tooltip');
+                tooltip.hidden = true;
+                document.body.appendChild(tooltip);
+
+                let activeCell = null;
+
+                const positionTooltip = () => {
+                    if (!activeCell) return;
+                    const rect = activeCell.getBoundingClientRect();
+                    const tipRect = tooltip.getBoundingClientRect();
+                    const margin = 8;
+
+                    let left = rect.left + rect.width / 2 - tipRect.width / 2;
+                    left = Math.max(margin, Math.min(left, window.innerWidth - tipRect.width - margin));
+
+                    let top = rect.top - tipRect.height - 10;
+                    let placement = 'top';
+                    if (top < margin) {
+                        top = rect.bottom + 10;
+                        placement = 'bottom';
+                    }
+
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+                    tooltip.dataset.placement = placement;
+                    tooltip.style.setProperty('--arrow-left', (rect.left + rect.width / 2 - left) + 'px');
+                };
+
+                const showTooltip = (cell) => {
+                    const srText = cell.querySelector('.sr-only')?.textContent?.trim();
+                    if (!srText) return;
+                    const text = srText.replace(/^(是|否|部分支持)[。\.]\s*/, '');
+                    activeCell = cell;
+                    tooltip.textContent = text;
+                    tooltip.hidden = false;
+                    positionTooltip();
+                    requestAnimationFrame(() => tooltip.classList.add('is-visible'));
+                };
+
+                const hideTooltip = () => {
+                    activeCell = null;
+                    tooltip.classList.remove('is-visible');
+                    tooltip.hidden = true;
+                };
+
+                tipCells.forEach((cell) => {
+                    cell.addEventListener('mouseenter', () => showTooltip(cell));
+                    cell.addEventListener('mouseleave', hideTooltip);
+                    cell.addEventListener('focus', () => showTooltip(cell));
+                    cell.addEventListener('blur', hideTooltip);
+                });
+
+                window.addEventListener('scroll', () => { if (activeCell) positionTooltip(); }, true);
+                window.addEventListener('resize', hideTooltip);
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') hideTooltip();
+                });
+            }
+        }
+    </script>
+</body>
+</html>
