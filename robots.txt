@@ -1,2 +1,17 @@
 User-agent: *
 Allow: /
+
+# Chinese search engines
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: Sosospider
+Allow: /
+
+Sitemap: https://lanbucket.com/sitemap.xml
