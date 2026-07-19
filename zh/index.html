@@ -7,7 +7,7 @@
     <!-- Primary Meta Tags -->
     <title>LANBucket - 简单的局域网文件共享</title>
     <meta name="title" content="LANBucket - 简单的局域网文件共享">
-    <meta name="description" content="LANBucket 采用分布式技术，让您在同一局域网内的设备之间轻松共享文件。非常适合局域网聚会、传输大型游戏文件，或在多台设备间共享内容。无需联网。">
+    <meta name="description" content="LANBucket 是面向局域网聚会的简单文件共享工具。采用分布式技术，在同一局域网内的设备之间共享大型游戏文件。无需联网，完全免费。">
     <meta name="keywords" content="LANBucket, 局域网文件共享, 局域网文件传输, 局域网共享文件, 电脑之间传文件, 局域网传文件工具, 点对点文件传输, P2P文件传输, 大文件传输, 无需网络文件共享, 无需联网传文件, WiFi文件传输, 免费文件传输工具, Windows文件共享软件, 局域网聚会文件共享, 游戏文件共享, Steam游戏共享, 局域网快速传文件, 内网文件传输, 拖放文件共享">
     <meta name="author" content="Justin Becker">
     <meta name="robots" content="index, follow">
@@ -109,6 +109,105 @@
     }
     </script>
 
+    <!-- FAQ Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "inLanguage": "zh-CN",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "LANBucket 能通过互联网使用吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "不能，LANBucket 仅在局域网中工作。所有设备必须连接到同一 WiFi 网络或以太网局域网。这是有意为之，目的是保持您的文件私密和安全。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "它能在我的公司网络上使用吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "许多公司网络出于安全原因会阻止客户端之间的通信，这可能导致 LANBucket 无法正常工作。LANBucket 主要为家庭和私人网络设计。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "如果多播被阻止，LANBucket 还能工作吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "很可能可以。LANBucket 有一个使用中央服务器的后备对等发现机制，因此即使您的网络阻止了多播，设备之间仍可以相互发现并共享文件。如果该机制无效，您可以通过手动输入要连接设备的 IP 地址来连接对等端。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "我所有的客户端都在同一 WiFi 网络上，但有些无法相互看到。为什么？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "许多 WiFi 路由器具有“AP 隔离”或“客户端隔离”功能，会阻止连接到同一 WiFi 网络的设备相互通信。请检查您的路由器设置，看是否启用了此功能。此外，我们还发现，有些无线路由器/接入点在客户端处于不同频段时不允许客户端之间的流量，即一个客户端连接到 2.4GHz，另一个连接到 5GHz。如有可能，请尝试将所有客户端连接到 WiFi 网络的同一频段，或通过以太网连接以获得最佳效果。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "我可以在使用 VPN 的情况下使用它吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "VPN 连接可能会干扰局域网发现。您可能需要断开 VPN 才能使用 LANBucket。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "如果我修改了正在共享的文件会怎样？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "移动、删除或修改您正在共享的文件会导致其他人无法下载。请在其他人完成下载之前保持共享文件不动。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "我的防火墙会阻止 LANBucket 吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Windows Defender 防火墙可能会阻止 LANBucket 发现设备。请确保将网络配置文件设置为“专用”，并在首次启动出现提示时允许 LANBucket 通过防火墙。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "有 Linux 或 MacOS 支持吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "暂时没有，但我们正在考虑。目前 LANBucket 使用 Windows 专用的 UI 框架构建，因此支持 Linux/MacOS 需要大量重写。遗憾的是，LANBucket 也不兼容 Wine/Proton，因为我们使用了那里同样未实现的 Windows API。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "什么是实时压缩？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "LANBucket 会在文件发送时自动压缩、在文件到达时自动解压，全部实时完成。您无需先打包成 zip。对于压缩效果好的文件（例如某些电子游戏），您可能会观察到显著更快的传输速度。如果文件压缩效果不佳，压缩会自动关闭。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "LANBucket 免费吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "是的！LANBucket 完全免费使用，我们也承诺保持无广告。如果您愿意支持开发，可以给我们买杯咖啡。我们感谢您的支持，但这从不强求。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "我发现了一个 bug、翻译错误或有功能建议。该在哪里反馈？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "我们很乐意听到您的意见！请填写反馈表单并提供详细信息。我们会审阅所有提交，并感谢您的反馈。"
+                }
+            }
+        ]
+    }
+    </script>
+
     <link rel="stylesheet" href="/style.css">
     <!-- Microsoft Store Badge -->
     <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
@@ -128,7 +227,7 @@
             <div class="logo">
                 <a href="#" class="logo-link">
                     <img src="/logo.svg" alt="LANBucket 徽标" class="logo-img">
-                    <h1>LANBucket</h1>
+                    <div class="logo-title">LANBucket</div>
                 </a>
             </div>
             <button class="nav-toggle" aria-label="打开导航" aria-expanded="false">&#9776;</button>
@@ -151,7 +250,7 @@
                 <div class="hero-content">
                     <div class="hero-layout">
                         <div class="hero-copy">
-                            <h2>在您的局域网上轻松共享文件</h2>
+                            <h1>面向局域网聚会的简单文件共享</h1>
                             <p class="hero-description">
                                 LANBucket 让您在同一网络中的设备之间轻松共享文件。
                                 非常适合局域网聚会、大文件以及家里的快速传输。无需联网。
