@@ -256,18 +256,20 @@
                 <div class="prose">
                     <h2>The fast way: distributed sharing</h2>
                     <p>
-                        Every method above misses one point: at a LAN party the file is already on <em>someone's</em>
-                        machine, and lots of people want that same one. That's the situation distributed (peer-to-peer)
-                        transfers are built for. Instead of one host uploading to everyone, every machine that has a piece
-                        of the file starts handing that piece to others. The more people downloading, the faster it goes,
-                        the opposite of the cloud-link death spiral.
+                        With the network sorted, the actual fix is simple. Almost every method above leans on a single
+                        source: one PC, one drive, or one link feeding the whole room, so the more people who want the
+                        file, the slower it gets for each of them. Distributed (peer-to-peer) transfers turn that around.
+                        At a LAN party the file is already on <em>someone's</em> machine, and every machine that grabs a
+                        piece starts handing that piece to others. The more people downloading, the faster it goes, the
+                        opposite of the cloud-link death spiral. D-LAN was the one tool from that list that got this
+                        right, and it is was a major inspiration for me.
                     </p>
                     <p>
                         This is why I built <a href="/">LANBucket</a>. It finds every other copy of itself on the network
                         automatically, transfers over a BitTorrent-style protocol tuned for a gigabit LAN rather than the
                         open internet, compresses files on the fly, and puts it all behind a drag-and-drop UI that looks
                         like a shared cloud folder. Some guy turns and says "hey, you've all got to see this," drags it in,
-                        and a few moments later everyone's clicked download and has it. No muss, no fuss. The setup:
+                        and a few moments later everyone can have it downloaded. No muss, no fuss. The setup:
                     </p>
 
                     <h3 id="step-network">Step 1: Get everyone on the same network</h3>
@@ -289,7 +291,7 @@
                     <p>
                         The easy part. Drag files or folders in to share them; everyone else sees them and downloads
                         directly, with no links to pass around. One caveat: LANBucket is Windows-only for now, and since
-                        it's peer-to-peer among the people in the room, I'd use it only with folks you trust, not a public
+                        it's peer-to-peer among the people in the room, I'd use it only with friends you trust, not a public
                         LAN full of strangers. If you want the longer story behind all of this, I wrote up
                         <a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" target="_blank" rel="noopener noreferrer">why I built LANBucket</a>.
                     </p>
