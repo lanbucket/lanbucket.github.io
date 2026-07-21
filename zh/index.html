@@ -82,14 +82,15 @@
         },
         "author": {
             "@type": "Person",
-            "name": "Justin Becker"
+            "name": "Justin Becker",
+            "url": "https://justinbecker.dev",
+            "sameAs": [
+                "https://github.com/geekman7473",
+                "https://www.linkedin.com/in/justin-t-becker"
+            ],
+            "description": "软件开发者，资深局域网聚会主办者，LANBucket 的作者。"
         },
         "softwareVersion": "1.0",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "ratingCount": "1"
-        },
         "featureList": [
             "局域网文件共享",
             "自动设备发现",
@@ -543,6 +544,12 @@
                     <p><strong>实时压缩。</strong> LANBucket：是 &mdash; LANBucket 会在文件发送时自动压缩、在文件到达时自动解压，全程实时进行，这可以让可压缩文件的传输明显更快。DC++：否 &mdash; DC++ 传输文件时不进行任何自动压缩。D-LAN：否 &mdash; D-LAN 按原样发送文件，不进行实时压缩。LocalSend：否 &mdash; LocalSend 传输文件时不进行实时压缩。SMB 共享：否 &mdash; SMB 默认逐字节复制文件，不进行透明压缩。云存储：否 &mdash; 云上传在传输前不会实时压缩您的文件。Steam 本地共享：否 &mdash; Steam 不为文件传输提供实时压缩。USB 闪存盘：否 &mdash; 复制到闪存盘不会压缩您的文件。</p>
                 </div>
                 <p class="comparison-note">
+                    逐一对比：
+                    <a href="/vs-localsend/">LANBucket 对比 LocalSend</a>、
+                    <a href="/vs-dcpp/">对比 DC++</a>、
+                    <a href="/vs-d-lan/">对比 D-LAN</a>。
+                </p>
+                <p class="comparison-note">
                     了解更多： <a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" target="_blank" rel="noopener noreferrer">我为什么开发 LANBucket</a>。
                 </p>
                 <p class="comparison-trademark">
@@ -636,6 +643,19 @@
                             并提供详细信息。我们会审阅所有提交，并感谢您的反馈。
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- More Reading Section -->
+        <section class="related-links">
+            <div class="container">
+                <h2 class="section-title">更多阅读</h2>
+                <div class="related-grid">
+                    <a href="/lan-party-file-sharing-guide/">如何在局域网聚会上共享文件<span>在局域网聚会上于设备之间传输大文件的实用指南。</span></a>
+                    <a href="/vs-localsend/">LANBucket 对比 LocalSend<span>LANBucket 与跨平台发送工具 LocalSend 的对比。</span></a>
+                    <a href="/vs-dcpp/">LANBucket 对比 DC++<span>LANBucket 与经典 Direct Connect 客户端 DC++ 的对比。</span></a>
+                    <a href="/vs-d-lan/">LANBucket 对比 D-LAN<span>LANBucket 与另一款分布式局域网工具 D-LAN 的对比。</span></a>
                 </div>
             </div>
         </section>
