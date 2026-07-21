@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>LANBucket vs LocalSend: Which is better for LAN file sharing?</title>
+    <meta name="title" content="LANBucket vs LocalSend: Which is better for LAN file sharing?">
+    <meta name="description" content="A detailed comparison of LANBucket and LocalSend for local network file sharing. See how they differ on distributed transfers, compression, platforms, and LAN party use.">
+    <meta name="author" content="Justin Becker">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lanbucket.com/vs-localsend/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lanbucket.com/vs-localsend/">
+    <meta property="og:title" content="LANBucket vs LocalSend: Which is better for LAN file sharing?">
+    <meta property="og:description" content="A detailed comparison of LANBucket and LocalSend for local network file sharing, including distributed transfers, compression, platform support, and LAN parties.">
+    <meta property="og:image" content="https://lanbucket.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="LANBucket vs LocalSend comparison">
+    <meta property="og:site_name" content="LANBucket">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lanbucket.com/vs-localsend/">
+    <meta name="twitter:title" content="LANBucket vs LocalSend: Which is better for LAN file sharing?">
+    <meta name="twitter:description" content="A detailed comparison of LANBucket and LocalSend for local network file sharing.">
+    <meta name="twitter:image" content="https://lanbucket.com/og-image.png">
+    <meta name="twitter:image:alt" content="LANBucket vs LocalSend comparison">
+
+    <!-- Mobile & PWA -->
+    <meta name="theme-color" content="#4a90d9">
+    <meta name="apple-mobile-web-app-title" content="LANBucket">
+    <meta name="application-name" content="LANBucket">
+    <meta name="msapplication-TileColor" content="#4a90d9">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "LANBucket vs LocalSend: Which is better for LAN file sharing?",
+        "description": "A detailed comparison of LANBucket and LocalSend for local network file sharing, including distributed transfers, compression, platform support, and LAN party use.",
+        "author": { "@type": "Person", "name": "Justin Becker" },
+        "publisher": { "@type": "Organization", "name": "LANBucket" },
+        "mainEntityOfPage": "https://lanbucket.com/vs-localsend/",
+        "image": "https://lanbucket.com/og-image.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lanbucket.com/" },
+            { "@type": "ListItem", "position": 2, "name": "LANBucket vs LocalSend", "item": "https://lanbucket.com/vs-localsend/" }
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css">
+    <!-- Microsoft Store Badge -->
+    <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
+    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds -->
+    <script>
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        if (!/(^|\.)lanbucket\.com$/i.test(location.hostname)) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-MQ5QBM6CSL');
+      })();
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="/" class="logo-link">
+                    <img src="/logo.svg" alt="LANBucket Logo" class="logo-img">
+                    <div class="logo-title">LANBucket</div>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#how-it-works">How It Works</a></li>
+                <li><a href="/#comparison">Comparison</a></li>
+                <li><a href="/#download">Download</a></li>
+                <li><a href="/#faq">FAQ</a></li>
+                <li><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <p class="breadcrumb"><a href="/">Home</a> &rsaquo; LANBucket vs LocalSend</p>
+                <h1>LANBucket vs LocalSend</h1>
+                <p class="page-header-sub">
+                    Two clean, no-account tools for sharing files on your local network, built for different
+                    jobs. The comparison below shows which one fits your setup.
+                </p>
+                <div class="cta-buttons">
+                    <a class="btn btn-primary btn-large" href="/#download">Get LANBucket</a>
+                    <a class="btn btn-secondary btn-large" href="#comparison">See the comparison</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <div class="prose">
+                    <p class="lead">
+                        <strong>TL;DR:</strong> LocalSend is the better pick when you need to send a file
+                        between two devices across platforms, including phones. LANBucket wins for a room full of Windows
+                        PCs at a LAN party, where many people download the same large files at once.
+                    </p>
+                    <p>
+                        Both tools keep everything on your local network, need no account, and work without an internet
+                        connection. They diverge once more than two devices are involved.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="comparison">
+            <div class="container">
+                <h2 class="section-title">Feature comparison</h2>
+                <div class="comparison-table-wrapper" role="region" aria-label="LANBucket versus LocalSend feature comparison" tabindex="0">
+                    <table class="comparison-table">
+                        <caption class="sr-only">Comparison of LANBucket and LocalSend across common local file sharing features</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="comparison-feature-head">Feature</th>
+                                <th scope="col" class="comparison-highlight-col">LANBucket</th>
+                                <th scope="col">LocalSend</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">No setup or configuration</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">No account or sign-in required</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Distributed (many-to-many) transfers</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. LocalSend sends directly from one device to another, one transfer at a time.</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">On-the-fly compression</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. LocalSend transfers files without automatic compression.</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Automatic peer discovery</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Stays on your local network</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Share any file with drag &amp; drop</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Works without the internet</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cross-platform (macOS, Linux, mobile)</th>
+                                <td class="comparison-highlight-col cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. LANBucket is Windows-only for now.</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes. LocalSend runs on Windows, macOS, Linux, Android, and iOS.</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Open source</th>
+                                <td class="comparison-highlight-col cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="prose">
+                    <h2>Where LANBucket pulls ahead</h2>
+                    <h3>Distributed, many-to-many transfers</h3>
+                    <p>
+                        LocalSend sends a file directly from one device to another, one transfer at a time. That works fine for
+                        "send this photo to my laptop", but at a LAN party where ten people all want the same 40&nbsp;GB folder,
+                        everyone pulls from a single source and the transfers slow down. LANBucket takes a different
+                        approach: every device that has part of a file shares it with the others. The more people
+                        downloading, the more the load spreads, and the faster everyone finishes.
+                    </p>
+                    <h3>On-the-fly compression</h3>
+                    <p>
+                        LANBucket compresses files as they are sent and decompresses them on arrival, in real time. For
+                        content that compresses well, transfers finish faster with no manual zipping. LocalSend sends
+                        files as-is.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <div class="prose">
+                    <h2>Where LocalSend pulls ahead</h2>
+                    <h3>Cross-platform and mobile support</h3>
+                    <p>
+                        LocalSend runs on Windows, macOS, Linux, Android, and iOS. If you need to move a file from your
+                        phone to a Mac, LocalSend does it. LANBucket is Windows-only for now.
+                    </p>
+                    <h3>Open source</h3>
+                    <p>
+                        LocalSend is open source, which some users prefer. LANBucket is
+                        free but not open source.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison">
+            <div class="container">
+                <div class="verdict">
+                    <h2>Which should you use?</h2>
+                    <p><strong>Choose LANBucket</strong> if you're on Windows and sharing large files with several people at once (a LAN party, a study group, a home network), where distributed transfers and compression save time.</p>
+                    <p><strong>Choose LocalSend</strong> if you need cross-platform or phone-to-computer transfers, or you want an open-source tool for the occasional one-to-one send.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-cta">
+            <div class="container">
+                <h2>Get LANBucket free</h2>
+                <p>Free on the Microsoft Store. No account, no ads, no internet required.</p>
+                <div class="store-badge-vertical">
+                    <ms-store-badge
+                        productid="9N9WTBT332JN"
+                        window-mode="direct"
+                        theme="auto"
+                        size="large"
+                        language="en-us"
+                        animation="off">
+                    </ms-store-badge>
+                    <a class="msft-store-link" href="https://apps.microsoft.com/detail/9n9wtbt332jn" target="_blank" rel="noopener noreferrer" style="color:var(--primary-color) !important;text-shadow:none;">or view in Microsoft Store</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-links">
+            <div class="container">
+                <h2 class="section-title">More comparisons &amp; guides</h2>
+                <div class="related-grid">
+                    <a href="/vs-dcpp/">LANBucket vs DC++<span>The classic Direct Connect client, compared.</span></a>
+                    <a href="/vs-d-lan/">LANBucket vs D-LAN<span>Another distributed LAN sharing tool, compared.</span></a>
+                    <a href="/lan-party-file-sharing-guide/">How to share files at a LAN party<span>A practical setup guide.</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Copyright &copy; 2026 Justin Becker. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksList = document.querySelector('.nav-links');
+        if (navToggle && navLinksList) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinksList.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+                navToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+            });
+            navLinksList.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    navLinksList.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.innerHTML = '&#9776;';
+                });
+            });
+        }
+
+        const storeBadge = document.querySelector('ms-store-badge');
+        if (storeBadge) {
+            function updateBadgeSize() {
+                storeBadge.setAttribute('size', window.innerWidth <= 600 ? 'small' : 'large');
+            }
+            updateBadgeSize();
+            window.addEventListener('resize', updateBadgeSize);
+        }
+
+        // Comparison table flyouts explaining partial/unsupported cells
+        const comparisonTable = document.querySelector('.comparison-table');
+        if (comparisonTable) {
+            const tipCells = comparisonTable.querySelectorAll('td.cell-no, td.cell-partial');
+            if (tipCells.length) {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'comparison-tooltip';
+                tooltip.setAttribute('role', 'tooltip');
+                tooltip.hidden = true;
+                document.body.appendChild(tooltip);
+
+                let activeCell = null;
+
+                const positionTooltip = () => {
+                    if (!activeCell) return;
+                    const rect = activeCell.getBoundingClientRect();
+                    const tipRect = tooltip.getBoundingClientRect();
+                    const margin = 8;
+
+                    let left = rect.left + rect.width / 2 - tipRect.width / 2;
+                    left = Math.max(margin, Math.min(left, window.innerWidth - tipRect.width - margin));
+
+                    let top = rect.top - tipRect.height - 10;
+                    let placement = 'top';
+                    if (top < margin) {
+                        top = rect.bottom + 10;
+                        placement = 'bottom';
+                    }
+
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+                    tooltip.dataset.placement = placement;
+                    tooltip.style.setProperty('--arrow-left', (rect.left + rect.width / 2 - left) + 'px');
+                };
+
+                const showTooltip = (cell) => {
+                    const srText = cell.querySelector('.sr-only')?.textContent?.trim();
+                    if (!srText) return;
+                    const text = srText.replace(/^(Yes|No|Partial)[.—\s-]+\s*/i, '');
+                    activeCell = cell;
+                    tooltip.textContent = text;
+                    tooltip.hidden = false;
+                    positionTooltip();
+                    requestAnimationFrame(() => tooltip.classList.add('is-visible'));
+                };
+
+                const hideTooltip = () => {
+                    activeCell = null;
+                    tooltip.classList.remove('is-visible');
+                    tooltip.hidden = true;
+                };
+
+                tipCells.forEach((cell) => {
+                    cell.addEventListener('mouseenter', () => showTooltip(cell));
+                    cell.addEventListener('mouseleave', hideTooltip);
+                    cell.addEventListener('focus', () => showTooltip(cell));
+                    cell.addEventListener('blur', hideTooltip);
+                });
+
+                window.addEventListener('scroll', () => { if (activeCell) positionTooltip(); }, true);
+                window.addEventListener('resize', hideTooltip);
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') hideTooltip();
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -209,14 +209,20 @@
     <link rel="stylesheet" href="style.css">
     <!-- Microsoft Store Badge -->
     <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL"></script>
+    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-MQ5QBM6CSL');
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        if (!/(^|\.)lanbucket\.com$/i.test(location.hostname)) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-MQ5QBM6CSL');
+      })();
     </script>
 </head>
 <body>
@@ -544,6 +550,13 @@
                     <p><strong>On-the-fly compression.</strong> LANBucket: Yes &mdash; LANBucket automatically compresses files as they are sent and decompresses them as they arrive, in real time, which can make transfers of compressible files noticeably faster. DC++: No &mdash; DC++ transfers files without any automatic compression. D-LAN: No &mdash; D-LAN sends files as-is, with no on-the-fly compression. LocalSend: No &mdash; LocalSend transfers files without compressing them on the fly. SMB Share: No &mdash; SMB copies files byte-for-byte with no transparent compression by default. Cloud Storage: No &mdash; cloud uploads don't compress your files on the fly before transfer. Steam Local Sharing: No &mdash; Steam doesn't offer on-the-fly compression for file transfers. USB Flash Drive: No &mdash; copying to a flash drive doesn't compress your files.</p>
                 </div>
                 <p class="comparison-note">
+                    Head-to-head comparisons:
+                    <a href="/vs-localsend/">LANBucket vs LocalSend</a>,
+                    <a href="/vs-dcpp/">vs DC++</a>,
+                    <a href="/vs-d-lan/">vs D-LAN</a>.
+                    New to LAN parties? Read <a href="/lan-party-file-sharing-guide/">how to share files at a LAN party</a>.
+                </p>
+                <p class="comparison-note">
                     For more details: <a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" target="_blank" rel="noopener noreferrer">Why I built LANBucket</a>.
                 </p>
                 <p class="comparison-trademark">
@@ -639,6 +652,19 @@
                             with details. We review all submissions and appreciate your feedback.
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- More Reading Section -->
+        <section class="related-links">
+            <div class="container">
+                <h2 class="section-title">More reading</h2>
+                <div class="related-grid">
+                    <a href="/lan-party-file-sharing-guide/">How to share files at a LAN party<span>A practical guide to moving big files between machines at a LAN.</span></a>
+                    <a href="/vs-localsend/">LANBucket vs LocalSend<span>How LANBucket compares to the cross-platform sender.</span></a>
+                    <a href="/vs-dcpp/">LANBucket vs DC++<span>How LANBucket compares to the classic Direct Connect client.</span></a>
+                    <a href="/vs-d-lan/">LANBucket vs D-LAN<span>How LANBucket compares to another distributed LAN tool.</span></a>
                 </div>
             </div>
         </section>
