@@ -211,14 +211,20 @@
     <link rel="stylesheet" href="/style.css">
     <!-- Microsoft Store Badge -->
     <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL"></script>
+    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-MQ5QBM6CSL');
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        if (!/(^|\.)lanbucket\.com$/i.test(location.hostname)) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-MQ5QBM6CSL');
+      })();
     </script>
 </head>
 <body>

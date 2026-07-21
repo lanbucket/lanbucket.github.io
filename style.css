@@ -1408,3 +1408,207 @@ footer p {
         padding: var(--spacing-xs) var(--spacing-sm);
     }
 }
+
+/* ===== Content / comparison / guide pages ===== */
+.page-header {
+    background-color: var(--bg-primary);
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-header .breadcrumb {
+    margin-bottom: var(--spacing-md);
+}
+
+.page-header h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--text-primary);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-md);
+}
+
+.page-header-sub {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.page-header .cta-buttons {
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: flex-start;
+}
+
+.page-header .btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.page-header .btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.page-header .btn-secondary:hover {
+    background-color: rgba(37, 99, 235, 0.08);
+}
+
+.breadcrumb {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.prose {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    line-height: 1.75;
+}
+
+.prose > h2 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: var(--spacing-xl) 0 var(--spacing-sm);
+}
+
+.prose > h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: var(--spacing-lg) 0 var(--spacing-xs);
+}
+
+.prose p {
+    margin-bottom: var(--spacing-md);
+}
+
+.prose ul,
+.prose ol {
+    margin: 0 0 var(--spacing-md) 1.25rem;
+}
+
+.prose li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.prose a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.prose a:hover {
+    text-decoration: underline;
+}
+
+.prose .lead {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.verdict {
+    max-width: 800px;
+    margin: var(--spacing-xl) auto 0;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: var(--spacing-lg);
+}
+
+.verdict h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.verdict p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.verdict p:last-child {
+    margin-bottom: 0;
+}
+
+.page-cta {
+    background-color: var(--bg-secondary);
+    text-align: center;
+}
+
+.page-cta h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.page-cta p {
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.page-cta .store-badge-vertical {
+    align-items: center;
+    display: inline-flex;
+}
+
+.related-links {
+    background-color: var(--bg-primary);
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.related-grid a {
+    display: block;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: var(--spacing-md);
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.related-grid a:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.related-grid a span {
+    display: block;
+    margin-top: var(--spacing-xs);
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}

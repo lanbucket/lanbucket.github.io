@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>How to Share Files at a LAN Party: A Practical Guide</title>
+    <meta name="title" content="How to Share Files at a LAN Party: A Practical Guide">
+    <meta name="description" content="A step-by-step guide to sharing files fast at a LAN party: wired vs WiFi, avoiding AP isolation and firewall issues, and moving large game files between many PCs.">
+    <meta name="author" content="Justin Becker">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lanbucket.com/lan-party-file-sharing-guide/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lanbucket.com/lan-party-file-sharing-guide/">
+    <meta property="og:title" content="How to Share Files at a LAN Party: A Practical Guide">
+    <meta property="og:description" content="A step-by-step guide to sharing files fast at a LAN party: wired vs WiFi, avoiding AP isolation and firewall issues, and moving large game files between many PCs.">
+    <meta property="og:image" content="https://lanbucket.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="How to share files at a LAN party">
+    <meta property="og:site_name" content="LANBucket">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lanbucket.com/lan-party-file-sharing-guide/">
+    <meta name="twitter:title" content="How to Share Files at a LAN Party: A Practical Guide">
+    <meta name="twitter:description" content="A step-by-step guide to sharing files fast at a LAN party.">
+    <meta name="twitter:image" content="https://lanbucket.com/og-image.png">
+    <meta name="twitter:image:alt" content="How to share files at a LAN party">
+
+    <!-- Mobile & PWA -->
+    <meta name="theme-color" content="#4a90d9">
+    <meta name="apple-mobile-web-app-title" content="LANBucket">
+    <meta name="application-name" content="LANBucket">
+    <meta name="msapplication-TileColor" content="#4a90d9">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to share files at a LAN party",
+        "description": "A step-by-step guide to sharing files quickly and reliably at a LAN party, from network setup to moving large game files between many PCs.",
+        "image": "https://lanbucket.com/og-image.png",
+        "totalTime": "PT10M",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Get everyone on the same network",
+                "text": "Connect every device to the same local network. Wired Ethernet is fastest and most reliable; if you use WiFi, keep everyone on the same access point and frequency band.",
+                "url": "https://lanbucket.com/lan-party-file-sharing-guide/#step-network"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Install a LAN file sharing app on each PC",
+                "text": "Install the same file sharing tool on every computer. LANBucket is free, needs no account, and automatically discovers other machines on the network.",
+                "url": "https://lanbucket.com/lan-party-file-sharing-guide/#step-install"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Drag, drop, and download",
+                "text": "Drag files or folders into the app to share them. Other players see the shared items and download them directly. With distributed transfers, large files spread through the room quickly.",
+                "url": "https://lanbucket.com/lan-party-file-sharing-guide/#step-share"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lanbucket.com/" },
+            { "@type": "ListItem", "position": 2, "name": "How to share files at a LAN party", "item": "https://lanbucket.com/lan-party-file-sharing-guide/" }
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css">
+    <!-- Microsoft Store Badge -->
+    <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
+    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds -->
+    <script>
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        if (!/(^|\.)lanbucket\.com$/i.test(location.hostname)) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-MQ5QBM6CSL');
+      })();
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="/" class="logo-link">
+                    <img src="/logo.svg" alt="LANBucket Logo" class="logo-img">
+                    <div class="logo-title">LANBucket</div>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#how-it-works">How It Works</a></li>
+                <li><a href="/#comparison">Comparison</a></li>
+                <li><a href="/#download">Download</a></li>
+                <li><a href="/#faq">FAQ</a></li>
+                <li><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <p class="breadcrumb"><a href="/">Home</a> &rsaquo; How to share files at a LAN party</p>
+                <h1>How to share files at a LAN party</h1>
+                <p class="page-header-sub">
+                    I've spent 15 years hauling PCs into basements and figuring out how to get big files onto
+                    everyone's machine fast. This is what I've learned about sharing files at a LAN party.
+                </p>
+                <div class="cta-buttons">
+                    <a class="btn btn-primary btn-large" href="/#download">Get LANBucket</a>
+                    <a class="btn btn-secondary btn-large" href="#steps">Jump to the steps</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="prose">
+                    <p class="lead">
+                        I've been throwing LAN parties for over 15 years, and in all that time the one problem that never
+                        goes away is getting files onto everyone's machines. Someone shows up with a game nobody else has,
+                        or a mod pack, or a dumb meme they need the whole room to see, and now you have to get it from one
+                        PC to a dozen others ASAP.
+                    </p>
+                    <p>
+                        What always bugged me is the default answer. In the brave new world of the cloud, the most
+                        frictionless way to move a file between two computers sitting six feet apart is to upload it to a
+                        data center a thousand miles away and then download it all the way back. It works, but I find it
+                        unsatisfying. The files are already in the room. This guide covers moving them the short way,
+                        across your own network, and the tradeoffs of every method I've tried over the years.
+                    </p>
+                    <h2>Ideas I've tried that weren't perfect</h2>
+                    <p>
+                        Whatever clever idea you're thinking of, I've tried it at some point in the last decade.
+                    </p>
+                    <h3>Tell everyone to pre-download the games</h3>
+                    <p>
+                        In theory this is the most efficient option: hand out a list ahead of time and everyone shows up
+                        ready to go. In practice, almost nobody does their homework.
+                    </p>
+                    <h3>Pass around USB flash drives</h3>
+                    <p>
+                        This works, and if you buy a stack of cheap drives you can hand out games as people arrive. But
+                        it's inelegant. You spend the morning copying data onto sticks one at a time, you've got no
+                        recourse if you fumble one, and there's no good story for the guy mid-party who wants to share
+                        something on the spot.
+                    </p>
+                    <h3>Cloud storage during the party</h3>
+                    <p>
+                        Post a link and let everyone download while they're sitting there. The catch is duplication. A
+                        10&nbsp;GB game shared with 16 people is 160&nbsp;GB across your internet connection. And you're
+                        splitting one gigabit pipe 16 ways, so everyone's crawling along at ~60&nbsp;Mbps. Games are big and
+                        this scales badly. There's also the bootstrapping problem of getting the link to everyone, which
+                        assumes your whole group already shares some chat app.
+                    </p>
+                    <h3>A little HTTP server on the LAN</h3>
+                    <p>
+                        Python's built-in <code>http.server</code> gets you 90% of the way with almost no setup. The
+                        trouble is you now have to get everyone to type an IP address into their browser. Once you get everyone going,
+                        you're still one host feeding N clients off a single connection, with no easy way for guests
+                        to share something back.
+                    </p>
+                    <h3>Windows file shares (SMB)</h3>
+                    <p>
+                        Same bottleneck as the HTTP server, plus recent versions of Windows have banned passwordless SMB
+                        shares for security reason, so now you're setting passwords or fiddling with per-account permissions.
+                        You also still have to communicate an IP or hostname.
+                    </p>
+                    <h3>Steam Local Network Transfers</h3>
+                    <p>
+                        A great feature, and I use it often, but it's one-to-one. If only one person has a game
+                        installed, the first guest to grab it pulls it locally and everyone else ends up downloading over
+                        the open internet anyway. (Side note: you can share most Steam games with LANBucket by sharing the
+                        game's folder, found under
+                        <code>C:\Program Files (x86)\Steam\steamapps\common\</code>.)
+                    </p>
+                    <h3>Dedicated LAN sharing apps</h3>
+                    <p>
+                        There are purpose-built tools for this, and I've run several. <a href="/vs-localsend/">LocalSend</a>
+                        is clean and cross-platform, but it sends from one device to another, so it bogs down when a whole
+                        room wants the same file. <a href="/vs-dcpp/">DC++</a> is powerful, though it expects you to set up
+                        hubs and share lists, and its dense interface scares off non-technical guests.
+                        <a href="/vs-d-lan/">D-LAN</a> does the distributed transfers I wanted, but its folder-based UI
+                        never felt like the low-friction path for my crowd. Each one got me part of the way, which is what
+                        pushed me to build my own.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <div class="prose">
+                    <h2>Get your network right first</h2>
+                    <p>
+                        No file-sharing tool can outrun a bad network, so this is worth nailing before you worry about
+                        software. The good news: it's cheaper and simpler than the elaborate Linus Tech Tips builds you've
+                        seen. You do not need servers, fiber, or caching appliances.
+                    </p>
+                    <ul>
+                        <li><strong>Buy a switch, not a hub.</strong> An unmanaged gigabit Ethernet switch with enough
+                            ports for everyone is all you need. A hub makes everyone share the speed of one cable; a switch
+                            gives each person full speed on their own. And get an <em>unmanaged</em> one. A managed
+                            switch you don't understand is a great way to have your network collapse two hours in.
+                            Ask me how I know.</li>
+                        <li><strong>One big switch beats several small ones.</strong> You can daisy-chain switches, but the
+                            link between them becomes a bottleneck, which matters a lot when you're slinging big files.
+                            And never wire switches into a loop, or the whole network drops until you find and unplug the
+                            offending cable.</li>
+                        <li><strong>Avoid WiFi if you can.</strong> It's a debugging nightmare at scale: on each channel
+                            only one device talks at a time, so it bogs down with a room full of players, and I've lost
+                            hours to games where WiFi clients couldn't see each other for no clear reason. Since lots of
+                            laptops have dropped the Ethernet jack, I keep a bag of cheap USB-C and USB-A Ethernet dongles
+                            on hand.</li>
+                        <li><strong>Gigabit (Cat5e) is plenty</strong> for most parties, and don't get fooled by anything
+                            labeled "Fast Ethernet," that's the marketing name for 100&nbsp;Mbps, which is way too slow.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="steps" class="features">
+            <div class="container">
+                <div class="prose">
+                    <h2>The fast way: distributed sharing</h2>
+                    <p>
+                        Every method above misses one point: at a LAN party the file is already on <em>someone's</em>
+                        machine, and lots of people want that same one. That's the situation distributed (peer-to-peer)
+                        transfers are built for. Instead of one host uploading to everyone, every machine that has a piece
+                        of the file starts handing that piece to others. The more people downloading, the faster it goes,
+                        the opposite of the cloud-link death spiral.
+                    </p>
+                    <p>
+                        This is why I built <a href="/">LANBucket</a>. It finds every other copy of itself on the network
+                        automatically, transfers over a BitTorrent-style protocol tuned for a gigabit LAN rather than the
+                        open internet, compresses files on the fly, and puts it all behind a drag-and-drop UI that looks
+                        like a shared cloud folder. Some guy turns and says "hey, you've all got to see this," drags it in,
+                        and a few moments later everyone's clicked download and has it. No muss, no fuss. The setup:
+                    </p>
+
+                    <h3 id="step-network">Step 1: Get everyone on the same network</h3>
+                    <p>
+                        Everything depends on the machines being on the same local network so they can talk directly. See
+                        the networking notes above: wired is best, and if you're stuck on WiFi, keep everyone on the same
+                        access point and frequency band.
+                    </p>
+
+                    <h3 id="step-install">Step 2: Install the same app on every machine</h3>
+                    <p>
+                        Pick one local-sharing tool and install it on the PCs. <a href="/vs-localsend/">LocalSend</a> is
+                        great for the occasional one-to-one or cross-platform send, <a href="/vs-dcpp/">DC++</a> and
+                        <a href="/vs-d-lan/">D-LAN</a> are the old-school distributed options. 
+                        LANBucket is what I use for my LAN parties because it is faster and easier to use than those other options.
+                    </p>
+
+                    <h3 id="step-share">Step 3: Drag, drop, download</h3>
+                    <p>
+                        The easy part. Drag files or folders in to share them; everyone else sees them and downloads
+                        directly, with no links to pass around. One caveat: LANBucket is Windows-only for now, and since
+                        it's peer-to-peer among the people in the room, I'd use it only with folks you trust, not a public
+                        LAN full of strangers. If you want the longer story behind all of this, I wrote up
+                        <a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" target="_blank" rel="noopener noreferrer">why I built LANBucket</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <div class="prose">
+                    <h2>Quick troubleshooting checklist</h2>
+                    <ul>
+                        <li><strong>Devices can't see each other?</strong> Check for AP/client isolation on the router,
+                            make sure everyone's on the same access point and band, and prefer wired connections.</li>
+                        <li><strong>Firewall blocking discovery?</strong> On first launch, set the Windows network
+                            profile to Private (not Public) and allow the app through Windows Defender Firewall when
+                            prompted.</li>
+                        <li><strong>On a VPN?</strong> Disconnect it. VPNs often break local network discovery.</li>
+                        <li><strong>Corporate or venue network?</strong> Many block client-to-client traffic for security;
+                            bring your own switch/router if you can.</li>
+                        <li><strong>Transfer stalled?</strong> Don't move, rename, or delete a file while others are still
+                            downloading it. Keep shared files in place until everyone's done.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="container">
+                <h2 class="section-title">LAN party file sharing FAQ</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>What's the fastest way to share large game files at a LAN party?</h3>
+                        <p>Move them over the local network with a distributed tool rather than the internet or a USB
+                            drive. Wired Ethernet plus an app like LANBucket, where many peers share the load, gets a
+                            large file to everyone fastest.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do I need internet access to share files at a LAN party?</h3>
+                        <p>No. Local network sharing works offline. The files travel between the computers in the room,
+                            so no internet connection is required.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Why can't the other PCs see my shared files?</h3>
+                        <p>The usual causes are AP/client isolation on the WiFi router, the Windows firewall or a Public
+                            network profile blocking discovery, an active VPN, or devices split across different WiFi
+                            bands. Work through the troubleshooting checklist above.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Wired or WiFi for a LAN party?</h3>
+                        <p>Wired Ethernet whenever possible. It's faster, more reliable, and avoids the interference
+                            of a room full of wireless devices. WiFi works, but keep everyone on the same access point and
+                            band.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-cta">
+            <div class="container">
+                <h2>Ready for your next LAN party?</h2>
+                <p>LANBucket is free file sharing built for LAN parties: distributed transfers, on-the-fly compression, no account, no internet required.</p>
+                <div class="store-badge-vertical">
+                    <ms-store-badge
+                        productid="9N9WTBT332JN"
+                        window-mode="direct"
+                        theme="auto"
+                        size="large"
+                        language="en-us"
+                        animation="off">
+                    </ms-store-badge>
+                    <a class="msft-store-link" href="https://apps.microsoft.com/detail/9n9wtbt332jn" target="_blank" rel="noopener noreferrer" style="color:var(--primary-color) !important;text-shadow:none;">or view in Microsoft Store</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-links">
+            <div class="container">
+                <h2 class="section-title">Compare LAN sharing tools</h2>
+                <div class="related-grid">
+                    <a href="/vs-localsend/">LANBucket vs LocalSend<span>The cross-platform sender, compared.</span></a>
+                    <a href="/vs-dcpp/">LANBucket vs DC++<span>The classic Direct Connect client, compared.</span></a>
+                    <a href="/vs-d-lan/">LANBucket vs D-LAN<span>Another distributed LAN sharing tool, compared.</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Copyright &copy; 2026 Justin Becker. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksList = document.querySelector('.nav-links');
+        if (navToggle && navLinksList) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinksList.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+                navToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+            });
+            navLinksList.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    navLinksList.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.innerHTML = '&#9776;';
+                });
+            });
+        }
+
+        const storeBadge = document.querySelector('ms-store-badge');
+        if (storeBadge) {
+            function updateBadgeSize() {
+                storeBadge.setAttribute('size', window.innerWidth <= 600 ? 'small' : 'large');
+            }
+            updateBadgeSize();
+            window.addEventListener('resize', updateBadgeSize);
+        }
+    </script>
+</body>
+</html>
