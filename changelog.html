@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Changelog - LANBucket</title>
+    <meta name="title" content="Changelog - LANBucket">
+    <meta name="description" content="Release notes for LANBucket, the LAN party file sharing app for Windows. See what's new in every version, newest first.">
+    <meta name="author" content="Justin Becker">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lanbucket.com/changelog.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lanbucket.com/changelog.html">
+    <meta property="og:title" content="Changelog - LANBucket">
+    <meta property="og:description" content="Release notes for LANBucket, the LAN party file sharing app for Windows. See what's new in every version.">
+    <meta property="og:image" content="https://lanbucket.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="LANBucket - Local Network File Sharing App">
+    <meta property="og:site_name" content="LANBucket">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lanbucket.com/changelog.html">
+    <meta name="twitter:title" content="Changelog - LANBucket">
+    <meta name="twitter:description" content="Release notes for LANBucket, the LAN party file sharing app for Windows. See what's new in every version.">
+    <meta name="twitter:image" content="https://lanbucket.com/og-image.png">
+    <meta name="twitter:image:alt" content="LANBucket - Local Network File Sharing App">
+
+    <!-- Mobile & PWA -->
+    <meta name="theme-color" content="#4a90d9">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds -->
+    <script>
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        if (!/(^|\.)lanbucket\.com$/i.test(location.hostname)) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-MQ5QBM6CSL');
+      })();
+    </script>
+
+    <style>
+        /* ---- Page header ---- */
+        .changelog-hero {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--spacing-xl) 0;
+        }
+
+        .changelog-hero .back-link {
+            display: inline-block;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .changelog-hero .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .changelog-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .changelog-hero p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin: 0;
+        }
+
+        /* ---- Layout ---- */
+        .changelog-page {
+            padding: var(--spacing-xl) 0 var(--spacing-2xl);
+            min-height: 50vh;
+        }
+
+        .changelog-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: var(--spacing-2xl);
+            align-items: start;
+        }
+
+        /* The index column only exists once there is an index to put in it. */
+        @media (min-width: 901px) {
+            .changelog-layout.has-index {
+                grid-template-columns: 210px minmax(0, 1fr);
+            }
+        }
+
+        /* ---- Version index sidebar ---- */
+        .changelog-index {
+            position: sticky;
+            top: 96px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+
+        .changelog-index h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .changelog-index ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .changelog-index a {
+            display: block;
+            padding: 0.35rem 0 0.35rem var(--spacing-sm);
+            margin-left: -2px;
+            border-left: 2px solid transparent;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .changelog-index a:hover {
+            color: var(--primary-color);
+        }
+
+        .changelog-index a.is-active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        .changelog-index .index-date {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        /* ---- Release entries ---- */
+        .changelog-intro {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.8;
+        }
+
+        .release {
+            padding-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+            scroll-margin-top: 96px;
+        }
+
+        .release:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .release-meta {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .release-version {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .release-version a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .release-version a:hover {
+            color: var(--primary-color);
+        }
+
+        .release-version a::after {
+            content: '#';
+            margin-left: 0.4rem;
+            color: var(--primary-color);
+            opacity: 0;
+            font-size: 1.1rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .release-version a:hover::after,
+        .release-version a:focus-visible::after {
+            opacity: 0.6;
+        }
+
+        .release-date {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .release-badge {
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            background-color: var(--primary-color);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        /* ---- Rendered markdown ---- */
+        .release-notes {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .release-notes > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .release-notes p,
+        .release-notes ul,
+        .release-notes ol,
+        .release-notes blockquote,
+        .release-notes pre,
+        .release-notes table {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .release-notes h1,
+        .release-notes h2,
+        .release-notes h3,
+        .release-notes h4,
+        .release-notes h5,
+        .release-notes h6 {
+            font-family: var(--font-heading);
+            color: var(--text-primary);
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.05rem;
+        }
+
+        .release-notes h1 { font-size: 1.35rem; }
+        .release-notes h2 { font-size: 1.2rem; }
+
+        .release-notes ul,
+        .release-notes ol {
+            padding-left: var(--spacing-md);
+        }
+
+        .release-notes li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .release-notes li > ul,
+        .release-notes li > ol {
+            margin-top: var(--spacing-xs);
+            margin-bottom: 0;
+        }
+
+        .release-notes strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .release-notes a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .release-notes a:hover {
+            text-decoration: underline;
+        }
+
+        .release-notes code {
+            background-color: var(--bg-tertiary);
+            border-radius: 4px;
+            padding: 0.1rem 0.35rem;
+            font-size: 0.9em;
+            font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+
+        .release-notes pre {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: var(--spacing-sm);
+            overflow-x: auto;
+        }
+
+        .release-notes pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .release-notes blockquote {
+            border-left: 3px solid var(--border-color);
+            padding-left: var(--spacing-sm);
+            color: var(--text-light);
+        }
+
+        .release-notes hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: var(--spacing-md) 0;
+        }
+
+        .release-notes img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .release-notes table {
+            border-collapse: collapse;
+            width: 100%;
+            display: block;
+            overflow-x: auto;
+        }
+
+        .release-notes th,
+        .release-notes td {
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.7rem;
+            text-align: left;
+        }
+
+        .release-notes th {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        /* ---- Loading and error states ---- */
+        .changelog-status {
+            color: var(--text-light);
+            padding: var(--spacing-lg) 0;
+        }
+
+        .changelog-status a {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 900px) {
+            .changelog-layout {
+                grid-template-columns: minmax(0, 1fr);
+                gap: var(--spacing-lg);
+            }
+
+            .changelog-index {
+                display: none;
+            }
+
+            .changelog-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="/" class="logo-link">
+                    <img src="/logo.svg" alt="LANBucket Logo" class="logo-img">
+                    <div class="logo-title">LANBucket</div>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#how-it-works">How It Works</a></li>
+                <li><a href="/#comparison">Comparison</a></li>
+                <li><a href="/#download">Download</a></li>
+                <li><a href="/#faq">FAQ</a></li>
+                <li><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="changelog-hero">
+            <div class="container">
+                <a href="/" class="back-link">&larr; Back to LANBucket</a>
+                <h1>Changelog</h1>
+                <p>Every LANBucket release, newest first.</p>
+            </div>
+        </section>
+
+        <section class="changelog-page">
+            <div class="container">
+                <div class="changelog-layout">
+                    <nav class="changelog-index" id="changelogIndex" aria-label="Releases" hidden>
+                        <h2>Releases</h2>
+                        <ol id="changelogIndexList"></ol>
+                    </nav>
+
+                    <div id="changelogContent">
+                        <p class="changelog-status" id="changelogStatus" role="status">Loading the changelog&hellip;</p>
+                        <noscript>
+                            <p class="changelog-status">
+                                The changelog is rendered with JavaScript. You can
+                                <a href="/CHANGELOG.md">read the raw CHANGELOG.md</a> instead.
+                            </p>
+                        </noscript>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Copyright &copy; 2026 Justin Becker. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/changelog.html">Changelog</a>
+                <a href="/privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        'use strict';
+
+        var navToggle = document.querySelector('.nav-toggle');
+        var navLinksList = document.querySelector('.nav-links');
+        if (navToggle && navLinksList) {
+            navToggle.addEventListener('click', function () {
+                var isOpen = navLinksList.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+                navToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+            });
+            navLinksList.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    navLinksList.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.innerHTML = '&#9776;';
+                });
+            });
+        }
+    })();
+    </script>
+
+    <script>
+    /*
+     * Renders /CHANGELOG.md. That file is dropped in by CI and is never edited here,
+     * so this has to cope with whatever generic Markdown shows up in it. Anything it
+     * does not recognise still renders as plain text rather than breaking the page.
+     */
+    (function () {
+        'use strict';
+
+        /* ------------------------------------------------------------------ *
+         * Minimal Markdown renderer (no dependencies)
+         * ------------------------------------------------------------------ */
+
+        var NUL = '\u0000';
+
+        var ITEM_RE    = /^(\s*)([-*+]|\d{1,9}[.)])([ \t]+)(.*)$/;
+        var HR_RE      = /^ {0,3}([-*_])[ \t]*(?:\1[ \t]*){2,}$/;
+        var HEADING_RE = /^ {0,3}(#{1,6})[ \t]+(.*?)[ \t]*#*[ \t]*$/;
+        var FENCE_RE   = /^ {0,3}(`{3,}|~{3,})[ \t]*([^`\s]*)[ \t]*$/;
+        var QUOTE_RE   = /^ {0,3}>[ ]?(.*)$/;
+        var SETEXT_RE  = /^ {0,3}(=+|-+)[ \t]*$/;
+
+        function escapeHtml(s) {
+            return s.replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;');
+        }
+
+        // Only allow URLs that cannot execute script. Values arrive HTML-escaped.
+        function safeUrl(url) {
+            var u = url.trim().replace(/^&lt;/, '').replace(/&gt;$/, '');
+            if (/^[a-z][a-z0-9+.-]*:/i.test(u) && !/^(?:https?|mailto|tel):/i.test(u)) return '';
+            return u;
+        }
+
+        function isExternal(url) {
+            return /^https?:\/\//i.test(url) && !/^https?:\/\/(?:[a-z0-9-]+\.)*lanbucket\.com(?:[\/:?#]|$)/i.test(url);
+        }
+
+        function inline(text) {
+            var store = [];
+            function keep(html) {
+                store.push(html);
+                return NUL + (store.length - 1) + NUL;
+            }
+
+            var out = escapeHtml(text);
+
+            // Hard line breaks: two or more trailing spaces, or a trailing backslash.
+            out = out.replace(/(?: {2,}|\\)\n/g, function () { return keep('<br>') + '\n'; });
+
+            // Code spans first — nothing inside them is interpreted.
+            out = out.replace(/(`+)([\s\S]+?)\1(?!`)/g, function (m, ticks, code) {
+                return keep('<code>' + code.replace(/^ ([\s\S]*) $/, '$1') + '</code>');
+            });
+
+            // Backslash escapes.
+            out = out.replace(/\\([\\`*_{}\[\]()#+\-.!~|])/g, function (m, ch) { return keep(ch); });
+
+            // Images, then links (images first so ![]() is not read as a link).
+            out = out.replace(/!\[([^\]]*)\]\(\s*([^\s)]+)(?:\s+&quot;([^&]*)&quot;)?\s*\)/g,
+                function (m, alt, src, title) {
+                    var u = safeUrl(src);
+                    if (!u) return m;
+                    return keep('<img src="' + u + '" alt="' + alt + '"' +
+                                (title ? ' title="' + title + '"' : '') + ' loading="lazy">');
+                });
+
+            out = out.replace(/\[([^\]]*)\]\(\s*([^\s)]+)(?:\s+&quot;([^&]*)&quot;)?\s*\)/g,
+                function (m, label, href, title) {
+                    var u = safeUrl(href);
+                    if (!u) return m;
+                    return keep('<a href="' + u + '"' + (title ? ' title="' + title + '"' : '') +
+                                (isExternal(u) ? ' target="_blank" rel="noopener noreferrer"' : '') +
+                                '>' + label + '</a>');
+                });
+
+            // Bare URLs.
+            out = out.replace(/(^|[\s(])((?:https?:\/\/|www\.)[^\s<)]*[^\s<).,;:!?'"])/g,
+                function (m, pre, url) {
+                    var href = /^www\./i.test(url) ? 'https://' + url : url;
+                    return pre + keep('<a href="' + href + '" target="_blank" rel="noopener noreferrer">' +
+                                      url + '</a>');
+                });
+
+            // Emphasis.
+            out = out
+                .replace(/\*\*\*([\s\S]+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+                .replace(/\*\*([\s\S]+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/(^|[\s(\[])__([\s\S]+?)__(?=$|[\s).,!?:;\]])/g, '$1<strong>$2</strong>')
+                .replace(/~~([\s\S]+?)~~/g, '<del>$1</del>')
+                .replace(/(^|[^*\w])\*([^\s*](?:[^*]*[^\s*])?)\*(?!\*)/g, '$1<em>$2</em>')
+                .replace(/(^|[\s(\[])_([^\s_](?:[^_]*[^\s_])?)_(?=$|[\s).,!?:;\]])/g, '$1<em>$2</em>');
+
+            // Restore the protected fragments (they may themselves contain markers).
+            var guard = 0;
+            var markerRe = new RegExp(NUL + '(\\d+)' + NUL, 'g');
+            while (out.indexOf(NUL) !== -1 && guard++ < 20) {
+                out = out.replace(markerRe, function (m, n) { return store[+n]; });
+            }
+            return out;
+        }
+
+        function isTableStart(lines, i) {
+            if (i + 1 >= lines.length) return false;
+            return lines[i].indexOf('|') !== -1 &&
+                   /^[\s|:\-]+$/.test(lines[i + 1]) &&
+                   lines[i + 1].indexOf('-') !== -1 &&
+                   lines[i + 1].indexOf('|') !== -1;
+        }
+
+        function splitRow(row) {
+            return row.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(function (c) {
+                return c.trim();
+            });
+        }
+
+        function parseTable(lines, start) {
+            var head = splitRow(lines[start]);
+            var aligns = splitRow(lines[start + 1]).map(function (c) {
+                if (/^:-+:$/.test(c)) return 'center';
+                if (/^:-+$/.test(c)) return 'left';
+                if (/^-+:$/.test(c)) return 'right';
+                return '';
+            });
+            var i = start + 2;
+            var body = [];
+            while (i < lines.length && lines[i].trim() && lines[i].indexOf('|') !== -1) {
+                body.push(splitRow(lines[i]));
+                i++;
+            }
+
+            function cells(tag, row) {
+                return row.map(function (c, n) {
+                    var a = aligns[n] ? ' style="text-align:' + aligns[n] + '"' : '';
+                    return '<' + tag + a + '>' + inline(c) + '</' + tag + '>';
+                }).join('');
+            }
+
+            var html = '<table><thead><tr>' + cells('th', head) + '</tr></thead>';
+            if (body.length) {
+                html += '<tbody>' + body.map(function (r) {
+                    return '<tr>' + cells('td', r) + '</tr>';
+                }).join('') + '</tbody>';
+            }
+            return { html: html + '</table>', next: i };
+        }
+
+        function parseList(lines, start) {
+            var first = lines[start].match(ITEM_RE);
+            var baseIndent = first[1].length;
+            var ordered = /\d/.test(first[2]);
+            var startNum = ordered ? parseInt(first[2], 10) : 1;
+            var items = [];
+            var contentIndents = [];
+            var loose = false;
+            var pendingBlank = false;
+            var i = start;
+
+            while (i < lines.length) {
+                var line = lines[i];
+
+                if (!line.trim()) { pendingBlank = true; i++; continue; }
+
+                var indent = line.search(/\S/);
+                var m = line.match(ITEM_RE);
+
+                if (m && indent <= baseIndent) {
+                    if (/\d/.test(m[2]) !== ordered) break;
+                    if (pendingBlank && items.length) { loose = true; pendingBlank = false; }
+                    items.push([m[4]]);
+                    contentIndents.push(m[1].length + m[2].length + m[3].length);
+                    i++;
+                    continue;
+                }
+
+                if (!items.length) break;
+
+                if (indent > baseIndent) {
+                    if (pendingBlank) { loose = true; pendingBlank = false; items[items.length - 1].push(''); }
+                    items[items.length - 1].push(line.slice(Math.min(indent, contentIndents[items.length - 1])));
+                    i++;
+                    continue;
+                }
+
+                // Lazy continuation of the current item's paragraph.
+                if (!pendingBlank && !m && !HR_RE.test(line) && !HEADING_RE.test(line) &&
+                    !FENCE_RE.test(line) && !QUOTE_RE.test(line)) {
+                    items[items.length - 1].push(line.trim());
+                    i++;
+                    continue;
+                }
+
+                break;
+            }
+
+            var tag = ordered ? 'ol' : 'ul';
+            var open = '<' + tag + (ordered && startNum !== 1 ? ' start="' + startNum + '"' : '') + '>';
+            var html = open + items.map(function (item) {
+                var inner = parseBlocks(item);
+                if (!loose) inner = inner.replace(/^<p>([\s\S]*?)<\/p>/, '$1');
+                return '<li>' + inner + '</li>';
+            }).join('') + '</' + tag + '>';
+
+            return { html: html, next: i };
+        }
+
+        function parseBlocks(lines) {
+            var html = '';
+            var i = 0;
+
+            while (i < lines.length) {
+                var line = lines[i];
+
+                if (!line.trim()) { i++; continue; }
+
+                var m = line.match(FENCE_RE);
+                if (m) {
+                    var fenceChar = m[1].charAt(0);
+                    var fenceLen = m[1].length;
+                    var lang = m[2];
+                    var code = [];
+                    i++;
+                    while (i < lines.length) {
+                        var close = lines[i].match(/^ {0,3}(`{3,}|~{3,})[ \t]*$/);
+                        if (close && close[1].charAt(0) === fenceChar && close[1].length >= fenceLen) { i++; break; }
+                        code.push(lines[i]);
+                        i++;
+                    }
+                    html += '<pre><code' + (lang ? ' class="language-' + escapeHtml(lang) + '"' : '') + '>' +
+                            escapeHtml(code.join('\n')) + '</code></pre>';
+                    continue;
+                }
+
+                if (HR_RE.test(line)) { html += '<hr>'; i++; continue; }
+
+                m = line.match(HEADING_RE);
+                if (m) {
+                    var level = m[1].length;
+                    html += '<h' + level + '>' + inline(m[2]) + '</h' + level + '>';
+                    i++;
+                    continue;
+                }
+
+                if (QUOTE_RE.test(line)) {
+                    var quoted = [];
+                    while (i < lines.length && lines[i].trim()) {
+                        var q = lines[i].match(QUOTE_RE);
+                        quoted.push(q ? q[1] : lines[i].trim());
+                        i++;
+                    }
+                    html += '<blockquote>' + parseBlocks(quoted) + '</blockquote>';
+                    continue;
+                }
+
+                if (isTableStart(lines, i)) {
+                    var table = parseTable(lines, i);
+                    html += table.html;
+                    i = table.next;
+                    continue;
+                }
+
+                if (ITEM_RE.test(line)) {
+                    var list = parseList(lines, i);
+                    html += list.html;
+                    i = list.next;
+                    continue;
+                }
+
+                // Paragraph (or a setext heading, which is a paragraph line underlined by === / ---).
+                var para = [];
+                var consumed = false;
+                while (i < lines.length) {
+                    var p = lines[i];
+                    if (!p.trim()) break;
+                    if (para.length && SETEXT_RE.test(p)) {
+                        var lvl = p.trim().charAt(0) === '=' ? 1 : 2;
+                        html += '<h' + lvl + '>' + inline(para.join(' ')) + '</h' + lvl + '>';
+                        para = [];
+                        consumed = true;
+                        i++;
+                        break;
+                    }
+                    if (HR_RE.test(p) || HEADING_RE.test(p) || FENCE_RE.test(p) ||
+                        QUOTE_RE.test(p) || ITEM_RE.test(p) || isTableStart(lines, i)) break;
+                    para.push(p);
+                    i++;
+                }
+                if (para.length) html += '<p>' + inline(para.join('\n')) + '</p>';
+            }
+
+            return html;
+        }
+
+        function renderMarkdown(src) {
+            var text = src.replace(/^﻿/, '').replace(/\r\n?/g, '\n').replace(/\t/g, '    ');
+            return parseBlocks(text.split('\n'));
+        }
+
+        /* ------------------------------------------------------------------ *
+         * Changelog presentation
+         * ------------------------------------------------------------------ */
+
+        var layout = document.querySelector('.changelog-layout');
+        var content = document.getElementById('changelogContent');
+        var status = document.getElementById('changelogStatus');
+        var indexNav = document.getElementById('changelogIndex');
+        var indexList = document.getElementById('changelogIndexList');
+
+        // "1.4.0 — August 23, 2026" -> version + date. Only the first separator counts,
+        // so a date range like "November 2025 – February 2026" stays intact.
+        var TITLE_SPLIT_RE = /^(.*?)\s+(?:[—–]|[-|])\s+(.+)$/;
+
+        function slugify(s) {
+            var slug = s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            return slug ? (/^\d/.test(slug) ? 'v' + slug : slug) : 'release';
+        }
+
+        function showError(message) {
+            content.innerHTML = '';
+            var p = document.createElement('p');
+            p.className = 'changelog-status';
+            p.appendChild(document.createTextNode(message + ' You can '));
+            var a = document.createElement('a');
+            a.href = '/CHANGELOG.md';
+            a.textContent = 'read the raw CHANGELOG.md';
+            p.appendChild(a);
+            p.appendChild(document.createTextNode(' instead.'));
+            content.appendChild(p);
+        }
+
+        function build(markdown) {
+            var parsed = document.createElement('div');
+            parsed.innerHTML = renderMarkdown(markdown);
+
+            // The file leads with its own "# LANBucket Changelog" title; the page already has one.
+            if (parsed.firstElementChild && parsed.firstElementChild.tagName === 'H1') {
+                parsed.removeChild(parsed.firstElementChild);
+            }
+
+            var nodes = Array.prototype.slice.call(parsed.children);
+            var intro = [];
+            var releases = [];
+            var current = null;
+
+            nodes.forEach(function (node) {
+                if (node.tagName === 'H2') {
+                    current = { heading: node, body: [] };
+                    releases.push(current);
+                    return;
+                }
+                // Drop the rules that separate entries — the entry borders do that job.
+                if (node.tagName === 'HR') {
+                    var next = node.nextElementSibling;
+                    if (!next || next.tagName === 'H2') return;
+                }
+                (current ? current.body : intro).push(node);
+            });
+
+            content.innerHTML = '';
+
+            if (!releases.length && !intro.length) {
+                showError('The changelog is empty.');
+                return;
+            }
+
+            if (intro.length) {
+                var introEl = document.createElement('div');
+                introEl.className = 'changelog-intro release-notes';
+                intro.forEach(function (n) { introEl.appendChild(n); });
+                content.appendChild(introEl);
+            }
+
+            var usedIds = Object.create(null);
+
+            releases.forEach(function (release, n) {
+                var hasMarkup = release.heading.children.length > 0;
+                var titleText = release.heading.textContent.trim();
+                var match = hasMarkup ? null : titleText.match(TITLE_SPLIT_RE);
+                var versionHtml = match ? escapeHtml(match[1]) : release.heading.innerHTML;
+                var versionText = match ? match[1] : titleText;
+                var dateText = match ? match[2] : '';
+
+                var id = slugify(versionText);
+                if (usedIds[id]) id = id + '-' + (++usedIds[id]);
+                else usedIds[id] = 1;
+
+                var article = document.createElement('article');
+                article.className = 'release';
+                article.id = id;
+
+                var meta = document.createElement('div');
+                meta.className = 'release-meta';
+
+                var h2 = document.createElement('h2');
+                h2.className = 'release-version';
+                var anchor = document.createElement('a');
+                anchor.href = '#' + id;
+                anchor.innerHTML = versionHtml;
+                anchor.setAttribute('aria-label', 'Link to ' + versionText);
+                h2.appendChild(anchor);
+                meta.appendChild(h2);
+
+                if (dateText) {
+                    var date = document.createElement('span');
+                    date.className = 'release-date';
+                    date.textContent = dateText;
+                    meta.appendChild(date);
+                }
+
+                if (n === 0 && releases.length > 1) {
+                    var badge = document.createElement('span');
+                    badge.className = 'release-badge';
+                    badge.textContent = 'Latest';
+                    meta.appendChild(badge);
+                }
+
+                article.appendChild(meta);
+
+                var notes = document.createElement('div');
+                notes.className = 'release-notes';
+                release.body.forEach(function (node) { notes.appendChild(node); });
+                article.appendChild(notes);
+
+                content.appendChild(article);
+
+                var li = document.createElement('li');
+                var link = document.createElement('a');
+                link.href = '#' + id;
+                link.appendChild(document.createTextNode(versionText));
+                if (dateText) {
+                    var small = document.createElement('span');
+                    small.className = 'index-date';
+                    small.textContent = dateText;
+                    link.appendChild(small);
+                }
+                li.appendChild(link);
+                indexList.appendChild(li);
+
+                release.id = id;
+                release.el = article;
+                release.link = link;
+            });
+
+            if (releases.length > 1) {
+                indexNav.hidden = false;
+                layout.classList.add('has-index');
+            }
+
+            highlightOnScroll(releases);
+            jumpToHash(releases);
+            window.addEventListener('hashchange', function () { jumpToHash(releases); });
+        }
+
+        // Deep links keep working even though the content renders after page load,
+        // and "#1.4.0" resolves to the same entry as "#v1-4-0".
+        function jumpToHash(releases) {
+            var raw = decodeURIComponent(location.hash.replace(/^#/, ''));
+            if (!raw) return;
+            var target = document.getElementById(raw);
+            if (!target) {
+                var wanted = slugify(raw);
+                for (var i = 0; i < releases.length; i++) {
+                    if (releases[i].id === wanted) { target = releases[i].el; break; }
+                }
+            }
+            if (target) target.scrollIntoView();
+        }
+
+        function highlightOnScroll(releases) {
+            if (!('IntersectionObserver' in window) || releases.length < 2) return;
+
+            var visible = {};
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    visible[entry.target.id] = entry.isIntersecting;
+                });
+                for (var i = 0; i < releases.length; i++) {
+                    if (visible[releases[i].id]) {
+                        setActive(releases, releases[i]);
+                        return;
+                    }
+                }
+            }, { rootMargin: '-100px 0px -65% 0px', threshold: 0 });
+
+            releases.forEach(function (release) { observer.observe(release.el); });
+        }
+
+        function setActive(releases, active) {
+            releases.forEach(function (release) {
+                var isActive = release === active;
+                release.link.classList.toggle('is-active', isActive);
+                if (isActive) release.link.setAttribute('aria-current', 'true');
+                else release.link.removeAttribute('aria-current');
+            });
+        }
+
+        if (!window.fetch) {
+            showError('Your browser cannot load the changelog.');
+            return;
+        }
+
+        // no-cache so a changelog freshly published by CI is not served from a stale cache.
+        fetch('/CHANGELOG.md', { cache: 'no-cache' })
+            .then(function (response) {
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                return response.text();
+            })
+            .then(function (markdown) {
+                if (status && status.parentNode) status.parentNode.removeChild(status);
+                build(markdown);
+            })
+            .catch(function (error) {
+                if (window.console) console.error('Failed to load CHANGELOG.md:', error);
+                showError('The changelog could not be loaded.');
+            });
+    })();
+    </script>
+</body>
+</html>
