@@ -682,6 +682,22 @@ ms-store-badge {
     color: white;
 }
 
+.store-changelog {
+    margin-top: var(--spacing-xs);
+}
+
+.store-changelog a {
+    color: white;
+    font-weight: 600;
+    text-decoration: underline;
+    opacity: 0.95;
+    transition: opacity 0.2s ease;
+}
+
+.store-changelog a:hover {
+    opacity: 1;
+}
+
 .store-notice .btn-primary {
     flex-shrink: 0;
     white-space: nowrap;
