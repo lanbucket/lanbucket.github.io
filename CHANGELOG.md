@@ -2,6 +2,12 @@
 
 ---
 
+## 1.4.1
+
+- **Eight more languages.** LANBucket is now available in 21 languages, adding Chinese (Traditional), Hebrew, Indonesian, Malay, Polish, Thai, Turkish, and Ukrainian.
+
+- Fixed issue causing closing the app to take longer than expected in some circumstances.
+
 ## 1.4.0 — August 23, 2026
 
 - **Much faster file verification.** LANBucket now uses the BLAKE3 hash function instead of SHA-256 for improved performance.
