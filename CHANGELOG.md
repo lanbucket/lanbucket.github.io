@@ -4,9 +4,9 @@
 
 ## 1.4.1
 
-- **Eight more languages.** LANBucket is now available in 21 languages, adding Chinese (Traditional), Hebrew, Indonesian, Malay, Polish, Thai, Turkish, and Ukrainian.
+- **Nine more languages.** LANBucket is now available in 9 more languages: Chinese (Traditional), Hebrew, Indonesian, Malay, Polish, Thai, Turkish, Ukrainian and Nepali.
 
-- Fixed issue causing closing the app to take longer than expected in some circumstances.
+- Fixed issue causing the app to take longer than expected to close in some circumstances.
 
 ## 1.4.0 — August 23, 2026
 
