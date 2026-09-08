@@ -2,7 +2,11 @@
 
 ---
 
-## 1.4.1
+## 1.4.2 - September 8, 2026
+
+- Fixes potential corruption issues that could arrise when running a newer LANBucket client with cache files still present from an older version.
+
+## 1.4.1 - August 31, 2026
 
 - **Nine more languages.** LANBucket is now available in 9 more languages: Chinese (Traditional), Hebrew, Indonesian, Malay, Polish, Thai, Turkish, Ukrainian and Nepali.
 
