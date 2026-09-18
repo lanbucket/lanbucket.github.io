@@ -2,6 +2,12 @@
 
 ---
 
+## 1.4.3 - September 18, 2026
+- LANBucket now creates firewall rules during installation, skipping popup dialog.
+- LANBucket no longer warns the user about the Windows "Public Network Profile".
+- Slightly improved app startup time.
+- Refined some tutorial text.
+
 ## 1.4.2 - September 8, 2026
 
 - Fixes potential corruption issues that could arrise when running a newer LANBucket client with cache files still present from an older version.
