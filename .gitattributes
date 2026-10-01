@@ -1,0 +1,2 @@
+# Text files are stored with LF line endings, whatever line endings the local Git or editor uses.
+* text=auto

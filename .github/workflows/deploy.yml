@@ -1,0 +1,51 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Assemble the site
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        set -euo pipefail
+        # The files GitHub's Jekyll build published: everything but names starting with "." or "_".
+        rsync -a --exclude='.*' --exclude='_*' ./ _site/
+        mkdir -p _site/app
+        if gh release view --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+          gh release download --repo "$GITHUB_REPOSITORY" --dir _site/app \
+            --pattern 'LanBucket_*.msixbundle' --pattern 'LANBucketSetup_*.exe' --pattern 'latest.json'
+        fi
+        ls -l _site/app
+
+    - uses: actions/configure-pages@v5
+
+    - uses: actions/upload-pages-artifact@v3
+      with:
+        path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - id: deployment
+      uses: actions/deploy-pages@v4
