@@ -1,0 +1,107 @@
+# Publishes a LANBucket master build's signed offline installer: creates a release here holding the
+# bundle, LANBucket Setup and latest.json (the app's update feed), then deploys the site.
+# LANBUCKET_ARTIFACTS_TOKEN: fine-grained token with Actions: Read on geekman7473/LanBucket.
+name: Publish offline release
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'LANBucket build run to publish (blank: the newest master build with a signed Setup)'
+        required: false
+        default: ''
+      required:
+        description: 'Required update: older versions ask to restart into it right away'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      SOURCE_REPO: geekman7473/LanBucket
+    steps:
+    - name: Download the signed bundle and Setup
+      env:
+        GH_TOKEN: ${{ secrets.LANBUCKET_ARTIFACTS_TOKEN }}
+        RUN_ID: ${{ inputs.run_id }}
+      run: |
+        set -euo pipefail
+        if [ -z "$RUN_ID" ]; then
+          # sign-offline uploads the Setup artifact last, so its presence means the whole job finished
+          RUN_ID=$(gh api "repos/$SOURCE_REPO/actions/artifacts?name=LanBucket-Offline-Setup&per_page=100" \
+            --jq '[.artifacts[] | select(.expired | not) | select(.workflow_run.head_branch == "master")][0].workflow_run.id // empty')
+        fi
+        if [ -z "$RUN_ID" ]; then
+          echo "No master build with an unexpired LanBucket-Offline-Setup artifact"
+          exit 1
+        fi
+        echo "Publishing LANBucket build run $RUN_ID"
+        gh run download "$RUN_ID" --repo "$SOURCE_REPO" --name LanBucket-Offline-Bundle --dir release
+        gh run download "$RUN_ID" --repo "$SOURCE_REPO" --name LanBucket-Offline-Setup --dir release
+        ls -l release
+
+    - name: Write latest.json
+      env:
+        GH_TOKEN: ${{ github.token }}
+        REQUIRED: ${{ inputs.required }}
+      run: |
+        set -euo pipefail
+        cd release
+        shopt -s nullglob
+        bundles=(LanBucket_*.msixbundle)
+        if [ ${#bundles[@]} -ne 1 ]; then
+          echo "Expected 1 bundle, found ${#bundles[@]}"
+          exit 1
+        fi
+        version="${bundles[0]#LanBucket_}"
+        version="${version%.msixbundle}"
+        if [ ! -f "LANBucketSetup_${version}.exe" ]; then
+          echo "LANBucketSetup_${version}.exe not found next to ${bundles[0]}"
+          exit 1
+        fi
+
+        # A required release raises the minimum. Otherwise the current minimum carries over, so a PC that
+        # skipped a required release is still told to update.
+        if [ "$REQUIRED" = "true" ]; then
+          minimum="$version"
+        else
+          minimum=$(gh release download --repo "$GITHUB_REPOSITORY" --pattern latest.json --output - 2>/dev/null \
+            | jq -r '.minimumVersion // empty' || true)
+        fi
+
+        jq -n \
+          --arg version "$version" \
+          --arg bundleUrl "https://lanbucket.com/app/LanBucket_${version}.msixbundle" \
+          --arg setupUrl "https://lanbucket.com/app/LANBucketSetup_${version}.exe" \
+          --arg minimum "$minimum" \
+          '{ version: $version, bundleUrl: $bundleUrl, setupUrl: $setupUrl }
+           + (if $minimum == "" then {} else { minimumVersion: $minimum } end)' > latest.json
+        cat latest.json
+        echo "VERSION=$version" >> "$GITHUB_ENV"
+
+    - name: Create the release
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        set -euo pipefail
+        cd release
+        gh release create "v$VERSION" \
+          --repo "$GITHUB_REPOSITORY" \
+          --title "LANBucket $VERSION" \
+          --notes "Offline installer for LANBucket $VERSION. lanbucket.com serves the newest release's files." \
+          --latest \
+          "LanBucket_${VERSION}.msixbundle" "LANBucketSetup_${VERSION}.exe" latest.json
+
+  deploy:
+    needs: release
+    uses: ./.github/workflows/deploy.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
