@@ -394,7 +394,7 @@
                                 <th scope="row">无需设置或配置</th>
                                 <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
                                 <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。DC++ 要求您先添加要连接的中枢（hub）并设置共享列表，然后才能使用。</span></td>
-                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。D-LAN 上手很快，但您仍需先选择共享文件夹并确认网络设置。</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。D-LAN 会自动发现对等端，但您仍需选择要共享的文件夹以及下载位置。</span></td>
                                 <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
                                 <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。SMB 共享需要启用共享、设置权限并映射驱动器。</span></td>
                                 <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。您必须创建账户、安装客户端并等待其同步，然后才能共享任何内容。</span></td>
@@ -449,7 +449,7 @@
                                 <th scope="row">拖放共享任意文件</th>
                                 <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
                                 <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">否。DC++ 共享的是您预先配置的整个文件夹，而非临时拖入的文件。</span></td>
-                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。D-LAN 从指定文件夹共享，而非快速拖放任意文件。</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。D-LAN 自 1.4 版起支持拖放，但您必须先进入其共享列表才能拖入文件。</span></td>
                                 <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
                                 <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">部分支持。您可以将文件拖入共享文件夹，但前提是共享和权限已设置好。</span></td>
                                 <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">是</span></td>
@@ -495,12 +495,12 @@
                 <div class="comparison-plaintext sr-only" aria-hidden="true">
                     <h3>LANBucket 功能对比（纯文本摘要）</h3>
                     <p>这是上方对比表格的纯文本版本，将 LANBucket 与 DC++、D-LAN、LocalSend、SMB 共享、云存储、Steam 本地共享和 USB 闪存盘进行对比。每一项均列出该工具是否提供此功能（是、部分支持或否）及其原因。</p>
-                    <p><strong>无需设置或配置。</strong> LANBucket：是。DC++：否 &mdash; DC++ 要求您先添加要连接的中枢并设置共享列表，然后才能使用。D-LAN：部分支持 &mdash; D-LAN 上手很快，但您仍需先选择共享文件夹并确认网络设置。LocalSend：是。SMB 共享：否 &mdash; SMB 共享需要启用共享、设置权限并映射驱动器，通常还需要管理员权限。云存储：否 &mdash; 您必须创建账户、安装客户端并等待其同步，然后才能共享任何内容。Steam 本地共享：部分支持 &mdash; 您需要安装并登录 Steam，并启用相关的共享设置。USB 闪存盘：否 &mdash; 闪存盘必须为您的设备格式化，并逐一物理插入每台设备。</p>
+                    <p><strong>无需设置或配置。</strong> LANBucket：是。DC++：否 &mdash; DC++ 要求您先添加要连接的中枢并设置共享列表，然后才能使用。D-LAN：部分支持 &mdash; D-LAN 会自动发现对等端，但您仍需选择要共享的文件夹以及下载位置。LocalSend：是。SMB 共享：否 &mdash; SMB 共享需要启用共享、设置权限并映射驱动器，通常还需要管理员权限。云存储：否 &mdash; 您必须创建账户、安装客户端并等待其同步，然后才能共享任何内容。Steam 本地共享：部分支持 &mdash; 您需要安装并登录 Steam，并启用相关的共享设置。USB 闪存盘：否 &mdash; 闪存盘必须为您的设备格式化，并逐一物理插入每台设备。</p>
                     <p><strong>无需账户或登录。</strong> LANBucket：是。DC++：是。D-LAN：是。LocalSend：是。SMB 共享：否 &mdash; SMB 需要有效的用户凭据或网络账户才能验证访问。云存储：否 &mdash; 云存储需要先创建并登录账户，然后才能传输文件。Steam 本地共享：否 &mdash; 您必须拥有 Steam 账户并登录才能使用任何 Steam 功能。USB 闪存盘：是。</p>
                     <p><strong>分布式（多对多）传输。</strong> LANBucket：是。DC++：部分支持 &mdash; DC++ 可以同时从多个对等端拉取文件，但只有在对方完成下载之后才行；LANBucket 允许从尚未拥有完整文件的对等端下载。D-LAN：是。LocalSend：否 &mdash; LocalSend 一次只在一台设备与另一台设备之间直接发送。SMB 共享：否 &mdash; SMB 共享由单一主机提供，因此所有人都从那一台机器下载。云存储：否 &mdash; 传输通过服务提供商的服务器进行，而不是在多个本地对等端之间直接进行。Steam 本地共享：否 &mdash; 内容来自单一主机，而非多个对等端共同分担负载。USB 闪存盘：否 &mdash; 闪存盘一次只能手动复制到一台机器。</p>
                     <p><strong>自动对等发现。</strong> LANBucket：是。DC++：否 &mdash; 没有自动发现；您必须知道并输入中枢地址才能找到其他人。D-LAN：是。LocalSend：是。SMB 共享：否 &mdash; 您需要共享的主机名或 IP 地址才能连接。云存储：否 &mdash; 没有本地对等端可供发现，一切都通过服务提供商的服务器进行。Steam 本地共享：是。USB 闪存盘：否 &mdash; 闪存盘没有网络功能，因此没有任何可供发现的内容。</p>
                     <p><strong>保留在您的局域网内。</strong> LANBucket：是。DC++：部分支持 &mdash; DC++ 可以在局域网中运行，但许多公共中枢会将您的流量通过互联网转发。D-LAN：是。LocalSend：是。SMB 共享：是。云存储：否 &mdash; 云存储会将您的文件上传到互联网上的远程服务器。Steam 本地共享：部分支持 &mdash; 本地串流保留在您的局域网内，但 Steam 仍需联系其服务器为您登录。USB 闪存盘：是。</p>
-                    <p><strong>拖放共享任意文件。</strong> LANBucket：是。DC++：否 &mdash; DC++ 共享的是您预先配置的整个文件夹，而非临时拖入的文件。D-LAN：部分支持 &mdash; D-LAN 从指定文件夹共享，而非快速拖放任意文件。LocalSend：是。SMB 共享：部分支持 &mdash; 您可以将文件拖入共享文件夹，但前提是共享和权限已设置好。云存储：是。Steam 本地共享：否 &mdash; Steam 只共享游戏和库内容，而非任意文件。USB 闪存盘：部分支持 &mdash; 您可以把文件拖到驱动器上，但它必须插入并被带到每台设备。</p>
+                    <p><strong>拖放共享任意文件。</strong> LANBucket：是。DC++：否 &mdash; DC++ 共享的是您预先配置的整个文件夹，而非临时拖入的文件。D-LAN：部分支持 &mdash; D-LAN 自 1.4 版起支持拖放，但您必须先进入其共享列表才能拖入文件。LocalSend：是。SMB 共享：部分支持 &mdash; 您可以将文件拖入共享文件夹，但前提是共享和权限已设置好。云存储：是。Steam 本地共享：否 &mdash; Steam 只共享游戏和库内容，而非任意文件。USB 闪存盘：部分支持 &mdash; 您可以把文件拖到驱动器上，但它必须插入并被带到每台设备。</p>
                     <p><strong>面向非技术用户的简洁界面。</strong> LANBucket：是。DC++：否 &mdash; DC++ 的界面密集且技术性强，围绕中枢、槽位和下载队列构建。D-LAN：否 &mdash; D-LAN 的界面假定用户对网络和共享文件夹有一定了解。LocalSend：是。SMB 共享：否 &mdash; SMB 设置涉及操作系统设置、权限和驱动器映射，容易让非技术用户困惑。云存储：是。Steam 本地共享：是。USB 闪存盘：是。</p>
                     <p><strong>无需互联网即可使用。</strong> LANBucket：是。DC++：是。D-LAN：是。LocalSend：是。SMB 共享：是。云存储：否 &mdash; 云存储需要互联网连接才能访问服务提供商的服务器。Steam 本地共享：否 &mdash; Steam 通常需要联网登录后其功能才能使用。USB 闪存盘：是。</p>
                     <p><strong>实时压缩。</strong> LANBucket：是 &mdash; LANBucket 会在文件发送时自动压缩、在文件到达时自动解压，全程实时进行，这可以让可压缩文件的传输明显更快。DC++：否 &mdash; DC++ 传输文件时不进行任何自动压缩。D-LAN：否 &mdash; D-LAN 按原样发送文件，不进行实时压缩。LocalSend：否 &mdash; LocalSend 传输文件时不进行实时压缩。SMB 共享：否 &mdash; SMB 默认逐字节复制文件，不进行透明压缩。云存储：否 &mdash; 云上传在传输前不会实时压缩您的文件。Steam 本地共享：否 &mdash; Steam 不为文件传输提供实时压缩。USB 闪存盘：否 &mdash; 复制到闪存盘不会压缩您的文件。</p>

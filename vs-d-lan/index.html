@@ -7,7 +7,7 @@
     <!-- Primary Meta Tags -->
     <title>LANBucket vs D-LAN: Distributed LAN file sharing compared</title>
     <meta name="title" content="LANBucket vs D-LAN: Distributed LAN file sharing compared">
-    <meta name="description" content="Comparing LANBucket and D-LAN for local network file sharing. Both use distributed transfers. See how they differ on ease of use, drag-and-drop, compression, and platforms.">
+    <meta name="description" content="Comparing LANBucket and D-LAN for local network file sharing. Both use distributed transfers. See how they differ, and which one would work best for you.">
     <meta name="author" content="Justin Becker">
     <meta name="robots" content="index, follow">
 
@@ -18,7 +18,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://lanbucket.com/vs-d-lan/">
     <meta property="og:title" content="LANBucket vs D-LAN: Distributed LAN file sharing compared">
-    <meta property="og:description" content="Comparing LANBucket and D-LAN for local network file sharing. Both use distributed transfers; see how they differ on ease of use, drag-and-drop, and compression.">
+    <meta property="og:description" content="Comparing LANBucket and D-LAN for local network file sharing. Both use distributed transfers; see how they differ, and which one would work best for you.">
     <meta property="og:image" content="https://lanbucket.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -53,7 +53,7 @@
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "LANBucket vs D-LAN: Distributed LAN file sharing compared",
-        "description": "Comparing LANBucket and D-LAN for local network file sharing. Both use distributed transfers; see how they differ on ease of use, drag-and-drop, and compression.",
+        "description": "Comparing LANBucket and D-LAN for local network file sharing. Both use distributed transfers; see how they differ and which one would work best for you.",
         "author": {
             "@type": "Person",
             "name": "Justin Becker",
@@ -126,8 +126,8 @@
                 <p class="breadcrumb"><a href="/">Home</a> &rsaquo; LANBucket vs D-LAN</p>
                 <h1>LANBucket vs D-LAN</h1>
                 <p class="page-header-sub">
-                    Both share files across a LAN using distributed transfers and automatic discovery. The
-                    difference is simplicity and ease of use.
+                    Both share files across a LAN using distributed transfers and automatic discovery.Where they differ is performance
+                    and ease of use.
                 </p>
                 <div class="cta-buttons">
                     <a class="btn btn-primary btn-large" href="/#download">Get LANBucket</a>
@@ -142,8 +142,8 @@
                     <p class="lead">
                         <strong>TL;DR:</strong> D-LAN and LANBucket are very similar apps.
                         Both do automatic peer discovery and distributed, multi-source downloads on a local network.
-                        LANBucket trades D-LAN's shared-folder model and Linux support for a simpler drag-and-drop
-                        workflow, and on-the-fly compression.
+                        LANBucket trades D-LAN's open source code, Linux and macOS support, and built-in chat for a
+                        simpler UI, on-the-fly compression, and faster overall transfers using custom netcode.
                     </p>
                 </div>
             </div>
@@ -174,19 +174,29 @@
                                 <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
                             </tr>
                             <tr>
+                                <th scope="row">Best in class performance</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-partial"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">Partial. D-LAN is much faster than traditional file shares, but in testing we have measured LANBucket as much as ~2x faster than D-LAN.</span></td>
+                            </tr>
+                            <tr>
                                 <th scope="row">No setup or configuration</th>
                                 <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
-                                <td class="cell-partial"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">Partial. D-LAN works quickly, but you still pick shared folders and confirm network settings first.</span></td>
+                                <td class="cell-partial"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">Partial. D-LAN finds peers automatically, but you still choose which folders to share and where downloads go.</span></td>
                             </tr>
                             <tr>
                                 <th scope="row">Share any file with drag &amp; drop</th>
                                 <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
-                                <td class="cell-partial"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">Partial. D-LAN shares from designated folders rather than quick drag-and-drop of any file.</span></td>
+                                <td class="cell-partial"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">Partial. D-LAN has supported drag-and-drop since version 1.4, but you have to navigate to its share list before you can drop files in.</span></td>
                             </tr>
                             <tr>
                                 <th scope="row">Simple UI for non-technical users</th>
                                 <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
                                 <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. D-LAN's interface assumes some comfort with networking and shared folders.</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Automatic troubleshooting</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. D-LAN doesn't detect common network problems or suggest how to fix them.</span></td>
                             </tr>
                             <tr>
                                 <th scope="row">On-the-fly compression</th>
@@ -209,9 +219,19 @@
                                 <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
                             </tr>
                             <tr>
-                                <th scope="row">Linux support &amp; open source</th>
-                                <td class="comparison-highlight-col cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. LANBucket is Windows-only for now and not open source.</span></td>
-                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes. D-LAN is open source with Windows and Linux builds.</span></td>
+                                <th scope="row">Linux support</th>
+                                <td class="comparison-highlight-col cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. LANBucket is Windows-only for now.</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes. D-LAN has Linux builds, packaged as an AppImage.</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">macOS support</th>
+                                <td class="comparison-highlight-col cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. LANBucket is Windows-only for now.</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes. Since version 1.3, D-LAN has macOS builds for Apple Silicon Macs on macOS 26 or newer.</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Open source</th>
+                                <td class="comparison-highlight-col cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. LANBucket isn't open source.</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes. D-LAN is open source.</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -223,21 +243,20 @@
             <div class="container">
                 <div class="prose">
                     <h2>Where LANBucket pulls ahead</h2>
-                    <h3>Drag-and-drop instead of shared folders</h3>
-                    <p>
-                        D-LAN works by designating folders to share; to hand someone a file you generally place it in a
-                        shared folder first. LANBucket lets you drag any file or folder straight into the app to share it
-                        on the spot, handy when you want to pass one thing to the person next to you.
-                    </p>
                     <h3>A friendlier interface</h3>
                     <p>
                         D-LAN's UI assumes some comfort with networking concepts. LANBucket is designed so a non-technical
-                        friend can install it and start sharing without a walkthrough.
+                        friend can install it and start sharing without a walkthrough. 
                     </p>
-                    <h3>On-the-fly compression and active development</h3>
+                    <h3>Best in class performance</h3>
                     <p>
-                        LANBucket compresses transfers in real time, which D-LAN doesn't, and it's maintained and
-                        distributed through the Microsoft Store with automatic updates.
+                        In testing on my equipment, I measured that LANBucket is up to 2x faster than D-LAN. This was when sharing a 10GB file from 1 computer to 8 others across a gigabit switch.
+                        While "your mileage may vary" I am confident that LANBucket is simply the fastest way to share files to many computers at once over a LAN.
+                        This performance is enabled by custom network level code deep in the LANBucket internals that attempts to optimize your transfers, and get the most out of your network equipment.
+                    </p>
+                    <h3>On-the-fly compression</h3>
+                    <p>
+                        LANBucket compresses transfers in real time, speeding up downloads, and saving users time since they won't need to zip up their files ahead of time.
                     </p>
                 </div>
             </div>
@@ -247,16 +266,20 @@
             <div class="container">
                 <div class="prose">
                     <h2>Where D-LAN pulls ahead</h2>
-                    <h3>Open source and Linux support</h3>
+                    <h3>Open source, Linux, and macOS support</h3>
                     <p>
-                        D-LAN is open source and offers Linux builds alongside Windows. If you run a mixed
-                        Windows/Linux network or you want open-source software, D-LAN covers ground LANBucket
-                        doesn't. LANBucket is Windows-only for now.
+                        D-LAN is open source and offers Linux and macOS builds alongside Windows. If you run a network
+                        with a mix of Windows, Linux, and Mac machines, or you want open-source software, D-LAN covers
+                        ground LANBucket doesn't. LANBucket is Windows-only for now.
                     </p>
                     <h3>Built-in chat and browsing</h3>
                     <p>
                         D-LAN includes chat and lets you browse other people's shared folders, which some LAN groups like
                         for coordination.
+                    </p>
+                    <h3>Poweruser features</h3>
+                    <p>
+                        Has features targetted at power users, such as saved sharing folders, and various tunable network settings, and a headless mode. LANBucket is targetted at beginngers, and does not include these things.
                     </p>
                 </div>
             </div>
@@ -266,8 +289,8 @@
             <div class="container">
                 <div class="verdict">
                     <h2>Which should you use?</h2>
-                    <p><strong>Choose LANBucket</strong> if everyone's on Windows and you want the fastest path from "installed" to "sharing" (drag-and-drop, a simpler UI, on-the-fly compression, and ongoing updates).</p>
-                    <p><strong>Choose D-LAN</strong> if you need Linux support or open-source software, or you like its folder-browsing and chat model.</p>
+                    <p><strong>Choose LANBucket</strong> if everyone's on Windows and you want the fastest and simplest path from "installed" to "sharing".</p>
+                    <p><strong>Choose D-LAN</strong> if you need Linux or macOS support or open-source software, need chat support, or prefer its folder-browsing model.</p>
                 </div>
             </div>
         </section>
