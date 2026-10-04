@@ -318,6 +318,10 @@
                             <span class="perf-label">D-LAN</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">229.5 秒</span></span>
                         </li>
+                        <li class="perf-row" style="--frac: 0.7615" data-seconds="559.2" data-mbps="1144" data-tip="qBittorrent：559.2 秒，总吞吐量 1,144 Mbps">
+                            <span class="perf-label">qBittorrent</span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">559.2 秒</span></span>
+                        </li>
                         <li class="perf-row" style="--frac: 0.9869" data-seconds="724.7" data-mbps="883" data-tip="标准 Web 服务器：724.7 秒，总吞吐量 883 Mbps">
                             <span class="perf-label">标准 Web 服务器</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">724.7 秒</span></span>
@@ -340,13 +344,14 @@
                             <tbody>
                                 <tr><th scope="row">LANBucket</th><td>120.7 秒</td><td>5,302 Mbps</td></tr>
                                 <tr><th scope="row">D-LAN</th><td>229.5 秒</td><td>2,789 Mbps</td></tr>
+                                <tr><th scope="row">qBittorrent</th><td>559.2 秒</td><td>1,144 Mbps</td></tr>
                                 <tr><th scope="row">标准 Web 服务器</th><td>724.7 秒</td><td>883 Mbps</td></tr>
                                 <tr><th scope="row">LocalSend</th><td>726.7 秒</td><td>881 Mbps</td></tr>
                                 <tr><th scope="row">DC++</th><td>734.3 秒</td><td>872 Mbps</td></tr>
                             </tbody>
                         </table>
                     </div>
-                    <p class="perf-note">测试方法：将一个包含随机测试数据的 10GB 文件共享给另外 8 台电脑，这些电脑同时开始下载。全部 9 台电脑都连接在一台消费级千兆以太网交换机上，并配备固态硬盘（SSD）。测试版本为 LANBucket 1.5.0、D-LAN 1.4.0、DC++ 0.884 和 LocalSend 1.18.2，Web 服务器使用 Caddy 2.11.4。</p>
+                    <p class="perf-note">测试方法：将一个包含随机测试数据的 10GB 文件共享给另外 8 台电脑，这些电脑同时开始下载。全部 9 台电脑都连接在一台消费级千兆以太网交换机上，并配备固态硬盘（SSD）。测试版本为 LANBucket 1.5.0、D-LAN 1.4.0、DC++ 0.884、LocalSend 1.18.2 和 qBittorrent 5.2.4，Web 服务器使用 Caddy 2.11.4。</p>
                 </div>
             </div>
         </section>
