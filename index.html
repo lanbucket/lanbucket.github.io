@@ -325,6 +325,10 @@
                             <span class="perf-label">D-LAN</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">229.5 s</span></span>
                         </li>
+                        <li class="perf-row" style="--frac: 0.7615" data-seconds="559.2" data-mbps="1144" data-tip="qBittorrent: 559.2 seconds, 1,144 Mbps overall">
+                            <span class="perf-label">qBittorrent</span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">559.2 s</span></span>
+                        </li>
                         <li class="perf-row" style="--frac: 0.9869" data-seconds="724.7" data-mbps="883" data-tip="Standard webserver: 724.7 seconds, 883 Mbps overall">
                             <span class="perf-label">Standard webserver</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">724.7 s</span></span>
@@ -347,13 +351,14 @@
                             <tbody>
                                 <tr><th scope="row">LANBucket</th><td>120.7 seconds</td><td>5,302 Mbps</td></tr>
                                 <tr><th scope="row">D-LAN</th><td>229.5 seconds</td><td>2,789 Mbps</td></tr>
+                                <tr><th scope="row">qBittorrent</th><td>559.2 seconds</td><td>1,144 Mbps</td></tr>
                                 <tr><th scope="row">Standard webserver</th><td>724.7 seconds</td><td>883 Mbps</td></tr>
                                 <tr><th scope="row">LocalSend</th><td>726.7 seconds</td><td>881 Mbps</td></tr>
                                 <tr><th scope="row">DC++</th><td>734.3 seconds</td><td>872 Mbps</td></tr>
                             </tbody>
                         </table>
                     </div>
-                    <p class="perf-note">Test conducted by sharing a 10GB file, containing random test data, to 8 other PCs who all started their downloads simultaneously. All 9 PCs were connected to a consumer gigabit ethernet switch, and were equipped with SSDs. Tested on LANBucket 1.5.0, D-LAN 1.4.0, DC++ 0.884, LocalSend 1.18.2, and Caddy 2.11.4 as the Webserver.</p>
+                    <p class="perf-note">Test conducted by sharing a 10GB file, containing random test data, to 8 other PCs who all started their downloads simultaneously. All 9 PCs were connected to a consumer gigabit ethernet switch, and were equipped with SSDs. Tested on LANBucket 1.5.0, D-LAN 1.4.0, DC++ 0.884, LocalSend 1.18.2, qBittorrent 5.2.4, and Caddy 2.11.4 as the Webserver.</p>
                 </div>
             </div>
         </section>
