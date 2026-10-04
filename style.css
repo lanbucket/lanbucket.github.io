@@ -53,8 +53,19 @@
     --spacing-2xl: 4rem;
     
     /* Typography */
-    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-heading: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-body: Tahoma, Verdana, 'Segoe UI', sans-serif;
+    --font-heading: Tahoma, Verdana, 'Segoe UI', sans-serif;
+
+    /* Classic Windows look */
+    --retro-face: #d4d0c8;
+    --retro-face-light: #e9e7e3;
+    --retro-shadow: #808080;
+    --retro-dark: #404040;
+    --retro-highlight: #000080;
+    --retro-desktop: #008080;
+    --retro-title: linear-gradient(90deg, #000080, #1084d0);
+    --retro-raised: inset -1px -1px 0 #404040, inset 1px 1px 0 #ffffff, inset -2px -2px 0 #808080, inset 2px 2px 0 #dfdfdf;
+    --retro-sunken: inset 1px 1px 0 #404040, inset -1px -1px 0 #ffffff, inset 2px 2px 0 #808080, inset -2px -2px 0 #dfdfdf;
 }
 
 html {
@@ -66,6 +77,14 @@ body {
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-primary);
+    /* Keeps the footer at the bottom of short pages */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 /* Under Construction Banner */
@@ -127,7 +146,7 @@ header {
     z-index: 100;
 }
 
-nav {
+header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -137,12 +156,13 @@ nav {
 
 .nav-toggle {
     display: none;
-    background: none;
+    background-color: var(--retro-face);
     border: none;
-    font-size: 1.5rem;
+    box-shadow: var(--retro-raised);
+    font-size: 1.25rem;
     cursor: pointer;
-    color: var(--text-primary);
-    padding: 0.25rem 0.5rem;
+    color: #000000;
+    padding: 0.2rem 0.6rem;
     line-height: 1;
 }
 
@@ -168,18 +188,19 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xs);
 }
 
 .nav-links a {
-    color: var(--text-secondary);
+    display: block;
+    padding: 0.25rem 0.6rem;
+    color: #000000;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    background-color: var(--retro-highlight);
+    color: #ffffff;
 }
 
 /* Hero Section */
@@ -232,17 +253,18 @@ nav {
     letter-spacing: 0.02em;
 }
 
+/* Sized so "LAN Party File Sharing" stays on one line in the two-column hero */
 .hero h1 {
     font-family: var(--font-heading);
-    font-size: 3rem;
-    font-weight: 800;
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    font-weight: 700;
     margin-bottom: var(--spacing-md);
     line-height: 1.2;
 }
 
 .hero-description {
     font-size: 1.25rem;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-sm);
     opacity: 0.95;
     line-height: 1.7;
 }
@@ -284,12 +306,7 @@ a.hero-highlight-joke {
     line-height: 1.6;
 }
 
-.hero-cta-buttons {
-    justify-content: flex-start;
-}
-
 .hero-meta {
-    margin-top: calc(var(--spacing-md) * -0.25);
     margin-bottom: var(--spacing-xl);
     color: rgba(255, 255, 255, 0.9);
     font-size: 1rem;
@@ -305,100 +322,65 @@ a.hero-highlight-joke {
     justify-content: center;
 }
 
-.hero-screenshot-card {
+.hero-video-frame {
+    position: relative;
     width: 100%;
     max-width: 760px;
-    margin: 0;
-    cursor: pointer;
-    outline: none;
 }
 
-.hero-screenshot-card:focus .hero-screenshot-frame,
-.hero-screenshot-card:focus-visible .hero-screenshot-frame {
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.45), 0 28px 70px rgba(15, 23, 42, 0.42);
-    transform: translateY(-2px);
-}
-
-body.lightbox-open {
-    overflow: hidden;
-}
-
-.hero-screenshot-frame {
-    position: relative;
-    padding: 0.85rem;
-    border-radius: 1.5rem;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.1));
-    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.hero-screenshot-frame::before {
-    content: '';
-    position: absolute;
-    inset: -14px;
-    border-radius: 1.9rem;
-    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 55%);
-    z-index: 0;
-}
-
-.hero-screenshot {
-    position: relative;
-    z-index: 1;
+/* aspect-ratio holds the 16:9 space before the video loads */
+.hero-video {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: var(--shadow-xl);
+    aspect-ratio: 16 / 9;
 }
 
-.hero-screenshot-caption {
-    margin-top: var(--spacing-sm);
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 0.95rem;
-    text-align: center;
-}
-
-.hero-lightbox[hidden] {
-    display: none;
-}
-
-.hero-lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    display: grid;
-    place-items: center;
-    padding: 3vh 2vw;
-}
-
-.hero-lightbox-backdrop {
+/* Covers the whole video until it starts, so a click anywhere on the poster plays it */
+.hero-video-play {
     position: absolute;
     inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
     border: none;
-    background: rgba(15, 23, 42, 0.82);
-    backdrop-filter: blur(10px);
+    background: transparent;
     cursor: pointer;
 }
 
-.hero-lightbox-dialog {
-    position: relative;
-    z-index: 1;
-    width: min(96vw, 1600px);
-    max-height: 94vh;
-    padding: 1rem;
-    border-radius: 1.5rem;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45);
+.hero-video-play[hidden] {
+    display: none;
 }
 
-.hero-lightbox-image {
-    display: block;
-    width: 100%;
-    max-height: calc(94vh - 2rem);
-    object-fit: contain;
-    border-radius: 1rem;
-    background-color: rgba(255, 255, 255, 0.05);
+.hero-video-play svg {
+    width: clamp(64px, 16%, 104px);
+    height: auto;
+    transition: transform 0.15s ease;
+}
+
+.hero-video-play circle {
+    fill: rgba(0, 0, 0, 0.65);
+    transition: fill 0.15s ease;
+}
+
+.hero-video-play path {
+    fill: #ffffff;
+}
+
+.hero-video-play:hover svg,
+.hero-video-play:focus-visible svg {
+    transform: scale(1.08);
+}
+
+.hero-video-play:hover circle,
+.hero-video-play:focus-visible circle {
+    fill: rgba(0, 0, 0, 0.85);
+}
+
+.hero-video-play:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: -3px;
 }
 
 .btn-demo {
@@ -456,55 +438,76 @@ body.lightbox-open {
     flex-wrap: wrap;
 }
 
+/* After .cta-buttons so the hero row keeps its left alignment */
+.hero-cta-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.hero-more-link {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-md);
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 0.875rem 2rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    cursor: pointer;
+    padding: 0.6rem 1.5rem;
     border: none;
+    border-radius: 0;
+    background-color: var(--retro-face);
+    color: #000000;
+    font-family: var(--font-body);
     font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: var(--retro-raised);
+}
+
+.btn:active {
+    box-shadow: var(--retro-sunken);
+}
+
+.btn:focus-visible {
+    outline: 1px dotted #000000;
+    outline-offset: -6px;
 }
 
 .btn-primary {
-    background-color: white;
-    color: var(--primary-color);
+    font-weight: 700;
+    box-shadow: 0 0 0 1px #000000, var(--retro-raised);
 }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+.btn-primary:active {
+    box-shadow: 0 0 0 1px #000000, var(--retro-sunken);
 }
 
 .btn-large {
-    padding: 1.125rem 2.5rem;
+    padding: 0.75rem 2rem;
     font-size: 1.125rem;
 }
 
 /* Section Styles */
 section {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl) 0;
 }
 
 .section-title {
     font-family: var(--font-heading);
     font-size: 2.5rem;
     font-weight: 700;
+    line-height: 1.2;
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
     color: var(--text-primary);
 }
 
@@ -513,138 +516,127 @@ section {
     background-color: var(--bg-secondary);
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-.feature-card {
-    background-color: var(--bg-primary);
-    padding: var(--spacing-lg);
-    border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-}
-
-.feature-card h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-primary);
-}
-
-.feature-card p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
 /* How It Works Section */
 .how-it-works {
     background-color: var(--bg-primary);
 }
 
-.steps {
-    max-width: 800px;
-    margin: var(--spacing-xl) auto 0;
-    padding-left: 1.5rem;
+/* Technology Section */
+/* Download Section */
+/* Download page: a classic setup dialog on a teal desktop */
+.desktop {
+    background-color: var(--retro-desktop);
+}
+
+.download {
+    padding: var(--spacing-xl) 0;
+}
+
+.setup-window {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3px;
+    background-color: var(--retro-face);
+    color: #000000;
+    box-shadow: inset -1px -1px 0 #000000, inset 1px 1px 0 #dfdfdf, inset -2px -2px 0 #808080, inset 2px 2px 0 #ffffff;
+}
+
+.setup-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0.4rem;
+    background: var(--retro-title);
+    color: #ffffff;
+}
+
+.setup-titlebar h1 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.setup-body {
+    padding: var(--spacing-md);
+}
+
+.setup-main {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
-    list-style: decimal;
+    gap: var(--spacing-md);
+    min-width: 0;
 }
 
-.step {
-    padding-left: var(--spacing-xs);
+/* Group boxes: an etched frame with the heading sitting on its top edge */
+.group-box {
+    position: relative;
+    margin-top: 0.5rem;
+    padding: 1.1rem var(--spacing-sm) var(--spacing-sm);
+    border: 1px solid #808080;
+    box-shadow: 1px 1px 0 #ffffff, inset 1px 1px 0 #ffffff;
 }
 
-.step h3 {
-    font-size: 1.25rem;
+.group-box > h2 {
+    position: absolute;
+    top: -0.65em;
+    left: 0.5rem;
+    padding: 0 0.3rem;
+    background-color: var(--retro-face);
+    font-size: 0.875rem;
     font-weight: 700;
+    line-height: 1.2;
+}
+
+.group-box p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9375rem;
+}
+
+.group-box ms-store-badge {
     margin-bottom: var(--spacing-xs);
-    color: var(--text-primary);
-    display: inline-block;
 }
 
-.step p {
-    color: var(--text-secondary);
-    line-height: 1.6;
+.store-note {
+    font-size: 0.875rem;
 }
 
-/* Technology Section */
-.technology {
-    background-color: var(--bg-secondary);
-}
-
-.tech-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.tech-content > p {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-xl);
-    text-align: center;
-    line-height: 1.8;
-}
-
-.tech-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-.tech-item {
-    background-color: var(--bg-primary);
-    padding: var(--spacing-lg);
-    border-radius: 0.5rem;
-    border: 1px solid var(--border-color);
-}
-
-.tech-item strong {
-    display: block;
-    font-size: 1.25rem;
-    margin-bottom: var(--spacing-xs);
-    color: var(--primary-color);
-}
-
-.tech-item p {
-    color: var(--text-secondary);
-}
-
-/* Download Section */
-.download {
-    background-color: var(--bg-primary);
-    padding-bottom: var(--spacing-xs);
-}
-
-.store-notice {
-    background: #2563eb;
-    border-radius: 1.5rem;
-    padding: var(--spacing-xl);
+/* Latest version: the version and date, then the changelog link */
+.latest-row {
     display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    gap: 2rem;
-    overflow: hidden;
-    .store-badge-text {
-        flex: 1 1 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem var(--spacing-md);
+}
+
+.latest-row .version-line {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+/* Right-aligned in the row, even when the version line is hidden */
+.changelog-link {
+    margin-left: auto;
+    font-weight: 700;
+}
+
+.group-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* Classic link blue; the site blue is too light on the gray dialog face */
+.setup-window a {
+    color: #0000ee;
+}
+
+.setup-window .code-block {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9375rem;
+}
+
+@media (max-width: 600px) {
+    .setup-body {
+        padding: var(--spacing-sm);
     }
-    .store-badge-vertical {
-        flex: 1 1 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: center;
-        margin-top: 0;
-        gap: 0.5em;
-    }
-    box-shadow: var(--shadow-xl);
-    margin-bottom: var(--spacing-xl);
-    color: white;
 }
 
 ms-store-badge {
@@ -659,185 +651,80 @@ ms-store-badge {
     gap: var(--spacing-md);
 }
 
-.store-icon {
-    font-size: 4rem;
-    line-height: 1;
-}
-
-.store-logo {
-    width: 80px;
-    height: 80px;
-}
-
-.store-text h3 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: var(--spacing-xs);
-    color: white;
-}
-
-.store-text p {
-    font-size: 1.125rem;
-    opacity: 0.95;
-    color: white;
-}
-
-.store-changelog {
-    margin-top: var(--spacing-xs);
-}
-
-.store-changelog a {
-    color: white;
-    font-weight: 600;
-    text-decoration: underline;
-    opacity: 0.95;
-    transition: opacity 0.2s ease;
-}
-
-.store-changelog a:hover {
-    opacity: 1;
-}
-
-.store-notice .btn-primary {
-    flex-shrink: 0;
-    white-space: nowrap;
-}
-
-.download-divider {
-    text-align: center;
-    margin: var(--spacing-xl) 0;
-    position: relative;
-}
-
-.download-divider::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: 1px;
-    background-color: var(--border-color);
-}
-
-.download-divider span {
-    background-color: var(--bg-primary);
-    padding: 0 var(--spacing-md);
-    position: relative;
-    color: var(--text-light);
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.875rem;
-}
-
-.download-alternative {
-    max-width: 800px;
-    margin: 0 auto var(--spacing-xl);
-    background-color: var(--bg-secondary);
-    padding: var(--spacing-lg);
-    border-radius: 1rem;
-}
-
-.download-alternative h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-primary);
-}
-
-.download-alternative p {
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-md);
-}
-
-.download-alternative a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.download-alternative a:hover {
-    text-decoration: underline;
-}
-
 .code-block {
-    background-color: var(--text-primary);
-    color: #a5f3fc;
+    background-color: #000000;
+    color: #c0c0c0;
     padding: var(--spacing-md);
-    border-radius: 0.5rem;
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-family: 'Lucida Console', Consolas, 'Courier New', monospace;
     font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--spacing-md);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--retro-sunken);
+}
+
+.code-line {
+    flex: 1;
+}
+
+.code-block .prompt {
+    color: #808080;
+    user-select: none;
 }
 
 .code-block code {
-    flex: 1;
     user-select: all;
 }
 
 .copy-btn {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.375rem;
+    background-color: var(--retro-face);
+    border: none;
+    box-shadow: var(--retro-raised);
+    color: #000000;
+    padding: 0.35rem 1rem;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    font-size: 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
     flex-shrink: 0;
 }
 
 .copy-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--retro-face-light);
 }
 
-.download-content {
-    max-width: 800px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
+.copy-btn:active {
+    box-shadow: var(--retro-sunken);
 }
 
-.download-info {
-    background-color: var(--bg-secondary);
-    padding: var(--spacing-lg);
-    border-radius: 1rem;
+/* System requirements as a small spreadsheet-style table */
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #9f9f9f;
+    font-size: 0.9375rem;
 }
 
-.download-info h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: var(--spacing-md);
-    color: var(--text-primary);
+.spec-table th,
+.spec-table td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d4d4d4;
+    text-align: left;
+    vertical-align: top;
 }
 
-.download-info ul {
-    list-style-position: inside;
-    margin-bottom: var(--spacing-md);
+.spec-table th {
+    width: 1%;
+    white-space: nowrap;
+    background-color: var(--retro-face);
+    box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #808080;
+    border-color: #9f9f9f;
+    color: #000000;
+}
+
+.spec-table td {
+    background-color: #ffffff;
     color: var(--text-secondary);
-}
-
-.download-info li {
-    padding: var(--spacing-xs) 0;
-}
-
-.download-note {
-    background-color: #fef3c7;
-    padding: var(--spacing-md);
-    border-radius: 0.5rem;
-    margin-top: var(--spacing-md);
-}
-
-.download-note strong {
-    color: #92400e;
-}
-
-.download-buttons {
-    text-align: center;
 }
 
 /* Visually hidden, screen-reader-only utility */
@@ -860,18 +747,20 @@ ms-store-badge {
 
 .comparison-intro {
     max-width: 800px;
-    margin: calc(-1 * var(--spacing-md)) auto var(--spacing-xl);
+    margin: calc(-1 * var(--spacing-sm)) auto var(--spacing-lg);
     text-align: center;
     font-size: 1.125rem;
     color: var(--text-secondary);
     line-height: 1.7;
 }
 
+/* Comparison tables look like a classic spreadsheet */
 .comparison-table-wrapper {
+    /* Contains the cells' absolutely positioned .sr-only text, which otherwise widened the page */
+    position: relative;
     overflow-x: auto;
-    border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow-sm);
+    border: 1px solid #9f9f9f;
+    background-color: #ffffff;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -879,30 +768,36 @@ ms-store-badge {
     width: 100%;
     border-collapse: collapse;
     min-width: 760px;
-    font-size: 0.95rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: #000000;
 }
 
 .comparison-table th,
 .comparison-table td {
-    padding: var(--spacing-sm);
+    padding: 0.5rem 0.75rem;
     text-align: center;
-    border-bottom: 1px solid var(--border-color);
+    border: 1px solid #d4d4d4;
 }
 
+/* Beveled gray headers; they may wrap so the 9-column homepage table fits before it has to scroll */
 .comparison-table thead th {
-    background-color: var(--bg-tertiary);
-    color: var(--text-primary);
+    background-color: var(--retro-face);
+    box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #808080;
+    border-color: #9f9f9f;
     font-weight: 700;
-    font-size: 0.95rem;
-    white-space: nowrap;
     position: sticky;
     top: 0;
 }
 
+/* Keeps a hyphenated name like D-LAN from wrapping at the hyphen */
+.comparison-table .no-break {
+    white-space: nowrap;
+}
+
 .comparison-table tbody th[scope="row"] {
     text-align: left;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-weight: 400;
     white-space: nowrap;
 }
 
@@ -910,30 +805,17 @@ ms-store-badge {
     text-align: left;
 }
 
-.comparison-table tbody tr:last-child th,
-.comparison-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.comparison-table tbody tr:hover td,
-.comparison-table tbody tr:hover th[scope="row"] {
-    background-color: var(--bg-secondary);
-}
-
 .comparison-highlight-col {
-    background-color: rgba(37, 99, 235, 0.08);
-    border-left: 1px solid var(--primary-light);
-    border-right: 1px solid var(--primary-light);
+    background-color: #e3ebf8;
 }
 
+/* Like the title bar of a classic Windows window */
 .comparison-table thead th.comparison-highlight-col {
-    background-color: var(--primary-color);
+    background: var(--retro-title);
+    box-shadow: none;
     color: #ffffff;
 }
 
-.comparison-table tbody tr:hover td.comparison-highlight-col {
-    background-color: rgba(37, 99, 235, 0.14);
-}
 
 .cell-mark {
     font-size: 1.25rem;
@@ -965,41 +847,37 @@ ms-store-badge {
     padding-bottom: 1px;
 }
 
+/* Hovering or focusing a cell selects it, spreadsheet style */
 .comparison-table td.cell-no:hover,
-.comparison-table td.cell-partial:hover {
-    background-color: var(--bg-secondary);
-}
-
+.comparison-table td.cell-partial:hover,
 .comparison-table td.cell-no:focus,
-.comparison-table td.cell-no:focus-visible,
-.comparison-table td.cell-partial:focus,
-.comparison-table td.cell-partial:focus-visible {
+.comparison-table td.cell-partial:focus {
     outline: none;
-    box-shadow: inset 0 0 0 2px var(--primary-color);
+    box-shadow: inset 0 0 0 2px #000000;
 }
 
+/* Tooltips look like a spreadsheet cell comment */
 .comparison-tooltip {
     position: fixed;
     z-index: 1000;
     max-width: 260px;
-    padding: 0.6rem 0.75rem;
-    background-color: #1e293b;
-    color: #f8fafc;
-    font-size: 0.85rem;
+    padding: 0.5rem 0.65rem;
+    background-color: #ffffe1;
+    color: #000000;
+    border: 1px solid #000000;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
     font-weight: 400;
     line-height: 1.45;
     text-align: left;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
     pointer-events: none;
     opacity: 0;
-    transform: translateY(4px);
-    transition: opacity 0.15s ease, transform 0.15s ease;
+    transition: opacity 0.15s ease;
 }
 
 .comparison-tooltip.is-visible {
     opacity: 1;
-    transform: translateY(0);
 }
 
 .comparison-tooltip::after {
@@ -1015,12 +893,12 @@ ms-store-badge {
 
 .comparison-tooltip[data-placement="top"]::after {
     top: 100%;
-    border-top: 6px solid #1e293b;
+    border-top: 6px solid #000000;
 }
 
 .comparison-tooltip[data-placement="bottom"]::after {
     bottom: 100%;
-    border-bottom: 6px solid #1e293b;
+    border-bottom: 6px solid #000000;
 }
 
 .comparison-legend {
@@ -1079,6 +957,132 @@ ms-store-badge {
     line-height: 1.5;
 }
 
+/* Performance Section */
+.performance {
+    background-color: var(--bg-secondary);
+}
+
+.perf-chart {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* The axis caption, with the Time/Throughput buttons on the right */
+.perf-chart-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Toggle buttons look like classic Windows push buttons: raised, or sunken when pressed */
+.perf-toggle {
+    display: inline-flex;
+    flex-shrink: 0;
+}
+
+.perf-toggle button {
+    padding: 0.35rem 0.9rem;
+    border: none;
+    border-radius: 0;
+    background-color: var(--retro-face);
+    color: #000000;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    cursor: pointer;
+    box-shadow: var(--retro-raised);
+}
+
+.perf-toggle button[aria-pressed="true"] {
+    background-color: var(--retro-face-light);
+    font-weight: 700;
+    box-shadow: var(--retro-sunken);
+}
+
+.perf-toggle button:focus-visible {
+    outline: 1px dotted #000000;
+    outline-offset: -5px;
+}
+
+.perf-caption {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    color: #404040;
+}
+
+.perf-bars {
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.perf-row {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.perf-label {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #000000;
+}
+
+/* The left border is the shared axis the bars grow from */
+.perf-track {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    padding: 4px 0;
+    border-left: 1px solid #000000;
+}
+
+/* Square, outlined bars like an old spreadsheet chart; width leaves room for the value label */
+.perf-bar {
+    box-sizing: border-box;
+    width: calc((100% - 6.5rem) * var(--frac, 0));
+    min-width: 2px;
+    height: 22px;
+    background-color: #a0a0a0;
+    border: 1px solid #000000;
+    border-left: none;
+    transition: width 0.3s ease;
+}
+
+.perf-row-highlight .perf-bar {
+    background: var(--retro-title);
+}
+
+.perf-value {
+    margin-left: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: #000000;
+    white-space: nowrap;
+}
+
+.perf-row-highlight .perf-value {
+    font-weight: 700;
+}
+
+/* How the test was run, as small print under the chart */
+.perf-note {
+    margin-top: var(--spacing-md);
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .perf-bar {
+        transition: none;
+    }
+}
+
 /* FAQ Section */
 .faq {
     background-color: var(--bg-secondary);
@@ -1087,21 +1091,72 @@ ms-store-badge {
 .faq-list {
     max-width: 900px;
     margin: 0 auto;
+    border: 1px solid #9f9f9f;
+    background-color: var(--bg-primary);
 }
 
 .faq-item {
-    background-color: var(--bg-primary);
-    padding: var(--spacing-lg);
-    margin-bottom: var(--spacing-md);
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.faq-item:nth-child(even) {
+    background-color: #e9eff8;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item summary {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+/* A boxed +/- expander, like a classic tree view */
+.faq-item summary::before {
+    content: "+";
+    flex: 0 0 auto;
+    width: 13px;
+    height: 13px;
+    border: 1px solid #808080;
+    background-color: #ffffff;
+    color: #000000;
+    font: 700 12px/11px Tahoma, Verdana, sans-serif;
+    text-align: center;
+}
+
+.faq-item[open] summary::before {
+    content: "\2212";
+}
+
+.faq-item[open] summary {
+    margin-bottom: 0.5rem;
+}
+
+.faq-item summary:focus-visible {
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+
+/* Answers line up with the question text, past the expander box */
+.faq-item > :not(summary) {
+    margin-left: calc(15px + 0.6rem);
 }
 
 .faq-item h3 {
-    font-size: 1.25rem;
+    display: inline;
+    margin: 0;
+    font-size: 1.05rem;
     font-weight: 700;
-    margin-bottom: var(--spacing-sm);
-    color: var(--primary-color);
+    color: var(--text-primary);
 }
 
 .faq-item p {
@@ -1121,7 +1176,7 @@ ms-store-badge {
 /* Support Us Section */
 .support {
     background: #fde68a;
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl) 0;
 }
 
 .support-content {
@@ -1145,18 +1200,19 @@ ms-store-badge {
     display: inline-block;
     background-color: #ffdd00;
     color: #000000;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    border-radius: 8px;
+    padding: 0.75rem 1.75rem;
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--retro-raised);
 }
 
 .support-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    background-color: #ffe433;
+}
+
+.support-button:active {
+    box-shadow: var(--retro-sunken);
 }
 
 /* Legal Section */
@@ -1190,9 +1246,11 @@ ms-store-badge {
 
 /* Footer */
 footer {
-    background-color: var(--text-primary);
-    color: white;
-    padding: var(--spacing-lg) 0;
+    background-color: var(--retro-face);
+    color: #000000;
+    padding: var(--spacing-sm) 0;
+    border-top: 1px solid #dfdfdf;
+    box-shadow: inset 0 1px 0 #ffffff;
 }
 
 footer .container {
@@ -1214,15 +1272,12 @@ footer p {
 }
 
 .footer-links a {
-    color: white;
-    text-decoration: none;
-    opacity: 0.9;
-    transition: opacity 0.2s ease;
+    color: #000000;
+    text-decoration: underline;
 }
 
 .footer-links a:hover {
-    opacity: 1;
-    text-decoration: underline;
+    color: var(--retro-highlight);
 }
 
 /* Responsive Design */
@@ -1255,17 +1310,11 @@ footer p {
     }
 
     .hero-cta-buttons {
+        align-items: center;
+    }
+
+    .hero-links {
         justify-content: center;
-    }
-
-    .hero-lightbox {
-        padding: 2vh 2vw;
-    }
-
-    .hero-lightbox-dialog {
-        width: min(98vw, 1200px);
-        padding: 0.75rem;
-        border-radius: 1rem;
     }
     
     .section-title {
@@ -1282,10 +1331,11 @@ footer p {
         top: 100%;
         left: 0;
         right: 0;
-        background: var(--bg-primary);
+        background-color: var(--bg-primary);
         flex-direction: column;
-        padding: var(--spacing-xs) var(--spacing-sm);
-        box-shadow: var(--shadow-md);
+        padding: 3px;
+        border: 1px solid var(--retro-shadow);
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
         gap: 0;
         z-index: 99;
     }
@@ -1294,29 +1344,22 @@ footer p {
         display: flex;
     }
 
-    .nav-links li {
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .nav-links li:last-child {
-        border-bottom: none;
-    }
-
     .nav-links a {
         display: block;
-        padding: var(--spacing-xs) 0;
-    }
-
-    .hero-description {
-        margin-bottom: var(--spacing-md);
+        padding: var(--spacing-xs) var(--spacing-sm);
     }
 
     .hero-highlights {
         margin-bottom: var(--spacing-md);
     }
-    
-    .features-grid {
-        grid-template-columns: 1fr;
+
+    .perf-row {
+        grid-template-columns: 6.5rem 1fr;
+        gap: var(--spacing-xs);
+    }
+
+    .perf-label {
+        font-size: 0.875rem;
     }
 
     .comparison-intro {
@@ -1332,26 +1375,12 @@ footer p {
         padding: var(--spacing-xs);
     }
     
-    .steps {
-        grid-template-columns: 1fr;
-    }
     
-    .tech-features {
-        grid-template-columns: 1fr;
-    }
-    
-    .store-notice {
-        flex-direction: column;
-        text-align: center;
-    }
     
     .store-badge {
         flex-direction: column;
     }
     
-    .store-notice .btn-primary {
-        width: 100%;
-    }
     
     .code-block {
         flex-direction: column;
@@ -1371,9 +1400,6 @@ footer p {
         padding: var(--spacing-lg) 0;
     }
 
-    .store-notice {
-        padding: var(--spacing-lg);
-    }
 }
 
 @media (max-width: 480px) {
@@ -1406,21 +1432,12 @@ footer p {
         padding: var(--spacing-md) 0;
     }
 
-    .store-notice {
-        padding: var(--spacing-sm);
-    }
-
-    .store-notice .store-badge-vertical {
-        min-width: 0;
-        width: 100%;
-        align-items: center;
-    }
 
     .logo .logo-title {
         font-size: 1.1rem;
     }
 
-    nav {
+    header nav {
         padding: var(--spacing-xs) var(--spacing-sm);
     }
 }
@@ -1439,7 +1456,7 @@ footer p {
 .page-header h1 {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 5vw, 2.75rem);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.15;
     color: var(--text-primary);
     max-width: 800px;
@@ -1458,21 +1475,6 @@ footer p {
     max-width: 800px;
     margin: 0 auto;
     justify-content: flex-start;
-}
-
-.page-header .btn-primary {
-    background-color: var(--primary-color);
-    color: #ffffff;
-}
-
-.page-header .btn-secondary {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.page-header .btn-secondary:hover {
-    background-color: rgba(37, 99, 235, 0.08);
 }
 
 .breadcrumb {
@@ -1545,11 +1547,6 @@ footer p {
 .verdict {
     max-width: 800px;
     margin: var(--spacing-xl) auto 0;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-left: 4px solid var(--primary-color);
-    border-radius: 0.5rem;
-    padding: var(--spacing-lg);
 }
 
 .verdict h2 {
@@ -1592,39 +1589,29 @@ footer p {
     display: inline-flex;
 }
 
+/* A short list, so less room than a full section */
 .related-links {
     background-color: var(--bg-primary);
+    padding: clamp(var(--spacing-md), 4vw, var(--spacing-lg)) 0;
 }
 
-.related-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--spacing-md);
-    max-width: 1000px;
+.related-links .section-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+}
+
+.link-list {
+    width: fit-content;
+    max-width: 100%;
     margin: 0 auto;
+    padding-left: 1.25rem;
+    list-style: disc;
+    font-size: 1.05rem;
+    line-height: 1.9;
 }
 
-.related-grid a {
-    display: block;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    padding: var(--spacing-md);
-    text-decoration: none;
-    color: var(--text-primary);
-    font-weight: 600;
-    transition: box-shadow 0.15s ease, transform 0.15s ease;
+.link-list a {
+    color: var(--primary-color);
 }
 
-.related-grid a:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-}
-
-.related-grid a span {
-    display: block;
-    margin-top: var(--spacing-xs);
-    font-weight: 400;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-}

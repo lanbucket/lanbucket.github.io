@@ -129,10 +129,8 @@
             </div>
             <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
             <ul class="nav-links">
-                <li><a href="/#features">Features</a></li>
-                <li><a href="/#how-it-works">How It Works</a></li>
                 <li><a href="/#comparison">Comparison</a></li>
-                <li><a href="/#download">Download</a></li>
+                <li><a href="/download/">Download</a></li>
                 <li><a href="/#faq">FAQ</a></li>
                 <li><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a></li>
             </ul>
@@ -149,7 +147,7 @@
                     everyone's machine fast. This is what I've learned about sharing files at a LAN party.
                 </p>
                 <div class="cta-buttons">
-                    <a class="btn btn-primary btn-large" href="/#download">Get LANBucket</a>
+                    <a class="btn btn-primary btn-large" href="/download/">Get LANBucket</a>
                     <a class="btn btn-secondary btn-large" href="#steps">Jump to the steps</a>
                 </div>
             </div>
@@ -334,29 +332,29 @@
             <div class="container">
                 <h2 class="section-title">LAN party file sharing FAQ</h2>
                 <div class="faq-list">
-                    <div class="faq-item">
-                        <h3>What's the fastest way to share large game files at a LAN party?</h3>
+                    <details class="faq-item">
+                        <summary><h3>What's the fastest way to share large game files at a LAN party?</h3></summary>
                         <p>Move them over the local network with a distributed tool rather than the internet or a USB
                             drive. Wired Ethernet plus an app like LANBucket, where many peers share the load, gets a
                             large file to everyone fastest.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Do I need internet access to share files at a LAN party?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>Do I need internet access to share files at a LAN party?</h3></summary>
                         <p>No. Local network sharing works offline. The files travel between the computers in the room,
                             so no internet connection is required.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Why can't the other PCs see my shared files?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>Why can't the other PCs see my shared files?</h3></summary>
                         <p>The usual causes are AP/client isolation on the WiFi router, the Windows firewall or a Public
                             network profile blocking discovery, an active VPN, or devices split across different WiFi
                             bands. Work through the troubleshooting checklist above.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Wired or WiFi for a LAN party?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>Wired or WiFi for a LAN party?</h3></summary>
                         <p>Wired Ethernet whenever possible. It's faster, more reliable, and avoids the interference
                             of a room full of wireless devices. WiFi works, but keep everyone on the same access point and
                             band.</p>
-                    </div>
+                    </details>
                 </div>
             </div>
         </section>
@@ -382,11 +380,11 @@
         <section class="related-links">
             <div class="container">
                 <h2 class="section-title">Compare LAN sharing tools</h2>
-                <div class="related-grid">
-                    <a href="/vs-localsend/">LANBucket vs LocalSend<span>The cross-platform sender, compared.</span></a>
-                    <a href="/vs-dcpp/">LANBucket vs DC++<span>The classic Direct Connect client, compared.</span></a>
-                    <a href="/vs-d-lan/">LANBucket vs D-LAN<span>Another distributed LAN sharing tool, compared.</span></a>
-                </div>
+                <ul class="link-list">
+                    <li><a href="/vs-localsend/">LANBucket vs LocalSend</a></li>
+                    <li><a href="/vs-dcpp/">LANBucket vs DC++</a></li>
+                    <li><a href="/vs-d-lan/">LANBucket vs D-LAN</a></li>
+                </ul>
             </div>
         </section>
     </main>
