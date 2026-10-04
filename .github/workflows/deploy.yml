@@ -27,7 +27,8 @@ jobs:
         rsync -a --exclude='.*' --exclude='_*' ./ _site/
         mkdir -p _site/app
         if gh release view --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
-          gh release download --repo "$GITHUB_REPOSITORY" --dir _site/app \
+          # The release's latest.json replaces the placeholder in app/
+          gh release download --repo "$GITHUB_REPOSITORY" --dir _site/app --clobber \
             --pattern 'LanBucket_*.msixbundle' --pattern 'LANBucketSetup_*.exe' --pattern 'latest.json'
         fi
         ls -l _site/app

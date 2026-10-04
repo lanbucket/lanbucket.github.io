@@ -110,10 +110,8 @@
             </div>
             <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
             <ul class="nav-links">
-                <li><a href="/#features">Features</a></li>
-                <li><a href="/#how-it-works">How It Works</a></li>
                 <li><a href="/#comparison">Comparison</a></li>
-                <li><a href="/#download">Download</a></li>
+                <li><a href="/download/">Download</a></li>
                 <li><a href="/#faq">FAQ</a></li>
                 <li><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a></li>
             </ul>
@@ -130,7 +128,7 @@
                     to a modern, zero-setup app.
                 </p>
                 <div class="cta-buttons">
-                    <a class="btn btn-primary btn-large" href="/#download">Get LANBucket</a>
+                    <a class="btn btn-primary btn-large" href="/download/">Get LANBucket</a>
                     <a class="btn btn-secondary btn-large" href="#comparison">See the comparison</a>
                 </div>
             </div>
@@ -191,6 +189,11 @@
                                 <th scope="row">Distributed (many-to-many) transfers</th>
                                 <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
                                 <td class="cell-partial"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">Partial. DC++can pull a file from several peers at once, but only once a peer has the complete file. LANBucket lets you download from peers who don't yet have the complete file.</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Best in class performance</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. DC++ only downloads from peers that already have the complete file, so when everyone grabs a new file at once, it all comes from the original sharer.</span></td>
                             </tr>
                             <tr>
                                 <th scope="row">Stays on your local network</th>
@@ -300,11 +303,11 @@
         <section class="related-links">
             <div class="container">
                 <h2 class="section-title">More comparisons &amp; guides</h2>
-                <div class="related-grid">
-                    <a href="/vs-localsend/">LANBucket vs LocalSend<span>The cross-platform sender, compared.</span></a>
-                    <a href="/vs-d-lan/">LANBucket vs D-LAN<span>Another distributed LAN sharing tool, compared.</span></a>
-                    <a href="/lan-party-file-sharing-guide/">How to share files at a LAN party<span>A practical setup guide.</span></a>
-                </div>
+                <ul class="link-list">
+                    <li><a href="/vs-localsend/">LANBucket vs LocalSend</a></li>
+                    <li><a href="/vs-d-lan/">LANBucket vs D-LAN</a></li>
+                    <li><a href="/lan-party-file-sharing-guide/">How to share files at a LAN party</a></li>
+                </ul>
             </div>
         </section>
     </main>

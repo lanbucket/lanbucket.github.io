@@ -238,10 +238,8 @@
             </div>
             <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
             <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#comparison">Comparison</a></li>
-                <li><a href="#download">Download</a></li>
+                <li><a href="/download/">Download</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#support">Support Us</a></li>
                 <li><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a></li>
@@ -256,26 +254,39 @@
                 <div class="hero-content">
                     <div class="hero-layout">
                         <div class="hero-copy">
-                            <h1>LAN Party File Sharing, Made Simple</h1>
+                            <h1>LAN Party File Sharing<br>Made Simple</h1>
                             <p class="hero-description">
-                                LANBucket is specifically optimized for use at LAN parties, and sharing large files. No internet required.
+                                LANBucket is specifically optimized for use at LAN parties, and sharing large files as fast as possible. No internet required.
                             </p>
                             <p class="hero-meta">
                                 Distributed transfers. <a href="https://en.wikipedia.org/wiki/Electron_(software_framework)" target="_blank" rel="noopener noreferrer">100% Electron-free</a>.
                             </p>
                             <div class="cta-buttons hero-cta-buttons">
-                                <a class="btn btn-primary btn-large" href="#download">Get LANBucket</a>
-                                <a class="btn btn-secondary btn-large" href="#how-it-works">How it works</a>
+                                <ms-store-badge
+                                    productid="9N9WTBT332JN"
+                                    window-mode="direct"
+                                    theme="auto"
+                                    size="large"
+                                    language="en-us"
+                                    animation="off">
+                                </ms-store-badge>
+                                <div class="hero-links">
+                                    <a class="hero-more-link" href="/download/">More download options</a>
+                                    <a class="hero-more-link" href="/changelog.html">Changelog</a>
+                                </div>
                             </div>
                         </div>
 
                         <div class="hero-visual">
-                            <figure class="hero-screenshot-card" tabindex="0" aria-label="LANBucket app screenshot preview" aria-haspopup="dialog" aria-controls="heroScreenshotLightbox">
-                                <div class="hero-screenshot-frame">
-                                    <img src="StoreScreenshot1.png" alt="LANBucket app screenshot showing local network file sharing" class="hero-screenshot">
-                                </div>
-                                <figcaption class="hero-screenshot-caption">Click to enlarge.</figcaption>
-                            </figure>
+                            <div class="hero-video-frame">
+                                <video class="hero-video" controls playsinline preload="metadata" poster="/lanbucket-demo-poster.png" aria-label="LANBucket demo video">
+                                    <source src="/lanbucket-demo.webm" type="video/webm">
+                                    <source src="/lanbucket-demo.mp4" type="video/mp4">
+                                </video>
+                                <button class="hero-video-play" type="button" aria-label="Play video" hidden>
+                                    <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="50"/><path d="M40 29 L73 50 L40 71 Z"/></svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -292,87 +303,47 @@
             </div>
         </section>
 
-        <section id="download" class="download">
+        <!-- Performance Section -->
+        <section id="performance" class="performance">
             <div class="container">
-                <h2 class="section-title">Download LANBucket</h2>
-                
-                <div class="store-notice">
-                    <div class="store-badge-text">
-                        <div class="store-text">
-                            <h3>Free on Microsoft Store</h3>
-                            <p>Get automatic updates and easy installation</p>
-                            <p class="store-changelog"><a href="/changelog.html">See what's new in the latest version &rarr;</a></p>
+                <h2 class="section-title">Best in class transfer performance</h2>
+                <p class="comparison-intro">LANBucket uses custom networking code to optimize for the limits of your networking hardware, speeding up your transfers, and saving you time so you can get back to gaming sooner.</p>
+                <div class="perf-chart">
+                    <div class="perf-chart-head">
+                        <p class="perf-caption">Time to finish, in seconds (lower is better)</p>
+                        <div class="perf-toggle" role="group" aria-label="Chart units">
+                            <button type="button" aria-pressed="true" data-mode="seconds" data-unit=" s" data-caption="Time to finish, in seconds (lower is better)">Time</button>
+                            <button type="button" aria-pressed="false" data-mode="mbps" data-unit=" Mbps" data-caption="Overall throughput, in Mbps (higher is better)">Throughput</button>
                         </div>
                     </div>
-                    <div class="store-badge-vertical">
-                        <ms-store-badge
-                            productid="9N9WTBT332JN"
-                            window-mode="direct"
-                            theme="auto"
-                            size="large"
-                            language="en-us"
-                            animation="off">
-                        </ms-store-badge>
-                        <a class="msft-store-link" href="https://apps.microsoft.com/detail/9n9wtbt332jn" target="_blank" rel="noopener noreferrer">or view in Microsoft store</a>
+                    <ul class="perf-bars" aria-hidden="true">
+                        <li class="perf-row perf-row-highlight" style="--frac: 0.1666" data-seconds="120.7" data-mbps="5302" data-tip="LANBucket: 120.7 seconds, 5,302 Mbps overall">
+                            <span class="perf-label">LANBucket</span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">120.7 s</span></span>
+                        </li>
+                        <li class="perf-row" style="--frac: 0.3167" data-seconds="229.5" data-mbps="2789" data-tip="D-LAN: 229.5 seconds, 2,789 Mbps overall">
+                            <span class="perf-label">D-LAN</span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">229.5 s</span></span>
+                        </li>
+                        <li class="perf-row" style="--frac: 1" data-seconds="724.7" data-mbps="883" data-tip="Standard webserver: 724.7 seconds, 883 Mbps overall">
+                            <span class="perf-label">Standard webserver</span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">724.7 s</span></span>
+                        </li>
+                    </ul>
+                    <div class="sr-only">
+                        <table>
+                            <caption>Time to share a 10 GB file with 8 downloaders, and the overall throughput</caption>
+                            <thead>
+                                <tr><th scope="col">App</th><th scope="col">Time to finish</th><th scope="col">Overall throughput</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><th scope="row">LANBucket</th><td>120.7 seconds</td><td>5,302 Mbps</td></tr>
+                                <tr><th scope="row">D-LAN</th><td>229.5 seconds</td><td>2,789 Mbps</td></tr>
+                                <tr><th scope="row">Standard webserver</th><td>724.7 seconds</td><td>883 Mbps</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-                
-                <div class="download-divider">
-                    <span>or</span>
-                </div>
-
-
-                <div class="download-alternative">
-                    <h3>Install via winget</h3>
-                    <p>If you prefer command-line installation, you can use <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/" target="_blank" rel="noopener noreferrer">Windows Package Manager (winget)</a>:</p>
-                    <div class="code-block">
-                        <code>winget install LANBucket</code>
-                        <button class="copy-btn" onclick="copyToClipboard('winget install LANBucket -s msstore')" title="Copy to clipboard">📋</button>
-                    </div>
-                </div>
-
-                <div class="download-content">
-                    <div class="download-info">
-                        <h3>System Requirements</h3>
-                        <ul>
-                            <li>Windows 10 version 1809 or later, or Windows 11</li>
-                            <li>x64 or ARM64 processor</li>
-                            <li>Local network connection (WiFi or Ethernet)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="features">
-            <div class="container">
-                <h2 class="section-title">Why Choose LANBucket?</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h3>Fast Distributed Transfers</h3>
-                        <p>Files transfer using distributed technology, meaning all clients share the load, resulting in faster overall transfer speeds.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Perfect for LAN Parties</h3>
-                        <p>Share large files across multiple devices without everyone downloading from the internet simultaneously. Much faster than traditional file shares.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Automatic Discovery</h3>
-                        <p>Other devices running LANBucket on your network are automatically discovered. No manual configuration needed.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Local Network Only</h3>
-                        <p>All traffic stays on your local network. No internet connection required. Your files remain completely private and secure.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Drag &amp; Drop</h3>
-                        <p>Simply drag and drop files or folders to share them instantly with other users on your network.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>See Who's Connected</h3>
-                        <p>View all connected peers with their machine and user names to know exactly who you're sharing with.</p>
-                    </div>
+                    <p class="perf-note">Test conducted by sharing a 10GB file, containing random test data, to 8 other PCs. All 9 PCs were connected to a consumer gigabit ethernet switch, and were equipped with SSDs. Tested on LANBucket 1.5.0, D-LAN 1.4.0, and Caddy as the Webserver.</p>
                 </div>
             </div>
         </section>
@@ -389,7 +360,7 @@
                                 <th scope="col" class="comparison-feature-head">Feature</th>
                                 <th scope="col" class="comparison-highlight-col">LANBucket</th>
                                 <th scope="col">DC++</th>
-                                <th scope="col">D-LAN</th>
+                                <th scope="col"><span class="no-break">D-LAN</span></th>
                                 <th scope="col">LocalSend</th>
                                 <th scope="col">SMB Share</th>
                                 <th scope="col">Cloud Storage</th>
@@ -441,6 +412,17 @@
                                 <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. You need to somehow get the download link to all other users.</span></td>
                                 <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
                                 <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. You need to sneakernet that thing around.</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Best in class performance</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">Yes</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. DC++ only downloads from peers that already have the complete file, so when everyone grabs a new file at once, it all comes from the original sharer.</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">Partial. D-LAN is much faster than traditional file shares, but in testing we have measured LANBucket as much as ~2x faster than D-LAN.</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. Every copy comes straight from the sending device, so its network link is the bottleneck when several people need the file.</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. Everyone downloads from the one PC hosting the share, so its network link is the bottleneck.</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. Every download comes over your internet connection, which is usually much slower than your local network.</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. Content comes from a single host PC, so its network link is the bottleneck.</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">No. The drive has to be copied to each machine one at a time, so it gets slower with every extra person.</span></td>
                             </tr>
                             <tr>
                                 <th scope="row">Stays on your local network</th>
@@ -507,18 +489,13 @@
                     <p><strong>No account or sign-in required.</strong> LANBucket: Yes. DC++: Yes. D-LAN: Yes. LocalSend: Yes. SMB Share: No &mdash; SMB needs valid user credentials or a network account to authenticate access. Cloud Storage: No &mdash; cloud storage requires creating and signing into an account before you can transfer files. Steam Local Sharing: No &mdash; you must have a Steam account and be signed in to use any Steam feature. USB Flash Drive: Yes.</p>
                     <p><strong>Distributed (many-to-many) transfers.</strong> LANBucket: Yes. DC++: Partial &mdash; DC++ can pull a file from several peers at once, but only once the other peer has completed the download; LANBucket allows downloading from peers who don't have the complete file. D-LAN: Yes. LocalSend: No &mdash; LocalSend sends directly from one device to another, one transfer at a time. SMB Share: No &mdash; an SMB share is served by a single host, so everyone downloads from that one machine. Cloud Storage: No &mdash; transfers go through the provider's servers rather than directly between many local peers. Steam Local Sharing: No &mdash; content comes from a single host, not many peers sharing the load. USB Flash Drive: No &mdash; a flash drive is copied to one machine at a time by hand.</p>
                     <p><strong>Automatic peer discovery.</strong> LANBucket: Yes. DC++: No &mdash; there's no auto-discovery; you have to know and enter a hub address to find others. D-LAN: Yes. LocalSend: Yes. SMB Share: No &mdash; you need the host name or IP address of the share to connect to it. Cloud Storage: No &mdash; there are no local peers to find; everything routes through the provider's servers. Steam Local Sharing: Yes. USB Flash Drive: No &mdash; a flash drive has no networking, so there's nothing to discover.</p>
+                    <p><strong>Best in class performance.</strong> LANBucket: Yes. DC++: No &mdash; DC++ only downloads from peers that already have the complete file, so when everyone grabs a new file at once, it all comes from the original sharer. D-LAN: Partial &mdash; D-LAN is much faster than traditional file shares, but in testing we have measured LANBucket as much as ~2x faster than D-LAN. LocalSend: No &mdash; every copy comes straight from the sending device, so its network link is the bottleneck when several people need the file. SMB Share: No &mdash; everyone downloads from the one PC hosting the share, so its network link is the bottleneck. Cloud Storage: No &mdash; every download comes over your internet connection, which is usually much slower than your local network. Steam Local Sharing: No &mdash; content comes from a single host PC, so its network link is the bottleneck. USB Flash Drive: No &mdash; the drive has to be copied to each machine one at a time, so it gets slower with every extra person.</p>
                     <p><strong>Stays on your local network.</strong> LANBucket: Yes. DC++: Partial &mdash; DC++ can run on a LAN, but many public hubs route your traffic over the internet. D-LAN: Yes. LocalSend: Yes. SMB Share: Yes. Cloud Storage: No &mdash; cloud storage uploads your files to remote servers on the internet. Steam Local Sharing: Partial &mdash; local streaming stays on your LAN, but Steam still contacts its servers to sign you in. USB Flash Drive: Yes.</p>
                     <p><strong>Share any file with drag and drop.</strong> LANBucket: Yes. DC++: No &mdash; DC++ shares whole folders you configure in advance, not files dropped in on the spot. D-LAN: Partial &mdash; D-LAN has supported drag-and-drop since version 1.4, but you have to navigate to its share list before you can drop files in. LocalSend: Yes. SMB Share: Partial &mdash; you can drop files into a shared folder, but only after the share and permissions are set up. Cloud Storage: Yes. Steam Local Sharing: No &mdash; Steam only shares games and library content, not arbitrary files. USB Flash Drive: Partial &mdash; you can drag files onto the drive, but it must be plugged in and carried to each device.</p>
                     <p><strong>Simple UI for non-technical users.</strong> LANBucket: Yes. DC++: No &mdash; DC++ has a dense, technical interface built around hubs, slots, and download queues. D-LAN: No &mdash; D-LAN's interface assumes some comfort with networking and shared folders. LocalSend: Yes. SMB Share: No &mdash; SMB setup involves OS settings, permissions, and drive mapping that trip up non-technical users. Cloud Storage: Yes. Steam Local Sharing: Yes. USB Flash Drive: Yes.</p>
                     <p><strong>Works without the internet.</strong> LANBucket: Yes. DC++: Yes. D-LAN: Yes. LocalSend: Yes. SMB Share: Yes. Cloud Storage: No &mdash; cloud storage needs an internet connection to reach the provider's servers. Steam Local Sharing: No &mdash; Steam normally needs the internet to sign in before its features work. USB Flash Drive: Yes.</p>
                     <p><strong>On-the-fly compression.</strong> LANBucket: Yes &mdash; LANBucket automatically compresses files as they are sent and decompresses them as they arrive, in real time, which can make transfers of compressible files noticeably faster. DC++: No &mdash; DC++ transfers files without any automatic compression. D-LAN: No &mdash; D-LAN sends files as-is, with no on-the-fly compression. LocalSend: No &mdash; LocalSend transfers files without compressing them on the fly. SMB Share: No &mdash; SMB copies files byte-for-byte with no transparent compression by default. Cloud Storage: No &mdash; cloud uploads don't compress your files on the fly before transfer. Steam Local Sharing: No &mdash; Steam doesn't offer on-the-fly compression for file transfers. USB Flash Drive: No &mdash; copying to a flash drive doesn't compress your files.</p>
                 </div>
-                <p class="comparison-note">
-                    Head-to-head comparisons:
-                    <a href="/vs-localsend/">LANBucket vs LocalSend</a>,
-                    <a href="/vs-dcpp/">vs DC++</a>,
-                    <a href="/vs-d-lan/">vs D-LAN</a>.
-                </p>
                 <p class="comparison-note">
                     For more details: <a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" target="_blank" rel="noopener noreferrer">Why I built LANBucket</a>.
                 </p>
@@ -530,73 +507,42 @@
             </div>
         </section>
 
-        <!-- How It Works Section -->
-        <section id="how-it-works" class="how-it-works">
-            <div class="container">
-                <h2 class="section-title">How It Works</h2>
-                <ol class="steps">
-                    <li class="step">
-                        <h3>Install LANBucket</h3>
-                        <p>Download and install LANBucket on Windows devices that are connected to the same local network (WiFi or Ethernet).</p>
-                    </li>
-                    <li class="step">
-                        <h3>Automatic Discovery</h3>
-                        <p>LANBucket automatically discovers other instances on your network using multicast peer discovery.</p>
-                    </li>
-                    <li class="step">
-                        <h3>Share Files</h3>
-                        <p>Drag and drop files or folders to share them. Other users will see your shared items and can download them.</p>
-                    </li>
-                    <li class="step">
-                        <h3>Download</h3>
-                        <p>Browse files shared by others and download them directly to your device. Since LANBucket uses distributed technology, downloads are fast even when multiple users are downloading simultaneously.</p>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- Technology Section -->
-        <section class="technology">
-            <div class="container">
-                <h2 class="section-title">Built on Proven Technology</h2>
-                <div class="tech-content">
-                    <p>
-                        LANBucket uses distributed file sharing technology for reliable and efficient transfers. 
-                        The application is built with modern Windows technologies including WinUI 3 and the Windows App SDK 
-                        for a native, performant experience.
-                    </p>
-                </div>
-            </div>
-        </section>
-
         <!-- FAQ Section -->
         <section id="faq" class="faq">
             <div class="container">
                 <h2 class="section-title">Frequently Asked Questions</h2>
                 <div class="faq-list">
-                    <div class="faq-item">
-                        <h3>Does LANBucket work over the internet?</h3>
+                    <details class="faq-item">
+                        <summary><h3>Is LANBucket free?</h3></summary>
+                        <p>
+                            Yes! LANBucket is completely free to use, and we're committed to keeping it ad-free. 
+                            If you'd like to support development, you can <a href="https://buymeacoffee.com/lanbucket" target="_blank" rel="noopener noreferrer">buy us a coffee</a>. 
+                            Your support is appreciated but never required.
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>Does LANBucket work over the internet?</h3></summary>
                         <p>
                             No, LANBucket only works on local networks. All devices must be connected to the same WiFi 
                             network or Ethernet LAN. This is by design to keep your files private and secure.
                         </p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Will it work on my corporate network?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>Will it work on my corporate network?</h3></summary>
                         <p>
                             Many corporate networks block client-to-client communication for security reasons, which may prevent LANBucket from working properly.
                             LANBucket is designed primarily  for home and private networks.
                         </p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>If multicast is blocked, will LANBucket still work?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>If multicast is blocked, will LANBucket still work?</h3></summary>
                         <p>
                             Yes, probably. LANBucket has a fallback peer discovery mechanism using a central server, so even if multicast is blocked on your network, devices can still find each other and share files.
                             If this mechanism doesn't work, you can connect to peers by manually entering the IP address of the device you want to connect to.
                         </p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>All of my clients are on the same Wifi network, but some of them can't see each other. Why?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>All of my clients are on the same Wifi network, but some of them can't see each other. Why?</h3></summary>
                         <p>
                             Many WiFi routers have "AP isolation" or "client isolation" features that prevent devices connected to the same WiFi network from communicating with each other. 
                             Check your router settings to see if this feature is enabled.
@@ -604,56 +550,48 @@
                             Also, we have seen some cases where some wireless routers/access points don't allow client-to-client traffic if they are on different frequency bands, ie. if one client
                             is connected to 2.4GHz and another client is connected to 5GHz. If possible, try connecting all clients to the same frequency band on your WiFi network, or connect them via Ethernet for best results.
                         </p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Can I use it with a VPN?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>Can I use it with a VPN?</h3></summary>
                         <p>
                             VPN connections may interfere with local network discovery. You may need to disconnect from 
                             your VPN to use LANBucket.
                         </p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>What happens if I modify a shared file?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>What happens if I modify a shared file?</h3></summary>
                         <p>
                             Moving, deleting, or modifying a file that you're sharing will prevent others from downloading it. 
                             Keep shared files in place until others have completed their downloads.
                         </p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Is my firewall going to block LANBucket?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>Is my firewall going to block LANBucket?</h3></summary>
                         <p>
                             Windows Defender Firewall may block LANBucket from discovering devices. Make sure that you have set the network profile to "Private" and allowed LANBucket through the firewall when prompted on first launch.
                         </p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Is there Linux or MacOS support?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>Is there Linux or MacOS support?</h3></summary>
                         <p>
                             Not yet, but we are considering it. At present LANBucket is built using Windows-specific UI frameworks, so Linux/MacOS support would require substantial rework. Unfortunately, LANBucket is not compatible with Wine/Proton either, since we use Windows APIs that are not implemented there either.
                         </p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>What is on-the-fly compression?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>What is on-the-fly compression?</h3></summary>
                         <p>
                             LANBucket automatically compresses files as they're sent and decompresses them as they arrive, all in real time. 
                             You don't have to zip anything up first. For files that compress well, like some video games,
                             you may be able to observe significantly faster transfer speeds. If a file does not compress well, compression is turned off automatically.
                         </p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Is LANBucket free?</h3>
-                        <p>
-                            Yes! LANBucket is completely free to use, and we're committed to keeping it ad-free. 
-                            If you'd like to support development, you can <a href="https://buymeacoffee.com/lanbucket" target="_blank" rel="noopener noreferrer">buy us a coffee</a>. 
-                            Your support is appreciated but never required.
-                        </p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>I found a bug, translation error, or have a feature request. Where do I report it?</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>I found a bug, translation error, or have a feature request. Where do I report it?</h3></summary>
                         <p>
                             We'd love to hear from you! Please <a href="https://forms.gle/aN4DzyXudxqJGKx56" target="_blank" rel="noopener noreferrer">fill out this form</a> 
                             with details. We review all submissions and appreciate your feedback.
                         </p>
-                    </div>
+                    </details>
                 </div>
             </div>
         </section>
@@ -662,12 +600,14 @@
         <section class="related-links">
             <div class="container">
                 <h2 class="section-title">More reading</h2>
-                <div class="related-grid">
-                    <a href="/lan-party-file-sharing-guide/">How to share files at a LAN party<span>A practical guide to moving big files between machines at a LAN.</span></a>
-                    <a href="/vs-localsend/">LANBucket vs LocalSend<span>How LANBucket compares to the cross-platform sender.</span></a>
-                    <a href="/vs-dcpp/">LANBucket vs DC++<span>How LANBucket compares to the classic Direct Connect client.</span></a>
-                    <a href="/vs-d-lan/">LANBucket vs D-LAN<span>How LANBucket compares to another distributed LAN tool.</span></a>
-                </div>
+                <ul class="link-list">
+                    <li><a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" target="_blank" rel="noopener noreferrer">Why I built LANBucket</a></li>
+                    <li><a href="https://justinbecker.dev/blog/2026/08/05/how-to-host-a-lanparty-2026/" target="_blank" rel="noopener noreferrer">How to throw a LAN party in 2026</a></li>
+                    <li><a href="/lan-party-file-sharing-guide/">How to share files at a LAN party</a></li>
+                    <li><a href="/vs-localsend/">LANBucket vs LocalSend</a></li>
+                    <li><a href="/vs-dcpp/">LANBucket vs DC++</a></li>
+                    <li><a href="/vs-d-lan/">LANBucket vs D-LAN</a></li>
+                </ul>
             </div>
         </section>
 
@@ -700,13 +640,6 @@
                 </div>
             </div>
         </section>
-
-        <div class="hero-lightbox" id="heroScreenshotLightbox" hidden>
-            <button class="hero-lightbox-backdrop" type="button" aria-label="Close screenshot preview"></button>
-            <div class="hero-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Expanded LANBucket screenshot preview">
-                <img src="StoreScreenshot1.png" alt="Expanded LANBucket app screenshot showing local network file sharing" class="hero-lightbox-image">
-            </div>
-        </div>
     </main>
 
     <footer>
@@ -729,20 +662,6 @@
             }
         }
 
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                // Show feedback
-                const btn = event.target;
-                const originalText = btn.textContent;
-                btn.textContent = '✓';
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy:', err);
-            });
-        }
-
         const storeBadge = document.querySelector('ms-store-badge');
         if (storeBadge) {
             function updateBadgeSize() {
@@ -750,6 +669,24 @@
             }
             updateBadgeSize();
             window.addEventListener('resize', updateBadgeSize);
+        }
+
+        // Big play button over the hero video; the native controls take over once it starts
+        const heroVideo = document.querySelector('.hero-video');
+        const heroPlay = document.querySelector('.hero-video-play');
+        if (heroVideo && heroPlay) {
+            heroVideo.controls = false;
+            heroPlay.hidden = false;
+            heroPlay.addEventListener('click', () => {
+                heroVideo.controls = true;
+                heroVideo.play();
+            });
+            heroVideo.addEventListener('play', () => { heroPlay.hidden = true; });
+            heroVideo.addEventListener('ended', () => {
+                heroVideo.controls = false;
+                heroVideo.load(); // back to the poster frame
+                heroPlay.hidden = false;
+            });
         }
 
         const navToggle = document.querySelector('.nav-toggle');
@@ -769,46 +706,33 @@
             });
         }
 
-        const heroScreenshotCard = document.querySelector('.hero-screenshot-card');
-        const heroLightbox = document.getElementById('heroScreenshotLightbox');
-        const heroLightboxBackdrop = document.querySelector('.hero-lightbox-backdrop');
 
-        if (heroScreenshotCard && heroLightbox && heroLightboxBackdrop) {
-            const openHeroLightbox = () => {
-                heroLightbox.hidden = false;
-                document.body.classList.add('lightbox-open');
-                heroScreenshotCard.focus();
+        // Performance chart: switch the bars between time and throughput
+        const perfChart = document.querySelector('.perf-chart');
+        if (perfChart) {
+            const perfRows = perfChart.querySelectorAll('.perf-row');
+            const perfCaption = perfChart.querySelector('.perf-caption');
+            const perfButtons = perfChart.querySelectorAll('.perf-toggle button');
+
+            const setPerfMode = (button) => {
+                const key = button.dataset.mode;
+                const max = Math.max(...Array.from(perfRows, (row) => Number(row.dataset[key])));
+                perfRows.forEach((row) => {
+                    const value = Number(row.dataset[key]);
+                    row.style.setProperty('--frac', value / max);
+                    row.querySelector('.perf-value').textContent = value.toLocaleString('en-US') + button.dataset.unit;
+                });
+                perfButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+                perfCaption.textContent = button.dataset.caption;
             };
 
-            const closeHeroLightbox = () => {
-                heroLightbox.hidden = true;
-                document.body.classList.remove('lightbox-open');
-                heroScreenshotCard.focus();
-            };
-
-            heroScreenshotCard.addEventListener('click', openHeroLightbox);
-
-            heroScreenshotCard.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    openHeroLightbox();
-                }
-            });
-
-            heroLightbox.addEventListener('click', closeHeroLightbox);
-            heroLightboxBackdrop.addEventListener('click', closeHeroLightbox);
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && !heroLightbox.hidden) {
-                    closeHeroLightbox();
-                }
-            });
+            perfButtons.forEach((button) => button.addEventListener('click', () => setPerfMode(button)));
         }
 
-        // Comparison table flyouts explaining partial/unsupported cells
+        // Comparison flyouts explaining partial/unsupported cells and the performance chart bars
         const comparisonTable = document.querySelector('.comparison-table');
         if (comparisonTable) {
-            const tipCells = comparisonTable.querySelectorAll('td.cell-no, td.cell-partial');
+            const tipCells = document.querySelectorAll('.comparison-table td.cell-no, .comparison-table td.cell-partial, .perf-row');
             if (tipCells.length) {
                 const tooltip = document.createElement('div');
                 tooltip.className = 'comparison-tooltip';
@@ -820,7 +744,7 @@
 
                 const positionTooltip = () => {
                     if (!activeCell) return;
-                    const rect = activeCell.getBoundingClientRect();
+                    const rect = (activeCell.querySelector('.perf-bar') || activeCell).getBoundingClientRect();
                     const tipRect = tooltip.getBoundingClientRect();
                     const margin = 8;
 
@@ -841,7 +765,7 @@
                 };
 
                 const showTooltip = (cell) => {
-                    const srText = cell.querySelector('.sr-only')?.textContent?.trim();
+                    const srText = (cell.dataset.tip || cell.querySelector('.sr-only')?.textContent)?.trim();
                     if (!srText) return;
                     const text = srText.replace(/^(Yes|No|Partial)\.\s*/i, '');
                     activeCell = cell;

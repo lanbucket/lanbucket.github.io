@@ -80,7 +80,7 @@ jobs:
           --arg bundleUrl "https://lanbucket.com/app/LanBucket_${version}.msixbundle" \
           --arg setupUrl "https://lanbucket.com/app/LANBucketSetup_${version}.exe" \
           --arg minimum "$minimum" \
-          '{ version: $version, bundleUrl: $bundleUrl, setupUrl: $setupUrl }
+          '{ version: $version, releasedAt: (now | todate), bundleUrl: $bundleUrl, setupUrl: $setupUrl }
            + (if $minimum == "" then {} else { minimumVersion: $minimum } end)' > latest.json
         cat latest.json
         echo "VERSION=$version" >> "$GITHUB_ENV"

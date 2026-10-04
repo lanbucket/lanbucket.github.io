@@ -19,7 +19,8 @@ Since LANBucket uses a distributed file sharing protocol under the hood, having 
 
 ## Links
 
-- [Official Website](https://lanbucket.com/): Main landing page with features, download options, and FAQ
+- [Official Website](https://lanbucket.com/): Main landing page with features, performance comparison, and FAQ
+- [Download](https://lanbucket.com/download/): Microsoft Store and winget install options, and system requirements
 
 ## Installation
 
