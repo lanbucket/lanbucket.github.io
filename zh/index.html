@@ -300,7 +300,7 @@
             <div class="container">
                 <h2 class="section-title">局域网聚会上最快的文件共享应用</h2>
                 <p class="comparison-intro">LANBucket 使用自研的网络代码，针对您网络硬件的极限进行优化，从而加快传输速度，为您节省时间。下方展示了在局域网聚会上同时向 8 台电脑共享文件时，LANBucket 能快多少。</p>
-                <!-- Throughput = 10 GB x 8 downloaders = 640,000 megabits, divided by the seconds taken -->
+                <!-- Throughput = 10 GiB (10,737,418,240 bytes) x 8 downloaders = 687,195 megabits, divided by the seconds taken -->
                 <div class="perf-chart">
                     <div class="perf-chart-head">
                         <p class="perf-caption">完成用时（秒，越低越好）</p>
@@ -310,27 +310,27 @@
                         </div>
                     </div>
                     <ul class="perf-bars" aria-hidden="true">
-                        <li class="perf-row perf-row-highlight" style="--frac: 0.1644" data-seconds="120.7" data-mbps="5302" data-tip="LANBucket：120.7 秒，总吞吐量 5,302 Mbps">
+                        <li class="perf-row perf-row-highlight" style="--frac: 0.1644" data-seconds="120.7" data-mbps="5693" data-tip="LANBucket：120.7 秒，总吞吐量 5,693 Mbps">
                             <span class="perf-label">LANBucket</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">120.7 秒</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 0.3125" data-seconds="229.5" data-mbps="2789" data-tip="D-LAN：229.5 秒，总吞吐量 2,789 Mbps">
+                        <li class="perf-row" style="--frac: 0.3125" data-seconds="229.5" data-mbps="2994" data-tip="D-LAN：229.5 秒，总吞吐量 2,994 Mbps">
                             <span class="perf-label">D-LAN</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">229.5 秒</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 0.7615" data-seconds="559.2" data-mbps="1144" data-tip="qBittorrent：559.2 秒，总吞吐量 1,144 Mbps">
+                        <li class="perf-row" style="--frac: 0.7615" data-seconds="559.2" data-mbps="1229" data-tip="qBittorrent：559.2 秒，总吞吐量 1,229 Mbps">
                             <span class="perf-label">qBittorrent</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">559.2 秒</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 0.9869" data-seconds="724.7" data-mbps="883" data-tip="标准 Web 服务器：724.7 秒，总吞吐量 883 Mbps">
+                        <li class="perf-row" style="--frac: 0.9869" data-seconds="724.7" data-mbps="948" data-tip="标准 Web 服务器：724.7 秒，总吞吐量 948 Mbps">
                             <span class="perf-label">标准 Web 服务器</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">724.7 秒</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 0.9897" data-seconds="726.7" data-mbps="881" data-tip="LocalSend：726.7 秒，总吞吐量 881 Mbps">
+                        <li class="perf-row" style="--frac: 0.9897" data-seconds="726.7" data-mbps="946" data-tip="LocalSend：726.7 秒，总吞吐量 946 Mbps">
                             <span class="perf-label">LocalSend</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">726.7 秒</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 1" data-seconds="734.3" data-mbps="872" data-tip="DC++：734.3 秒，总吞吐量 872 Mbps">
+                        <li class="perf-row" style="--frac: 1" data-seconds="734.3" data-mbps="936" data-tip="DC++：734.3 秒，总吞吐量 936 Mbps">
                             <span class="perf-label">DC++</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">734.3 秒</span></span>
                         </li>
@@ -342,12 +342,12 @@
                                 <tr><th scope="col">应用</th><th scope="col">完成用时</th><th scope="col">总吞吐量</th></tr>
                             </thead>
                             <tbody>
-                                <tr><th scope="row">LANBucket</th><td>120.7 秒</td><td>5,302 Mbps</td></tr>
-                                <tr><th scope="row">D-LAN</th><td>229.5 秒</td><td>2,789 Mbps</td></tr>
-                                <tr><th scope="row">qBittorrent</th><td>559.2 秒</td><td>1,144 Mbps</td></tr>
-                                <tr><th scope="row">标准 Web 服务器</th><td>724.7 秒</td><td>883 Mbps</td></tr>
-                                <tr><th scope="row">LocalSend</th><td>726.7 秒</td><td>881 Mbps</td></tr>
-                                <tr><th scope="row">DC++</th><td>734.3 秒</td><td>872 Mbps</td></tr>
+                                <tr><th scope="row">LANBucket</th><td>120.7 秒</td><td>5,693 Mbps</td></tr>
+                                <tr><th scope="row">D-LAN</th><td>229.5 秒</td><td>2,994 Mbps</td></tr>
+                                <tr><th scope="row">qBittorrent</th><td>559.2 秒</td><td>1,229 Mbps</td></tr>
+                                <tr><th scope="row">标准 Web 服务器</th><td>724.7 秒</td><td>948 Mbps</td></tr>
+                                <tr><th scope="row">LocalSend</th><td>726.7 秒</td><td>946 Mbps</td></tr>
+                                <tr><th scope="row">DC++</th><td>734.3 秒</td><td>936 Mbps</td></tr>
                             </tbody>
                         </table>
                     </div>
