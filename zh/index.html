@@ -310,17 +310,25 @@
                         </div>
                     </div>
                     <ul class="perf-bars" aria-hidden="true">
-                        <li class="perf-row perf-row-highlight" style="--frac: 0.1666" data-seconds="120.7" data-mbps="5302" data-tip="LANBucket：120.7 秒，总吞吐量 5,302 Mbps">
+                        <li class="perf-row perf-row-highlight" style="--frac: 0.1644" data-seconds="120.7" data-mbps="5302" data-tip="LANBucket：120.7 秒，总吞吐量 5,302 Mbps">
                             <span class="perf-label">LANBucket</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">120.7 秒</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 0.3167" data-seconds="229.5" data-mbps="2789" data-tip="D-LAN：229.5 秒，总吞吐量 2,789 Mbps">
+                        <li class="perf-row" style="--frac: 0.3125" data-seconds="229.5" data-mbps="2789" data-tip="D-LAN：229.5 秒，总吞吐量 2,789 Mbps">
                             <span class="perf-label">D-LAN</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">229.5 秒</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 1" data-seconds="724.7" data-mbps="883" data-tip="标准 Web 服务器：724.7 秒，总吞吐量 883 Mbps">
+                        <li class="perf-row" style="--frac: 0.9869" data-seconds="724.7" data-mbps="883" data-tip="标准 Web 服务器：724.7 秒，总吞吐量 883 Mbps">
                             <span class="perf-label">标准 Web 服务器</span>
                             <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">724.7 秒</span></span>
+                        </li>
+                        <li class="perf-row" style="--frac: 0.9897" data-seconds="726.7" data-mbps="881" data-tip="LocalSend：726.7 秒，总吞吐量 881 Mbps">
+                            <span class="perf-label">LocalSend</span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">726.7 秒</span></span>
+                        </li>
+                        <li class="perf-row" style="--frac: 1" data-seconds="734.3" data-mbps="872" data-tip="DC++：734.3 秒，总吞吐量 872 Mbps">
+                            <span class="perf-label">DC++</span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">734.3 秒</span></span>
                         </li>
                     </ul>
                     <div class="sr-only">
@@ -333,10 +341,12 @@
                                 <tr><th scope="row">LANBucket</th><td>120.7 秒</td><td>5,302 Mbps</td></tr>
                                 <tr><th scope="row">D-LAN</th><td>229.5 秒</td><td>2,789 Mbps</td></tr>
                                 <tr><th scope="row">标准 Web 服务器</th><td>724.7 秒</td><td>883 Mbps</td></tr>
+                                <tr><th scope="row">LocalSend</th><td>726.7 秒</td><td>881 Mbps</td></tr>
+                                <tr><th scope="row">DC++</th><td>734.3 秒</td><td>872 Mbps</td></tr>
                             </tbody>
                         </table>
                     </div>
-                    <p class="perf-note">测试方法：将一个包含随机测试数据的 10GB 文件共享给另外 8 台电脑。全部 9 台电脑都连接在一台消费级千兆以太网交换机上，并配备固态硬盘（SSD）。</p>
+                    <p class="perf-note">测试方法：将一个包含随机测试数据的 10GB 文件共享给另外 8 台电脑，这些电脑同时开始下载。全部 9 台电脑都连接在一台消费级千兆以太网交换机上，并配备固态硬盘（SSD）。测试版本为 LANBucket 1.5.0、D-LAN 1.4.0、DC++ 0.884 和 LocalSend 1.18.2，Web 服务器使用 Caddy 2.11.4。</p>
                 </div>
             </div>
         </section>
