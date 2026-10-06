@@ -633,9 +633,44 @@ section {
     font-size: 0.9375rem;
 }
 
+/* Offline installer: a push button per file, with its size and a line about it alongside */
+.download-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    list-style: none;
+}
+
+.download-item {
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    align-items: center;
+    gap: var(--spacing-xs) var(--spacing-sm);
+}
+
+.download-item p {
+    margin: 0;
+}
+
+/* Black text, not the dialog's link blue */
+.setup-window .download-item .btn {
+    padding: 0.6rem 1rem;
+    color: #000000;
+    text-align: center;
+}
+
+.file-size {
+    display: block;
+}
+
 @media (max-width: 600px) {
     .setup-body {
         padding: var(--spacing-sm);
+    }
+
+    .download-item {
+        grid-template-columns: 1fr;
     }
 }
 

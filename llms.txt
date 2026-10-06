@@ -20,9 +20,11 @@ Since LANBucket uses a distributed file sharing protocol under the hood, having 
 ## Links
 
 - [Official Website](https://lanbucket.com/): Main landing page with features, performance comparison, and FAQ
-- [Download](https://lanbucket.com/download/): Microsoft Store and winget install options, and system requirements
+- [Download](https://lanbucket.com/download/): Microsoft Store, winget and offline installer options, and system requirements
 
 ## Installation
 
 LANBucket can be installed via:
 - Microsoft Store for automatic updates and easy installation
+- winget: `winget install LANBucket -s msstore`
+- Offline installer (LANBucket Setup .exe, or the .msixbundle) from https://lanbucket.com/download/, for PCs without the Microsoft Store or without internet. It updates itself from lanbucket.com when online.
