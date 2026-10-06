@@ -75,12 +75,17 @@ jobs:
             | jq -r '.minimumVersion // empty' || true)
         fi
 
+        # The sizes, in bytes, are for the download page: GitHub Pages serves the exe gzipped, so a
+        # browser never sees its real size in a response header.
         jq -n \
           --arg version "$version" \
           --arg bundleUrl "https://lanbucket.com/app/LanBucket_${version}.msixbundle" \
+          --argjson bundleSize "$(stat -c %s "LanBucket_${version}.msixbundle")" \
           --arg setupUrl "https://lanbucket.com/app/LANBucketSetup_${version}.exe" \
+          --argjson setupSize "$(stat -c %s "LANBucketSetup_${version}.exe")" \
           --arg minimum "$minimum" \
-          '{ version: $version, releasedAt: (now | todate), bundleUrl: $bundleUrl, setupUrl: $setupUrl }
+          '{ version: $version, releasedAt: (now | todate), bundleUrl: $bundleUrl, bundleSize: $bundleSize,
+             setupUrl: $setupUrl, setupSize: $setupSize }
            + (if $minimum == "" then {} else { minimumVersion: $minimum } end)' > latest.json
         cat latest.json
         echo "VERSION=$version" >> "$GITHUB_ENV"

@@ -7,7 +7,7 @@
     <!-- Primary Meta Tags -->
     <title>Download LANBucket: Free LAN file sharing for Windows</title>
     <meta name="title" content="Download LANBucket: Free LAN file sharing for Windows">
-    <meta name="description" content="Download LANBucket free from the Microsoft Store or install it with winget. Runs on Windows 10 (version 1809) and Windows 11, on x64 and ARM64.">
+    <meta name="description" content="Download LANBucket free from the Microsoft Store, with winget, or as an offline installer. Runs on Windows 10 (version 1809) and Windows 11, on x64 and ARM64.">
     <meta name="author" content="Justin Becker">
     <meta name="robots" content="index, follow">
 
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lanbucket.com/download/">
     <meta property="og:title" content="Download LANBucket: Free LAN file sharing for Windows">
-    <meta property="og:description" content="Download LANBucket free from the Microsoft Store or install it with winget. Runs on Windows 10 (version 1809) and Windows 11, on x64 and ARM64.">
+    <meta property="og:description" content="Download LANBucket free from the Microsoft Store, with winget, or as an offline installer. Runs on Windows 10 (version 1809) and Windows 11, on x64 and ARM64.">
     <meta property="og:image" content="https://lanbucket.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -36,7 +36,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://lanbucket.com/download/">
     <meta name="twitter:title" content="Download LANBucket: Free LAN file sharing for Windows">
-    <meta name="twitter:description" content="Download LANBucket free from the Microsoft Store or install it with winget. Runs on Windows 10 (version 1809) and Windows 11, on x64 and ARM64.">
+    <meta name="twitter:description" content="Download LANBucket free from the Microsoft Store, with winget, or as an offline installer. Runs on Windows 10 (version 1809) and Windows 11, on x64 and ARM64.">
     <meta name="twitter:image" content="https://lanbucket.com/og-image.png">
     <meta name="twitter:image:alt" content="Download LANBucket">
 
@@ -142,6 +142,22 @@
                                 </div>
                             </div>
 
+                            <div class="group-box" id="offlineInstaller" hidden>
+                                <h2>Offline Installer</h2>
+                                <p>Self contained installer that does not require the Microsoft Store, or an internet connection.</p>
+                                <ul class="download-list">
+                                    <li class="download-item" data-file="setup">
+                                        <a class="btn btn-primary">LANBucket Setup (.exe)</a>
+                                        <p><strong class="file-size"></strong>Simple EXE installer.</p>
+                                    </li>
+                                    <li class="download-item" data-file="bundle">
+                                        <a class="btn">MSIX bundle (.msixbundle)</a>
+                                        <p><strong class="file-size"></strong>Useful for automated deployments in powershell.</p>
+                                    </li>
+                                </ul>
+                                <p class="store-note">NOTE: The "Microsoft Store" version and the "Offline Installer" version of the app conflict, so only one can be installed on any particular computer.</p>
+                            </div>
+
                             <div class="group-box">
                                 <h2>System requirements</h2>
                                 <table class="spec-table">
@@ -209,23 +225,42 @@
             updateBadgeSize();
             window.addEventListener('resize', updateBadgeSize);
         }
-        // The latest version and its release date, from the update feed the release workflow publishes.
-        // The row stays hidden if the feed can't be read (for example before the first release).
+        // The latest version, its release date and the offline installer's files, from the update feed the
+        // release workflow publishes. Each box stays hidden if the feed can't be read (for example before the
+        // first release).
         const latestBox = document.getElementById('latestVersion');
-        if (latestBox) {
-            fetch('/app/latest.json', { cache: 'no-cache' })
-                .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.status))))
-                .then((latest) => {
-                    const released = new Date(latest.releasedAt);
-                    if (!latest.version || isNaN(released)) return;
-                    // MSIX versions have four parts; the changelog leaves off a trailing .0
-                    latestBox.querySelector('[data-latest="version"]').textContent = latest.version.replace(/^(\d+\.\d+\.\d+)\.0$/, '$1');
-                    const date = latestBox.querySelector('[data-latest="date"]');
-                    date.dateTime = latest.releasedAt;
-                    date.textContent = released.toLocaleDateString(document.documentElement.lang, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
-                    latestBox.hidden = false;
-                })
-                .catch(() => {});
+        const offlineBox = document.getElementById('offlineInstaller');
+        fetch('/app/latest.json', { cache: 'no-cache' })
+            .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.status))))
+            .then((latest) => {
+                showLatestVersion(latest);
+                showOfflineInstaller(latest);
+            })
+            .catch(() => {});
+
+        function showLatestVersion(latest) {
+            const released = new Date(latest.releasedAt);
+            if (!latestBox || !latest.version || isNaN(released)) return;
+            // MSIX versions have four parts; the changelog leaves off a trailing .0
+            latestBox.querySelector('[data-latest="version"]').textContent = latest.version.replace(/^(\d+\.\d+\.\d+)\.0$/, '$1');
+            const date = latestBox.querySelector('[data-latest="date"]');
+            date.dateTime = latest.releasedAt;
+            date.textContent = released.toLocaleDateString(document.documentElement.lang, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+            latestBox.hidden = false;
+        }
+
+        // The file names carry the version, so the links and sizes come from the feed. A size shows in MB as
+        // Windows counts them (1 MB = 1024 × 1024 bytes), and is left out if the feed doesn't give one.
+        function showOfflineInstaller(latest) {
+            if (!offlineBox || !latest.setupUrl || !latest.bundleUrl) return;
+            const sizeFormat = new Intl.NumberFormat(document.documentElement.lang, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+            offlineBox.querySelectorAll('[data-file]').forEach((item) => {
+                const file = item.dataset.file;
+                item.querySelector('a').href = latest[`${file}Url`];
+                const bytes = latest[`${file}Size`];
+                if (bytes > 0) item.querySelector('.file-size').textContent = `${sizeFormat.format(bytes / 1048576)} MB`;
+            });
+            offlineBox.hidden = false;
         }
     </script>
 </body>
