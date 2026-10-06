@@ -2,6 +2,21 @@
 
 ---
 
+## 1.5.0
+
+- **Eleven more languages.** LANBucket is now available in 33 languages, adding Bengali, Czech, Danish, Dutch, Filipino, Hungarian, Persian, Romanian, Swedish, Tamil, and Urdu.
+- *Major performance improvement* when sharing a folder containing thousands of small files.
+- *More improvements to swarm throughput* allowing faster downloads over large groups of peers.
+- Sharing a large file is several times faster on fast SSDs.
+- Small translation tweaks to existing languages.
+- Various fixes and improvements for moving the download location of a shared item.
+- Downloads to FAT32 and exFAT drives, like a flash drive, no longer stall when the transfer is first starting.
+- Introduced offline installer, allowing downloads outside of the Microsoft Store.
+- Reduced latency of discovering files shared by peers when LANBucket is first started.
+- LANBucket now keeps your PC from going to sleep while it downloads, rechecks, and uploads files, or when sharing an item.
+- Improvements to the transfer statistics screen, including the "Swarm Throughput" number.
+- Fixed a rare crash when closing LANBucket while the "sharing a file" dialog is open.
+
 ## 1.4.3 - September 18, 2026
 - LANBucket now creates firewall rules during installation, skipping popup dialog.
 - LANBucket no longer warns the user about the Windows "Public Network Profile".
