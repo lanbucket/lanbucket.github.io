@@ -2,7 +2,7 @@
 
 ---
 
-## 1.5.0
+## 1.5.0 - October 6, 2026
 
 - **Eleven more languages.** LANBucket is now available in 33 languages, adding Bengali, Czech, Danish, Dutch, Filipino, Hungarian, Persian, Romanian, Swedish, Tamil, and Urdu.
 - *Major performance improvement* when sharing a folder containing thousands of small files.
