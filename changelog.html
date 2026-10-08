@@ -46,17 +46,19 @@
 
     <link rel="stylesheet" href="/style.css">
 
-    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds -->
+    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds. The script itself waits for the load event so it doesn't compete with the page's first render -->
     <script>
       (function () {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         window.gtag = gtag;
         if (!/(^|\.)lanbucket\.com$/i.test(location.hostname)) return;
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
-        document.head.appendChild(s);
+        window.addEventListener('load', function () {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
+          document.head.appendChild(s);
+        });
         gtag('js', new Date());
         gtag('config', 'G-MQ5QBM6CSL');
       })();

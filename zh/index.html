@@ -209,20 +209,25 @@
     }
     </script>
 
+    <!-- The video poster is the largest thing on screen (the LCP element), so fetch it right away -->
+    <link rel="preload" as="image" href="/lanbucket-demo-poster_zh-Hans.webp" type="image/webp" fetchpriority="high">
     <link rel="stylesheet" href="/style.css">
     <!-- Microsoft Store Badge -->
+    <link rel="preconnect" href="https://get.microsoft.com" crossorigin>
     <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
-    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds -->
+    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds. The script itself waits for the load event so it doesn't compete with the page's first render -->
     <script>
       (function () {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         window.gtag = gtag;
         if (!/(^|\.)lanbucket\.com$/i.test(location.hostname)) return;
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
-        document.head.appendChild(s);
+        window.addEventListener('load', function () {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
+          document.head.appendChild(s);
+        });
         gtag('js', new Date());
         gtag('config', 'G-MQ5QBM6CSL');
       })();
@@ -281,7 +286,7 @@
 
                         <div class="hero-visual">
                             <div class="hero-video-frame">
-                                <video class="hero-video" controls playsinline preload="metadata" poster="/lanbucket-demo-poster_zh-Hans.png" aria-label="LANBucket 演示视频">
+                                <video class="hero-video" controls playsinline preload="none" poster="/lanbucket-demo-poster_zh-Hans.webp" aria-label="LANBucket 演示视频">
                                     <source src="/lanbucket-demo_zh-Hans.webm" type="video/webm">
                                     <source src="/lanbucket-demo_zh-Hans.mp4" type="video/mp4">
                                 </video>
@@ -670,11 +675,14 @@
 
         const storeBadge = document.querySelector('ms-store-badge');
         if (storeBadge) {
+            // matchMedia rather than innerWidth: reading innerWidth while the page is still loading
+            // forces the browser to lay out the whole page early
+            const smallScreen = window.matchMedia('(max-width: 600px)');
             function updateBadgeSize() {
-                storeBadge.setAttribute('size', window.innerWidth <= 600 ? 'small' : 'large');
+                storeBadge.setAttribute('size', smallScreen.matches ? 'small' : 'large');
             }
             updateBadgeSize();
-            window.addEventListener('resize', updateBadgeSize);
+            smallScreen.addEventListener('change', updateBadgeSize);
         }
 
         // Big play button over the hero video; the native controls take over once it starts
