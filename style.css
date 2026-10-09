@@ -674,9 +674,20 @@ section {
     }
 }
 
+/* Hold the badge's space before its script loads, so the page doesn't jump when it pops in.
+   Its image is 161×44 in every language: size="large" draws it 104px tall, size="small" at its
+   natural size. The pages' scripts switch to small at 600px and below, so these must agree. */
 ms-store-badge {
     max-width: 100%;
     display: block;
+    height: 104px;
+    aspect-ratio: 161 / 44;
+}
+
+@media (max-width: 600px) {
+    ms-store-badge {
+        height: 44px;
+    }
 }
 
 
