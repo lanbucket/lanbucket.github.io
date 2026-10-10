@@ -2,6 +2,13 @@
 
 ---
 
+## 1.5.1 - October 10, 2026
+
+- The app window can now be click-and-dragged while a dialog box is open.
+- Fixed small issue with "Open in Explorer" option.
+- Fixed rare issue where certain warning dialog boxes would fail to be shown.
+- Various fixes to Unicode handling.
+
 ## 1.5.0 - October 6, 2026
 
 - **Eleven more languages.** LANBucket is now available in 33 languages, adding Bengali, Czech, Danish, Dutch, Filipino, Hungarian, Persian, Romanian, Swedish, Tamil, and Urdu.
