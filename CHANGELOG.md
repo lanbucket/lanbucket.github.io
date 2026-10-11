@@ -2,6 +2,11 @@
 
 ---
 
+## 1.5.2 - October 11, 2026
+
+- Sharing a folder containing thousands of files is slightly faster.
+- Fixes some error messages in languages other than english.
+
 ## 1.5.1 - October 10, 2026
 
 - The app window can now be click-and-dragged while a dialog box is open.
