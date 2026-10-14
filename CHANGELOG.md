@@ -2,6 +2,14 @@
 
 ---
 
+## 1.5.3 - October 13, 2026
+
+- LANBucket now warns you before a download could overwrite your existing files.
+- Fixed a visual issue when downloading a folder containing thousands of files.
+- Fixed several issues with the Settings dialog.
+- Fixed small issues with file access after LANBucket restarts.
+- The slow network warning now recognizes more network adapters.
+
 ## 1.5.2 - October 11, 2026
 
 - Sharing a folder containing thousands of files is slightly faster
