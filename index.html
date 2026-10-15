@@ -267,16 +267,19 @@
                                 Distributed transfers. <a href="https://en.wikipedia.org/wiki/Electron_(software_framework)" target="_blank" rel="noopener noreferrer">100% Electron-free</a>.
                             </p>
                             <div class="cta-buttons hero-cta-buttons">
-                                <ms-store-badge
-                                    productid="9N9WTBT332JN"
-                                    window-mode="direct"
-                                    theme="auto"
-                                    size="large"
-                                    language="en-us"
-                                    animation="off">
-                                </ms-store-badge>
-                                <div class="hero-links">
-                                    <a class="hero-more-link" href="/download/">More download options</a>
+                                <div class="hero-download-row">
+                                    <ms-store-badge
+                                        productid="9N9WTBT332JN"
+                                        window-mode="full"
+                                        theme="light"
+                                        size="small"
+                                        language="en-us"
+                                        animation="off">
+                                    </ms-store-badge>
+                                    <a class="hero-download-btn" href="/download/">More download options</a>
+                                </div>
+                                <div class="hero-download-meta">
+                                    <p class="hero-version" id="heroVersion">&nbsp;</p>
                                     <a class="hero-more-link" href="/changelog.html">Changelog</a>
                                 </div>
                             </div>
@@ -315,36 +318,36 @@
                 <p class="comparison-intro">LANBucket uses custom netcode to optimize for the limits of your networking hardware, speeding up your transfers, and saving you time so you can get back to gaming sooner.</p>
                 <div class="perf-chart">
                     <div class="perf-chart-head">
-                        <p class="perf-caption">Time to finish, in seconds (lower is better)</p>
+                        <p class="perf-caption">Overall throughput, in Mbps (higher is better)</p>
                         <div class="perf-toggle" role="group" aria-label="Chart units">
-                            <button type="button" aria-pressed="true" data-mode="seconds" data-unit=" s" data-caption="Time to finish, in seconds (lower is better)">Time</button>
-                            <button type="button" aria-pressed="false" data-mode="mbps" data-unit=" Mbps" data-caption="Overall throughput, in Mbps (higher is better)">Throughput</button>
+                            <button type="button" aria-pressed="false" data-mode="seconds" data-unit=" s" data-caption="Time to finish, in seconds (lower is better)">Time</button>
+                            <button type="button" aria-pressed="true" data-mode="mbps" data-unit=" Mbps" data-caption="Overall throughput, in Mbps (higher is better)">Throughput</button>
                         </div>
                     </div>
                     <ul class="perf-bars" aria-hidden="true">
-                        <li class="perf-row perf-row-highlight" style="--frac: 0.1644" data-seconds="120.7" data-mbps="5693" data-tip="LANBucket: 120.7 seconds, 5,693 Mbps overall">
+                        <li class="perf-row perf-row-highlight" style="--frac: 1" data-seconds="120.7" data-mbps="5693" data-tip="LANBucket: 120.7 seconds, 5,693 Mbps overall">
                             <span class="perf-label">LANBucket</span>
-                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">120.7 s</span></span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">5,693 Mbps</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 0.3125" data-seconds="229.5" data-mbps="2994" data-tip="D-LAN: 229.5 seconds, 2,994 Mbps overall">
+                        <li class="perf-row" style="--frac: 0.5259" data-seconds="229.5" data-mbps="2994" data-tip="D-LAN: 229.5 seconds, 2,994 Mbps overall">
                             <span class="perf-label">D-LAN</span>
-                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">229.5 s</span></span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">2,994 Mbps</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 0.7615" data-seconds="559.2" data-mbps="1229" data-tip="qBittorrent: 559.2 seconds, 1,229 Mbps overall">
+                        <li class="perf-row" style="--frac: 0.2159" data-seconds="559.2" data-mbps="1229" data-tip="qBittorrent: 559.2 seconds, 1,229 Mbps overall">
                             <span class="perf-label">qBittorrent</span>
-                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">559.2 s</span></span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">1,229 Mbps</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 0.9869" data-seconds="724.7" data-mbps="948" data-tip="Standard webserver: 724.7 seconds, 948 Mbps overall">
+                        <li class="perf-row" style="--frac: 0.1665" data-seconds="724.7" data-mbps="948" data-tip="Standard webserver: 724.7 seconds, 948 Mbps overall">
                             <span class="perf-label">Standard webserver</span>
-                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">724.7 s</span></span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">948 Mbps</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 0.9897" data-seconds="726.7" data-mbps="946" data-tip="LocalSend: 726.7 seconds, 946 Mbps overall">
+                        <li class="perf-row" style="--frac: 0.1662" data-seconds="726.7" data-mbps="946" data-tip="LocalSend: 726.7 seconds, 946 Mbps overall">
                             <span class="perf-label">LocalSend</span>
-                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">726.7 s</span></span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">946 Mbps</span></span>
                         </li>
-                        <li class="perf-row" style="--frac: 1" data-seconds="734.3" data-mbps="936" data-tip="DC++: 734.3 seconds, 936 Mbps overall">
+                        <li class="perf-row" style="--frac: 0.1644" data-seconds="734.3" data-mbps="936" data-tip="DC++: 734.3 seconds, 936 Mbps overall">
                             <span class="perf-label">DC++</span>
-                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">734.3 s</span></span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">936 Mbps</span></span>
                         </li>
                     </ul>
                     <div class="sr-only">
@@ -682,16 +685,17 @@
             }
         }
 
-        const storeBadge = document.querySelector('ms-store-badge');
-        if (storeBadge) {
-            // matchMedia rather than innerWidth: reading innerWidth while the page is still loading
-            // forces the browser to lay out the whole page early
-            const smallScreen = window.matchMedia('(max-width: 600px)');
-            function updateBadgeSize() {
-                storeBadge.setAttribute('size', smallScreen.matches ? 'small' : 'large');
-            }
-            updateBadgeSize();
-            smallScreen.addEventListener('change', updateBadgeSize);
+        // The current version under the Store badge, from the update feed the release workflow publishes.
+        // Its line is held blank until then, so nothing moves when it fills in
+        const heroVersion = document.getElementById('heroVersion');
+        if (heroVersion) {
+            fetch('/app/latest.json', { cache: 'no-cache' })
+                .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.status))))
+                .then((latest) => {
+                    // MSIX versions have four parts; the changelog leaves off a trailing .0
+                    if (latest.version) heroVersion.textContent = 'Version ' + latest.version.replace(/^(\d+\.\d+\.\d+)\.0$/, '$1');
+                })
+                .catch(() => {});
         }
 
         // Big play button over the hero video; the native controls take over once it starts
