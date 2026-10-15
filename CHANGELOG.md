@@ -2,7 +2,7 @@
 
 ---
 
-## 1.5.4 - October 15, 2026
+## 1.5.4 - October 14, 2026
 
 - Fixed a peer discovery issue when connecting to a network after starting LANBucket.
 - Fixed bug where would not use the Light/Dark theme chosen in settings.
