@@ -2,6 +2,15 @@
 
 ---
 
+## 1.5.4 - October 15, 2026
+
+- Fixed a peer discovery issue when connecting to a network after starting LANBucket.
+- Fixed bug where would not use the Light/Dark theme chosen in settings.
+- Fixed resuming a download that stopped because of a disk error.
+- Fixed several issues with the "Connected Peers" list pane.
+- Fixed a rare crash while LANBucket is starting.
+- Small visual improvements and fixes to the file tree and the welcome screen.
+
 ## 1.5.3 - October 13, 2026
 
 - LANBucket now warns you before a download could overwrite your existing files.
