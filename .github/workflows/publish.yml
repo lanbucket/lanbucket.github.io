@@ -1,5 +1,6 @@
 # Publishes a LANBucket master build's signed offline installer: creates a release here holding the
-# bundle, LANBucket Setup and latest.json (the app's update feed), then deploys the site.
+# bundle, LANBucket Setup and latest.json (the app's update feed), removes the older releases, then
+# deploys the site.
 # LANBUCKET_ARTIFACTS_TOKEN: fine-grained token with Actions: Read on geekman7473/LanBucket.
 name: Publish offline release
 
@@ -102,6 +103,22 @@ jobs:
           --notes "Offline installer for LANBucket $VERSION. lanbucket.com serves the newest release's files." \
           --latest \
           "LanBucket_${VERSION}.msixbundle" "LANBucketSetup_${VERSION}.exe" latest.json
+
+    # lanbucket.com only serves the newest release's files, so the older releases and their tags go.
+    # Drafts are left alone. The new release is already up, so the site still deploys if this fails.
+    - name: Remove the old releases
+      continue-on-error: true
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        set -euo pipefail
+        gh release list --repo "$GITHUB_REPOSITORY" --exclude-drafts --limit 100 --json tagName --jq '.[].tagName' |
+          while read -r tag; do
+            if [ "$tag" != "v$VERSION" ]; then
+              echo "Deleting release $tag"
+              gh release delete "$tag" --repo "$GITHUB_REPOSITORY" --cleanup-tag --yes
+            fi
+          done
 
   deploy:
     needs: release
