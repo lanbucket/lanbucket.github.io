@@ -2,6 +2,15 @@
 
 ---
 
+## 1.5.5 - October 16, 2026
+
+- In response to user feedback, file list's columns are now in the order Name, Speed, ETA, Shared By, Size, Status.
+- The download speed and time remaining are more accurate.
+- Fixed issue with the theming of the minimize and maximize buttons when Windows theme changed.
+- Various new error messages for certain disallowed file sharing edge cases.
+- Fixed an item getting stuck on "Checking" after another program had one of its files open.
+- Fixed several issues with the numbers on the Statistics screen.
+
 ## 1.5.4 - October 14, 2026
 
 - Fixed a peer discovery issue when connecting to a network after starting LANBucket.
