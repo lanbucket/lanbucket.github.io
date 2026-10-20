@@ -2,6 +2,20 @@
 
 ---
 
+## 1.5.6 - October 19, 2026
+
+- The download speed now always fits in its column.
+- Simplified design of "No Peers Found" dialog.
+- Hovering over a download's progress ring now shows a stop button that cancels the download.
+- The languages in Settings are now listed in unicode alphabetical order.
+- Fixed a downloaded file briefly showing the Download button when LANBucket finds it again after a restart.
+- Fixed messages and warnings sometimes not appearing when another dialog box was open.
+- Cleaned up the status message when moving a download to not be so annoying.
+- Fixed an issue when a permissions error would occur while moving a download to another disk drive.
+- When cancelling the download of a folder, progress icons are now correct for any sub items whose download has completed.
+- When sharing multiple items at once, correctly show an error if something goes wrong.
+- Updated to Windows App SDK 2.5.
+
 ## 1.5.5 - October 16, 2026
 
 - In response to user feedback, file list's columns are now in the order Name, Speed, ETA, Shared By, Size, Status.
