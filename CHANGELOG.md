@@ -2,6 +2,15 @@
 
 ---
 
+## 1.5.7 - October 22, 2026
+
+- LANBucket uses less memory under some circumstances.
+- Various fixes to sorting and searching in the shared file list.
+- Fixes issue where under some circumstances the "are you sure you want to close?" warning would not be show.
+- Fixes GUI issues for Transfer Details dialog on low resolution displays.
+- Prevent PC from sleeping in more scenarios.
+- Fixes issue where machines not connected to the internet could potentially show the incorrect LAN IP address.
+
 ## 1.5.6 - October 19, 2026
 
 - The download speed now always fits in its column.
