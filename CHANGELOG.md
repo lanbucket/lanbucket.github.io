@@ -2,6 +2,18 @@
 
 ---
 
+## 1.5.8 - October 28, 2026
+
+- Improves UI responsiveness when thousands of items have been shared.
+- We now show a warning if the network ports LANBucket needs have been opened by another app.
+- Fixes translations for the "Support LANBucket" dialog.
+- Fixes issue when shutting down LANBucket taking too long under some circumstances.
+- Sorting thousands of shared items, and opening a folder of thousands of files, no longer freezes LANBucket for seconds.
+- Fixes LANBucket getting stuck, with Download and Share File doing nothing, when other PCs share several hundred items.
+- Fixes a rare crash when closing LANBucket while items from other PCs are still loading.
+- Improved "Manually Add Peer" flow, allowing adding multiple peers.
+- Fixes some false alarm "Wi-Fi network may be misconfigured" warnings under some circumstances.
+
 ## 1.5.7 - October 22, 2026
 
 - LANBucket uses less memory under some circumstances.
@@ -15,14 +27,14 @@
 
 - The download speed now always fits in its column.
 - Simplified design of "No Peers Found" dialog.
-- Hovering over a download's progress ring now shows a stop button that cancels the download.
-- The languages in Settings are now listed in unicode alphabetical order.
-- Fixed a downloaded file briefly showing the Download button when LANBucket finds it again after a restart.
+- Hovering over a download's progress ring now shows a stop button.
+- The languages in "Settings" are now listed in unicode alphabetical order.
+- Fixed a downloaded file briefly showing the "Download" button when LANBucket finds it again after a restart.
 - Fixed messages and warnings sometimes not appearing when another dialog box was open.
 - Cleaned up the status message when moving a download to not be so annoying.
 - Fixed an issue when a permissions error would occur while moving a download to another disk drive.
-- When cancelling the download of a folder, progress icons are now correct for any sub items whose download has completed.
-- When sharing multiple items at once, correctly show an error if something goes wrong.
+- Fixes when cancelling the download of a folder, progress icons are now correct for any sub items whose download has completed.
+- Fixes when sharing multiple items at once, correctly show an error if something goes wrong.
 - Updated to Windows App SDK 2.5.
 
 ## 1.5.5 - October 16, 2026
