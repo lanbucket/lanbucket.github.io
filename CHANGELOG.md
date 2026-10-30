@@ -5,13 +5,13 @@
 ## 1.5.8 - October 28, 2026
 
 - Improves UI responsiveness when thousands of items have been shared.
+- Improved performance when sorting thousands of shared items.
+- Improved performance when thousands of items are shared at once.
+- Improved "Manually Add Peer" flow, allowing adding multiple peers.
 - We now show a warning if the network ports LANBucket needs have been opened by another app.
 - Fixes translations for the "Support LANBucket" dialog.
 - Fixes issue when shutting down LANBucket taking too long under some circumstances.
-- Sorting thousands of shared items, and opening a folder of thousands of files, no longer freezes LANBucket for seconds.
-- Fixes LANBucket getting stuck, with Download and Share File doing nothing, when other PCs share several hundred items.
-- Fixes a rare crash when closing LANBucket while items from other PCs are still loading.
-- Improved "Manually Add Peer" flow, allowing adding multiple peers.
+- Fixes a rare crash when closing LANBucket while shared items are being loaded.
 - Fixes some false alarm "Wi-Fi network may be misconfigured" warnings under some circumstances.
 
 ## 1.5.7 - October 22, 2026
