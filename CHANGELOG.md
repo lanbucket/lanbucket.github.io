@@ -3,6 +3,7 @@
 ---
 
 ## 1.5.9 - November 2, 2026
+
 - Improved performance when finishing rechecks of folders containing thousands of files.
 - Improved performance for using the search box when lots of files are shared.
 - Improved handling for permissions errors when sharing folders.
