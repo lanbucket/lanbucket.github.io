@@ -7,7 +7,7 @@
 - Improved performance when finishing rechecks of folders containing thousands of files.
 - Improved performance for using the search box when lots of files are shared.
 - Improved handling for permissions errors when sharing folders.
-- Improved IPV6 formatting in Transfer 'Details'
+- Improved IPV6 formatting in 'Transfer Details'
 - Fixed sharing a folder with the same name as an already shared folder shows a warning.
 - Fixed connection exhaustion problem which could happen at large LAN parties.
 - Fixed issue where Double-clicking a folder that's still downloading would not open it in Explorer.
