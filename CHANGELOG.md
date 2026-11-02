@@ -2,6 +2,21 @@
 
 ---
 
+## 1.5.9 - November 2, 2026
+
+- Sharing a folder with the same name as an already shared folder shows a warning.
+- Improved IPV6 formatting in Transfer 'Details'
+- Fixed connection exhaustion problem which could happen at large LAN parties.
+- Fixed issue where Double-clicking a folder that's still downloading would not open it in Explorer.
+- Improved performance when finishing rechecks of folders containing thousands of files.
+- Fixed rare issue where changing your configured 'Download' folder could cause corruption.
+- Improved handling for permissions errors when sharing folders.
+- Improved performance for using the search box when lots of files are shared.
+- Fixed weird bug that would show an error message when clicking 'Delete Download' on a file inside a partly downloaded folder.
+- Fixes rare issue that could happen if your configured 'Download' folder is no longer accesible.
+- Fixes performance issues when restarting LANBucket if you have downloaded files to a network share.
+- Fixes error message when downloading a large file (> 4GB) to a FAT32 partition.
+
 ## 1.5.8 - October 28, 2026
 
 - Improves UI responsiveness when thousands of items have been shared.
