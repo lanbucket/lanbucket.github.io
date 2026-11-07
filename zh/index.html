@@ -248,6 +248,7 @@
                 <li><a href="/zh/download/">下载</a></li>
                 <li><a href="#faq">常见问题</a></li>
                 <li><a href="#support">支持我们</a></li>
+                <li><a href="/troubleshooting.html" hreflang="en">故障排除</a></li>
                 <li><a href="/" hreflang="en" lang="en">English</a></li>
             </ul>
         </nav>
@@ -270,6 +271,8 @@
                             </p>
                             <div class="cta-buttons hero-cta-buttons">
                                 <div class="hero-download-row">
+                                    <!-- Links to the offline installer once the update feed loads, the download page until then -->
+                                    <a class="hero-download-btn" id="heroSetup" href="/zh/download/">下载安装程序</a>
                                     <ms-store-badge
                                         productid="9N9WTBT332JN"
                                         window-mode="full"
@@ -278,7 +281,7 @@
                                         language="zh-cn"
                                         animation="off">
                                     </ms-store-badge>
-                                    <a class="hero-download-btn" href="/zh/download/">更多下载选项</a>
+                                    <a class="hero-download-btn" href="/zh/download/">更多选项</a>
                                 </div>
                                 <div class="hero-download-meta">
                                     <p class="hero-version" id="heroVersion">&nbsp;</p>
@@ -661,6 +664,7 @@
             <p>版权所有 &copy; 2026 Justin Becker。保留所有权利。</p>
             <div class="footer-links">
                 <a href="/changelog.html" hreflang="en" lang="en">更新日志</a>
+                <a href="/troubleshooting.html" hreflang="en">故障排除</a>
                 <a href="/privacy.html">隐私政策</a>
             </div>
         </div>
@@ -676,18 +680,22 @@
             }
         }
 
-        // The current version under the Store badge, from the update feed the release workflow publishes.
-        // Its line is held blank until then, so nothing moves when it fills in
+        // The current version under the Store badge and the setup button's link, from the update feed the release
+        // workflow publishes. The version's line is held blank until then, so nothing moves when it fills in. The
+        // installer's file name carries the version, so the button links to the download page until the feed loads
         const heroVersion = document.getElementById('heroVersion');
-        if (heroVersion) {
-            fetch('/app/latest.json', { cache: 'no-cache' })
-                .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.status))))
-                .then((latest) => {
-                    // MSIX versions have four parts; the changelog leaves off a trailing .0
-                    if (latest.version) heroVersion.textContent = '版本 ' + latest.version.replace(/^(\d+\.\d+\.\d+)\.0$/, '$1');
-                })
-                .catch(() => {});
-        }
+        const heroSetup = document.getElementById('heroSetup');
+        fetch('/app/latest.json', { cache: 'no-cache' })
+            .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.status))))
+            .then((latest) => {
+                // MSIX versions have four parts; the changelog leaves off a trailing .0
+                if (heroVersion && latest.version) heroVersion.textContent = '版本 ' + latest.version.replace(/^(\d+\.\d+\.\d+)\.0$/, '$1');
+                if (heroSetup && latest.setupUrl) {
+                    heroSetup.href = latest.setupUrl;
+                    heroSetup.setAttribute('download', '');
+                }
+            })
+            .catch(() => {});
 
         // Big play button over the hero video; the native controls take over once it starts
         const heroVideo = document.querySelector('.hero-video');

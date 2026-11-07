@@ -228,6 +228,24 @@ header nav {
     max-width: 560px;
 }
 
+/* Wide enough for the three download buttons on one line: the text column sizes itself to that row and the
+   video takes the rest. The paragraphs wrap to the column rather than widening it. Narrower than this the
+   buttons wrap in the default layout above */
+@media (min-width: 1180px) {
+    .hero-layout {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .hero-copy {
+        max-width: none;
+    }
+
+    .hero-description,
+    .hero-meta {
+        contain: inline-size;
+    }
+}
+
 .hero-kicker {
     display: inline-block;
     margin-bottom: var(--spacing-sm);

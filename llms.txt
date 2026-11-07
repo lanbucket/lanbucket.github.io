@@ -21,6 +21,7 @@ Since LANBucket uses a distributed file sharing protocol under the hood, having 
 
 - [Official Website](https://lanbucket.com/): Main landing page with features, performance comparison, and FAQ
 - [Download](https://lanbucket.com/download/): Microsoft Store, winget and offline installer options, and system requirements
+- [Troubleshooting](https://lanbucket.com/troubleshooting.html): What to check when LANBucket can't find other devices (firewall, VPNs, corporate networks, virtual machines, WiFi isolation)
 
 ## Installation
 
