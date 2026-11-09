@@ -18,13 +18,23 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Assemble the site
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: npm
+
+    # Renders the localized pages from src/ and locales/, and copies everything else as-is (see eleventy.config.js)
+    - name: Build the site
+      run: |
+        npm ci
+        npx @11ty/eleventy
+        npm run i18n:check || echo "::warning::Some strings aren't translated and show in English; see the i18n:check output above"
+
+    - name: Add the release files
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
         set -euo pipefail
-        # The files GitHub's Jekyll build published: everything but names starting with "." or "_".
-        rsync -a --exclude='.*' --exclude='_*' ./ _site/
         mkdir -p _site/app
         if gh release view --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
           # The release's latest.json replaces the placeholder in app/

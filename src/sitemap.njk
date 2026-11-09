@@ -1,0 +1,42 @@
+---
+permalink: /sitemap.xml
+---
+{#- The localized pages are listed in every language, each entry naming all of its translations. Update a page's
+    lastmod when its content changes. -#}
+{%- set localizedPages = [
+    { subpath: "", lastmod: "2026-11-08", priority: "1.0", translatedPriority: "0.9" },
+    { subpath: "download/", lastmod: "2026-11-08", priority: "0.9", translatedPriority: "0.8" }
+] -%}
+{%- set englishPages = [
+    { path: "/vs-localsend/", lastmod: "2026-07-19", changefreq: "monthly", priority: "0.7" },
+    { path: "/vs-dcpp/", lastmod: "2026-07-19", changefreq: "monthly", priority: "0.7" },
+    { path: "/vs-d-lan/", lastmod: "2026-10-03", changefreq: "monthly", priority: "0.7" },
+    { path: "/lan-party-file-sharing-guide/", lastmod: "2026-10-03", changefreq: "monthly", priority: "0.8" },
+    { path: "/changelog.html", lastmod: "2026-08-24", changefreq: "monthly", priority: "0.5" },
+    { path: "/troubleshooting.html", lastmod: "2026-11-06", changefreq: "monthly", priority: "0.5" },
+    { path: "/privacy.html", lastmod: "2026-07-07", changefreq: "yearly", priority: "0.3" }
+] -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- for p in localizedPages %}{% for l in locales %}
+    <url>
+        <loc>https://lanbucket.com{{ l.path }}{{ p.subpath }}</loc>
+        <lastmod>{{ p.lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>{{ p.priority if l.code == "en" else p.translatedPriority }}</priority>
+{%- for alt in locales %}
+        <xhtml:link rel="alternate" hreflang="{{ alt.code }}" href="https://lanbucket.com{{ alt.path }}{{ p.subpath }}"/>
+{%- endfor %}
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lanbucket.com/{{ p.subpath }}"/>
+    </url>
+{%- endfor %}{% endfor %}
+{%- for p in englishPages %}
+    <url>
+        <loc>https://lanbucket.com{{ p.path }}</loc>
+        <lastmod>{{ p.lastmod }}</lastmod>
+        <changefreq>{{ p.changefreq }}</changefreq>
+        <priority>{{ p.priority }}</priority>
+    </url>
+{%- endfor %}
+</urlset>

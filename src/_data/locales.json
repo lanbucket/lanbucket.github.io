@@ -1,0 +1,336 @@
+[
+    {
+        "code": "en",
+        "path": "/",
+        "name": "English",
+        "englishName": "English",
+        "ogLocale": "en_US",
+        "storeLanguage": "en-us",
+        "flag": "us",
+        "video": "en-US"
+    },
+    {
+        "code": "id",
+        "path": "/id/",
+        "name": "Bahasa Indonesia",
+        "englishName": "Indonesian",
+        "ogLocale": "id_ID",
+        "storeLanguage": "id-id",
+        "flag": "id",
+        "video": "id"
+    },
+    {
+        "code": "ms",
+        "path": "/ms/",
+        "name": "Bahasa Melayu",
+        "englishName": "Malay",
+        "ogLocale": "ms_MY",
+        "storeLanguage": "ms-my",
+        "flag": "my",
+        "video": "ms"
+    },
+    {
+        "code": "cs",
+        "path": "/cs/",
+        "name": "Čeština",
+        "englishName": "Czech",
+        "ogLocale": "cs_CZ",
+        "storeLanguage": "cs-cz",
+        "flag": "cz",
+        "video": "cs"
+    },
+    {
+        "code": "da",
+        "path": "/da/",
+        "name": "Dansk",
+        "englishName": "Danish",
+        "ogLocale": "da_DK",
+        "storeLanguage": "da-dk",
+        "flag": "dk",
+        "video": "da"
+    },
+    {
+        "code": "de",
+        "path": "/de/",
+        "name": "Deutsch",
+        "englishName": "German",
+        "ogLocale": "de_DE",
+        "storeLanguage": "de-de",
+        "flag": "de",
+        "video": "de"
+    },
+    {
+        "code": "es",
+        "path": "/es/",
+        "name": "Español",
+        "englishName": "Spanish",
+        "ogLocale": "es_ES",
+        "storeLanguage": "es-es",
+        "flag": "es",
+        "video": "es"
+    },
+    {
+        "code": "fil",
+        "path": "/fil/",
+        "name": "Filipino",
+        "englishName": "Filipino",
+        "ogLocale": "tl_PH",
+        "storeLanguage": "fil-ph",
+        "flag": "ph",
+        "video": "fil"
+    },
+    {
+        "code": "fr",
+        "path": "/fr/",
+        "name": "Français",
+        "englishName": "French",
+        "ogLocale": "fr_FR",
+        "storeLanguage": "fr-fr",
+        "flag": "fr",
+        "video": "fr"
+    },
+    {
+        "code": "it",
+        "path": "/it/",
+        "name": "Italiano",
+        "englishName": "Italian",
+        "ogLocale": "it_IT",
+        "storeLanguage": "it-it",
+        "flag": "it",
+        "video": "it"
+    },
+    {
+        "code": "hu",
+        "path": "/hu/",
+        "name": "Magyar",
+        "englishName": "Hungarian",
+        "ogLocale": "hu_HU",
+        "storeLanguage": "hu-hu",
+        "flag": "hu",
+        "video": "hu"
+    },
+    {
+        "code": "nl",
+        "path": "/nl/",
+        "name": "Nederlands",
+        "englishName": "Dutch",
+        "ogLocale": "nl_NL",
+        "storeLanguage": "nl-nl",
+        "flag": "nl",
+        "video": "nl"
+    },
+    {
+        "code": "pl",
+        "path": "/pl/",
+        "name": "Polski",
+        "englishName": "Polish",
+        "ogLocale": "pl_PL",
+        "storeLanguage": "pl-pl",
+        "flag": "pl",
+        "video": "pl"
+    },
+    {
+        "code": "pt-BR",
+        "path": "/pt-br/",
+        "name": "Português (Brasil)",
+        "englishName": "Portuguese (Brazil)",
+        "ogLocale": "pt_BR",
+        "storeLanguage": "pt-br",
+        "flag": "br",
+        "video": "pt-BR"
+    },
+    {
+        "code": "ro",
+        "path": "/ro/",
+        "name": "Română",
+        "englishName": "Romanian",
+        "ogLocale": "ro_RO",
+        "storeLanguage": "ro-ro",
+        "flag": "ro",
+        "video": "ro"
+    },
+    {
+        "code": "sv",
+        "path": "/sv/",
+        "name": "Svenska",
+        "englishName": "Swedish",
+        "ogLocale": "sv_SE",
+        "storeLanguage": "sv-se",
+        "flag": "se",
+        "video": "sv"
+    },
+    {
+        "code": "vi",
+        "path": "/vi/",
+        "name": "Tiếng Việt",
+        "englishName": "Vietnamese",
+        "ogLocale": "vi_VN",
+        "storeLanguage": "vi-vn",
+        "flag": "vn",
+        "video": "vi"
+    },
+    {
+        "code": "tr",
+        "path": "/tr/",
+        "name": "Türkçe",
+        "englishName": "Turkish",
+        "ogLocale": "tr_TR",
+        "storeLanguage": "tr-tr",
+        "flag": "tr",
+        "video": "tr"
+    },
+    {
+        "code": "ru",
+        "path": "/ru/",
+        "name": "Русский",
+        "englishName": "Russian",
+        "ogLocale": "ru_RU",
+        "storeLanguage": "ru-ru",
+        "flag": "ru",
+        "video": "ru"
+    },
+    {
+        "code": "uk",
+        "path": "/uk/",
+        "name": "Українська",
+        "englishName": "Ukrainian",
+        "ogLocale": "uk_UA",
+        "storeLanguage": "uk-ua",
+        "flag": "ua",
+        "video": "uk"
+    },
+    {
+        "code": "he",
+        "path": "/he/",
+        "name": "עברית",
+        "englishName": "Hebrew",
+        "ogLocale": "he_IL",
+        "storeLanguage": "he-il",
+        "flag": "il",
+        "dir": "rtl",
+        "video": "he"
+    },
+    {
+        "code": "ar",
+        "path": "/ar/",
+        "name": "العربية",
+        "englishName": "Arabic",
+        "ogLocale": "ar_AR",
+        "storeLanguage": "ar-sa",
+        "flag": "sa",
+        "dir": "rtl",
+        "video": "ar"
+    },
+    {
+        "code": "ur",
+        "path": "/ur/",
+        "name": "اردو",
+        "englishName": "Urdu",
+        "ogLocale": "ur_PK",
+        "storeLanguage": "ur-pk",
+        "flag": "pk",
+        "dir": "rtl",
+        "video": "ur"
+    },
+    {
+        "code": "fa",
+        "path": "/fa/",
+        "name": "فارسی",
+        "englishName": "Persian",
+        "ogLocale": "fa_IR",
+        "storeLanguage": "fa-ir",
+        "flag": "ir",
+        "dir": "rtl",
+        "video": "fa"
+    },
+    {
+        "code": "hi",
+        "path": "/hi/",
+        "name": "हिन्दी",
+        "englishName": "Hindi",
+        "ogLocale": "hi_IN",
+        "storeLanguage": "hi-in",
+        "flag": "in",
+        "video": "hi"
+    },
+    {
+        "code": "ne",
+        "path": "/ne/",
+        "name": "नेपाली",
+        "englishName": "Nepali",
+        "ogLocale": "ne_NP",
+        "storeLanguage": "ne-np",
+        "flag": "np",
+        "video": "ne"
+    },
+    {
+        "code": "bn",
+        "path": "/bn/",
+        "name": "বাংলা",
+        "englishName": "Bengali",
+        "ogLocale": "bn_BD",
+        "storeLanguage": "bn-bd",
+        "flag": "bd",
+        "video": "bn"
+    },
+    {
+        "code": "ta",
+        "path": "/ta/",
+        "name": "தமிழ்",
+        "englishName": "Tamil",
+        "ogLocale": "ta_IN",
+        "storeLanguage": "ta-in",
+        "flag": "in",
+        "video": "ta"
+    },
+    {
+        "code": "th",
+        "path": "/th/",
+        "name": "ไทย",
+        "englishName": "Thai",
+        "ogLocale": "th_TH",
+        "storeLanguage": "th-th",
+        "flag": "th",
+        "video": "th"
+    },
+    {
+        "code": "ja",
+        "path": "/ja/",
+        "name": "日本語",
+        "englishName": "Japanese",
+        "ogLocale": "ja_JP",
+        "storeLanguage": "ja-jp",
+        "flag": "jp",
+        "video": "ja"
+    },
+    {
+        "code": "ko",
+        "path": "/ko/",
+        "name": "한국어",
+        "englishName": "Korean",
+        "ogLocale": "ko_KR",
+        "storeLanguage": "ko-kr",
+        "flag": "kr",
+        "video": "ko"
+    },
+    {
+        "code": "zh-Hans",
+        "path": "/zh/",
+        "name": "简体中文",
+        "englishName": "Chinese",
+        "ogLocale": "zh_CN",
+        "storeLanguage": "zh-cn",
+        "flag": "cn",
+        "video": "zh-Hans"
+    },
+    {
+        "code": "zh-Hant",
+        "path": "/zh-hant/",
+        "name": "繁體中文",
+        "englishName": "Traditional Chinese",
+        "ogLocale": "zh_TW",
+        "storeLanguage": "zh-tw",
+        "flag": "tw",
+        "video": "zh-Hant"
+    }
+]

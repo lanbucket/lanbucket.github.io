@@ -1,0 +1,4 @@
+    <meta property="og:locale" content="{{ locale.ogLocale }}">
+{%- for l in locales %}{% if l.code != locale.code %}
+    <meta property="og:locale:alternate" content="{{ l.ogLocale }}">
+{%- endif %}{% endfor %}

@@ -1,0 +1,23 @@
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="{{ '#' if navPage == 'home' else locale.path }}" class="logo-link">
+                    <img src="/logo.svg" alt="{% ta %}LANBucket Logo{% endta %}" class="logo-img">
+                    <div class="logo-title">LANBucket</div>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="{% ta %}Open navigation{% endta %}" aria-expanded="false">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="{{ '' if navPage == 'home' else locale.path }}#comparison">{% t %}Comparison{% endt %}</a></li>
+                <li><a href="{{ locale.path }}download/"{% if navPage == "download" %} aria-current="page"{% endif %}>{% t %}Download{% endt %}</a></li>
+                <li><a href="{{ '' if navPage == 'home' else locale.path }}#faq">{% t %}FAQ{% endt %}</a></li>
+{%- if navPage == "home" %}
+                <li><a href="#support">{% t %}Support Us{% endt %}</a></li>
+{%- endif %}
+                <li><a href="/troubleshooting.html"{% if locale.code != "en" %} hreflang="en"{% endif %}{% if navPage == "troubleshooting" %} aria-current="page"{% endif %}>{% t %}Troubleshooting{% endt %}</a></li>
+{% include "language-menu.njk" %}
+            </ul>
+        </nav>
+    </header>
+{#- The site header. navPage: "home" on the homepage, whose section links stay on the page; otherwise the page's
+    name, marking its own link as the current page. English-only pages set locale to English before including this. #}

@@ -385,24 +385,7 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="/" class="logo-link">
-                    <img src="/logo.svg" alt="LANBucket Logo" class="logo-img">
-                    <div class="logo-title">LANBucket</div>
-                </a>
-            </div>
-            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
-            <ul class="nav-links">
-                <li><a href="/#comparison">Comparison</a></li>
-                <li><a href="/download/">Download</a></li>
-                <li><a href="/#faq">FAQ</a></li>
-                <li><a href="/troubleshooting.html">Troubleshooting</a></li>
-                <li><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a></li>
-            </ul>
-        </nav>
-    </header>
+{% set locale = locales[0] %}{% set navPage = "changelog" %}{% include "header.njk" %}
 
     <main>
         <section class="changelog-hero">
@@ -449,22 +432,7 @@
     (function () {
         'use strict';
 
-        var navToggle = document.querySelector('.nav-toggle');
-        var navLinksList = document.querySelector('.nav-links');
-        if (navToggle && navLinksList) {
-            navToggle.addEventListener('click', function () {
-                var isOpen = navLinksList.classList.toggle('open');
-                navToggle.setAttribute('aria-expanded', isOpen);
-                navToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
-            });
-            navLinksList.querySelectorAll('a').forEach(function (a) {
-                a.addEventListener('click', function () {
-                    navLinksList.classList.remove('open');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                    navToggle.innerHTML = '&#9776;';
-                });
-            });
-        }
+{% include "nav-script.njk" %}
     })();
     </script>
 

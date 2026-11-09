@@ -1,0 +1,11 @@
+    <footer>
+        <div class="container">
+            <p>{% t %}Copyright &copy; 2026 Justin Becker. All rights reserved.{% endt %}</p>
+            <div class="footer-links">
+                <a href="/changelog.html"{{ enOnly | safe }}>{% t %}Changelog{% endt %}</a>
+                <a href="/troubleshooting.html"{{ enOnly | safe }}>{% t %}Troubleshooting{% endt %}</a>
+                <a href="/privacy.html"{{ enOnly | safe }}>{% t %}Privacy Policy{% endt %}</a>
+            </div>
+        </div>
+    </footer>
+{#- enOnly: set by the page, the hreflang for links to English-only pages #}

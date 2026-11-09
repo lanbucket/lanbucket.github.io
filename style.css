@@ -68,6 +68,18 @@
     --retro-sunken: inset 1px 1px 0 #404040, inset -1px -1px 0 #ffffff, inset 2px 2px 0 #808080, inset -2px -2px 0 #dfdfdf;
 }
 
+/* Right-to-left pages mirror the title bar and chart bar gradient too, dark at the edge the bars grow from */
+[dir="rtl"] {
+    --retro-title: linear-gradient(270deg, #000080, #1084d0);
+}
+
+/* Korean wraps between words, as Korean text normally does, and so do the Japanese comparison table headings,
+   rather than in the middle of a word */
+:lang(ko),
+:lang(ja) .comparison-table th {
+    word-break: keep-all;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -185,8 +197,11 @@ header nav {
     font-weight: 700;
 }
 
+/* Labels never break inside; in languages with long ones, whole links move to a second row instead */
 .nav-links {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     list-style: none;
     gap: var(--spacing-xs);
 }
@@ -196,11 +211,130 @@ header nav {
     padding: 0.25rem 0.6rem;
     color: #000000;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
     background-color: var(--retro-highlight);
     color: #ffffff;
+}
+
+/* Language menu: the current language, opening the list of languages like a classic drop-down menu */
+.lang-menu {
+    position: relative;
+}
+
+.lang-menu summary {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.6rem;
+    color: #000000;
+    cursor: pointer;
+    list-style: none;
+    white-space: nowrap;
+}
+
+.lang-menu summary::-webkit-details-marker {
+    display: none;
+}
+
+/* A small down arrow after the language's name */
+.lang-menu summary::after {
+    content: "";
+    margin-top: 2px;
+    border: 4px solid transparent;
+    border-top-color: currentColor;
+    border-bottom-width: 0;
+}
+
+.lang-menu summary:hover,
+.lang-menu details[open] summary {
+    background-color: var(--retro-highlight);
+    color: #ffffff;
+}
+
+.lang-menu summary:focus-visible {
+    outline: 1px dotted #000000;
+    outline-offset: 1px;
+}
+
+.lang-icon {
+    width: 1em;
+    height: 1em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.2;
+}
+
+/* Columns of 11, filled top to bottom, so the list stays on screen however many languages there are */
+.lang-menu ul {
+    position: absolute;
+    top: 100%;
+    inset-inline-end: 0;
+    z-index: 101;
+    display: grid;
+    grid-template-rows: repeat(11, auto);
+    grid-auto-flow: column;
+    margin-top: 2px;
+    padding: 3px;
+    list-style: none;
+    background-color: var(--retro-face);
+    box-shadow: var(--retro-raised), 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.lang-menu ul a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-block: 0.2rem;
+    padding-inline: 0.75rem 1.25rem;
+    white-space: nowrap;
+}
+
+/* A thin edge keeps mostly white flags (Japan, Finland...) visible against the menu */
+.lang-flag {
+    flex: none;
+    width: 20px;
+    height: 15px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.lang-menu ul a[aria-current] {
+    font-weight: 700;
+}
+
+/* In the phone menu the list opens in place, two languages to a row, and the menu scrolls when it's taller than the
+   screen */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-wrap: nowrap;
+        max-height: calc(100vh - 5rem);
+        max-height: calc(100dvh - 5rem);
+        overflow-y: auto;
+    }
+
+    .lang-menu summary {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .lang-menu ul {
+        position: static;
+        display: grid;
+        grid-template-rows: none;
+        grid-auto-flow: row;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        padding-inline-start: var(--spacing-sm);
+        background: none;
+        box-shadow: none;
+    }
+
+    .lang-menu ul a {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
 }
 
 /* Hero Section */
@@ -221,7 +355,7 @@ header nav {
     grid-template-columns: minmax(0, 0.85fr) minmax(min(420px, 100%), 1.15fr);
     gap: var(--spacing-2xl);
     align-items: center;
-    text-align: left;
+    text-align: start;
 }
 
 .hero-copy {
@@ -644,7 +778,7 @@ section {
 .group-box > h2 {
     position: absolute;
     top: -0.65em;
-    left: 0.5rem;
+    inset-inline-start: 0.5rem;
     padding: 0 0.3rem;
     background-color: var(--retro-face);
     font-size: 0.875rem;
@@ -678,9 +812,9 @@ section {
     font-size: 1.05rem;
 }
 
-/* Right-aligned in the row, even when the version line is hidden */
+/* At the end of the row, even when the version line is hidden */
 .changelog-link {
-    margin-left: auto;
+    margin-inline-start: auto;
     font-weight: 700;
 }
 
@@ -825,7 +959,7 @@ ms-store-badge {
 .spec-table td {
     padding: 0.5rem 0.75rem;
     border: 1px solid #d4d4d4;
-    text-align: left;
+    text-align: start;
     vertical-align: top;
 }
 
@@ -912,13 +1046,13 @@ ms-store-badge {
 }
 
 .comparison-table tbody th[scope="row"] {
-    text-align: left;
+    text-align: start;
     font-weight: 400;
     white-space: nowrap;
 }
 
 .comparison-table .comparison-feature-head {
-    text-align: left;
+    text-align: start;
 }
 
 .comparison-highlight-col {
@@ -985,7 +1119,7 @@ ms-store-badge {
     font-size: 0.8125rem;
     font-weight: 400;
     line-height: 1.45;
-    text-align: left;
+    text-align: start;
     box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
     pointer-events: none;
     opacity: 0;
@@ -1061,7 +1195,7 @@ ms-store-badge {
     font-size: 0.6em;
     vertical-align: super;
     line-height: 0;
-    margin-left: 0.05em;
+    margin-inline-start: 0.05em;
 }
 
 .comparison-trademark {
@@ -1148,13 +1282,13 @@ ms-store-badge {
     color: #000000;
 }
 
-/* The left border is the shared axis the bars grow from */
+/* The starting border (left, or right in right-to-left pages) is the shared axis the bars grow from */
 .perf-track {
     display: flex;
     align-items: center;
     min-width: 0;
     padding: 4px 0;
-    border-left: 1px solid #000000;
+    border-inline-start: 1px solid #000000;
 }
 
 /* Square, outlined bars like an old spreadsheet chart; width leaves room for the value label */
@@ -1165,7 +1299,7 @@ ms-store-badge {
     height: 22px;
     background-color: #a0a0a0;
     border: 1px solid #000000;
-    border-left: none;
+    border-inline-start: none;
     transition: width 0.3s ease;
 }
 
@@ -1174,7 +1308,7 @@ ms-store-badge {
 }
 
 .perf-value {
-    margin-left: 0.5rem;
+    margin-inline-start: 0.5rem;
     font-family: var(--font-body);
     font-size: 0.875rem;
     color: #000000;
@@ -1264,7 +1398,7 @@ ms-store-badge {
 
 /* Answers line up with the question text, past the expander box */
 .faq-item > :not(summary) {
-    margin-left: calc(15px + 0.6rem);
+    margin-inline-start: calc(15px + 0.6rem);
 }
 
 .faq-item h3 {
@@ -1726,7 +1860,7 @@ footer p {
     width: fit-content;
     max-width: 100%;
     margin: 0 auto;
-    padding-left: 1.25rem;
+    padding-inline-start: 1.25rem;
     list-style: disc;
     font-size: 1.05rem;
     line-height: 1.9;

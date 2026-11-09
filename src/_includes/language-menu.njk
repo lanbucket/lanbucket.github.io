@@ -1,0 +1,12 @@
+                <li class="lang-menu">
+                    <details>
+                        <summary><svg class="lang-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5"/><ellipse cx="8" cy="8" rx="2.75" ry="6.5"/><path d="M1.5 8h13M2.6 4.5h10.8M2.6 11.5h10.8"/></svg><span class="sr-only">{% t %}Language:{% endt %} </span>{{ locale.name }}</summary>
+                        <ul>
+{%- for l in locales %}
+                            <li><a href="{{ l.path }}{{ subpath }}" hreflang="{{ l.code }}" lang="{{ l.code }}"{% if l.code == locale.code %} aria-current="true"{% endif %}><img class="lang-flag" src="/flags/{{ l.flag }}.svg" alt="" width="20" height="15" loading="lazy">{{ l.name }}</a></li>
+{%- endfor %}
+                        </ul>
+                    </details>
+                </li>
+{#- A list item for the nav: the current language, opening the list of every language's version of this page
+    (subpath: the page's path under each language's root, the homepage when it isn't set) #}

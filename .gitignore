@@ -31,3 +31,6 @@ yarn-error.log*
 # Build outputs (if you add any build process)
 dist/
 build/
+
+# Eleventy build output
+_site/

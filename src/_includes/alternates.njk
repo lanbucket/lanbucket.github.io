@@ -1,0 +1,9 @@
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lanbucket.com{{ locale.path }}{{ subpath }}">
+
+    <!-- Language Alternates -->
+{%- for l in locales %}
+    <link rel="alternate" hreflang="{{ l.code }}" href="https://lanbucket.com{{ l.path }}{{ subpath }}">
+{%- endfor %}
+    <link rel="alternate" hreflang="x-default" href="https://lanbucket.com/{{ subpath }}">
+{#- Canonical and language alternates for a localized page. subpath: the page's path under each language's root #}

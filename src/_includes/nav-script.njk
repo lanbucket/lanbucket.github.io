@@ -1,0 +1,33 @@
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksList = document.querySelector('.nav-links');
+        if (navToggle && navLinksList) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinksList.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+                navToggle.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+            });
+            navLinksList.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    navLinksList.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.innerHTML = '&#9776;';
+                });
+            });
+        }
+
+        // The language list closes when you click or tab away from it, or press Escape
+        const langMenu = document.querySelector('.lang-menu details');
+        if (langMenu) {
+            document.addEventListener('click', (event) => {
+                if (!langMenu.contains(event.target)) langMenu.open = false;
+            });
+            langMenu.addEventListener('focusout', (event) => {
+                if (event.relatedTarget && !langMenu.contains(event.relatedTarget)) langMenu.open = false;
+            });
+            langMenu.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && langMenu.open) {
+                    langMenu.open = false;
+                    langMenu.querySelector('summary').focus();
+                }
+            });
+        }

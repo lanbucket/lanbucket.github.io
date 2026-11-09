@@ -1,0 +1,778 @@
+---
+pagination:
+  data: locales
+  size: 1
+  alias: locale
+permalink: "{{ locale.path }}index.html"
+---
+{%- set subpath = "" -%}
+{%- set navPage = "home" -%}
+{%- set notEn = locale.code != "en" -%}
+{#- Links to pages that are only in English say so on the other languages' pages -#}
+{%- set enOnly = ' hreflang="en"' if notEn else "" -%}
+{%- set video = locale.video or "en-US" -%}
+<!DOCTYPE html>
+<html lang="{{ locale.code }}"{% if locale.dir %} dir="{{ locale.dir }}"{% endif %}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>{% t %}LAN Party File Sharing App | LANBucket{% endt %}</title>
+    <meta name="title" content="{% ta %}LAN Party File Sharing App | LANBucket{% endta %}">
+    <meta name="description" content="{% ta %}LANBucket is a free LAN party file sharing app for Windows. Share large game files fast across every PC on your local network with distributed transfers. No account, no internet required.{% endta %}">
+    <meta name="keywords" content="{% ta %}LANBucket, file sharing, local network, distributed, LAN, Windows, LAN party, peer to peer, P2P, file transfer, Windows app, network sharing, offline file sharing, share files between computers, transfer large files, game file sharing, share games on LAN, BitTorrent local, local file sync, WiFi file transfer, no cloud file sharing, private file sharing, share files without internet, home network file sharing, fast file transfer, drag and drop file sharing, Windows 10 file sharing, Windows 11 file sharing, free file sharing app, share files same network, LAN file transfer, multiplayer game sharing, Steam game sharing alternative, share files at LAN party, network file transfer tool, 局域网文件传输, 局域网文件共享, 局域网共享文件, 电脑之间传文件, 局域网传文件工具, 点对点文件传输, P2P文件传输, 大文件传输, 无需网络文件共享, 无需联网传文件, WiFi文件传输, 免费文件传输工具, Windows文件共享软件, 局域网聚会文件共享, 游戏文件共享, Steam游戏共享, 局域网快速传文件, 内网文件传输{% endta %}">
+    <meta name="author" content="Justin Becker">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="{{ locale.englishName }}">
+    <meta name="revisit-after" content="7 days">
+    <meta name="category" content="Utilities">
+    <meta name="coverage" content="Worldwide">
+    <meta name="distribution" content="Global">
+    <meta name="rating" content="General">
+    <meta name="subject" content="{% ta %}Local network file sharing application for Windows{% endta %}">
+
+{% include "alternates.njk" %}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lanbucket.com{{ locale.path }}">
+    <meta property="og:title" content="{% ta %}LAN Party File Sharing App | LANBucket{% endta %}">
+    <meta property="og:description" content="{% ta %}Free LAN party file sharing for Windows. Move large game files between every PC on your local network with distributed transfers. No account, no internet required.{% endta %}">
+    <meta property="og:image" content="https://lanbucket.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{% ta %}LANBucket - Local Network File Sharing App{% endta %}">
+    <meta property="og:site_name" content="LANBucket">
+{% include "og-locales.njk" %}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lanbucket.com{{ locale.path }}">
+    <meta name="twitter:title" content="{% ta %}LAN Party File Sharing App | LANBucket{% endta %}">
+    <meta name="twitter:description" content="{% ta %}Free LAN party file sharing for Windows. Move large game files between every PC on your local network with distributed transfers. No account, no internet required.{% endta %}">
+    <meta name="twitter:image" content="https://lanbucket.com/og-image.png">
+    <meta name="twitter:image:alt" content="{% ta %}LANBucket - Local Network File Sharing App{% endta %}">
+
+{% include "icons.njk" %}
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "LANBucket",
+        "alternateName": "{% tj %}LAN Party File Sharing App{% endtj %}",
+        "inLanguage": "{{ locale.code }}",
+        "description": "{% tj %}LANBucket is a free LAN party file sharing app that moves large game files between every PC on your local network using distributed transfers. No account and no internet required.{% endtj %}",
+        "url": "https://lanbucket.com{{ locale.path }}",
+        "image": "https://lanbucket.com/logo.svg",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows 10, Windows 11",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Justin Becker",
+            "url": "https://justinbecker.dev",
+            "sameAs": [
+                "https://github.com/geekman7473",
+                "https://www.linkedin.com/in/justin-t-becker"
+            ],
+            "description": "{% tj %}Software developer and longtime LAN party host, and the creator of LANBucket.{% endtj %}"
+        },
+        "softwareVersion": "1.0",
+        "featureList": [
+            "{% tj %}Local network file sharing{% endtj %}",
+            "{% tj %}Automatic device discovery{% endtj %}",
+            "{% tj %}Drag and drop interface{% endtj %}",
+            "{% tj %}No internet required{% endtj %}",
+            "{% tj %}Free to use{% endtj %}",
+            "{% tj %}LAN party file sharing{% endtj %}",
+            "{% tj %}Share large game files{% endtj %}",
+            "{% tj %}Distributed transfer technology{% endtj %}",
+            "{% tj %}Fast WiFi file transfer{% endtj %}",
+            "{% tj %}Private and secure{% endtj %}",
+            "{% tj %}No cloud storage needed{% endtj %}",
+            "{% tj %}Progress tracking{% endtj %}",
+            "{% tj %}Multiple device support{% endtj %}"
+        ],
+        "keywords": "{% tj %}file sharing, LAN party, local network, P2P, game sharing, Windows file transfer, 局域网文件传输, 局域网文件共享, 电脑之间传文件, 点对点文件传输, 大文件传输, 游戏文件共享, WiFi文件传输{% endtj %}"
+    }
+    </script>
+
+    <!-- FAQ Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "inLanguage": "{{ locale.code }}",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "{% tj %}Does LANBucket work over the internet?{% endtj %}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{% tj %}No, LANBucket only works on local networks. All devices must be connected to the same WiFi network or Ethernet LAN. This is by design to keep your files private and secure.{% endtj %}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{% tj %}Will it work on my corporate network?{% endtj %}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{% tj %}Many corporate networks block client-to-client communication for security reasons, which may prevent LANBucket from working properly. LANBucket is designed primarily for home and private networks.{% endtj %}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{% tj %}If multicast is blocked, will LANBucket still work?{% endtj %}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{% tj %}Yes, probably. LANBucket has a fallback peer discovery mechanism using a central server, so even if multicast is blocked on your network, devices can still find each other and share files. If this mechanism doesn't work, you can connect to peers by manually entering the IP address of the device you want to connect to.{% endtj %}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{% tj %}All of my clients are on the same Wifi network, but some of them can't see each other. Why?{% endtj %}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{% tj %}Many WiFi routers have \"AP isolation\" or \"client isolation\" features that prevent devices connected to the same WiFi network from communicating with each other. Check your router settings to see if this feature is enabled. Also, we have seen some cases where some wireless routers/access points don't allow client-to-client traffic if they are on different frequency bands, ie. if one client is connected to 2.4GHz and another client is connected to 5GHz. If possible, try connecting all clients to the same frequency band on your WiFi network, or connect them via Ethernet for best results.{% endtj %}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{% tj %}Can I use it with a VPN?{% endtj %}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{% tj %}VPN connections may interfere with local network discovery. You may need to disconnect from your VPN to use LANBucket.{% endtj %}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{% tj %}What happens if I modify a shared file?{% endtj %}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{% tj %}Moving, deleting, or modifying a file that you're sharing will prevent others from downloading it. Keep shared files in place until others have completed their downloads.{% endtj %}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{% tj %}Is my firewall going to block LANBucket?{% endtj %}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{% tj %}Windows Defender Firewall may block LANBucket from discovering devices. Make sure that you have set the network profile to \"Private\" and allowed LANBucket through the firewall when prompted on first launch.{% endtj %}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{% tj %}Is there Linux or MacOS support?{% endtj %}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{% tj %}Not yet, but we are considering it. At present LANBucket is built using Windows-specific UI frameworks, so Linux/MacOS support would require substantial rework. Unfortunately, LANBucket is not compatible with Wine/Proton either, since we use Windows APIs that are not implemented there either.{% endtj %}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{% tj %}What is on-the-fly compression?{% endtj %}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{% tj %}LANBucket automatically compresses files as they're sent and decompresses them as they arrive, all in real time. You don't have to zip anything up first. For files that compress well, like some video games, you may be able to observe significantly faster transfer speeds. If a file does not compress well, compression is turned off automatically.{% endtj %}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{% tj %}Is LANBucket free?{% endtj %}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{% tj %}Yes! LANBucket is completely free to use, and we're committed to keeping it ad-free. If you'd like to support development, you can buy us a coffee. Your support is appreciated but never required.{% endtj %}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{% tj %}I found a bug, translation error, or have a feature request. Where do I report it?{% endtj %}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{% tj %}We'd love to hear from you! Please fill out the feedback form with details. We review all submissions and appreciate your feedback.{% endtj %}"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- The video poster is the largest thing on screen (the LCP element), so fetch it right away -->
+    <link rel="preload" as="image" href="/lanbucket-demo-poster_{{ video }}.webp" type="image/webp" fetchpriority="high">
+    <link rel="stylesheet" href="/style.css">
+{% include "head-scripts.njk" %}
+</head>
+<body>
+{% include "header.njk" %}
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-layout">
+                        <div class="hero-copy">
+                            <h1>{% t %}LAN Party File Sharing<br>Made Simple{% endt %}</h1>
+                            <p class="hero-description">
+                                {% t %}LANBucket is specifically optimized for use at LAN parties, and sharing large files as fast as possible. No internet required.{% endt %}
+                            </p>
+                            <p class="hero-meta">
+                                {% t %}Distributed transfers. <a href="https://en.wikipedia.org/wiki/Electron_(software_framework)" target="_blank" rel="noopener noreferrer">100% Electron-free</a>.{% endt %}
+                            </p>
+                            <div class="cta-buttons hero-cta-buttons">
+                                <div class="hero-download-row">
+                                    <!-- Links to the offline installer once the update feed loads, the download page until then -->
+                                    <a class="hero-download-btn" id="heroSetup" href="{{ locale.path }}download/">{% t %}Download Installer{% endt %}</a>
+                                    <ms-store-badge
+                                        productid="9N9WTBT332JN"
+                                        window-mode="full"
+                                        theme="light"
+                                        size="small"
+                                        language="{{ locale.storeLanguage }}"
+                                        animation="off">
+                                    </ms-store-badge>
+                                    <a class="hero-download-btn" href="{{ locale.path }}download/">{% t %}More options{% endt %}</a>
+                                </div>
+                                <div class="hero-download-meta">
+                                    <p class="hero-version" id="heroVersion" data-label="{% ta %}Version {version}{% endta %}">&nbsp;</p>
+                                    <a class="hero-more-link" href="/changelog.html"{{ enOnly | safe }}>{% t %}Changelog{% endt %}</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hero-visual">
+                            <div class="hero-video-frame">
+                                <video class="hero-video" controls playsinline preload="none" poster="/lanbucket-demo-poster_{{ video }}.webp" aria-label="{% ta %}LANBucket demo video{% endta %}">
+                                    <source src="/lanbucket-demo_{{ video }}.webm" type="video/webm">
+                                    <source src="/lanbucket-demo_{{ video }}.mp4" type="video/mp4">
+                                </video>
+                                <button class="hero-video-play" type="button" aria-label="{% ta %}Play video{% endta %}" hidden>
+                                    <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="50"/><path d="M40 29 L73 50 L40 71 Z"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {#- Hidden for now
+                    <button class="btn btn-demo" onclick="toggleDemo()">▶ See Live Demo</button>
+
+                    <div id="demoContainer" class="demo-container" style="display: none;">
+                        <div class="demo-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/S7SLep244ss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    #}
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Section -->
+        <section id="performance" class="performance">
+            <div class="container">
+                <h2 class="section-title">{% t %}Best in class transfer performance{% endt %}</h2>
+                <p class="comparison-intro">{% t %}LANBucket uses custom netcode to optimize for the limits of your networking hardware, speeding up your transfers, and saving you time so you can get back to gaming sooner.{% endt %}</p>
+                {#- Throughput = 10 GiB (10,737,418,240 bytes) x 8 downloaders = 687,195 megabits, divided by the seconds taken.
+                    frac is each bar's length, its throughput over LANBucket's -#}
+                {%- set webserver %}{% t %}Standard webserver{% endt %}{% endset -%}
+                {%- set perfResults = [
+                    { app: "LANBucket", seconds: 120.7, mbps: 5693, frac: "1", highlight: true },
+                    { app: "D-LAN", seconds: 229.5, mbps: 2994, frac: "0.5259" },
+                    { app: "qBittorrent", seconds: 559.2, mbps: 1229, frac: "0.2159" },
+                    { app: webserver, seconds: 724.7, mbps: 948, frac: "0.1665" },
+                    { app: "LocalSend", seconds: 726.7, mbps: 946, frac: "0.1662" },
+                    { app: "DC++", seconds: 734.3, mbps: 936, frac: "0.1644" }
+                ] %}
+                <div class="perf-chart">
+                    <div class="perf-chart-head">
+                        <p class="perf-caption">{% t %}Overall throughput, in Mbps (higher is better){% endt %}</p>
+                        <div class="perf-toggle" role="group" aria-label="{% ta %}Chart units{% endta %}">
+                            <button type="button" aria-pressed="false" data-mode="seconds" data-unit=" {% ta %}s{% endta %}" data-caption="{% ta %}Time to finish, in seconds (lower is better){% endta %}">{% t %}Time{% endt %}</button>
+                            <button type="button" aria-pressed="true" data-mode="mbps" data-unit=" Mbps" data-caption="{% ta %}Overall throughput, in Mbps (higher is better){% endta %}">{% t %}Throughput{% endt %}</button>
+                        </div>
+                    </div>
+                    <ul class="perf-bars" aria-hidden="true">
+{%- for r in perfResults %}
+                        <li class="perf-row{% if r.highlight %} perf-row-highlight{% endif %}" style="--frac: {{ r.frac }}" data-seconds="{{ r.seconds }}" data-mbps="{{ r.mbps }}" data-tip="{% ta r %}{app}: {seconds} seconds, {mbps} Mbps overall{% endta %}">
+                            <span class="perf-label">{{ r.app }}</span>
+                            <span class="perf-track"><span class="perf-bar"></span><span class="perf-value">{{ r.mbps | num(locale.code) }} Mbps</span></span>
+                        </li>
+{%- endfor %}
+                    </ul>
+                    <div class="sr-only">
+                        <table>
+                            <caption>{% t %}Time to share a 10 GB file with 8 downloaders, and the overall throughput{% endt %}</caption>
+                            <thead>
+                                <tr><th scope="col">{% t %}App{% endt %}</th><th scope="col">{% t %}Time to finish{% endt %}</th><th scope="col">{% t %}Overall throughput{% endt %}</th></tr>
+                            </thead>
+                            <tbody>
+{%- for r in perfResults %}
+                                <tr><th scope="row">{{ r.app }}</th><td>{% t r %}{seconds} seconds{% endt %}</td><td>{{ r.mbps | num(locale.code) }} Mbps</td></tr>
+{%- endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="perf-note">{% t %}Test conducted by sharing a 10GB file, containing random test data, to 8 other PCs who all started their downloads simultaneously. All 9 PCs were connected to a consumer gigabit ethernet switch, and were equipped with SSDs. Tested on LANBucket 1.5.0, D-LAN 1.4.0, DC++ 0.884, LocalSend 1.18.2, qBittorrent 5.2.4, and Caddy 2.11.4 as the Webserver.{% endt %}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="comparison">
+            <div class="container">
+                <h2 class="section-title">{% t %}How LANBucket Compares{% endt %}</h2>
+                <div class="comparison-table-wrapper" role="region" aria-label="{% ta %}LANBucket feature comparison{% endta %}" tabindex="0">
+                    <table class="comparison-table">
+                        <caption class="sr-only">{% t %}Comparison of LANBucket against DC++, D-LAN, LocalSend, SMB shares, cloud storage, Steam local sharing, and a USB flash drive{% endt %}</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="comparison-feature-head">{% t %}Feature{% endt %}</th>
+                                <th scope="col" class="comparison-highlight-col">LANBucket</th>
+                                <th scope="col">DC++</th>
+                                <th scope="col"><span class="no-break">D-LAN</span></th>
+                                <th scope="col">LocalSend</th>
+                                <th scope="col">{% t %}SMB Share{% endt %}</th>
+                                <th scope="col">{% t %}Cloud Storage{% endt %}</th>
+                                <th scope="col">{% t %}Steam<sup class="tm-mark">&reg;</sup> Local Sharing{% endt %}</th>
+                                <th scope="col">{% t %}Flash Drive{% endt %}</th>
+                            </tr>
+                        </thead>
+                        {#- In a ~ or × cell, the explanation shows as a flyout without its first sentence, the Partial. or No. #}
+                        <tbody>
+                            <tr>
+                                <th scope="row">{% t %}No setup or configuration{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. DC++ makes you add a hub to connect to and set up your share list before you can use it.{% endt %}</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. D-LAN finds peers automatically, but you still choose which folders to share and where downloads go.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. SMB shares require enabling sharing, setting permissions, and mapping drives.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. You must create an account, install a client, and let it sync before sharing anything.{% endt %}</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. You need Steam installed and signed in, plus the relevant sharing setting enabled.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. The drive has to be formatted for your devices and physically plugged into each one.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}No account or sign-in required{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. SMB on Windows needs valid user credentials to authenticate access.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Cloud storage requires creating and signing into an account before you can transfer files.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. You must have a Steam account and be signed in to use any Steam feature.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Distributed (many-to-many) transfers{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. DC++ can pull a file from several peers at once, but only once the other peer has completed the download. LANBucket allows downloading from peers who don't have the complete file.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. LocalSend sends directly from one device to another, one transfer at a time.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. An SMB share is served by a single host, so everyone downloads from that one machine.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Transfers go through the provider's servers rather than directly between many local peers.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Content comes from a single host, not many peers sharing the load.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. A flash drive is copied to one machine at a time by hand.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Automatic peer discovery{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. There's no auto-discovery. Users have to manually setup hub addresses.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. You need the host name or IP address of the share to connect to it.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. You need to somehow get the download link to all other users.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. You need to sneakernet that thing around.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Best in class performance{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. DC++ only downloads from peers that already have the complete file, so when everyone grabs a new file at once, it all comes from the original sharer.{% endt %}</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. D-LAN is much faster than traditional file shares, but in testing we have measured LANBucket as much as ~2x faster than D-LAN.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Every copy comes straight from the sending device, so its network link is the bottleneck when several people need the file.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Everyone downloads from the one PC hosting the share, so its network link is the bottleneck.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Every download comes over your internet connection, which is usually much slower than your local network.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Content comes from a single host PC, so its network link is the bottleneck.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. The drive has to be copied to each machine one at a time, so it gets slower with every extra person.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Stays on your local network{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. DC++ can run on a LAN, but many public hubs route your traffic over the internet.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Cloud storage uploads your files to remote servers on the internet.{% endt %}</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. Local streaming stays on your LAN, but Steam still contacts its servers to sign you in.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Share any file with drag &amp; drop{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. DC++ shares whole folders you configure in advance, not files dropped in on the spot.{% endt %}</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. D-LAN has supported drag-and-drop since version 1.4, but you have to navigate to its share list before you can drop files in.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. You can drop files into a shared folder, but only after the share and permissions are set up.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Steam only shares games and library content, not arbitrary files.{% endt %}</span></td>
+                                <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. You can drag files onto the drive, but it must be plugged in and carried to each device.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Simple UI for non-technical users{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. DC++ has a dense, technical interface built around hubs, slots, and download queues.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. D-LAN's interface assumes some comfort with networking and shared folders.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. SMB setup involves OS settings, permissions, and drive mapping that trip up non-technical users.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Works without the internet{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Cloud storage needs an internet connection to reach the provider's servers.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Steam normally needs the internet to sign in before its features work.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}On-the-fly compression{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. DC++ transfers files without any automatic compression.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. D-LAN transfers files without any automatic compression.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. LocalSend transfers files without any automatic compression.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. SMB transfers files without any automatic compression.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Cloud transfers files without any automatic compression.{% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Steam Local Sharing files without any automatic compression. (Even though Steam downloads from the internet DO use compression){% endt %}</span></td>
+                                <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. Copying to a flash drive doesn't compress your files automatically.{% endt %}</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="comparison-plaintext sr-only" aria-hidden="true">
+                    <h3>{% t %}LANBucket feature comparison (plain-text summary){% endt %}</h3>
+                    <p>{% t %}This is a plain-text version of the comparison table above, comparing LANBucket against DC++, D-LAN, LocalSend, SMB shares, cloud storage, Steam local sharing, and a USB flash drive. Each entry lists whether the tool offers the feature (Yes, Partial, or No) and why.{% endt %}</p>
+                    <p>{% t %}<strong>No setup or configuration.</strong> LANBucket: Yes. DC++: No &mdash; DC++ makes you add a hub to connect to and set up your share list before you can use it. D-LAN: Partial &mdash; D-LAN finds peers automatically, but you still choose which folders to share and where downloads go. LocalSend: Yes. SMB Share: No &mdash; SMB shares require enabling sharing, setting permissions, and mapping drives, often with admin rights. Cloud Storage: No &mdash; you must create an account, install a client, and let it sync before sharing anything. Steam Local Sharing: Partial &mdash; you need Steam installed and signed in, plus the relevant sharing setting enabled. USB Flash Drive: No &mdash; the drive has to be formatted for your devices and physically plugged into each one.{% endt %}</p>
+                    <p>{% t %}<strong>No account or sign-in required.</strong> LANBucket: Yes. DC++: Yes. D-LAN: Yes. LocalSend: Yes. SMB Share: No &mdash; SMB needs valid user credentials or a network account to authenticate access. Cloud Storage: No &mdash; cloud storage requires creating and signing into an account before you can transfer files. Steam Local Sharing: No &mdash; you must have a Steam account and be signed in to use any Steam feature. USB Flash Drive: Yes.{% endt %}</p>
+                    <p>{% t %}<strong>Distributed (many-to-many) transfers.</strong> LANBucket: Yes. DC++: Partial &mdash; DC++ can pull a file from several peers at once, but only once the other peer has completed the download; LANBucket allows downloading from peers who don't have the complete file. D-LAN: Yes. LocalSend: No &mdash; LocalSend sends directly from one device to another, one transfer at a time. SMB Share: No &mdash; an SMB share is served by a single host, so everyone downloads from that one machine. Cloud Storage: No &mdash; transfers go through the provider's servers rather than directly between many local peers. Steam Local Sharing: No &mdash; content comes from a single host, not many peers sharing the load. USB Flash Drive: No &mdash; a flash drive is copied to one machine at a time by hand.{% endt %}</p>
+                    <p>{% t %}<strong>Automatic peer discovery.</strong> LANBucket: Yes. DC++: No &mdash; there's no auto-discovery; you have to know and enter a hub address to find others. D-LAN: Yes. LocalSend: Yes. SMB Share: No &mdash; you need the host name or IP address of the share to connect to it. Cloud Storage: No &mdash; there are no local peers to find; everything routes through the provider's servers. Steam Local Sharing: Yes. USB Flash Drive: No &mdash; a flash drive has no networking, so there's nothing to discover.{% endt %}</p>
+                    <p>{% t %}<strong>Best in class performance.</strong> LANBucket: Yes. DC++: No &mdash; DC++ only downloads from peers that already have the complete file, so when everyone grabs a new file at once, it all comes from the original sharer. D-LAN: Partial &mdash; D-LAN is much faster than traditional file shares, but in testing we have measured LANBucket as much as ~2x faster than D-LAN. LocalSend: No &mdash; every copy comes straight from the sending device, so its network link is the bottleneck when several people need the file. SMB Share: No &mdash; everyone downloads from the one PC hosting the share, so its network link is the bottleneck. Cloud Storage: No &mdash; every download comes over your internet connection, which is usually much slower than your local network. Steam Local Sharing: No &mdash; content comes from a single host PC, so its network link is the bottleneck. USB Flash Drive: No &mdash; the drive has to be copied to each machine one at a time, so it gets slower with every extra person.{% endt %}</p>
+                    <p>{% t %}<strong>Stays on your local network.</strong> LANBucket: Yes. DC++: Partial &mdash; DC++ can run on a LAN, but many public hubs route your traffic over the internet. D-LAN: Yes. LocalSend: Yes. SMB Share: Yes. Cloud Storage: No &mdash; cloud storage uploads your files to remote servers on the internet. Steam Local Sharing: Partial &mdash; local streaming stays on your LAN, but Steam still contacts its servers to sign you in. USB Flash Drive: Yes.{% endt %}</p>
+                    <p>{% t %}<strong>Share any file with drag and drop.</strong> LANBucket: Yes. DC++: No &mdash; DC++ shares whole folders you configure in advance, not files dropped in on the spot. D-LAN: Partial &mdash; D-LAN has supported drag-and-drop since version 1.4, but you have to navigate to its share list before you can drop files in. LocalSend: Yes. SMB Share: Partial &mdash; you can drop files into a shared folder, but only after the share and permissions are set up. Cloud Storage: Yes. Steam Local Sharing: No &mdash; Steam only shares games and library content, not arbitrary files. USB Flash Drive: Partial &mdash; you can drag files onto the drive, but it must be plugged in and carried to each device.{% endt %}</p>
+                    <p>{% t %}<strong>Simple UI for non-technical users.</strong> LANBucket: Yes. DC++: No &mdash; DC++ has a dense, technical interface built around hubs, slots, and download queues. D-LAN: No &mdash; D-LAN's interface assumes some comfort with networking and shared folders. LocalSend: Yes. SMB Share: No &mdash; SMB setup involves OS settings, permissions, and drive mapping that trip up non-technical users. Cloud Storage: Yes. Steam Local Sharing: Yes. USB Flash Drive: Yes.{% endt %}</p>
+                    <p>{% t %}<strong>Works without the internet.</strong> LANBucket: Yes. DC++: Yes. D-LAN: Yes. LocalSend: Yes. SMB Share: Yes. Cloud Storage: No &mdash; cloud storage needs an internet connection to reach the provider's servers. Steam Local Sharing: No &mdash; Steam normally needs the internet to sign in before its features work. USB Flash Drive: Yes.{% endt %}</p>
+                    <p>{% t %}<strong>On-the-fly compression.</strong> LANBucket: Yes &mdash; LANBucket automatically compresses files as they are sent and decompresses them as they arrive, in real time, which can make transfers of compressible files noticeably faster. DC++: No &mdash; DC++ transfers files without any automatic compression. D-LAN: No &mdash; D-LAN sends files as-is, with no on-the-fly compression. LocalSend: No &mdash; LocalSend transfers files without compressing them on the fly. SMB Share: No &mdash; SMB copies files byte-for-byte with no transparent compression by default. Cloud Storage: No &mdash; cloud uploads don't compress your files on the fly before transfer. Steam Local Sharing: No &mdash; Steam doesn't offer on-the-fly compression for file transfers. USB Flash Drive: No &mdash; copying to a flash drive doesn't compress your files.{% endt %}</p>
+                </div>
+                <p class="comparison-note">
+{%- if notEn %}
+                    {% t %}For more details: <a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" hreflang="en" target="_blank" rel="noopener noreferrer">Why I built LANBucket</a> (in English).{% endt %}
+{%- else %}
+                    For more details: <a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" target="_blank" rel="noopener noreferrer">Why I built LANBucket</a>.
+{%- endif %}
+                </p>
+                <p class="comparison-trademark">
+                    {% t %}Steam is a registered trademark of Valve Corporation. LANBucket is not affiliated with, endorsed by,
+                    or sponsored by Valve Corporation. All other product names, logos, and brands are the property of
+                    their respective owners.{% endt %}
+                </p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2 class="section-title">{% t %}Frequently Asked Questions{% endt %}</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary><h3>{% t %}Is LANBucket free?{% endt %}</h3></summary>
+                        <p>
+                            {% t %}Yes! LANBucket is completely free to use, and we're committed to keeping it ad-free.
+                            If you'd like to support development, you can <a href="https://buymeacoffee.com/lanbucket" target="_blank" rel="noopener noreferrer">buy us a coffee</a>.
+                            Your support is appreciated but never required.{% endt %}
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>{% t %}Does LANBucket work over the internet?{% endt %}</h3></summary>
+                        <p>
+                            {% t %}No, LANBucket only works on local networks. All devices must be connected to the same WiFi
+                            network or Ethernet LAN. This is by design to keep your files private and secure.{% endt %}
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>{% t %}Will it work on my corporate network?{% endt %}</h3></summary>
+                        <p>
+                            {% t %}Many corporate networks block client-to-client communication for security reasons, which may prevent LANBucket from working properly.
+                            LANBucket is designed primarily  for home and private networks.{% endt %}
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>{% t %}If multicast is blocked, will LANBucket still work?{% endt %}</h3></summary>
+                        <p>
+                            {% t %}Yes, probably. LANBucket has a fallback peer discovery mechanism using a central server, so even if multicast is blocked on your network, devices can still find each other and share files.
+                            If this mechanism doesn't work, you can connect to peers by manually entering the IP address of the device you want to connect to.{% endt %}
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>{% t %}All of my clients are on the same Wifi network, but some of them can't see each other. Why?{% endt %}</h3></summary>
+                        <p>
+                            {% t %}Many WiFi routers have "AP isolation" or "client isolation" features that prevent devices connected to the same WiFi network from communicating with each other.
+                            Check your router settings to see if this feature is enabled.
+
+                            Also, we have seen some cases where some wireless routers/access points don't allow client-to-client traffic if they are on different frequency bands, ie. if one client
+                            is connected to 2.4GHz and another client is connected to 5GHz. If possible, try connecting all clients to the same frequency band on your WiFi network, or connect them via Ethernet for best results.{% endt %}
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>{% t %}Can I use it with a VPN?{% endt %}</h3></summary>
+                        <p>
+                            {% t %}VPN connections may interfere with local network discovery. You may need to disconnect from
+                            your VPN to use LANBucket.{% endt %}
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>{% t %}What happens if I modify a shared file?{% endt %}</h3></summary>
+                        <p>
+                            {% t %}Moving, deleting, or modifying a file that you're sharing will prevent others from downloading it.
+                            Keep shared files in place until others have completed their downloads.{% endt %}
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>{% t %}Is my firewall going to block LANBucket?{% endt %}</h3></summary>
+                        <p>
+                            {% t %}Windows Defender Firewall may block LANBucket from discovering devices. Make sure that you have set the network profile to "Private" and allowed LANBucket through the firewall when prompted on first launch.{% endt %}
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>{% t %}Is there Linux or MacOS support?{% endt %}</h3></summary>
+                        <p>
+                            {% t %}Not yet, but we are considering it. At present LANBucket is built using Windows-specific UI frameworks, so Linux/MacOS support would require substantial rework. Unfortunately, LANBucket is not compatible with Wine/Proton either, since we use Windows APIs that are not implemented there either.{% endt %}
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>{% t %}What is on-the-fly compression?{% endt %}</h3></summary>
+                        <p>
+                            {% t %}LANBucket automatically compresses files as they're sent and decompresses them as they arrive, all in real time.
+                            You don't have to zip anything up first. For files that compress well, like some video games,
+                            you may be able to observe significantly faster transfer speeds. If a file does not compress well, compression is turned off automatically.{% endt %}
+                        </p>
+                    </details>
+                    <details class="faq-item">
+                        <summary><h3>{% t %}I found a bug, translation error, or have a feature request. Where do I report it?{% endt %}</h3></summary>
+                        <p>
+                            {% t %}We'd love to hear from you! Please <a href="https://forms.gle/aN4DzyXudxqJGKx56" target="_blank" rel="noopener noreferrer">fill out this form</a>
+                            with details. We review all submissions and appreciate your feedback.{% endt %}
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- More Reading Section -->
+        <section class="related-links">
+            <div class="container">
+                <h2 class="section-title">{% t %}More reading{% endt %}</h2>
+                <ul class="link-list">
+{%- if notEn %}
+                    <li><a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" hreflang="en" target="_blank" rel="noopener noreferrer">{% t %}Why I built LANBucket (in English){% endt %}</a></li>
+                    <li><a href="https://justinbecker.dev/blog/2026/08/05/how-to-host-a-lanparty-2026/" hreflang="en" target="_blank" rel="noopener noreferrer">{% t %}How to throw a LAN party in 2026 (in English){% endt %}</a></li>
+                    <li><a href="/lan-party-file-sharing-guide/" hreflang="en">{% t %}How to share files at a LAN party (in English){% endt %}</a></li>
+                    <li><a href="/vs-localsend/" hreflang="en">{% t %}LANBucket vs LocalSend (in English){% endt %}</a></li>
+                    <li><a href="/vs-dcpp/" hreflang="en">{% t %}LANBucket vs DC++ (in English){% endt %}</a></li>
+                    <li><a href="/vs-d-lan/" hreflang="en">{% t %}LANBucket vs D-LAN (in English){% endt %}</a></li>
+{%- else %}
+                    <li><a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" target="_blank" rel="noopener noreferrer">Why I built LANBucket</a></li>
+                    <li><a href="https://justinbecker.dev/blog/2026/08/05/how-to-host-a-lanparty-2026/" target="_blank" rel="noopener noreferrer">How to throw a LAN party in 2026</a></li>
+                    <li><a href="/lan-party-file-sharing-guide/">How to share files at a LAN party</a></li>
+                    <li><a href="/vs-localsend/">LANBucket vs LocalSend</a></li>
+                    <li><a href="/vs-dcpp/">LANBucket vs DC++</a></li>
+                    <li><a href="/vs-d-lan/">LANBucket vs D-LAN</a></li>
+{%- endif %}
+                </ul>
+            </div>
+        </section>
+
+        <!-- Support Us Section -->
+        <section id="support" class="support">
+            <div class="container">
+                <div class="support-content">
+                    <h2 class="section-title">{% t %}Support Us{% endt %}</h2>
+                    <p class="support-description">
+                        {% t %}LANBucket is free, ad-free, and always will be. If you find it useful and want to support
+                        continued development, consider buying us a coffee. Your support helps keep the project alive!{% endt %}
+                    </p>
+                    <a href="https://buymeacoffee.com/lanbucket" target="_blank" rel="noopener noreferrer" class="support-button">
+                        {% t %}Buy Me a Coffee{% endt %}
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Notice -->
+        <section class="legal">
+            <div class="container">
+                <div class="legal-content">
+                    <h3>{% t %}Legal Notice{% endt %}</h3>
+                    <p>
+                        {% t %}This software is provided for personal use only. Use at your own risk.
+                        The developers assume no liability for any data loss, security issues, or other problems
+                        that may arise from using this software.{% endt %}
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% include "footer.njk" %}
+
+    <script>
+        function toggleDemo() {
+            const demoContainer = document.getElementById('demoContainer');
+            if (demoContainer.style.display === 'none') {
+                demoContainer.style.display = 'block';
+            } else {
+                demoContainer.style.display = 'none';
+            }
+        }
+
+        // The current version under the Store badge and the setup button's link, from the update feed the release
+        // workflow publishes. The version's line is held blank until then, so nothing moves when it fills in. The
+        // installer's file name carries the version, so the button links to the download page until the feed loads
+        const heroVersion = document.getElementById('heroVersion');
+        const heroSetup = document.getElementById('heroSetup');
+        fetch('/app/latest.json', { cache: 'no-cache' })
+            .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.status))))
+            .then((latest) => {
+                // MSIX versions have four parts; the changelog leaves off a trailing .0
+                if (heroVersion && latest.version) heroVersion.textContent = heroVersion.dataset.label.replace('{version}', latest.version.replace(/^(\d+\.\d+\.\d+)\.0$/, '$1'));
+                if (heroSetup && latest.setupUrl) {
+                    heroSetup.href = latest.setupUrl;
+                    heroSetup.setAttribute('download', '');
+                }
+            })
+            .catch(() => {});
+
+        // Big play button over the hero video; the native controls take over once it starts
+        const heroVideo = document.querySelector('.hero-video');
+        const heroPlay = document.querySelector('.hero-video-play');
+        if (heroVideo && heroPlay) {
+            heroVideo.controls = false;
+            heroPlay.hidden = false;
+            heroPlay.addEventListener('click', () => {
+                heroVideo.controls = true;
+                heroVideo.play();
+            });
+            heroVideo.addEventListener('play', () => { heroPlay.hidden = true; });
+            heroVideo.addEventListener('ended', () => {
+                heroVideo.controls = false;
+                heroVideo.load(); // back to the poster frame
+                heroPlay.hidden = false;
+            });
+        }
+
+{% include "nav-script.njk" %}
+
+
+        // Performance chart: switch the bars between time and throughput
+        const perfChart = document.querySelector('.perf-chart');
+        if (perfChart) {
+            const perfRows = perfChart.querySelectorAll('.perf-row');
+            const perfCaption = perfChart.querySelector('.perf-caption');
+            const perfButtons = perfChart.querySelectorAll('.perf-toggle button');
+            // Western digits on every page, the same as the numbers the page was built with
+            const perfNumber = new Intl.NumberFormat(document.documentElement.lang, { numberingSystem: 'latn', maximumFractionDigits: 1 });
+
+            const setPerfMode = (button) => {
+                const key = button.dataset.mode;
+                const max = Math.max(...Array.from(perfRows, (row) => Number(row.dataset[key])));
+                perfRows.forEach((row) => {
+                    const value = Number(row.dataset[key]);
+                    row.style.setProperty('--frac', value / max);
+                    row.querySelector('.perf-value').textContent = perfNumber.format(value) + button.dataset.unit;
+                });
+                perfButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+                perfCaption.textContent = button.dataset.caption;
+            };
+
+            perfButtons.forEach((button) => button.addEventListener('click', () => setPerfMode(button)));
+        }
+
+        // Comparison flyouts explaining partial/unsupported cells and the performance chart bars
+        const comparisonTable = document.querySelector('.comparison-table');
+        if (comparisonTable) {
+            const tipCells = document.querySelectorAll('.comparison-table td.cell-no, .comparison-table td.cell-partial, .perf-row');
+            if (tipCells.length) {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'comparison-tooltip';
+                tooltip.setAttribute('role', 'tooltip');
+                tooltip.hidden = true;
+                document.body.appendChild(tooltip);
+
+                let activeCell = null;
+
+                const positionTooltip = () => {
+                    if (!activeCell) return;
+                    const rect = (activeCell.querySelector('.perf-bar') || activeCell).getBoundingClientRect();
+                    const tipRect = tooltip.getBoundingClientRect();
+                    const margin = 8;
+
+                    let left = rect.left + rect.width / 2 - tipRect.width / 2;
+                    left = Math.max(margin, Math.min(left, window.innerWidth - tipRect.width - margin));
+
+                    let top = rect.top - tipRect.height - 10;
+                    let placement = 'top';
+                    if (top < margin) {
+                        top = rect.bottom + 10;
+                        placement = 'bottom';
+                    }
+
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+                    tooltip.dataset.placement = placement;
+                    tooltip.style.setProperty('--arrow-left', (rect.left + rect.width / 2 - left) + 'px');
+                };
+
+                const showTooltip = (cell) => {
+                    // A cell's screen reader text starts with a short "Partial." or "No." sentence (in any
+                    // language, so ending in any of these marks; see STATUS_SENTENCE in scripts/i18n-keys.mjs), which
+                    // the cell's mark already shows
+                    const text = cell.dataset.tip
+                        ? cell.dataset.tip.trim()
+                        : cell.querySelector('.sr-only')?.textContent.trim().replace(/^[^.。．।۔:：]{1,20}[.。．।۔:：]\s*/u, '');
+                    if (!text) return;
+                    activeCell = cell;
+                    tooltip.textContent = text;
+                    tooltip.hidden = false;
+                    positionTooltip();
+                    requestAnimationFrame(() => tooltip.classList.add('is-visible'));
+                };
+
+                const hideTooltip = () => {
+                    activeCell = null;
+                    tooltip.classList.remove('is-visible');
+                    tooltip.hidden = true;
+                };
+
+                tipCells.forEach((cell) => {
+                    cell.addEventListener('mouseenter', () => showTooltip(cell));
+                    cell.addEventListener('mouseleave', hideTooltip);
+                    cell.addEventListener('focus', () => showTooltip(cell));
+                    cell.addEventListener('blur', hideTooltip);
+                });
+
+                window.addEventListener('scroll', () => { if (activeCell) positionTooltip(); }, true);
+                window.addEventListener('resize', hideTooltip);
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') hideTooltip();
+                });
+            }
+        }
+    </script>
+</body>
+</html>

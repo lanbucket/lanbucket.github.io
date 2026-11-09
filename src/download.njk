@@ -1,0 +1,207 @@
+---
+pagination:
+  data: locales
+  size: 1
+  alias: locale
+permalink: "{{ locale.path }}download/index.html"
+---
+{%- set subpath = "download/" -%}
+{%- set navPage = "download" -%}
+{%- set enOnly = "" if locale.code == "en" else ' hreflang="en"' -%}
+<!DOCTYPE html>
+<html lang="{{ locale.code }}"{% if locale.dir %} dir="{{ locale.dir }}"{% endif %}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>{% t %}Download LANBucket: Free LAN file sharing for Windows{% endt %}</title>
+    <meta name="title" content="{% ta %}Download LANBucket: Free LAN file sharing for Windows{% endta %}">
+    <meta name="description" content="{% ta %}Download LANBucket free from the Microsoft Store, with winget, or as an offline installer. Runs on Windows 10 (version 1809) and Windows 11, on x64 and ARM64.{% endta %}">
+    <meta name="author" content="Justin Becker">
+    <meta name="robots" content="index, follow">
+
+{% include "alternates.njk" %}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lanbucket.com{{ locale.path }}download/">
+    <meta property="og:title" content="{% ta %}Download LANBucket: Free LAN file sharing for Windows{% endta %}">
+    <meta property="og:description" content="{% ta %}Download LANBucket free from the Microsoft Store, with winget, or as an offline installer. Runs on Windows 10 (version 1809) and Windows 11, on x64 and ARM64.{% endta %}">
+    <meta property="og:image" content="https://lanbucket.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{% ta %}Download LANBucket{% endta %}">
+    <meta property="og:site_name" content="LANBucket">
+{% include "og-locales.njk" %}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lanbucket.com{{ locale.path }}download/">
+    <meta name="twitter:title" content="{% ta %}Download LANBucket: Free LAN file sharing for Windows{% endta %}">
+    <meta name="twitter:description" content="{% ta %}Download LANBucket free from the Microsoft Store, with winget, or as an offline installer. Runs on Windows 10 (version 1809) and Windows 11, on x64 and ARM64.{% endta %}">
+    <meta name="twitter:image" content="https://lanbucket.com/og-image.png">
+    <meta name="twitter:image:alt" content="{% ta %}Download LANBucket{% endta %}">
+
+{% include "icons.njk" %}
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "{% tj %}Home{% endtj %}", "item": "https://lanbucket.com{{ locale.path }}" },
+            { "@type": "ListItem", "position": 2, "name": "{% tj %}Download{% endtj %}", "item": "https://lanbucket.com{{ locale.path }}download/" }
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css">
+{% include "head-scripts.njk" %}
+</head>
+<body>
+{% include "header.njk" %}
+
+    <main class="desktop">
+        <section id="download" class="download">
+            <div class="container">
+                <div class="setup-window">
+                    <div class="setup-titlebar">
+                        <h1>{% t %}Download LANBucket{% endt %}</h1>
+                    </div>
+                    <div class="setup-body">
+                        <div class="setup-main">
+                            <div class="group-box">
+                                <h2>{% t %}Latest version{% endt %}</h2>
+                                <div class="latest-row">
+                                    <p class="version-line" id="latestVersion" hidden>{% t %}<strong>LANBucket <span data-latest="version"></span></strong>, released <time data-latest="date"></time>{% endt %}</p>
+                                    <a class="changelog-link" href="/changelog.html"{{ enOnly | safe }}>{% t %}Changelog{% endt %}</a>
+                                </div>
+                            </div>
+
+                            <div class="group-box">
+                                <h2>Microsoft Store</h2>
+                                <ms-store-badge
+                                    productid="9N9WTBT332JN"
+                                    window-mode="direct"
+                                    theme="auto"
+                                    size="large"
+                                    language="{{ locale.storeLanguage }}"
+                                    animation="off">
+                                </ms-store-badge>
+                                <p class="store-note">{% t %}Get automatic updates and easy installation. <a href="https://apps.microsoft.com/detail/9n9wtbt332jn" target="_blank" rel="noopener noreferrer">View in Microsoft Store</a>{% endt %}</p>
+                            </div>
+
+                            <div class="group-box">
+                                <h2>{% t %}Install via winget{% endt %}</h2>
+                                <p>{% t %}If you prefer command-line installation, you can use <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/" target="_blank" rel="noopener noreferrer">winget</a>:{% endt %}</p>
+                                <div class="code-block">
+                                    <span class="code-line"><span class="prompt" aria-hidden="true">C:\&gt;</span> <code>winget install LANBucket</code></span>
+                                    <button class="copy-btn" type="button" onclick="copyToClipboard('winget install LANBucket -s msstore')" title="{% ta %}Copy to clipboard{% endta %}">{% t %}Copy{% endt %}</button>
+                                </div>
+                            </div>
+
+                            <div class="group-box" id="offlineInstaller" hidden>
+                                <h2>{% t %}Offline Installer{% endt %}</h2>
+                                <p>{% t %}Self contained installer that does not require the Microsoft Store, or an internet connection.{% endt %}</p>
+                                <ul class="download-list">
+                                    <li class="download-item" data-file="setup">
+                                        <a class="btn btn-primary">{% t %}LANBucket Setup (.exe){% endt %}</a>
+                                        <p><strong class="file-size"></strong>{% t %}Simple EXE installer.{% endt %}</p>
+                                    </li>
+                                    <li class="download-item" data-file="bundle">
+                                        <a class="btn">{% t %}MSIX bundle (.msixbundle){% endt %}</a>
+                                        <p><strong class="file-size"></strong>{% t %}Useful for automated deployments in powershell.{% endt %}</p>
+                                    </li>
+                                </ul>
+                                <p class="store-note">{% t %}NOTE: The "Microsoft Store" version and the "Offline Installer" version of the app conflict, so only one can be installed on any particular computer.{% endt %}</p>
+                            </div>
+
+                            <div class="group-box">
+                                <h2>{% t %}System requirements{% endt %}</h2>
+                                <table class="spec-table">
+                                    <tbody>
+                                        <tr><th scope="row">{% t %}Operating system{% endt %}</th><td>{% t %}Windows 10 version 1809, or Windows 11{% endt %}</td></tr>
+                                        <tr><th scope="row">{% t %}Processor{% endt %}</th><td>{% t %}x64 or ARM64{% endt %}</td></tr>
+                                        <tr><th scope="row">{% t %}Network{% endt %}</th><td>{% t %}Local network connection (WiFi or Ethernet){% endt %}</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% include "footer.njk" %}
+
+    <script>
+{% include "nav-script.njk" %}
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show feedback
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✓';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+
+        const storeBadge = document.querySelector('ms-store-badge');
+        if (storeBadge) {
+            // matchMedia rather than innerWidth: reading innerWidth while the page is still loading
+            // forces the browser to lay out the whole page early
+            const smallScreen = window.matchMedia('(max-width: 600px)');
+            function updateBadgeSize() {
+                storeBadge.setAttribute('size', smallScreen.matches ? 'small' : 'large');
+            }
+            updateBadgeSize();
+            smallScreen.addEventListener('change', updateBadgeSize);
+        }
+        // The latest version, its release date and the offline installer's files, from the update feed the
+        // release workflow publishes. Each box stays hidden if the feed can't be read (for example before the
+        // first release).
+        const latestBox = document.getElementById('latestVersion');
+        const offlineBox = document.getElementById('offlineInstaller');
+        fetch('/app/latest.json', { cache: 'no-cache' })
+            .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.status))))
+            .then((latest) => {
+                showLatestVersion(latest);
+                showOfflineInstaller(latest);
+            })
+            .catch(() => {});
+
+        function showLatestVersion(latest) {
+            const released = new Date(latest.releasedAt);
+            if (!latestBox || !latest.version || isNaN(released)) return;
+            // MSIX versions have four parts; the changelog leaves off a trailing .0
+            latestBox.querySelector('[data-latest="version"]').textContent = latest.version.replace(/^(\d+\.\d+\.\d+)\.0$/, '$1');
+            const date = latestBox.querySelector('[data-latest="date"]');
+            date.dateTime = latest.releasedAt;
+            date.textContent = released.toLocaleDateString(document.documentElement.lang, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+            latestBox.hidden = false;
+        }
+
+        // The file names carry the version, so the links and sizes come from the feed. A size shows in MB as
+        // Windows counts them (1 MB = 1024 × 1024 bytes), and is left out if the feed doesn't give one.
+        function showOfflineInstaller(latest) {
+            if (!offlineBox || !latest.setupUrl || !latest.bundleUrl) return;
+            const sizeFormat = new Intl.NumberFormat(document.documentElement.lang, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+            offlineBox.querySelectorAll('[data-file]').forEach((item) => {
+                const file = item.dataset.file;
+                item.querySelector('a').href = latest[`${file}Url`];
+                const bytes = latest[`${file}Size`];
+                if (bytes > 0) item.querySelector('.file-size').textContent = `${sizeFormat.format(bytes / 1048576)} MB`;
+            });
+            offlineBox.hidden = false;
+        }
+    </script>
+</body>
+</html>
