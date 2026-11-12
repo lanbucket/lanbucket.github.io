@@ -5,7 +5,7 @@
 ## 1.6.0 - November 11, 2026
 
 - **New messages tab.** Adds a P2P chat messaging panel. Useful for sending web links, IP addresses, shell commands etc.
-- **New archive extraction support.** When opening a downloaded zip file (or .7z, .tar, .tar.gz) we now offer the user the change to extract it, which can be much faster than extracting in Windows.
+- **New archive extraction support.** When opening a downloaded zip file (or .7z, .tar, .tar.gz) we now offer the user the chance to extract it, which can be much faster than extracting in Windows.
 - **New time remaining estimator for file sharing.** When sharing an item for the first time, we now show an estimated ETA, as well as the current rate of progress.
 - Added warning messages for the case where a user accidentally changes the contents of a file or folder after they have shared them. Also fixes some other bugs that could have occured in this case.
 - Added settings option for "disk speed units" to match the existing "network speed units" option.
