@@ -14,7 +14,7 @@
 - Improved sharing for folders containing large numbers of files.
 - Fixed some weird edge cases around sharing files with the same names.
 - Various other small UI tweaks and improvements.
-- Updated Windows App SDK to v2.6, which should improve stability and performance.
+- Updated Windows App SDK to v2.6, which should improve stability and performance in some cases.
 
 ## 1.5.9 - November 2, 2026
 
