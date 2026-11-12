@@ -2,6 +2,20 @@
 
 ---
 
+## 1.6.0 - November 11, 2026
+
+- **New messages tab.** Adds a P2P chat messaging panel. Useful for sending web links, IP addresses, shell commands etc.
+- **New archive extraction support.** When opening a downloaded zip file (or .7z, .tar, .tar.gz) we now offer the user the change to extract it, which can be much faster than extracting in Windows.
+- **New time remaining estimator for file sharing.** When sharing an item for the first time, we now show an estimated ETA, as well as the current rate of progress.
+- Added warning messages for the case where a user accidentally changes the contents of a file or folder after they have shared them. Also fixes some other bugs that could have occured in this case.
+- Added settings option for "disk speed units" to match the existing "network speed units" option.
+- We now show a "resume download" button for downloads that have been paused, instead of the generic "download" button.
+- Added automatic updates to the non-Microsoft store version of the app.
+- Improved sharing for folders containing large numbers of files.
+- Fixed some weird edge cases around sharing files with the same names.
+- Various other small UI tweaks and improvements.
+- Updated Windows App SDK to v2.6, which should improve stability and performance.
+
 ## 1.5.9 - November 2, 2026
 
 - Improved performance when finishing rechecks of folders containing thousands of files.
