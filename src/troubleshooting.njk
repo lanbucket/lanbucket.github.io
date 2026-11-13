@@ -1,0 +1,152 @@
+---
+pagination:
+  data: locales
+  size: 1
+  alias: locale
+permalink: "{{ locale.path }}troubleshooting.html"
+---
+{%- set subpath = "troubleshooting.html" -%}
+{%- set navPage = "troubleshooting" -%}
+{%- set enOnly = "" if locale.code == "en" else ' hreflang="en"' -%}
+<!DOCTYPE html>
+<html lang="{{ locale.code }}"{% if locale.dir %} dir="{{ locale.dir }}"{% endif %}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>{% t %}Troubleshooting - LANBucket{% endt %}</title>
+    <meta name="title" content="{% ta %}Troubleshooting - LANBucket{% endta %}">
+    <meta name="description" content="{% ta %}LANBucket can't find other devices? Check the firewall, VPNs, corporate networks, virtual machines and WiFi isolation.{% endta %}">
+    <meta name="author" content="Justin Becker">
+    <meta name="robots" content="index, follow">
+
+{% include "alternates.njk" %}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lanbucket.com{{ locale.path }}troubleshooting.html">
+    <meta property="og:title" content="{% ta %}Troubleshooting - LANBucket{% endta %}">
+    <meta property="og:description" content="{% ta %}LANBucket can't find other devices? Check the firewall, VPNs, corporate networks, virtual machines and WiFi isolation.{% endta %}">
+    <meta property="og:image" content="https://lanbucket.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{% ta %}LANBucket - Local Network File Sharing App{% endta %}">
+    <meta property="og:site_name" content="LANBucket">
+{% include "og-locales.njk" %}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lanbucket.com{{ locale.path }}troubleshooting.html">
+    <meta name="twitter:title" content="{% ta %}Troubleshooting - LANBucket{% endta %}">
+    <meta name="twitter:description" content="{% ta %}LANBucket can't find other devices? Check the firewall, VPNs, corporate networks, virtual machines and WiFi isolation.{% endta %}">
+    <meta name="twitter:image" content="https://lanbucket.com/og-image.png">
+    <meta name="twitter:image:alt" content="{% ta %}LANBucket - Local Network File Sharing App{% endta %}">
+
+    <!-- Mobile & PWA -->
+    <meta name="theme-color" content="#4a90d9">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "{% tj %}Home{% endtj %}", "item": "https://lanbucket.com{{ locale.path }}" },
+            { "@type": "ListItem", "position": 2, "name": "{% tj %}Troubleshooting{% endtj %}", "item": "https://lanbucket.com{{ locale.path }}troubleshooting.html" }
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css">
+    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds. The script itself waits for the load event so it doesn't compete with the page's first render -->
+    <script>
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        if (!/(^|\.)lanbucket\.com$/i.test(location.hostname)) return;
+        window.addEventListener('load', function () {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
+          document.head.appendChild(s);
+        });
+        gtag('js', new Date());
+        gtag('config', 'G-MQ5QBM6CSL');
+      })();
+    </script>
+</head>
+<body>
+{% include "header.njk" %}
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <p class="breadcrumb"><a href="{{ locale.path }}">{% t %}Home{% endt %}</a> &rsaquo; {% t %}Troubleshooting{% endt %}</p>
+                <h1>{% t %}Troubleshooting{% endt %}</h1>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <div class="prose">
+                    <h2 id="common-issues">{% t %}Common Issues{% endt %}</h2>
+                    <p>{% t %}If you're sure other devices are on the same network, check these potential issues:{% endt %}</p>
+
+                    <h3 id="running">{% t %}Is LANBucket running?{% endt %}</h3>
+                    <p>
+                        {% t %}Make sure that LANBucket is running the <a href="{download}">most recent version</a> on all
+                        devices.{% endt %}
+                    </p>
+
+                    <h3 id="firewall">{% t %}Microsoft Defender Firewall{% endt %}</h3>
+                    <p>
+                        {% t %}Microsoft Defender Firewall may block LANBucket from discovering devices. Make sure LANBucket is
+                        allowed through on private and public networks. Learn more:
+                        <a href="https://support.microsoft.com/{mssupport}/windows/firewall-and-network-protection-in-the-windows-security-app-ec0844f7-aebd-0583-67fe-601ecf5d774f" target="_blank" rel="noopener noreferrer">Firewall and network protection help</a>{% endt %}
+                    </p>
+
+                    <h3 id="corporate-networks">{% t %}Corporate or Enterprise Networks{% endt %}</h3>
+                    <p>
+                        {% t %}Many corporate networks block multicast traffic, which LANBucket requires. This app may not work
+                        on workplace networks with strict security policies.{% endt %}
+                    </p>
+
+                    <h3 id="vpn">{% t %}VPN Connections{% endt %}</h3>
+                    <p>
+                        {% t %}If you're connected to a VPN, it may prevent local network discovery. Try disconnecting from your
+                        VPN.{% endt %}
+                    </p>
+
+                    <h3 id="virtual-machines">{% t %}Virtual Machines and WSL{% endt %}</h3>
+                    <p>
+                        {% t %}Running LANBucket inside a virtual machine (Hyper-V, VirtualBox, VMware), WSL, or other
+                        virtualized environments may cause network discovery issues due to virtual network adapters.
+                        Likewise, if this computer hosts VMs, it may be helpful to disable them.{% endt %}
+                    </p>
+
+                    <h3 id="wifi-isolation">{% t %}WiFi Isolation / Guest Networks{% endt %}</h3>
+                    <p>
+                        {% t %}Some WiFi networks (especially guest networks) have isolation enabled, which prevents devices from
+                        discovering each other. Try using a different network.{% endt %}
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% include "footer.njk" %}
+
+    <script>
+{% include "nav-script.njk" %}
+    </script>
+</body>
+</html>

@@ -17,7 +17,8 @@
         "ogLocale": "id_ID",
         "storeLanguage": "id-id",
         "flag": "id",
-        "video": "id"
+        "video": "id",
+        "microsoftSupport": "id-id"
     },
     {
         "code": "ms",
@@ -37,7 +38,8 @@
         "ogLocale": "cs_CZ",
         "storeLanguage": "cs-cz",
         "flag": "cz",
-        "video": "cs"
+        "video": "cs",
+        "microsoftSupport": "cs-cz"
     },
     {
         "code": "da",
@@ -47,7 +49,8 @@
         "ogLocale": "da_DK",
         "storeLanguage": "da-dk",
         "flag": "dk",
-        "video": "da"
+        "video": "da",
+        "microsoftSupport": "da-dk"
     },
     {
         "code": "de",
@@ -57,7 +60,8 @@
         "ogLocale": "de_DE",
         "storeLanguage": "de-de",
         "flag": "de",
-        "video": "de"
+        "video": "de",
+        "microsoftSupport": "de-de"
     },
     {
         "code": "es",
@@ -67,7 +71,8 @@
         "ogLocale": "es_ES",
         "storeLanguage": "es-es",
         "flag": "es",
-        "video": "es"
+        "video": "es",
+        "microsoftSupport": "es-es"
     },
     {
         "code": "fil",
@@ -87,7 +92,8 @@
         "ogLocale": "fr_FR",
         "storeLanguage": "fr-fr",
         "flag": "fr",
-        "video": "fr"
+        "video": "fr",
+        "microsoftSupport": "fr-fr"
     },
     {
         "code": "it",
@@ -97,7 +103,8 @@
         "ogLocale": "it_IT",
         "storeLanguage": "it-it",
         "flag": "it",
-        "video": "it"
+        "video": "it",
+        "microsoftSupport": "it-it"
     },
     {
         "code": "hu",
@@ -107,7 +114,8 @@
         "ogLocale": "hu_HU",
         "storeLanguage": "hu-hu",
         "flag": "hu",
-        "video": "hu"
+        "video": "hu",
+        "microsoftSupport": "hu-hu"
     },
     {
         "code": "nl",
@@ -117,7 +125,8 @@
         "ogLocale": "nl_NL",
         "storeLanguage": "nl-nl",
         "flag": "nl",
-        "video": "nl"
+        "video": "nl",
+        "microsoftSupport": "nl-nl"
     },
     {
         "code": "pl",
@@ -127,7 +136,8 @@
         "ogLocale": "pl_PL",
         "storeLanguage": "pl-pl",
         "flag": "pl",
-        "video": "pl"
+        "video": "pl",
+        "microsoftSupport": "pl-pl"
     },
     {
         "code": "pt-BR",
@@ -137,7 +147,8 @@
         "ogLocale": "pt_BR",
         "storeLanguage": "pt-br",
         "flag": "br",
-        "video": "pt-BR"
+        "video": "pt-BR",
+        "microsoftSupport": "pt-br"
     },
     {
         "code": "ro",
@@ -147,7 +158,8 @@
         "ogLocale": "ro_RO",
         "storeLanguage": "ro-ro",
         "flag": "ro",
-        "video": "ro"
+        "video": "ro",
+        "microsoftSupport": "ro-ro"
     },
     {
         "code": "sv",
@@ -157,7 +169,8 @@
         "ogLocale": "sv_SE",
         "storeLanguage": "sv-se",
         "flag": "se",
-        "video": "sv"
+        "video": "sv",
+        "microsoftSupport": "sv-se"
     },
     {
         "code": "vi",
@@ -167,7 +180,8 @@
         "ogLocale": "vi_VN",
         "storeLanguage": "vi-vn",
         "flag": "vn",
-        "video": "vi"
+        "video": "vi",
+        "microsoftSupport": "vi-vn"
     },
     {
         "code": "tr",
@@ -177,7 +191,8 @@
         "ogLocale": "tr_TR",
         "storeLanguage": "tr-tr",
         "flag": "tr",
-        "video": "tr"
+        "video": "tr",
+        "microsoftSupport": "tr-tr"
     },
     {
         "code": "ru",
@@ -187,7 +202,8 @@
         "ogLocale": "ru_RU",
         "storeLanguage": "ru-ru",
         "flag": "ru",
-        "video": "ru"
+        "video": "ru",
+        "microsoftSupport": "ru-ru"
     },
     {
         "code": "uk",
@@ -197,7 +213,8 @@
         "ogLocale": "uk_UA",
         "storeLanguage": "uk-ua",
         "flag": "ua",
-        "video": "uk"
+        "video": "uk",
+        "microsoftSupport": "uk-ua"
     },
     {
         "code": "he",
@@ -208,7 +225,8 @@
         "storeLanguage": "he-il",
         "flag": "il",
         "dir": "rtl",
-        "video": "he"
+        "video": "he",
+        "microsoftSupport": "he-il"
     },
     {
         "code": "ar",
@@ -219,7 +237,8 @@
         "storeLanguage": "ar-sa",
         "flag": "sa",
         "dir": "rtl",
-        "video": "ar"
+        "video": "ar",
+        "microsoftSupport": "ar-sa"
     },
     {
         "code": "ur",
@@ -291,7 +310,8 @@
         "ogLocale": "th_TH",
         "storeLanguage": "th-th",
         "flag": "th",
-        "video": "th"
+        "video": "th",
+        "microsoftSupport": "th-th"
     },
     {
         "code": "ja",
@@ -301,7 +321,8 @@
         "ogLocale": "ja_JP",
         "storeLanguage": "ja-jp",
         "flag": "jp",
-        "video": "ja"
+        "video": "ja",
+        "microsoftSupport": "ja-jp"
     },
     {
         "code": "ko",
@@ -311,7 +332,8 @@
         "ogLocale": "ko_KR",
         "storeLanguage": "ko-kr",
         "flag": "kr",
-        "video": "ko"
+        "video": "ko",
+        "microsoftSupport": "ko-kr"
     },
     {
         "code": "zh-Hans",
@@ -321,7 +343,8 @@
         "ogLocale": "zh_CN",
         "storeLanguage": "zh-cn",
         "flag": "cn",
-        "video": "zh-Hans"
+        "video": "zh-Hans",
+        "microsoftSupport": "zh-cn"
     },
     {
         "code": "zh-Hant",
@@ -331,6 +354,7 @@
         "ogLocale": "zh_TW",
         "storeLanguage": "zh-tw",
         "flag": "tw",
-        "video": "zh-Hant"
+        "video": "zh-Hant",
+        "microsoftSupport": "zh-tw"
     }
 ]

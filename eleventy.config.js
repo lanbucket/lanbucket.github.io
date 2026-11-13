@@ -52,11 +52,34 @@ function fillPlaceholders(text, values, code) {
     });
 }
 
+// Placeholders every translated string can use for links, filled in with the page language's version of each page
+// ({download} is /download/ in English, /de/download/ in German...). {en} is the hreflang attribute for links to pages
+// that are only in English (the changelog and privacy policy), empty on English pages.
+const PAGE_LINKS = {
+    home: "",
+    download: "download/",
+    troubleshooting: "troubleshooting.html",
+    guide: "lan-party-file-sharing-guide/",
+    vslocalsend: "vs-localsend/",
+    vsdcpp: "vs-dcpp/",
+    vsdlan: "vs-d-lan/",
+};
+
+function linkPlaceholders(locale) {
+    const base = locale?.path ?? "/";
+    const links = Object.fromEntries(Object.entries(PAGE_LINKS).map(([name, subpath]) => [name, base + subpath]));
+    links.en = locale && locale.code !== "en" ? ' hreflang="en"' : "";
+    // support.microsoft.com's language, for languages it translates its articles into (microsoftSupport in locales.json)
+    links.mssupport = locale?.microsoftSupport ?? "en-us";
+    return links;
+}
+
 // {% t %}English{% endt %} renders the page language's translation of the English between the tags, falling back to
 // the English when there isn't one. ta is the same for an attribute value, and tj for text inside a JSON string.
 function translator(kind) {
     return function (content, values) {
         const code = this.ctx?.locale?.code ?? "en";
+        values = { ...linkPlaceholders(this.ctx?.locale), ...values };
         let text = content;
         if (code !== "en") {
             const key = normalizeKey(content, kind);

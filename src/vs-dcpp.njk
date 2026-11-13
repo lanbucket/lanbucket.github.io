@@ -1,0 +1,376 @@
+---
+pagination:
+  data: locales
+  size: 1
+  alias: locale
+permalink: "{{ locale.path }}vs-dcpp/index.html"
+---
+{%- set subpath = "vs-dcpp/" -%}
+{%- set navPage = "vs-dcpp" -%}
+{%- set enOnly = "" if locale.code == "en" else ' hreflang="en"' -%}
+<!DOCTYPE html>
+<html lang="{{ locale.code }}"{% if locale.dir %} dir="{{ locale.dir }}"{% endif %}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>{% t %}LANBucket vs DC++: A modern alternative for LAN parties{% endt %}</title>
+    <meta name="title" content="{% ta %}LANBucket vs DC++: A modern alternative for LAN parties{% endta %}">
+    <meta name="description" content="{% ta %}Comparing LANBucket and DC++ (Direct Connect) for local network file sharing. See how they differ on setup, auto-discovery, ease of use, and LAN party file sharing.{% endta %}">
+    <meta name="author" content="Justin Becker">
+    <meta name="robots" content="index, follow">
+
+{% include "alternates.njk" %}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lanbucket.com{{ locale.path }}vs-dcpp/">
+    <meta property="og:title" content="{% ta %}LANBucket vs DC++: A modern alternative for LAN parties{% endta %}">
+    <meta property="og:description" content="{% ta %}Comparing LANBucket and DC++ (Direct Connect) for local network file sharing: setup, auto-discovery, ease of use, and LAN party file sharing.{% endta %}">
+    <meta property="og:image" content="https://lanbucket.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{% ta %}LANBucket vs DC++ comparison{% endta %}">
+    <meta property="og:site_name" content="LANBucket">
+{% include "og-locales.njk" %}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lanbucket.com{{ locale.path }}vs-dcpp/">
+    <meta name="twitter:title" content="{% ta %}LANBucket vs DC++: A modern alternative for LAN parties{% endta %}">
+    <meta name="twitter:description" content="{% ta %}Comparing LANBucket and DC++ (Direct Connect) for local network file sharing.{% endta %}">
+    <meta name="twitter:image" content="https://lanbucket.com/og-image.png">
+    <meta name="twitter:image:alt" content="{% ta %}LANBucket vs DC++ comparison{% endta %}">
+
+    <!-- Mobile & PWA -->
+    <meta name="theme-color" content="#4a90d9">
+    <meta name="apple-mobile-web-app-title" content="LANBucket">
+    <meta name="application-name" content="LANBucket">
+    <meta name="msapplication-TileColor" content="#4a90d9">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "inLanguage": "{{ locale.code }}",
+        "headline": "{% tj %}LANBucket vs DC++: A modern alternative for LAN parties{% endtj %}",
+        "description": "{% tj %}Comparing LANBucket and DC++ (Direct Connect) for local network file sharing: setup, auto-discovery, ease of use, and LAN party file sharing.{% endtj %}",
+        "author": {
+            "@type": "Person",
+            "name": "Justin Becker",
+            "url": "https://justinbecker.dev",
+            "sameAs": [
+                "https://github.com/geekman7473",
+                "https://www.linkedin.com/in/justin-t-becker"
+            ],
+            "description": "{% tj %}Software developer and longtime LAN party host, and the creator of LANBucket.{% endtj %}"
+        },
+        "publisher": { "@type": "Organization", "name": "LANBucket" },
+        "mainEntityOfPage": "https://lanbucket.com{{ locale.path }}vs-dcpp/",
+        "image": "https://lanbucket.com/og-image.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "{% tj %}Home{% endtj %}", "item": "https://lanbucket.com{{ locale.path }}" },
+            { "@type": "ListItem", "position": 2, "name": "{% tj %}LANBucket vs DC++{% endtj %}", "item": "https://lanbucket.com{{ locale.path }}vs-dcpp/" }
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css">
+    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds. The script itself waits for the load event so it doesn't compete with the page's first render -->
+    <script>
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        if (!/(^|\.)lanbucket\.com$/i.test(location.hostname)) return;
+        window.addEventListener('load', function () {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
+          document.head.appendChild(s);
+        });
+        gtag('js', new Date());
+        gtag('config', 'G-MQ5QBM6CSL');
+      })();
+    </script>
+</head>
+<body>
+{% include "header.njk" %}
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <p class="breadcrumb"><a href="{{ locale.path }}">{% t %}Home{% endt %}</a> &rsaquo; {% t %}LANBucket vs DC++{% endt %}</p>
+                <h1>{% t %}LANBucket vs DC++{% endt %}</h1>
+                <p class="page-header-sub">
+                    {% t %}DC++ has powered LAN parties for two decades. LANBucket brings the same distributed sharing
+                    to a modern, zero-setup app.{% endt %}
+                </p>
+                <div class="cta-buttons">
+                    <a class="btn btn-primary btn-large" href="{{ locale.path }}download/">{% t %}Get LANBucket{% endt %}</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <div class="prose">
+                    <p class="lead">
+                        {% t %}<strong>TL;DR:</strong> DC++ is a mature ecosystem of client applications allowing you to search through shared files,
+                        and chat, but it expects you to configure a hub server ahead of time.
+                        LANBucket does distributed file sharing, search and chat with automatic discovery and a simple UI, so
+                        anyone at the event can use it without a walkthrough.{% endt %}
+                    </p>
+                    <p>
+                        {% t %}Both keep transfers on your local network and neither requires an account. The difference is how
+                        much setup and technical comfort each one asks of you.{% endt %}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="comparison">
+            <div class="container">
+                <h2 class="section-title">{% t %}Feature comparison{% endt %}</h2>
+                <div class="comparison-table-wrapper" role="region" aria-label="{% ta %}LANBucket versus DC++ feature comparison{% endta %}" tabindex="0">
+                    <table class="comparison-table">
+                        <caption class="sr-only">{% t %}Comparison of LANBucket and DC++ across common local file sharing features{% endt %}</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="comparison-feature-head">{% t %}Feature{% endt %}</th>
+                                <th scope="col" class="comparison-highlight-col">LANBucket</th>
+                                <th scope="col">DC++</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">{% t %}No setup or configuration{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. DC++ makes you add a hub to connect to and set up your share list before you can use it.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Automatic peer discovery{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. There is no auto-discovery; users have to manually set up hub addresses.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Simple UI for non-technical users{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. DC++ has a dense, technical interface built around hubs, slots, and download queues.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Share any file with drag &amp; drop{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. DC++ shares whole folders you configure in advance, not files dropped in on the spot.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Distributed (many-to-many) transfers{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-partial"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. DC++ can pull a file from several peers at once, but only once a peer has the complete file. LANBucket lets you download from peers who don't yet have the complete file.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Best in class performance{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. DC++ only downloads from peers that already have the complete file, so when everyone grabs a new file at once, it all comes from the original sharer.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Sharing is LAN only{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-partial"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. DC++ can run on a LAN, but many public hubs route your traffic over the internet.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}On-the-fly compression{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. DC++ transfers files without any automatic compression.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}No account or sign-in required{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Works without the internet{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Network-wide search{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes. LANBucket searches everything shared on the network, including inside shared folders.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes. DC++ offers search across a hub.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Built-in chat{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes. LANBucket has a chat that everyone on the network shares.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes. DC++ offers built-in chat with everyone on a hub.{% endt %}</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="prose">
+                    <h2>{% t %}Where LANBucket pulls ahead{% endt %}</h2>
+                    <h3>{% t %}Zero setup and automatic discovery{% endt %}</h3>
+                    <p>
+                        {% t %}DC++ is built around <em>hubs</em>: to find anyone, you connect to a hub server and configure a
+                        share list first. At a LAN party that means someone has to run or find a hub and everyone has to
+                        type in its address. LANBucket skips all of that. Open it on the same network and it finds
+                        the other machines automatically using multicast peer discovery.{% endt %}
+                    </p>
+                    <h3>{% t %}A UI anyone can use{% endt %}</h3>
+                    <p>
+                        {% t %}DC++ exposes hubs, slots, and download queues in a dense interface that can intimidate less
+                        technical friends. LANBucket is drag-and-drop: drop a file to share it, click a file to download
+                        it.{% endt %}
+                    </p>
+                    <h3>{% t %}Swarming from incomplete files, plus compression{% endt %}</h3>
+                    <p>
+                        {% t %}DC++ can download from multiple sources, but only from peers who already have the complete file.
+                        LANBucket lets peers share pieces before they've finished downloading, so a big file spreads
+                        through the room faster. It also compresses transfers on the fly, which DC++ doesn't.{% endt %}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <div class="prose">
+                    <h2>{% t %}Where DC++ pulls ahead{% endt %}</h2>
+                    <h3>{% t %}Communities that last beyond the event{% endt %}</h3>
+                    <p>
+                        {% t %}A DC++ hub can keep running between events and over the internet, so a group can stay connected
+                        long after the LAN party ends. LANBucket only works on the local network, by design, so it doesn't
+                        try to replicate that.{% endt %}
+                    </p>
+                    <h3>{% t %}Maturity and cross-platform clients{% endt %}</h3>
+                    <p>
+                        {% t %}The Direct Connect ecosystem is decades old, with clients on multiple platforms and huge existing
+                        communities. LANBucket is newer and Windows-only for now.{% endt %}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison">
+            <div class="container">
+                <div class="verdict">
+                    <h2>{% t %}Which should you use?{% endt %}</h2>
+                    <p>{% t %}<strong>Choose LANBucket</strong> if you want people sharing within seconds of opening the app (no hubs, no share-list configuration), with faster distributed transfers and on-the-fly compression.{% endt %}</p>
+                    <p>{% t %}<strong>Choose DC++</strong> if you run an ongoing community that stays connected through a hub between events, and don't mind the setup and denser interface.{% endt %}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-cta">
+            <div class="container">
+                <h2>{% t %}Get LANBucket{% endt %}</h2>
+                <a class="btn btn-primary btn-large" href="{{ locale.path }}download/">{% t %}Download LANBucket{% endt %}</a>
+            </div>
+        </section>
+
+        <section class="related-links">
+            <div class="container">
+                <h2 class="section-title">{% t %}More comparisons &amp; guides{% endt %}</h2>
+                <ul class="link-list">
+                    <li><a href="{{ locale.path }}vs-localsend/">{% t %}LANBucket vs LocalSend{% endt %}</a></li>
+                    <li><a href="{{ locale.path }}vs-d-lan/">{% t %}LANBucket vs D-LAN{% endt %}</a></li>
+                    <li><a href="{{ locale.path }}lan-party-file-sharing-guide/">{% t %}How to share files at a LAN party{% endt %}</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+{% include "footer.njk" %}
+
+    <script>
+{% include "nav-script.njk" %}
+
+
+        // Comparison table flyouts explaining partial/unsupported cells
+        const comparisonTable = document.querySelector('.comparison-table');
+        if (comparisonTable) {
+            const tipCells = comparisonTable.querySelectorAll('td.cell-no, td.cell-partial');
+            if (tipCells.length) {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'comparison-tooltip';
+                tooltip.setAttribute('role', 'tooltip');
+                tooltip.hidden = true;
+                document.body.appendChild(tooltip);
+
+                let activeCell = null;
+
+                const positionTooltip = () => {
+                    if (!activeCell) return;
+                    const rect = activeCell.getBoundingClientRect();
+                    const tipRect = tooltip.getBoundingClientRect();
+                    const margin = 8;
+
+                    let left = rect.left + rect.width / 2 - tipRect.width / 2;
+                    left = Math.max(margin, Math.min(left, window.innerWidth - tipRect.width - margin));
+
+                    let top = rect.top - tipRect.height - 10;
+                    let placement = 'top';
+                    if (top < margin) {
+                        top = rect.bottom + 10;
+                        placement = 'bottom';
+                    }
+
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+                    tooltip.dataset.placement = placement;
+                    tooltip.style.setProperty('--arrow-left', (rect.left + rect.width / 2 - left) + 'px');
+                };
+
+                const showTooltip = (cell) => {
+                    const srText = cell.querySelector('.sr-only')?.textContent?.trim();
+                    if (!srText) return;
+                    const text = srText.replace(/^[^.。．।۔:：]{1,20}[.。．।۔:：]\s*/u, '');
+                    activeCell = cell;
+                    tooltip.textContent = text;
+                    tooltip.hidden = false;
+                    positionTooltip();
+                    requestAnimationFrame(() => tooltip.classList.add('is-visible'));
+                };
+
+                const hideTooltip = () => {
+                    activeCell = null;
+                    tooltip.classList.remove('is-visible');
+                    tooltip.hidden = true;
+                };
+
+                tipCells.forEach((cell) => {
+                    cell.addEventListener('mouseenter', () => showTooltip(cell));
+                    cell.addEventListener('mouseleave', hideTooltip);
+                    cell.addEventListener('focus', () => showTooltip(cell));
+                    cell.addEventListener('blur', hideTooltip);
+                });
+
+                window.addEventListener('scroll', () => { if (activeCell) positionTooltip(); }, true);
+                window.addEventListener('resize', hideTooltip);
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') hideTooltip();
+                });
+            }
+        }
+    </script>
+</body>
+</html>

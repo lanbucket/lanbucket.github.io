@@ -1,4 +1,4 @@
-// npm run i18n:check [-- de fr] [-- --prune]
+// npm run i18n:check [-- de fr] [-- --prune] [-- --missing de]
 // For each locales/<code>.json (or just the languages named): the strings the templates use that it has no
 // translation for (they show in English), translations nothing uses any more (usually because the English changed),
 // and translations whose HTML tags or {placeholders} don't match the English. --prune drops the unused translations
@@ -6,15 +6,24 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { extractKeys, readLocale, localeCodes, LOCALES_DIR, STATUS_SENTENCE } from "./i18n-keys.mjs";
+import { extractKeys, extractCellKeys, readLocale, localeCodes, LOCALES_DIR, STATUS_SENTENCE } from "./i18n-keys.mjs";
 
 const args = process.argv.slice(2);
 const prune = args.includes("--prune");
 const only = args.filter((arg) => !arg.startsWith("--"));
 const keys = extractKeys();
+const cellKeys = extractCellKeys();
 
 if (args.includes("--source")) {
     console.log(JSON.stringify(Object.fromEntries([...keys.keys()].map((key) => [key, key])), null, 4));
+    process.exit(0);
+}
+
+// --missing de: the English strings German has no translation for, as JSON in template order (for translating)
+if (args.includes("--missing")) {
+    const translations = readLocale(only[0]);
+    const missing = [...keys.keys()].filter((key) => !(key in translations));
+    console.log(JSON.stringify(Object.fromEntries(missing.map((key) => [key, key])), null, 4));
     process.exit(0);
 }
 
@@ -34,10 +43,10 @@ for (const code of only.length ? only : localeCodes()) {
         .filter(([key, value]) => keys.has(key) && markup(key) !== markup(value))
         .map(([key]) => key);
 
-    // "No." and "Partial." table cells: each must start with a status sentence, the same one throughout
+    // "Yes.", "No." and "Partial." table cells: each must start with a status sentence, the same one throughout
     const statusProblems = [];
-    for (const status of ["No", "Partial"]) {
-        const cells = [...keys.keys()].filter((key) => key.startsWith(`${status}. `) && key in translations);
+    for (const status of ["Yes", "No", "Partial"]) {
+        const cells = [...cellKeys].filter((key) => key.startsWith(`${status}. `) && key in translations);
         const words = new Set();
         for (const key of cells) {
             const word = translations[key].match(STATUS_SENTENCE)?.[0];

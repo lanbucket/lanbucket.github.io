@@ -73,6 +73,12 @@
     --retro-title: linear-gradient(270deg, #000080, #1084d0);
 }
 
+/* Code (paths, commands) stays left-to-right inside right-to-left text, so a path's trailing backslash stays at its end */
+[dir="rtl"] code {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
 /* Korean wraps between words, as Korean text normally does, and so do the Japanese comparison table headings,
    rather than in the middle of a word */
 :lang(ko),

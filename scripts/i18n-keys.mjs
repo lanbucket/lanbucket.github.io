@@ -53,6 +53,23 @@ export function extractKeys() {
     return keys;
 }
 
+// The keys of comparison table cells: the blocks that are a cell's screen reader text (<span class="sr-only">), whose
+// first sentence the tooltip scripts cut off (see STATUS_SENTENCE)
+export function extractCellKeys() {
+    const cells = new Set();
+    for (const dir of TEMPLATE_DIRS) {
+        for (const file of templateFiles(dir)) {
+            const source = fs.readFileSync(file, "utf8");
+            for (const match of source.matchAll(BLOCK)) {
+                if (source.slice(Math.max(0, match.index - 40), match.index).endsWith('class="sr-only">')) {
+                    cells.add(normalizeKey(match[2], match[1]));
+                }
+            }
+        }
+    }
+    return cells;
+}
+
 export function readLocale(code) {
     return JSON.parse(fs.readFileSync(path.join(LOCALES_DIR, `${code}.json`), "utf8"));
 }

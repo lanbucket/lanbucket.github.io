@@ -169,10 +169,10 @@ permalink: "{{ locale.path }}index.html"
             },
             {
                 "@type": "Question",
-                "name": "{% tj %}Is there Linux or MacOS support?{% endtj %}",
+                "name": "{% tj %}Is there Linux or macOS support?{% endtj %}",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "{% tj %}Not yet, but we are considering it. At present LANBucket is built using Windows-specific UI frameworks, so Linux/MacOS support would require substantial rework. Unfortunately, LANBucket is not compatible with Wine/Proton either, since we use Windows APIs that are not implemented there either.{% endtj %}"
+                    "text": "{% tj %}Not yet, but we are considering it. At present LANBucket is built using Windows-specific UI frameworks, so Linux/macOS support would require substantial rework. Unfortunately, LANBucket is not compatible with Wine/Proton either, since we use Windows APIs that are not implemented there either.{% endtj %}"
                 }
             },
             {
@@ -399,7 +399,7 @@ permalink: "{{ locale.path }}index.html"
                                 <td class="cell-no" tabindex="0"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. The drive has to be copied to each machine one at a time, so it gets slower with every extra person.{% endt %}</span></td>
                             </tr>
                             <tr>
-                                <th scope="row">{% t %}Stays on your local network{% endt %}</th>
+                                <th scope="row">{% t %}Sharing is LAN only{% endt %}</th>
                                 <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
                                 <td class="cell-partial" tabindex="0"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. DC++ can run on a LAN, but many public hubs route your traffic over the internet.{% endt %}</span></td>
                                 <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
@@ -464,7 +464,7 @@ permalink: "{{ locale.path }}index.html"
                     <p>{% t %}<strong>Distributed (many-to-many) transfers.</strong> LANBucket: Yes. DC++: Partial &mdash; DC++ can pull a file from several peers at once, but only once the other peer has completed the download; LANBucket allows downloading from peers who don't have the complete file. D-LAN: Yes. LocalSend: No &mdash; LocalSend sends directly from one device to another, one transfer at a time. SMB Share: No &mdash; an SMB share is served by a single host, so everyone downloads from that one machine. Cloud Storage: No &mdash; transfers go through the provider's servers rather than directly between many local peers. Steam Local Sharing: No &mdash; content comes from a single host, not many peers sharing the load. USB Flash Drive: No &mdash; a flash drive is copied to one machine at a time by hand.{% endt %}</p>
                     <p>{% t %}<strong>Automatic peer discovery.</strong> LANBucket: Yes. DC++: No &mdash; there's no auto-discovery; you have to know and enter a hub address to find others. D-LAN: Yes. LocalSend: Yes. SMB Share: No &mdash; you need the host name or IP address of the share to connect to it. Cloud Storage: No &mdash; there are no local peers to find; everything routes through the provider's servers. Steam Local Sharing: Yes. USB Flash Drive: No &mdash; a flash drive has no networking, so there's nothing to discover.{% endt %}</p>
                     <p>{% t %}<strong>Best in class performance.</strong> LANBucket: Yes. DC++: No &mdash; DC++ only downloads from peers that already have the complete file, so when everyone grabs a new file at once, it all comes from the original sharer. D-LAN: Partial &mdash; D-LAN is much faster than traditional file shares, but in testing we have measured LANBucket as much as ~2x faster than D-LAN. LocalSend: No &mdash; every copy comes straight from the sending device, so its network link is the bottleneck when several people need the file. SMB Share: No &mdash; everyone downloads from the one PC hosting the share, so its network link is the bottleneck. Cloud Storage: No &mdash; every download comes over your internet connection, which is usually much slower than your local network. Steam Local Sharing: No &mdash; content comes from a single host PC, so its network link is the bottleneck. USB Flash Drive: No &mdash; the drive has to be copied to each machine one at a time, so it gets slower with every extra person.{% endt %}</p>
-                    <p>{% t %}<strong>Stays on your local network.</strong> LANBucket: Yes. DC++: Partial &mdash; DC++ can run on a LAN, but many public hubs route your traffic over the internet. D-LAN: Yes. LocalSend: Yes. SMB Share: Yes. Cloud Storage: No &mdash; cloud storage uploads your files to remote servers on the internet. Steam Local Sharing: Partial &mdash; local streaming stays on your LAN, but Steam still contacts its servers to sign you in. USB Flash Drive: Yes.{% endt %}</p>
+                    <p>{% t %}<strong>Sharing is LAN only.</strong> LANBucket: Yes. DC++: Partial &mdash; DC++ can run on a LAN, but many public hubs route your traffic over the internet. D-LAN: Yes. LocalSend: Yes. SMB Share: Yes. Cloud Storage: No &mdash; cloud storage uploads your files to remote servers on the internet. Steam Local Sharing: Partial &mdash; local streaming stays on your LAN, but Steam still contacts its servers to sign you in. USB Flash Drive: Yes.{% endt %}</p>
                     <p>{% t %}<strong>Share any file with drag and drop.</strong> LANBucket: Yes. DC++: No &mdash; DC++ shares whole folders you configure in advance, not files dropped in on the spot. D-LAN: Partial &mdash; D-LAN has supported drag-and-drop since version 1.4, but you have to navigate to its share list before you can drop files in. LocalSend: Yes. SMB Share: Partial &mdash; you can drop files into a shared folder, but only after the share and permissions are set up. Cloud Storage: Yes. Steam Local Sharing: No &mdash; Steam only shares games and library content, not arbitrary files. USB Flash Drive: Partial &mdash; you can drag files onto the drive, but it must be plugged in and carried to each device.{% endt %}</p>
                     <p>{% t %}<strong>Simple UI for non-technical users.</strong> LANBucket: Yes. DC++: No &mdash; DC++ has a dense, technical interface built around hubs, slots, and download queues. D-LAN: No &mdash; D-LAN's interface assumes some comfort with networking and shared folders. LocalSend: Yes. SMB Share: No &mdash; SMB setup involves OS settings, permissions, and drive mapping that trip up non-technical users. Cloud Storage: Yes. Steam Local Sharing: Yes. USB Flash Drive: Yes.{% endt %}</p>
                     <p>{% t %}<strong>Works without the internet.</strong> LANBucket: Yes. DC++: Yes. D-LAN: Yes. LocalSend: Yes. SMB Share: Yes. Cloud Storage: No &mdash; cloud storage needs an internet connection to reach the provider's servers. Steam Local Sharing: No &mdash; Steam normally needs the internet to sign in before its features work. USB Flash Drive: Yes.{% endt %}</p>
@@ -550,9 +550,9 @@ permalink: "{{ locale.path }}index.html"
                         </p>
                     </details>
                     <details class="faq-item">
-                        <summary><h3>{% t %}Is there Linux or MacOS support?{% endt %}</h3></summary>
+                        <summary><h3>{% t %}Is there Linux or macOS support?{% endt %}</h3></summary>
                         <p>
-                            {% t %}Not yet, but we are considering it. At present LANBucket is built using Windows-specific UI frameworks, so Linux/MacOS support would require substantial rework. Unfortunately, LANBucket is not compatible with Wine/Proton either, since we use Windows APIs that are not implemented there either.{% endt %}
+                            {% t %}Not yet, but we are considering it. At present LANBucket is built using Windows-specific UI frameworks, so Linux/macOS support would require substantial rework. Unfortunately, LANBucket is not compatible with Wine/Proton either, since we use Windows APIs that are not implemented there either.{% endt %}
                         </p>
                     </details>
                     <details class="faq-item">
@@ -582,18 +582,14 @@ permalink: "{{ locale.path }}index.html"
 {%- if notEn %}
                     <li><a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" hreflang="en" target="_blank" rel="noopener noreferrer">{% t %}Why I built LANBucket (in English){% endt %}</a></li>
                     <li><a href="https://justinbecker.dev/blog/2026/08/05/how-to-host-a-lanparty-2026/" hreflang="en" target="_blank" rel="noopener noreferrer">{% t %}How to throw a LAN party in 2026 (in English){% endt %}</a></li>
-                    <li><a href="/lan-party-file-sharing-guide/" hreflang="en">{% t %}How to share files at a LAN party (in English){% endt %}</a></li>
-                    <li><a href="/vs-localsend/" hreflang="en">{% t %}LANBucket vs LocalSend (in English){% endt %}</a></li>
-                    <li><a href="/vs-dcpp/" hreflang="en">{% t %}LANBucket vs DC++ (in English){% endt %}</a></li>
-                    <li><a href="/vs-d-lan/" hreflang="en">{% t %}LANBucket vs D-LAN (in English){% endt %}</a></li>
 {%- else %}
                     <li><a href="https://justinbecker.dev/blog/2026/05/16/why-i-built-lanbucket/" target="_blank" rel="noopener noreferrer">Why I built LANBucket</a></li>
                     <li><a href="https://justinbecker.dev/blog/2026/08/05/how-to-host-a-lanparty-2026/" target="_blank" rel="noopener noreferrer">How to throw a LAN party in 2026</a></li>
-                    <li><a href="/lan-party-file-sharing-guide/">How to share files at a LAN party</a></li>
-                    <li><a href="/vs-localsend/">LANBucket vs LocalSend</a></li>
-                    <li><a href="/vs-dcpp/">LANBucket vs DC++</a></li>
-                    <li><a href="/vs-d-lan/">LANBucket vs D-LAN</a></li>
 {%- endif %}
+                    <li><a href="{{ locale.path }}lan-party-file-sharing-guide/">{% t %}How to share files at a LAN party{% endt %}</a></li>
+                    <li><a href="{{ locale.path }}vs-localsend/">{% t %}LANBucket vs LocalSend{% endt %}</a></li>
+                    <li><a href="{{ locale.path }}vs-dcpp/">{% t %}LANBucket vs DC++{% endt %}</a></li>
+                    <li><a href="{{ locale.path }}vs-d-lan/">{% t %}LANBucket vs D-LAN{% endt %}</a></li>
                 </ul>
             </div>
         </section>

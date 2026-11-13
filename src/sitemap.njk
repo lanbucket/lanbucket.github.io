@@ -5,15 +5,16 @@ permalink: /sitemap.xml
     lastmod when its content changes. -#}
 {%- set localizedPages = [
     { subpath: "", lastmod: "2026-11-08", priority: "1.0", translatedPriority: "0.9" },
-    { subpath: "download/", lastmod: "2026-11-08", priority: "0.9", translatedPriority: "0.8" }
+    { subpath: "download/", lastmod: "2026-11-08", priority: "0.9", translatedPriority: "0.8" },
+    { subpath: "lan-party-file-sharing-guide/", lastmod: "2026-11-12", priority: "0.8", translatedPriority: "0.7" },
+    { subpath: "vs-localsend/", lastmod: "2026-11-12", priority: "0.7", translatedPriority: "0.6" },
+    { subpath: "vs-dcpp/", lastmod: "2026-11-12", priority: "0.7", translatedPriority: "0.6" },
+    { subpath: "vs-d-lan/", lastmod: "2026-11-12", priority: "0.7", translatedPriority: "0.6" },
+    { subpath: "troubleshooting.html", lastmod: "2026-11-12", priority: "0.5", translatedPriority: "0.4" }
 ] -%}
+{#- The changelog's lastmod is the date of its newest entry in CHANGELOG.md -#}
 {%- set englishPages = [
-    { path: "/vs-localsend/", lastmod: "2026-07-19", changefreq: "monthly", priority: "0.7" },
-    { path: "/vs-dcpp/", lastmod: "2026-07-19", changefreq: "monthly", priority: "0.7" },
-    { path: "/vs-d-lan/", lastmod: "2026-10-03", changefreq: "monthly", priority: "0.7" },
-    { path: "/lan-party-file-sharing-guide/", lastmod: "2026-10-03", changefreq: "monthly", priority: "0.8" },
-    { path: "/changelog.html", lastmod: "2026-08-24", changefreq: "monthly", priority: "0.5" },
-    { path: "/troubleshooting.html", lastmod: "2026-11-06", changefreq: "monthly", priority: "0.5" },
+    { path: "/changelog.html", lastmod: "2026-11-11", changefreq: "monthly", priority: "0.5" },
     { path: "/privacy.html", lastmod: "2026-07-07", changefreq: "yearly", priority: "0.3" }
 ] -%}
 <?xml version="1.0" encoding="UTF-8"?>

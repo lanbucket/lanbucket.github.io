@@ -1,0 +1,382 @@
+---
+pagination:
+  data: locales
+  size: 1
+  alias: locale
+permalink: "{{ locale.path }}vs-d-lan/index.html"
+---
+{%- set subpath = "vs-d-lan/" -%}
+{%- set navPage = "vs-d-lan" -%}
+{%- set enOnly = "" if locale.code == "en" else ' hreflang="en"' -%}
+<!DOCTYPE html>
+<html lang="{{ locale.code }}"{% if locale.dir %} dir="{{ locale.dir }}"{% endif %}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>{% t %}LANBucket vs D-LAN: Distributed LAN file sharing compared{% endt %}</title>
+    <meta name="title" content="{% ta %}LANBucket vs D-LAN: Distributed LAN file sharing compared{% endta %}">
+    <meta name="description" content="{% ta %}Comparing LANBucket and D-LAN for local network file sharing. Both use distributed transfers. See how they differ, and which one would work best for you.{% endta %}">
+    <meta name="author" content="Justin Becker">
+    <meta name="robots" content="index, follow">
+
+{% include "alternates.njk" %}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lanbucket.com{{ locale.path }}vs-d-lan/">
+    <meta property="og:title" content="{% ta %}LANBucket vs D-LAN: Distributed LAN file sharing compared{% endta %}">
+    <meta property="og:description" content="{% ta %}Comparing LANBucket and D-LAN for local network file sharing. Both use distributed transfers; see how they differ, and which one would work best for you.{% endta %}">
+    <meta property="og:image" content="https://lanbucket.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{% ta %}LANBucket vs D-LAN comparison{% endta %}">
+    <meta property="og:site_name" content="LANBucket">
+{% include "og-locales.njk" %}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://lanbucket.com{{ locale.path }}vs-d-lan/">
+    <meta name="twitter:title" content="{% ta %}LANBucket vs D-LAN: Distributed LAN file sharing compared{% endta %}">
+    <meta name="twitter:description" content="{% ta %}Comparing LANBucket and D-LAN for local network file sharing.{% endta %}">
+    <meta name="twitter:image" content="https://lanbucket.com/og-image.png">
+    <meta name="twitter:image:alt" content="{% ta %}LANBucket vs D-LAN comparison{% endta %}">
+
+    <!-- Mobile & PWA -->
+    <meta name="theme-color" content="#4a90d9">
+    <meta name="apple-mobile-web-app-title" content="LANBucket">
+    <meta name="application-name" content="LANBucket">
+    <meta name="msapplication-TileColor" content="#4a90d9">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "inLanguage": "{{ locale.code }}",
+        "headline": "{% tj %}LANBucket vs D-LAN: Distributed LAN file sharing compared{% endtj %}",
+        "description": "{% tj %}Comparing LANBucket and D-LAN for local network file sharing. Both use distributed transfers; see how they differ and which one would work best for you.{% endtj %}",
+        "author": {
+            "@type": "Person",
+            "name": "Justin Becker",
+            "url": "https://justinbecker.dev",
+            "sameAs": [
+                "https://github.com/geekman7473",
+                "https://www.linkedin.com/in/justin-t-becker"
+            ],
+            "description": "{% tj %}Software developer and longtime LAN party host, and the creator of LANBucket.{% endtj %}"
+        },
+        "publisher": { "@type": "Organization", "name": "LANBucket" },
+        "mainEntityOfPage": "https://lanbucket.com{{ locale.path }}vs-d-lan/",
+        "image": "https://lanbucket.com/og-image.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "{% tj %}Home{% endtj %}", "item": "https://lanbucket.com{{ locale.path }}" },
+            { "@type": "ListItem", "position": 2, "name": "{% tj %}LANBucket vs D-LAN{% endtj %}", "item": "https://lanbucket.com{{ locale.path }}vs-d-lan/" }
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css">
+    <!-- Google tag (gtag.js) — loaded on production only, skipped on localhost/dev builds. The script itself waits for the load event so it doesn't compete with the page's first render -->
+    <script>
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        if (!/(^|\.)lanbucket\.com$/i.test(location.hostname)) return;
+        window.addEventListener('load', function () {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MQ5QBM6CSL';
+          document.head.appendChild(s);
+        });
+        gtag('js', new Date());
+        gtag('config', 'G-MQ5QBM6CSL');
+      })();
+    </script>
+</head>
+<body>
+{% include "header.njk" %}
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <p class="breadcrumb"><a href="{{ locale.path }}">{% t %}Home{% endt %}</a> &rsaquo; {% t %}LANBucket vs D-LAN{% endt %}</p>
+                <h1>{% t %}LANBucket vs D-LAN{% endt %}</h1>
+                <p class="page-header-sub">
+                    {% t %}Both share files across a LAN using distributed transfers and automatic discovery. Where they differ is performance
+                    and ease of use.{% endt %}
+                </p>
+                <div class="cta-buttons">
+                    <a class="btn btn-primary btn-large" href="{{ locale.path }}download/">{% t %}Get LANBucket{% endt %}</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <div class="prose">
+                    <p class="lead">
+                        {% t %}<strong>TL;DR:</strong> D-LAN and LANBucket are very similar apps.
+                        Both do automatic peer discovery and distributed, multi-source downloads on a local network.
+                        LANBucket trades D-LAN's open source code and Linux and macOS support for a
+                        simpler UI, on-the-fly compression, and faster overall transfers using custom netcode.{% endt %}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="comparison">
+            <div class="container">
+                <h2 class="section-title">{% t %}Feature comparison{% endt %}</h2>
+                <div class="comparison-table-wrapper" role="region" aria-label="{% ta %}LANBucket versus D-LAN feature comparison{% endta %}" tabindex="0">
+                    <table class="comparison-table">
+                        <caption class="sr-only">{% t %}Comparison of LANBucket and D-LAN across common local file sharing features{% endt %}</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="comparison-feature-head">{% t %}Feature{% endt %}</th>
+                                <th scope="col" class="comparison-highlight-col">LANBucket</th>
+                                <th scope="col">D-LAN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">{% t %}Distributed (many-to-many) transfers{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Automatic peer discovery{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Best in class performance{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-partial"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. D-LAN is much faster than traditional file shares, but in testing we have measured LANBucket as much as ~2x faster than D-LAN.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}No setup or configuration{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-partial"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. D-LAN finds peers automatically, but you still choose which folders to share and where downloads go.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Share any file with drag &amp; drop{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-partial"><span class="cell-mark" aria-hidden="true">~</span><span class="sr-only">{% t %}Partial. D-LAN has supported drag-and-drop since version 1.4, but you have to navigate to its share list before you can drop files in.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Simple UI for non-technical users{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. D-LAN's interface assumes some comfort with networking and shared folders.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Automatic troubleshooting{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. D-LAN doesn't detect common network problems or suggest how to fix them.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}On-the-fly compression{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. D-LAN sends files as-is, with no on-the-fly compression.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}No account or sign-in required{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Sharing is LAN only{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Works without the internet{% endt %}</th>
+                                <td class="comparison-highlight-col cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Linux support{% endt %}</th>
+                                <td class="comparison-highlight-col cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. LANBucket is Windows-only for now.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes. D-LAN has Linux builds, packaged as an AppImage.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}macOS support{% endt %}</th>
+                                <td class="comparison-highlight-col cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. LANBucket is Windows-only for now.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes. Since version 1.3, D-LAN has macOS builds for Apple Silicon Macs on macOS 26 or newer.{% endt %}</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{% t %}Open source{% endt %}</th>
+                                <td class="comparison-highlight-col cell-no"><span class="cell-mark" aria-hidden="true">×</span><span class="sr-only">{% t %}No. LANBucket isn't open source.{% endt %}</span></td>
+                                <td class="cell-yes"><span class="cell-mark" aria-hidden="true">✓</span><span class="sr-only">{% t %}Yes. D-LAN is open source.{% endt %}</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="prose">
+                    <h2>{% t %}Where LANBucket pulls ahead{% endt %}</h2>
+                    <h3>{% t %}A friendlier interface{% endt %}</h3>
+                    <p>
+                        {% t %}D-LAN's UI assumes some comfort with networking concepts. LANBucket is designed so a non-technical
+                        friend can install it and start sharing without a walkthrough. {% endt %}
+                    </p>
+                    <h3>{% t %}Best in class performance{% endt %}</h3>
+                    <p>
+                        {% t %}In testing on my equipment, I measured that LANBucket is up to 2x faster than D-LAN. This was when sharing a 10GB file from 1 computer to 8 others across a gigabit switch.
+                        While "your mileage may vary" I am confident that LANBucket is simply the fastest way to share files to many computers at once over a LAN.
+                        This performance is enabled by custom network level code deep in the LANBucket internals that attempts to optimize your transfers, and get the most out of your network equipment.{% endt %}
+                    </p>
+                    <h3>{% t %}On-the-fly compression{% endt %}</h3>
+                    <p>
+                        {% t %}LANBucket compresses transfers in real time, speeding up downloads, and saving users time since they won't need to zip up their files ahead of time.{% endt %}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <div class="prose">
+                    <h2>{% t %}Where D-LAN pulls ahead{% endt %}</h2>
+                    <h3>{% t %}Open source, Linux, and macOS support{% endt %}</h3>
+                    <p>
+                        {% t %}D-LAN is open source and offers Linux and macOS builds alongside Windows. If you run a network
+                        with a mix of Windows, Linux, and Mac machines, or you want open-source software, D-LAN covers
+                        ground LANBucket doesn't. LANBucket is Windows-only for now.{% endt %}
+                    </p>
+                    <h3>{% t %}Browsing each person's shares{% endt %}</h3>
+                    <p>
+                        {% t %}D-LAN shares whole folders that you set up ahead of time, and lets you browse each person's shared
+                        folders, which some LAN groups prefer to a single list of everything shared.{% endt %}
+                    </p>
+                    <h3>{% t %}Power-user features{% endt %}</h3>
+                    <p>
+                        {% t %}Has features targeted at power users, such as saved sharing folders, and various tunable network settings, and a headless mode. LANBucket is targeted at beginners, and does not include these things.{% endt %}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison">
+            <div class="container">
+                <div class="verdict">
+                    <h2>{% t %}Which should you use?{% endt %}</h2>
+                    <p>{% t %}<strong>Choose LANBucket</strong> if everyone's on Windows and you want the fastest and simplest path from "installed" to "sharing".{% endt %}</p>
+                    <p>{% t %}<strong>Choose D-LAN</strong> if you need Linux or macOS support or open-source software, or prefer its folder-browsing model.{% endt %}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-cta">
+            <div class="container">
+                <h2>{% t %}Get LANBucket{% endt %}</h2>
+                <a class="btn btn-primary btn-large" href="{{ locale.path }}download/">{% t %}Download LANBucket{% endt %}</a>
+            </div>
+        </section>
+
+        <section class="related-links">
+            <div class="container">
+                <h2 class="section-title">{% t %}More comparisons &amp; guides{% endt %}</h2>
+                <ul class="link-list">
+                    <li><a href="{{ locale.path }}vs-localsend/">{% t %}LANBucket vs LocalSend{% endt %}</a></li>
+                    <li><a href="{{ locale.path }}vs-dcpp/">{% t %}LANBucket vs DC++{% endt %}</a></li>
+                    <li><a href="{{ locale.path }}lan-party-file-sharing-guide/">{% t %}How to share files at a LAN party{% endt %}</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+{% include "footer.njk" %}
+
+    <script>
+{% include "nav-script.njk" %}
+
+
+        // Comparison table flyouts explaining partial/unsupported cells
+        const comparisonTable = document.querySelector('.comparison-table');
+        if (comparisonTable) {
+            const tipCells = comparisonTable.querySelectorAll('td.cell-no, td.cell-partial');
+            if (tipCells.length) {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'comparison-tooltip';
+                tooltip.setAttribute('role', 'tooltip');
+                tooltip.hidden = true;
+                document.body.appendChild(tooltip);
+
+                let activeCell = null;
+
+                const positionTooltip = () => {
+                    if (!activeCell) return;
+                    const rect = activeCell.getBoundingClientRect();
+                    const tipRect = tooltip.getBoundingClientRect();
+                    const margin = 8;
+
+                    let left = rect.left + rect.width / 2 - tipRect.width / 2;
+                    left = Math.max(margin, Math.min(left, window.innerWidth - tipRect.width - margin));
+
+                    let top = rect.top - tipRect.height - 10;
+                    let placement = 'top';
+                    if (top < margin) {
+                        top = rect.bottom + 10;
+                        placement = 'bottom';
+                    }
+
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+                    tooltip.dataset.placement = placement;
+                    tooltip.style.setProperty('--arrow-left', (rect.left + rect.width / 2 - left) + 'px');
+                };
+
+                const showTooltip = (cell) => {
+                    const srText = cell.querySelector('.sr-only')?.textContent?.trim();
+                    if (!srText) return;
+                    const text = srText.replace(/^[^.。．।۔:：]{1,20}[.。．।۔:：]\s*/u, '');
+                    activeCell = cell;
+                    tooltip.textContent = text;
+                    tooltip.hidden = false;
+                    positionTooltip();
+                    requestAnimationFrame(() => tooltip.classList.add('is-visible'));
+                };
+
+                const hideTooltip = () => {
+                    activeCell = null;
+                    tooltip.classList.remove('is-visible');
+                    tooltip.hidden = true;
+                };
+
+                tipCells.forEach((cell) => {
+                    cell.addEventListener('mouseenter', () => showTooltip(cell));
+                    cell.addEventListener('mouseleave', hideTooltip);
+                    cell.addEventListener('focus', () => showTooltip(cell));
+                    cell.addEventListener('blur', hideTooltip);
+                });
+
+                window.addEventListener('scroll', () => { if (activeCell) positionTooltip(); }, true);
+                window.addEventListener('resize', hideTooltip);
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') hideTooltip();
+                });
+            }
+        }
+    </script>
+</body>
+</html>

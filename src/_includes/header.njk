@@ -14,7 +14,7 @@
 {%- if navPage == "home" %}
                 <li><a href="#support">{% t %}Support Us{% endt %}</a></li>
 {%- endif %}
-                <li><a href="/troubleshooting.html"{% if locale.code != "en" %} hreflang="en"{% endif %}{% if navPage == "troubleshooting" %} aria-current="page"{% endif %}>{% t %}Troubleshooting{% endt %}</a></li>
+                <li><a href="{{ locale.path }}troubleshooting.html"{% if navPage == "troubleshooting" %} aria-current="page"{% endif %}>{% t %}Troubleshooting{% endt %}</a></li>
 {% include "language-menu.njk" %}
             </ul>
         </nav>
