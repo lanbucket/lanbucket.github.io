@@ -4,7 +4,7 @@
 
 ## 1.6.1 - November 13, 2026
 
-- **Improved tuning for multi-gig NICs.** This update substantially improves throughput for users with 2.5 Gb, 5 Gb, and 10Gb networks. 
+- **Improved tuning for multi-gig NICs.** This update substantially improves throughput for users with 2.5 Gb, 5 Gb, and 10 Gb networks. 
 
 ## 1.6.0 - November 11, 2026
 
