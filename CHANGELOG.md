@@ -2,6 +2,12 @@
 
 ---
 
+## 1.6.2 - November 20, 2026
+- **Various UI improvements.** I had a LAN party last week and received very useful feedback from my guests about various UI elements and flows. This update is largely based on that feedback.
+- **Faster .zip extraction.** Extracting .zip files is roughly 2x faster than it was before, when extracting to fast SSDs.
+- **Fixes to sharing a portable program as a folder.** Now running a program directly out of a shared folder should work more reliably in more cases. Before it was possible that the program would fail to open since its files would be open by LANBucket.
+- **Added button to stop uploading.** In some cases, it might be necessary to manually stop uploading from a completed download. There is now an option to do that, and to resume it once stopped. 
+
 ## 1.6.1 - November 13, 2026
 
 - **Improved tuning for multi-gig NICs.** This update substantially improves throughput for users with 2.5 Gb, 5 Gb, and 10 Gb networks. 
