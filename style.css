@@ -1738,6 +1738,11 @@ footer p {
     justify-content: flex-start;
 }
 
+/* The header's own bottom padding already separates it from the content; a trailing margin (e.g. an h1 with no subtitle under it) would stack on top */
+.page-header .container > :last-child {
+    margin-bottom: 0;
+}
+
 .breadcrumb {
     max-width: 800px;
     margin: 0 auto var(--spacing-lg);
@@ -1774,6 +1779,11 @@ footer p {
     font-weight: 700;
     color: var(--text-primary);
     margin: var(--spacing-lg) 0 var(--spacing-xs);
+}
+
+/* The section's padding already spaces the top of a prose block; a heading's top margin would double it */
+.prose > :first-child {
+    margin-top: 0;
 }
 
 .prose p {
