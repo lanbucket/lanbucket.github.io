@@ -10,7 +10,7 @@
 
 ## 1.6.1 - November 13, 2026
 
-- **Improved tuning for multi-gig NICs.** This update substantially improves throughput for users with 2.5 Gb, 5 Gb, and 10 Gb networks. 
+- **Improved tuning for multi-gig NICs.** This update substantially improves throughput for users on 2.5 Gb, 5 Gb, and 10 Gb networks. 
 
 ## 1.6.0 - November 11, 2026
 
@@ -104,7 +104,7 @@
 
 ## 1.5.2 - October 11, 2026
 
-- Sharing a folder containing thousands of files is slightly faster
+- Sharing a folder containing thousands of files is slightly faster.
 
 ## 1.5.1 - October 10, 2026
 
@@ -154,8 +154,8 @@
 
 ## 1.3.1 — July 6, 2026
 
-- **Protection against deleting the original.** "Delete Download" is now greyed out for the person who originally shared an item.
 - **Confirmation when closing during active transfers.** Closing LANBucket while work is in flight now warns you.
+- "Delete Download" is now greyed out for the person who originally shared an item.
 
 ---
 
